@@ -1,0 +1,35 @@
+.fox-slidemenu {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fox-slidemenu-wrapper {
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,.15);
+}
+.fox-slidemenu:after {
+    content: '';
+    clear: both;
+}
+.fox-slidemenu:before,
+.fox-slidemenu:after {
+    content: '';
+    display: table;
+}
+/*.wrapper {
+    position: relative;
+    width: 100%;
+}*/
+.fox-slidemenu__actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.fox-slidemenu__back:hover {
+    cursor: pointer;
+}
+.fox-slidemenu__item.disabled:hover a {
+    cursor: not-allowed;
+    pointer-events: all !important;
+}

@@ -1,0 +1,15 @@
+<div class="fox-fileuploader">
+    <input class="form-control fox-fileuploader__input" #fileInput type="file" [name]="name" [multiple]="settings.multiple" [(ngModel)]="value" (change)="onChange($event)">
+    <button class="btn btn-{{ settings.size }} btn-{{ settings.color }}" (click)="viewUploadDialog($event)" [innerHtml]="langs.buttonText"></button>
+    <button class="btn btn-danger btn-{{ settings.size }}" (click)="clearAll()" *ngIf="files.length" [innerHtml]="langs.clearAll"></button>
+    <span *ngIf="files.length && settings.viewCounter" class="fox-fileuploader__count-uploaded">{{ files.length }} {{ langs.uploadedCounter }}</span>
+    <div class="fox-fileuploader__previews" *ngIf="files.length && settings.showPreview">
+        <div *ngFor="let file of files; let i = index" class="fox-fileuploader__item">
+            <div class="fox-fileuploader__thumb">
+                <img class="img-thumbnail" *ngIf="extensionIsAllow(file.type)" id="{{ previewPrefix }}-{{ file.name }}-{{ file.size }}">
+            </div>
+            <div class="fox-fileuploader__name">{{ file.name }}</div>
+            <button class="btn btn-danger fox-fileuploader__remove" (click)="removeFromQueue(i)" [innerHtml]="langs.removeFile"></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+.fox-datepicker {
+    position: relative;
+}
+.fox-datepicker__dropdown {
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    min-width: 10rem;
+    padding: .5rem;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #373a3c;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    width: 16.5rem;
+}
+.fox-datepicker__tile-inputs input {
+    width: 80px;
+}
+.fox-datepicker__tile-inputs input[type=number]::-webkit-inner-spin-button, 
+.fox-datepicker__tile-inputs input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+.fox-datepicker__tile-inputs .input-group-addon {
+    padding: 7px 5px 7px 5px;
+}
+.fox-datepicker__tile-inputs td {
+    text-align: center;
+}
+.fox-datepicker__tile-controls {
+    text-align: center;
+}
+.fox-datepicker__days {
+    width: 245px;
+}
+.fox-datepicker__day {
+    display: inline-block;
+    padding: 5px;
+    width: 34px;
+    height: 34px;
+    text-align: center;
+    vertical-align: top;
+}
+.fox-datepicker__day-names {
+    padding: 5px 0 5px;
+    text-align: center;
+}
+.fox-datepicker__day-name {
+    padding: 5px;
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+}
+.fox-datepicker__day {
+    border-radius: 10px;
+}
+.fox-datepicker__today {
+    background-color: #5bc0de;
+    color: #fff;
+}
+.fox-datepicker__selected {
+    background-color: #0275d8;
+    color: #fff;
+}
+.fox-datepicker__day:hover {
+    background-color: #ccc;
+}
+.fox-datepicker__prev-year:hover,
+.fox-datepicker__next-year:hover {
+    cursor: pointer;
+}
+.fox-datepicker__prev-month:hover,
+.fox-datepicker__next-month:hover {
+    cursor: pointer;
+}
+.fox-datepicker__day:hover {
+    cursor: pointer;
+    position: relative;
+}
+.fox-datepicker__tile-controls td>span:hover {
+    cursor: pointer;
+}
+.fox-datepicker__next-month,
+.fox-datepicker__next-year {
+    float: right
+}
+.fox-datepicker__prev-month,
+.fox-datepicker__prev-year {
+    float: left
+}
+.fox-datepicker__months,
+.fox-datepicker__years {
+    text-align: center;
+    font-weight: bold;
+}
+.fox-datepicker__day-name {
+    font-weight: bold;
+}
+.fox-datepicker__time {
+    margin-top: 10px;
+}
+.fox-datepicker__time>table td {
+    padding: 0;
+    border: 0;
+}
+.fox-datepicker__time>table th {
+    border: 0;
+}

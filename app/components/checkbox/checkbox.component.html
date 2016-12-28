@@ -1,0 +1,15 @@
+<div class="fox-checkbox">
+    <label class="custom-control custom-checkbox">
+        <input class="custom-control-input fox-checkbox__input" type="checkbox" 
+        [name]="name" 
+        [value]="currentValue" 
+        [checked]="checked" 
+        [disabled]="disabled" 
+        (click)="onClick($event)" 
+        (change)="onChange($event)" 
+        (blur)="onBlur()" 
+        >
+        <span class="custom-control-indicator fox-checkbox__indicator fox-checkbox__indicator_{{ settings.color }}" [class.text-white]="settings.color != 'faded'"></span>
+        <span class="custom-control-description fox-checkbox__label">{{ label }}</span>
+    </label>
+</div>

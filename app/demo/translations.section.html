@@ -1,0 +1,52 @@
+<div class="demo-page">
+    <div class="row content-header">
+        <h1 class="content-header__title">Translation</h1>
+        <div class="content-header_desc">
+            <p>To translate components you can use <a target="_blank" href="https://github.com/ocombe/ng2-translate" class="content-body__link">ng2-translate</a> package.</p> 
+        </div>
+    </div>
+    <div class="content-body__section content-body__examples">
+        <div class="row content-body__title">Usage</div>
+        <div class="content-body__desc">
+            <p>After setup and configurate ng2-translate you can do translate by using pipes or service:</p>
+            <p>Pipe example: </p>
+            <highlight language="javascript">
+                <![CDATA[
+<fox-button [settings]="{label: 'Its work!' | translate, color: 'danger'}"></fox-button>
+                ]]>
+            </highlight>
+            <p>Service example: </p>
+            <highlight language="javascript">
+                <![CDATA[
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from 'ng2-translate';
+
+@Component({
+    moduleId: module.id,
+    selector: 'app-component',
+    templateUrl: 'app.component.html'
+})
+export class AppComponent implements OnInit {
+    public buttonSetting: any = {
+        color: 'danger'
+    };
+
+    constructor(private translate: TranslateService) {}
+
+    ngOnInit() {
+        this.translate.get('Its work!').subscribe(
+            (value) => {
+                this.buttonSetting = {
+                    label: value
+                };
+            }
+        );
+    }
+}
+
+<fox-button [settings]="buttonSetting"></fox-button>
+                ]]>
+            </highlight>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,202 @@
+<demo title="Editor">
+    <div demo-description>
+        Provide base editor functional.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-editor name="text" [settings]="settings" [langs]="langs" [(ngModel)]="text"></fox-editor>
+        <p>Text: {{ text }}</p>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-editor [settings]="{color: 'primary', height: 100}" [(ngModel)]="text"></fox-editor>
+        <div class="demo__margin-bottom"></div>
+        <fox-editor [settings]="{color: 'secondary', height: 100}" [(ngModel)]="text"></fox-editor>
+        <div class="demo__margin-bottom"></div>
+        <fox-editor [settings]="{color: 'success', height: 100}" [(ngModel)]="text"></fox-editor>
+        <div class="demo__margin-bottom"></div>
+        <fox-editor [settings]="{color: 'info', height: 100}" [(ngModel)]="text"></fox-editor>
+        <div class="demo__margin-bottom"></div>
+        <fox-editor [settings]="{color: 'warning', height: 100}" [(ngModel)]="text"></fox-editor>
+        <div class="demo__margin-bottom"></div>
+        <fox-editor [settings]="{color: 'danger', height: 100}" [(ngModel)]="text"></fox-editor>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-editor name="text" [settings]="settings" [langs]="langs" [(ngModel)]="text"></fox-editor>
+<div class="content-body__subtitle">Colors</div>
+<fox-editor [settings]="{color: 'primary', height: 100}" [(ngModel)]="text"></fox-editor>
+<div class="demo__margin-bottom"></div>
+<fox-editor [settings]="{color: 'secondary', height: 100}" [(ngModel)]="text"></fox-editor>
+<div class="demo__margin-bottom"></div>
+<fox-editor [settings]="{color: 'success', height: 100}" [(ngModel)]="text"></fox-editor>
+<div class="demo__margin-bottom"></div>
+<fox-editor [settings]="{color: 'info', height: 100}" [(ngModel)]="text"></fox-editor>
+<div class="demo__margin-bottom"></div>
+<fox-editor [settings]="{color: 'warning', height: 100}" [(ngModel)]="text"></fox-editor>
+<div class="demo__margin-bottom"></div>
+<fox-editor [settings]="{color: 'danger', height: 100}" [(ngModel)]="text"></fox-editor>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { EditorSettings, EditorLangs } from '../../components/editor/editor.interfaces';
+
+@Component({
+    moduleId: module.id,
+    selector: 'editor-demo',
+    templateUrl: 'editor.demo.html'
+})
+export class EditorDemoComponent implements OnInit {
+    public text: string = '';
+
+    public settings: EditorSettings = {
+        
+    };
+
+    public langs: EditorLangs = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { EditorModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-editor</code> - base class
+            </li>
+            <li>
+                <code>fox-editor__toolbar</code> - toolbar
+            </li>
+            <li>
+                <code>fox-editor__toolbar-group</code> - toolbar group
+            </li>
+            <li>
+                <code>fox-editor__font-size</code> - font size block
+            </li>
+            <li>
+                <code>fox-editor__area</code> - edit area
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+EditorSettings {
+    menu?: any;
+    height?: number;
+    class?: string;
+    id?: string;
+    fontSizes?: Array<Object>
+    color?: string;
+}
+
+EditorLangs {
+    fontSize?: string;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>menu</code> (<code>array</code>) - editor menu
+            </li>
+            <li>
+                <code>height</code> (<code>string</code>) - editor height
+            </li>
+            <li>
+                <code>class</code> (<code>string</code>) - editor class
+            </li>
+            <li>
+                <code>id</code> (<code>string</code>) - editor id
+            </li>
+            <li>
+                <code>fontSizes</code> (<code>string</code>) - sizes array
+            </li>
+            <li>
+                <code>color</code> (<code>string</code>) - editor buttons color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for editor
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    menu: [
+        ['bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript'],
+        ['pre', 'insertParagraph', 'blockquote', 'removeFormat'],
+        ['justifyleft', 'justifycenter', 'justifyright'],
+        ['insertorderedlist', 'insertunorderedlist', 'outdent', 'indent'],
+    ],
+    fontSizes: [
+        {
+            value: '1',
+            size: '10px'
+        },
+        {
+            value: '2',
+            size: '13px'
+        },
+        {
+            value: '3',
+            size: '16px'
+        },
+        {
+            value: '4',
+            size: '18px'
+        },
+        {
+            value: '5',
+            size: '24px'
+        },
+        {
+            value: '6',
+            size: '32px'
+        },
+        {
+            value: '7',
+            size: '48px'
+        }
+    ],
+    height: 200,
+    class: 'editor-area',
+    id: null,
+    color: 'secondary'
+};
+
+langs: {
+    fontSize: 'Font size'
+};
+
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <!--<div demo-events>
+        <ul>
+            <li>
+                <code>clicked</code> - click event on editor. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>-->
+</demo>

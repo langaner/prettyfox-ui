@@ -1,0 +1,7 @@
+<nav class="breadcrumb fox-breadcrumb">
+    <template ngFor let-item let-end="last" [ngForOf]="model">
+        <a [href]="item.url || '#'" class="breadcrumb-item fox-breadcrumb__link" (click)="itemClick($event, item)" [ngClass]="{'disabled':item.disabled, 'active':item.active}">
+            {{ item.label }}
+        </a>
+    </template>
+</nav>

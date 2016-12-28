@@ -1,0 +1,17 @@
+.fox-tieredmenu {
+    display: block;
+    position: relative;
+}
+.fox-tieredmenu:after {
+    content: '';
+    clear: both;
+}
+.fox-tieredmenu:before,
+.fox-tieredmenu:after {
+    content: '';
+    display: table;
+}
+.fox-tieredmenu__item.disabled:hover a {
+    cursor: not-allowed;
+    pointer-events: all !important;
+}

@@ -1,0 +1,153 @@
+<demo title="Accordion">
+    <div demo-description>
+        Accordion allows you to toggle content on your pages.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-accordion>
+			<fox-accordion-tab header="Header 1">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			</fox-accordion-tab>
+			<fox-accordion-tab header="Header 2" [selected]="true">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			</fox-accordion-tab>
+			<fox-accordion-tab header="Header 3" [disabled]="true">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			</fox-accordion-tab>
+			<fox-accordion-tab header="Header 4">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			</fox-accordion-tab>
+		</fox-accordion>
+        <div class="content-body__subtitle">Multiple</div>
+        <fox-accordion [multiple]=true>
+			<fox-accordion-tab header="Header 1">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			</fox-accordion-tab>
+			<fox-accordion-tab header="Header 2">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			</fox-accordion-tab>
+			<fox-accordion-tab header="Header 3">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			</fox-accordion-tab>
+		</fox-accordion>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-accordion>
+	<fox-accordion-tab header="Header 1">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	</fox-accordion-tab>
+	<fox-accordion-tab header="Header 2" [selected]="true">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	</fox-accordion-tab>
+	<fox-accordion-tab header="Header 3" [disabled]="true">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	</fox-accordion-tab>
+	<fox-accordion-tab header="Header 4">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	</fox-accordion-tab>
+</fox-accordion>
+<div class="content-body__subtitle">Multiple</div>
+<fox-accordion [multiple]=true>
+	<fox-accordion-tab header="Header 1">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	</fox-accordion-tab>
+	<fox-accordion-tab header="Header 2">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	</fox-accordion-tab>
+	<fox-accordion-tab header="Header 3">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+	</fox-accordion-tab>
+</fox-accordion>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+     moduleId: module.id,
+     selector: 'accordion-demo',
+     templateUrl: 'accordion.demo.html'
+})
+export class AccordionDemoComponent implements OnInit {
+	constructor() {}
+
+    ngOnInit() {}
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { AccordionModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-accordion</code>- base class
+            </li>
+            <li>
+                <code>fox-accordion__header</code> - header of accordion tab
+            </li>
+            <li>
+                <code>fox-accordion__link</code> - link in header accordion tab
+            </li>
+			<li>
+                <code>fox-accordion__collapser</code> - collapser
+            </li>
+			<li>
+                <code>fox-accordion__body</code> - body of accordion tab
+            </li>
+        </ul>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>multiple</code> (<code>string</code>) - multiple open tabs
+            </li>
+        </ul>
+        <p>Accordion tab</p>
+		<ul>
+            <li>
+                <code>header</code> (<code>string</code>) - item title
+            </li>
+            <li>
+                <code>selected</code> (<code>boolean</code>) - item is selected
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+multiple: false;
+
+// Accordion tab
+
+header: string;
+selected: boolean;
+disabled: boolean;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>closed</code> - tab is closed. Returned <code>{{ '{' }}originalEvent: event, index: index{{ '}' }}</code>
+            </li>
+			<li>
+                <code>opened</code> - tab is opened. Returned <code>{{ '{' }}originalEvent: event, index: index{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

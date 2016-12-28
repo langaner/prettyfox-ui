@@ -1,0 +1,14 @@
+<div class="card fox-accordion">
+    <div class="card-header fox-accordion__header">
+        <h5 class="mb-0 fox-accordion__header" [class.disabled]="disabled" [class.active]="selected">
+            <a class="fox-accordion__link" (click)="toggle($event)">
+                {{ header }}
+            </a>
+        </h5>
+    </div>
+    <div class="collapse fox-accordion__collapser" [class.in]="selected">
+        <div class="card-block fox-accordion__body">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

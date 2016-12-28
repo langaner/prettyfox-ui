@@ -1,0 +1,8 @@
+.fox-progress {
+
+}
+.fox-progress__persent {
+    position: absolute;
+    left: 50%;
+    font-size: 12px;
+}

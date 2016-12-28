@@ -1,0 +1,15 @@
+<div class="fox-radio">
+    <label class="custom-control custom-radio">
+        <input class="custom-control-input fox-radio__input" type="radio" 
+        [name]="name" 
+        [value]="currentValue" 
+        [checked]="checked" 
+        [disabled]="disabled" 
+        (change)="onChange($event)" 
+        (click)="onClick($event)" 
+        (blur)="onBlur()" 
+        >
+        <span class="custom-control-indicator fox-radio__indicator fox-radio__indicator_{{ settings.color }}" [class.text-white]="settings.color != 'faded'"></span>
+        <span class="custom-control-description fox-radio__label">{{ label }}</span>
+    </label>
+</div>

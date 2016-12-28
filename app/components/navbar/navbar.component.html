@@ -1,0 +1,18 @@
+<div class="navbar navbar-{{ settings.color }} bg-{{ settings.background }} fox-navbar"
+    [ngClass]="{'navbar-fixed-top': settings.fixed == 'top', 'navbar-fixed-bottom': settings.fixed == 'bottom'}">
+    <a class="navbar-brand" href="{{ settings.brandLink }}" *ngIf="settings.brand != ''" [innerHtml]="settings.brand"></a>
+    <ul class="nav navbar-nav fox-navbar__nav">
+        <li class="nav-item active fox-navbar__item" 
+        *ngFor="let item of model"
+        [ngClass]="{'dropdown': hasChildrens(item), 'disabled': item.disabled, 'open': item.showed}"
+        (mouseenter)="enterItem($event, item)" 
+        (mouseleave)="leaveItem($event, item)">
+            <a class="nav-link fox-navbar__link" href="{{ item.route || '#' }}" (click)="clickItem($event, item)" [class.dropdown-toggle]="hasChildrens(item)">
+                <i class="fa" *ngIf="item.icon" [ngClass]="item.icon"></i>
+                {{ item.title }}
+            </a>
+            <fox-navbar-item [item]="item" [root]="false"></fox-navbar-item>
+        </li>
+    </ul>
+    <ng-content></ng-content>
+</div>

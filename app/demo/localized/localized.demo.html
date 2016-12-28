@@ -1,0 +1,14 @@
+<form [formGroup]="testForm" novalidate (ngSubmit)="onSubmit(testForm.value, testForm.valid)">
+    <fox-localized [settings]="settings">
+        <fox-validate #localized label="Input test(min length 5)" validated="'ru' === 'ru'" [control]="testForm.controls['input']">
+            <fox-input name="input" [formControl]="testForm.controls['input']"></fox-input>
+        </fox-validate>
+    </fox-localized>
+    <fox-localized [settings]="settings">
+        <fox-validate #localized label="Textarea test(max length 100)" validated="'ru' === 'ru'" [control]="testForm.controls['textarea']">
+            <fox-textarea name="textarea" [formControl]="testForm.controls['textarea']"></fox-textarea>
+        </fox-validate>
+    </fox-localized>
+
+    <input class="btn btn-danger" type="submit" value="Submit" [disabled]="!testForm.valid">
+</form>

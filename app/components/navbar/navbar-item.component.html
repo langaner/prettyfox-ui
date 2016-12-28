@@ -1,0 +1,13 @@
+<ul class="dropdown-menu fox-navbar__dropdown" *ngIf="item.showed" [ngClass]="{'root': hroot, 'fox-navbar__dropdown_show': item.showed}" >
+    <li class="fox-navbar__item" 
+        *ngFor="let child of item.items" 
+        [ngClass]="{'fox-navbar__submenu': hasChildrens(child), 'disabled': child.disabled}" 
+        (mouseenter)="enterItem($event, child)" 
+        (mouseleave)="leaveItem($event, child)">
+        <a href="{{ child.route || '#' }}" class="dropdown-item fox-navbar__link" (click)="clickItem($event, child)" [class.dropdown-toggle]="hasChildrens(child)">
+            <i class="fa" *ngIf="child.icon" [ngClass]="child.icon"></i>
+            {{ child.title }}
+        </a>
+        <fox-navbar-item [item]="child" *ngIf="child.items"></fox-navbar-item>
+    </li>
+</ul>

@@ -1,0 +1,8 @@
+<div class="fox-datagrid__sort" (click)="changeSort($event, name)">
+    <div class="fox-datagrid__th-icon">
+        <i *ngIf="sortedField == name" class="fa fa-chevron-down" 
+        [ngClass]="{'fa-chevron-down': sortedField == name && sortedOrder == 'desc', 'fa-chevron-up': sortedField == name && sortedOrder == 'asc'}">
+        </i>
+    </div>
+    <span class="fox-datagrid__th-name">{{ label }}</span>
+</div>

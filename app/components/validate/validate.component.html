@@ -1,0 +1,8 @@
+<div class="fox-validate">
+    <div class="form-group {{ errorClass }}"> 
+        <label *ngIf="label"  class="form-control-label">{{ label }} <i class="fa fa-asterisk {{ errorClass }} fox-validate__required" *ngIf="settings.showAsterisk" ></i></label>
+        <ng-content></ng-content>
+        <div class="form-control-feedback fox-validate__error">{{ errorLabel }}</div>
+        <small class="form-text text-muted fox-validate__help" *ngIf="errorLabel && help" [innerHtml]="help"></small>
+    </div>
+</div>

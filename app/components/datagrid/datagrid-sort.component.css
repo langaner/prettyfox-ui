@@ -1,0 +1,10 @@
+.fox-datagrid__sort {
+    float: left;
+}
+.fox-datagrid__sort {
+    display: inline-block;
+    line-height: 38px;
+}
+.fox-datagrid__sort:hover {
+    cursor: pointer;
+}

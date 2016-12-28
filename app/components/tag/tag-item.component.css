@@ -1,0 +1,9 @@
+.fox-tags__item {
+    display: inline-block;
+    margin-bottom: 4px;
+}
+.fox-tags__item.selected {
+    background-color: #333;
+    border-color: #333;
+    color: #fff;
+}

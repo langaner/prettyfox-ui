@@ -1,0 +1,18 @@
+<div class="fox-rating">
+    <div class="fox-rating__wrapper" [class.disabled]="disabled">
+        <span class="fox-rating__group" (mouseout)="onRatingOut($event)">
+            <span *ngFor="let star of stars" (click)="rate($event, star)" (mouseover)="onHover($event, star)" class="fox-rating__star">
+                <i class="{{ settings.iconClass }} fa-{{ settings.size }}"></i>
+            </span>
+        </span>
+        <span class="fox-rating__selected" [ngStyle]="{'width.%': calculateWidth(hoveredStar)}">
+            <span *ngFor="let star of stars" class="fox-rating__star fox-rating__level_{{ detectLevelClass(star) }}">
+                <i class="{{ settings.iconClass }} fa-{{ settings.size }}"></i>
+            </span>
+        </span>
+    </div>
+    <div class="fox-rating__view">
+        <span class="fox-rating__label" *ngIf="settings.showRateLabel">{{ langs.rateLabel }}</span>
+        <span class="fox-rating__counter" *ngIf="settings.showRate"><span class="tag tag-default">{{ innerValue }}</span></span>
+    </div>
+</div>

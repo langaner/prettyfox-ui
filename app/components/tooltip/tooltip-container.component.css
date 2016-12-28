@@ -1,0 +1,80 @@
+.fox-tooltip__color_danger > .fox-tooltip__inner {
+    background-color: #d9534f;
+    color: #fff;
+}
+.fox-tooltip__color_danger.tooltip-top .tooltip-inner::before {
+    border-top-color: #d9534f;
+}
+.fox-tooltip__color_danger.tooltip-bottom .tooltip-inner::before {
+    border-bottom-color: #d9534f;
+}
+.fox-tooltip__color_danger.tooltip-left .tooltip-inner::before {
+    border-left-color: #d9534f;
+}
+.fox-tooltip__color_danger.tooltip-right .tooltip-inner::before {
+    border-right-color: #d9534f;
+}
+.fox-tooltip__color_primary > .fox-tooltip__inner {
+    background-color: #0275d8;
+    color: #fff;
+}
+.fox-tooltip__color_primary.tooltip-top .tooltip-inner::before {
+    border-top-color: #0275d8;
+}
+.fox-tooltip__color_primary.tooltip-bottom .tooltip-inner::before {
+    border-bottom-color: #0275d8;
+}
+.fox-tooltip__color_primary.tooltip-left .tooltip-inner::before {
+    border-left-color: #0275d8;
+}
+.fox-tooltip__color_primary.tooltip-right .tooltip-inner::before {
+    border-right-color: #0275d8;
+}
+.fox-tooltip__color_success > .fox-tooltip__inner {
+    background-color: #5cb85c;
+    color: #fff;
+}
+.fox-tooltip__color_success.tooltip-top .tooltip-inner::before {
+    border-top-color: #5cb85c;
+}
+.fox-tooltip__color_success.tooltip-bottom .tooltip-inner::before {
+    border-bottom-color: #5cb85c;
+}
+.fox-tooltip__color_success.tooltip-left .tooltip-inner::before {
+    border-left-color: #5cb85c;
+}
+.fox-tooltip__color_success.tooltip-right .tooltip-inner::before {
+    border-right-color: #5cb85c;
+}
+.fox-tooltip__color_info > .fox-tooltip__inner {
+    background-color: #5bc0de;
+    color: #fff;
+}
+.fox-tooltip__color_info.tooltip-top .tooltip-inner::before {
+    border-top-color: #5bc0de;
+}
+.fox-tooltip__color_info.tooltip-bottom .tooltip-inner::before {
+    border-bottom-color: #5bc0de;
+}
+.fox-tooltip__color_info.tooltip-left .tooltip-inner::before {
+    border-left-color: #5bc0de;
+}
+.fox-tooltip__color_info.tooltip-right .tooltip-inner::before {
+    border-right-color: #5bc0de;
+}
+.fox-tooltip__color_warning > .fox-tooltip__inner {
+    background-color: #f0ad4e;
+    color: #fff;
+}
+.fox-tooltip__color_warning.tooltip-top .tooltip-inner::before {
+    border-top-color: #f0ad4e;
+}
+.fox-tooltip__color_warning.tooltip-bottom .tooltip-inner::before {
+    border-bottom-color: #f0ad4e;
+}
+.fox-tooltip__color_warning.tooltip-left .tooltip-inner::before {
+    border-left-color: #f0ad4e;
+}
+.fox-tooltip__color_warning.tooltip-right .tooltip-inner::before {
+    border-right-color: #f0ad4e;
+}

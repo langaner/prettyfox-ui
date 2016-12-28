@@ -1,0 +1,8 @@
+<div class="fox-slider" [class.fox-slider__disabled]="disabled">
+    <div class="fox-slider__container">
+        <div #track class="fox-slider__track fox-slider__track_{{ settings.trackColor }}" (click)="moveToPosition($event)"></div>
+        <div #thumb class="fox-slider__thumb btn btn-{{ settings.thumbColor }}" (mousedown)="thumbSelect($event, 'start')" (mouseup)="thumbUnselect($event)" [ngStyle]="{'left.px': thumbPos}"></div>
+        <div #thumbSecond *ngIf="settings.multiple"  class="fox-slider__thumb btn btn-{{ settings.thumbColor }}" (mousedown)="thumbSelect($event, 'end')" (mouseup)="thumbUnselect($event)" [ngStyle]="{'left.px': thumbSecondPos}"></div>
+        <input type="hidden" [name]="name" [(ngModel)]="value" (change)="onChange($event)" (blur)="onBlur()" [class.disabled]="disabled" [disabled]="disabled">
+    </div>
+</div>

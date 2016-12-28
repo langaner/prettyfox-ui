@@ -1,0 +1,60 @@
+<div class="fox-datepicker">
+    <input class="form-control form-control-{{ settings.size }}" type="hidden" [name]="name" [(ngModel)]="value" (click)="onClick($event)" (change)="onChange($event)" [class.disabled]="disabled">
+    <button type="button" class="btn btn-{{ settings.color }} btn-{{ settings.size }} dropdown-toggle fox-datepicker__toggle" [class.disabled]="disabled" (click)="show($event)">
+        {{ langs.selectedDate }} {{ displayDate }} &nbsp;<span class="caret"></span>
+    </button>
+    <div class="fox-datepicker__dropdown" *ngIf="dropped">
+        <div class="fox-datepicker__months">
+            <span class="nav fox-datepicker__prev-month" (click)="prevMonth()" [innerHtml]="langs.prevMonth"></span>
+            <span>{{ date.format('MMMM') }}</span>
+            <span class="nav fox-datepicker__next-month" (click)="nextMonth()" [innerHtml]="langs.nextMonth"></span>
+        </div>
+        <div class="fox-datepicker__years">
+            <span class="nav fox-datepicker__prev-year" (click)="prevYear()" [innerHtml]="langs.prevYear"></span>
+            <span>{{ date.format('YYYY') }}</span>
+            <span class="nav fox-datepicker__next-year" (click)="nextYear()" [innerHtml]="langs.nextYear"></span>
+        </div>
+        <div class="fox-datepicker__day-names">
+            <span *ngFor="let day of langs.days" class="fox-datepicker__day-name">{{ day }}</span>
+        </div>
+        <div class="fox-datepicker__days">
+            <span *ngFor="let _day of days; let i = index;"  class="fox-datepicker__day"
+                (click)="selectDate($event, i)"
+                [class.fox-datepicker__today]="_day.today"
+                [class.fox-datepicker__selected]="_day.selected">
+                {{ _day.day }}
+                <span *ngIf="_day.today" class="circle"></span>
+            </span>
+        </div>
+        <div class="fox-datepicker__time" *ngIf="settings.showTime">
+            <table>
+                <tbody>
+                    <tr class="fox-datepicker__tile-controls">
+                        <td><span (click)="changeTime($event, 'hour', 'add')" [innerHtml]="langs.upTime"></span></td>
+                        <td><span (click)="changeTime($event, 'minute', 'add')" [innerHtml]="langs.upTime"></span></td>
+                        <td><span (click)="changeTime($event, 'second', 'add')" [innerHtml]="langs.upTime"></span></td>
+                    </tr>
+                    <tr class="fox-datepicker__tile-inputs">
+                        <td>
+                            <span>{{ langs.hours }}</span>
+                            <input type="number" class="form-control" value="{{ date.format('H') }}" (keyup)="changeTime($event, 'hour', 'input')">
+                        </td>
+                        <td>
+                            <span>{{ langs.minutes }}</span>
+                            <input type="number" class="form-control" value="{{ date.format('mm') }}" (keyup)="changeTime($event, 'minute', 'input')">
+                        </td>
+                        <td>
+                            <span>{{ langs.seconds }}</span>
+                            <input type="number" class="form-control" value="{{ date.format('ss') }}" (keyup)="changeTime($event, 'second', 'input')">
+                        </td>
+                    </tr>
+                    <tr class="fox-datepicker__tile-controls">
+                        <td><span (click)="changeTime($event, 'hour', 'subtract')" [innerHtml]="langs.downTime"></span></td>
+                        <td><span (click)="changeTime($event, 'minute', 'subtract')" [innerHtml]="langs.downTime"></span></td>
+                        <td><span (click)="changeTime($event, 'second', 'subtract')" [innerHtml]="langs.downTime"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

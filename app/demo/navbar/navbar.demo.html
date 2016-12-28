@@ -1,0 +1,144 @@
+<demo title="Navbar">
+    <div demo-description>
+        The navbar is a wrapper that positions branding, navigation, and other elements into a concise header.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-navbar [settings]="{brand: 'Prettyfox!'}" [model]="items">
+            <form class="form-inline float-xs-right">
+                <input class="form-control" type="text" placeholder="Search">
+                <button class="btn" type="submit">Search</button>
+            </form>
+        </fox-navbar>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-navbar [model]="items">
+    <form class="form-inline float-xs-right">
+        <input class="form-control" type="text" placeholder="Search">
+        <button class="btn" type="submit">Search</button>
+    </form>
+</fox-navbar>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { NavbarItem } from '../../components/navbar/navbar.interfaces';
+import { testItems } from './navbar.data';
+
+@Component({
+    moduleId: module.id,
+    selector: 'navbar-demo',
+    templateUrl: 'navbar.demo.html'
+})
+export class NavbarDemoComponent implements OnInit {
+    private items: NavbarItem[];
+    
+    constructor() { }
+
+    ngOnInit() {
+        this.items = testItems;
+    }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { NavbarModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-navbar</code> - base class
+            </li>
+            <li>
+                <code>fox-navbar__dropdown</code> - navbar dropdown
+            </li>
+            <li>
+                <code>fox-navbar__nav</code> - navbar root dropdown
+            </li>
+            <li>
+                <code>fox-navbar__submenu</code> - navbar submenu
+            </li>
+            <li>
+                <code>fox-navbar__item</code> - navbar item
+            </li>
+            <li>
+                <code>fox-navbar__link</code> - link item
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+NavbarItem {
+    id?: number;
+    title: string;
+    icon?: string;
+    items?: Array<Object>;
+    route?: string;
+    position?: number;
+    disabled?: boolean;
+    showed?: boolean;
+}
+
+NavbarSettings {
+    brand?: string;
+    color?: string;
+    background?: string;
+    brandLink?: string;
+    fixed?: 'top' | 'bottom' | '';
+    showOnHover?: boolean;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>color</code> (<code>string</code>) - navbar color: <code>dark</code> ,<code>light</code>
+            </li>
+            <li>
+                <code>brand</code> (<code>string</code>) - view brand
+            </li>
+            <li>
+                <code>background</code> (<code>string</code>) - background color: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>inverse</code>
+            </li>
+            <li>
+                <code>brandLink</code> (<code>string</code>) - brand link
+            </li>
+            <li>
+                <code>fixed</code> (<code>string</code>) - fixed class: <code>top</code> ,<code>bottom</code>
+            </li>
+            <li>
+                <code>showOnHover</code> (<code>boolean</code>) - show dropdown on nav item hover
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    brand: '',
+    color: 'dark',
+    background: 'inverse',
+    brandLink: '#',
+    fixed: '',
+    showOnHover: true
+};
+
+model: NavbarItem;
+            ]]>
+        </highlight>
+    </div>
+</demo>

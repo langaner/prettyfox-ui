@@ -1,0 +1,34 @@
+.fox-switcher {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 4px;
+    line-height: 8px;
+    z-index: 0;
+}
+.fox-switcher__container {
+    display: inline-block;
+    top: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: margin-left 0.5s;
+    transition: margin-left 0.5s;
+}
+.fox-switcher input { 
+    display: none !important; 
+}
+.fox-switcher__button {
+    border: 0;
+    float: left;
+    border-radius: 0;
+}
+.fox-switcher__button_color_secondary {
+    background-color: #ddd;
+}
+.fox-switcher__label:after {
+    content: "\00a0"
+}
+.fox-switcher.disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}

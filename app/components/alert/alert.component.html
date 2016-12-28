@@ -1,0 +1,8 @@
+<div class="alert alert-{{ settings.color }} fox-alert" [class.alert-dismissible]="settings.closable" role="alert" *ngIf="!isClosed">
+    <button type="button" class="close fox-alert__close" (click)="onClose($event)" *ngIf="settings.closable">
+        <span>&times;</span>
+    </button>
+    <div class="fox-alert__content">
+        <ng-content></ng-content>
+    </div>
+</div>

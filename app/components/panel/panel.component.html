@@ -1,0 +1,14 @@
+<div class="panel panel-{{ settings.color }} fox-panel">
+    <div #panelHeader class="panel-heading fox-fox-button__header">
+        <ng-content select="[panel-heading]"></ng-content>
+    </div>
+    <div #panelBody class="panel-body fox-panel__body">
+        <ng-content select="[panel-body]"></ng-content>
+    </div>
+    <div #panelFooter class="panel-footer fox-panel__footer">
+        <ng-content select="[panel-footer]"></ng-content>
+    </div>
+    <div class="fox-panel__after">
+        <ng-content select="[panel-after]"></ng-content>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+.fox-panelmenu__group.active > a {
+    color: #fff;
+}
+.fox-panelmenu__color_primary.active {
+	background-color: #0275d8;
+    border-color: #0275d8;
+}
+.fox-panelmenu__color_danger.active {
+	background-color: #d9534f;
+    border-color: #d9534f;
+}
+.fox-panelmenu__color_info.active {
+	background-color: #5bc0de;
+    border-color: #5bc0de;
+}
+.fox-panelmenu__color_warning.active {
+	background-color: #f0ad4e;
+    border-color: #f0ad4e;
+}
+.fox-panelmenu__color_success.active {
+	background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+.fox-panelmenu__color_default.active {
+	background-color: #fff;
+}
+.fox-panelmenu__color_default .fox-panelmenu__link {
+    color: #000;
+}

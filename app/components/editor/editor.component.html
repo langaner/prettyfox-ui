@@ -1,0 +1,26 @@
+<div class="fox-editor">
+    <div #toolbar class="fox-editor__toolbar">
+        <div class="btn-toolbar fox-editor__toolbar-group" *ngFor="let group of settings.menu" >
+            <div class="btn-group">
+                <button *ngFor="let item of group" type="button" class="btn btn-{{ settings.color }} fox-editor__button" (click)="execute($event, item)"><i class="fa fox-editor__ico ico-{{ item | lowercase }}"></i></button>
+            </div>
+        </div>
+        <div class="fox-editor__font-size">
+            <select class="form-control" (change)="setFontSize($event)">
+                <option value=""> {{ langs.fontSize }} </option>
+                <option *ngFor="let font of settings.fontSizes" value="{{ font.value }}">{{ font.size }}</option>
+            </select>
+        </div>
+    </div>
+    <textarea class="fox-editor__hidden" [name]="name" [(ngModel)]="value" [disabled]="disabled" ></textarea>
+    <div #area class="form-control fox-editor__area {{ settings.class }}" 
+        contenteditable="true" 
+        id="{{ settings.id }}" 
+        [class.disabled]="disabled" 
+        (input)="setValue($event)" 
+        (keyup)="setValue($event)" 
+        (paste)="setValue($event)" 
+        (mouseup)="setValue($event)" 
+        [ngStyle]="{'height': settings.height+'px'}"
+    ></div>
+</div>

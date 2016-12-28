@@ -1,0 +1,211 @@
+<demo title="Slidereveal">
+    <div demo-description>
+        Component to show a side panel by sliding from left, right, bottom or top of the page. Allow sliding in container.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-slidereveal [settings]="{buttonColor: 'primary'}" [langs]="{buttonLabel: 'Primary'}">Content primary</fox-slidereveal>
+        <fox-slidereveal [settings]="{buttonColor: 'secondary'}" [langs]="{buttonLabel: 'Secondary'}">Content secondary</fox-slidereveal>
+        <fox-slidereveal [settings]="{buttonColor: 'success'}" [langs]="{buttonLabel: 'Success'}">Content success</fox-slidereveal>
+        <fox-slidereveal [settings]="{buttonColor: 'info'}" [langs]="{buttonLabel: 'Info'}">Content info</fox-slidereveal>
+        <fox-slidereveal [settings]="{buttonColor: 'warning'}" [langs]="{buttonLabel: 'Warning'}">Content warning</fox-slidereveal>
+        <fox-slidereveal [settings]="{buttonColor: 'danger'}" [langs]="{buttonLabel: 'Danger'}">Content danger</fox-slidereveal>
+        <div class="content-body__subtitle">Position</div>
+        <fox-slidereveal [settings]="{position: 'top'}" [langs]="{buttonLabel: 'Top'}">Content top</fox-slidereveal>
+        <fox-slidereveal [settings]="{position: 'bottom'}" [langs]="{buttonLabel: 'Bottom'}">Content bottom</fox-slidereveal>
+        <fox-slidereveal [settings]="{position: 'left'}" [langs]="{buttonLabel: 'Left'}">Content left</fox-slidereveal>
+        <fox-slidereveal [settings]="{position: 'right'}" [langs]="{buttonLabel: 'Right'}">Content right</fox-slidereveal>
+        <div class="content-body__subtitle">Dismissible</div>
+        <fox-slidereveal [settings]="{dismissible: false}" [langs]="{buttonLabel: 'Dismissible off'}">Content of dismissible slidereveal</fox-slidereveal>
+        <div class="content-body__subtitle">Push</div>
+        <fox-slidereveal [settings]="{push: true, position: 'right'}" [langs]="{buttonLabel: 'Push slide'}">Content of push slidereveal</fox-slidereveal>
+        <div class="content-body__subtitle">In container</div>
+        <div [ngStyle]="{position: 'relative', overflow: 'hidden', height: '300px', border: '1px solid lightGrey'}">
+            <div [style.margin.px]="10">
+                <fox-slidereveal [settings]="{container: true}" [langs]="{buttonLabel: 'In Container'}">Content of dismissible slidereveal</fox-slidereveal>
+            </div>    
+        </div>
+        <div class="content-body__subtitle">Disabled</div>
+        <fox-slidereveal [langs]="{buttonLabel: 'Disabled'}" [disabled]="true"></fox-slidereveal>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Colors</div>
+<fox-slidereveal [settings]="{buttonColor: 'primary'}" [langs]="{buttonLabel: 'Primary'}">Content primary</fox-slidereveal>
+<fox-slidereveal [settings]="{buttonColor: 'secondary'}" [langs]="{buttonLabel: 'Secondary'}">Content secondary</fox-slidereveal>
+<fox-slidereveal [settings]="{buttonColor: 'success'}" [langs]="{buttonLabel: 'Success'}">Content success</fox-slidereveal>
+<fox-slidereveal [settings]="{buttonColor: 'info'}" [langs]="{buttonLabel: 'Info'}">Content info</fox-slidereveal>
+<fox-slidereveal [settings]="{buttonColor: 'warning'}" [langs]="{buttonLabel: 'Warning'}">Content warning</fox-slidereveal>
+<fox-slidereveal [settings]="{buttonColor: 'danger'}" [langs]="{buttonLabel: 'Danger'}">Content danger</fox-slidereveal>
+<div class="content-body__subtitle">Position</div>
+<fox-slidereveal [settings]="{position: 'top'}" [langs]="{buttonLabel: 'Top'}">Content top</fox-slidereveal>
+<fox-slidereveal [settings]="{position: 'bottom'}" [langs]="{buttonLabel: 'Bottom'}">Content bottom</fox-slidereveal>
+<fox-slidereveal [settings]="{position: 'left'}" [langs]="{buttonLabel: 'Left'}">Content left</fox-slidereveal>
+<fox-slidereveal [settings]="{position: 'right'}" [langs]="{buttonLabel: 'Right'}">Content right</fox-slidereveal>
+<div class="content-body__subtitle">Dismissible</div>
+<fox-slidereveal [settings]="{dismissible: false}" [langs]="{buttonLabel: 'Dismissible off'}">Content of dismissible slidereveal</fox-slidereveal>
+<div class="content-body__subtitle">Push</div>
+<fox-slidereveal [settings]="{push: true, position: 'right'}" [langs]="{buttonLabel: 'Push slide'}">Content of push slidereveal</fox-slidereveal>
+<div class="content-body__subtitle">In container</div>
+<div [ngStyle]="{position: 'relative', overflow: 'hidden', height: '300px', border: '1px solid lightGrey'}">
+    <div [style.margin.px]="10">
+        <fox-slidereveal [settings]="{container: true}" [langs]="{buttonLabel: 'In Container'}">Content of dismissible slidereveal</fox-slidereveal>
+    </div>    
+</div>
+<div class="content-body__subtitle">Disabled</div>
+<fox-slidereveal [langs]="{buttonLabel: 'Disabled'}" [disabled]="true"></fox-slidereveal>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { SliderevealSettings, SliderevealLangs } from '../../components/slidereveal/slidereveal.interfaces'
+
+@Component({
+    moduleId: module.id,
+    selector: 'slidereveal-demo',
+    templateUrl: 'slidereveal.demo.html'
+})
+export class SliderevealDemoComponent implements OnInit {
+    public settings: SliderevealSettings = {
+        
+    };
+    public langs: SliderevealLangs = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { SliderevealModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-button</code> - base class
+            </li>
+            <li>
+                <code>fox-slidereveal__button</code> - slide toggler
+            </li>
+            <li>
+                <code>fox-slidereveal__slider</code> - slide container
+            </li>
+            <li>
+                <code>fox-slidereveal__close</code> - close button
+            </li>
+            <li>
+                <code>fox-slidereveal__content</code> - slide content
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+SliderevealSettings {
+    buttonColor?;
+    buttonSize?;
+    speed?: number;
+    position?: string;
+    size?: string;
+    zindex?: number;
+    push?: boolean;
+    container?: boolean;
+    dismissible?: boolean;
+}
+
+SliderevealLangs {
+    buttonLabel?: string
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>buttonColor</code> (<code>string</code>) - toggler color: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>buttonSize</code> (<code>string</code>) - toggler size: <code>sm</code> ,<code>md</code>,<code>lg</code>
+            </li>
+            <li>
+                <code>speed</code> (<code>number</code>) - slide speed
+            </li>
+            <li>
+                <code>position</code> (<code>string</code>) - slide position: <code>top</code> ,<code>bottom</code>, <code>left</code>, <code>right</code>
+            </li>
+            <li>
+                <code>size</code> (<code>string</code>) - slide size
+            </li>
+            <li>
+                <code>zindex</code> (<code>number</code>) - slidezindex
+            </li>
+            <li>
+                <code>push</code> (<code>boolean</code>) - use push slide style
+            </li>
+            <li>
+                <code>container</code> (<code>boolean</code>) - slide is in container
+            </li>
+            <li>
+                <code>dismissible</code> (<code>boolean</code>) - is dismissible
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status
+            </li>
+        </ul>
+        <p>Langs</p>
+        <ul>
+            <li>
+                <code>buttonLabel</code> (<code>number</code>) - button label
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    buttonColor: 'secondary',
+    buttonSize: 'md',
+    speed: 0.5,
+    position: 'right',
+    size: '300px',
+    zindex: 9999,
+    push: false,
+    container: false,
+    dismissible: true,
+};
+
+langs: {
+    buttonLabel: 'Slide',
+};
+
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>closed</code> - close event on slide. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+            <li>
+                <code>showed</code> - showed event on slide. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+            <li>
+                <code>outsideClick</code> - click outside of slide. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

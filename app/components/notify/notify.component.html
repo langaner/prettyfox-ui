@@ -1,0 +1,11 @@
+<div class="fox-notify {{ getPositionClass() }}">
+	<fox-notify-item *ngFor="let notify of notifies; let i = index"
+	        [item]="notify" 
+	        [maxItems]="settings.maxItems" 
+	        [stopOnHover]="settings.stopOnHover" 
+	        [closeble]="settings.closeble" 
+	        [duration]="settings.duration" 
+	        [index]="i" 
+        >
+    </fox-notify-item>
+</div>

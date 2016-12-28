@@ -1,0 +1,52 @@
+<div class="btn-group fox-multiselect">
+    <button type="button" class="btn btn-{{ settings.color }} btn-{{ settings.size }} dropdown-toggle" (click)="toggle()">{{ title }} &nbsp;<span class="caret"></span></button>
+    <div *ngIf="dropped" class="dropdown-menu fox-multiselect__wrapper">
+        <div class="fox-multiselect__search" *ngIf="settings.search">
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control fox-multiselect__search-input" [(ngModel)]="searchText" (keyup)="searchTyping($event)" placeholder="{{ langs.searchPlaceholder }}">
+                <span class="input-group-btn" *ngIf="searchText.length > 0">
+                    <button class="btn btn-default" type="button" (click)="clearSearch($event)"><i class="fa fa-times"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="fox-multiselect__divider" *ngIf="settings.search"></div>
+        <div class="fox-multiselect__actions" *ngIf="settings.single == false">
+            <div *ngIf="settings.checkAll" class="fox-multiselect__check-all">
+                <a href="#" (click)="checkAll($event)" class="btn btn-sm btn-{{ settings.color }}">
+                    <span class="fa fa-check"></span>
+                    {{ langs.checkAllText }}
+                </a>
+            </div>
+            <div *ngIf="settings.uncheckAll" class="fox-multiselect__uncheck-all">
+                <a href="#" (click)="uncheckAll($event)" class="btn btn-sm btn-{{ settings.color }}">
+                    <span class="fa fa-remove"></span>
+                    {{ langs.uncheckAllText }}
+                </a>
+            </div>
+        </div>
+        <div *ngIf="settings.checkAll || settings.uncheckAll" class="fox-multiselect__divider"></div>
+        <ul class="fox-multiselect__dropdown" [ngStyle]="{'max-height': settings.maxHeight}">
+            <li *ngFor="let option of options | searchFilter:searchText" class="fox-multiselect__item">
+                <fox-checkbox *ngIf="settings.single == false" 
+                    [name]="name" 
+                    [settings]="{bool: false, color: settings.color}" 
+                    [label]="option.label" 
+                    [currentValue]="option.value" 
+                    [ngModel]="innerValue" 
+                    (ngModelChange)="changeInnerValue()"
+                    (clicked)="onSelect($event, option)">
+                </fox-checkbox>
+                <fox-radio *ngIf="settings.single" 
+                    [name]="name" 
+                    [settings]="{color: settings.color}" 
+                    [label]="option.label" 
+                    [currentValue]="option.value" 
+                    [ngModel]="innerValue" 
+                    (ngModelChange)="changeInnerValue()"
+                    (clicked)="onSelect($event, option)">
+                </fox-radio>
+            </li>
+        </ul>
+    </div>
+</div>

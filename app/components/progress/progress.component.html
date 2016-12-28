@@ -1,0 +1,7 @@
+<div class="fox-progress"> 
+    <div class="text-xs-center fox-progress__persent" *ngIf="settings.showPersent">{{ persentValue }} %</div>
+    <progress class="progress progress-{{ settings.color }} fox-progress__bar" value="{{ value }}" 
+    [max]="settings.max" 
+    [ngClass]="{'progress-striped': settings.striped, 'progress-animated': settings.animated}"
+    ></progress>
+</div>

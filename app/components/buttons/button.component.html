@@ -1,0 +1,11 @@
+<button [type]="settings.type" class="btn fox-button btn-{{ settings.size }} btn-{{ isOutline }}{{ settings.color }} {{ settings.class }}" 
+(click)="onClick($event)" 
+[class.disabled]="disabled"
+[ngClass]="{'btn-block': settings.fullWidth, 'disabled': disabled, 'btn-circle': settings.circle}"
+>
+    <span class="fox-button__label" *ngIf="isRightPlacement()">{{ settings.label }}</span>
+    <span *ngIf="settings.icon">
+        <i class="fox-button__icon {{ settings.iconResource }} {{ settings.iconResource }}-{{ settings.icon }}" [ngClass]="{'button-single-icon' : !settings.label}"></i>
+    </span>
+    <span class="fox-button__label" *ngIf="isLeftPlacement()">{{ settings.label }}</span>
+</button>

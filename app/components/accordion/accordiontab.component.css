@@ -1,0 +1,10 @@
+.fox-accordion__header.disabled {
+    cursor: not-allowed;
+    opacity: .65;
+}
+.fox-accordion__header.disabled .fox-accordion__link:hover {
+    cursor: not-allowed;
+}
+.fox-accordion__link {
+    cursor: pointer;
+}

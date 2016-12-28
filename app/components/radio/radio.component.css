@@ -1,0 +1,59 @@
+.fox-radio > label {
+    height: 1.5rem;
+    margin-bottom: 0;
+}
+.fox-radio__input:checked~.fox-radio__indicator_danger {
+    background-color: #d9534f!important;
+}
+.fox-radio__input:focus~.fox-radio__indicator_danger {
+    -webkit-box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #d9534f;
+    box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #d9534f;
+}
+.fox-radio__input:checked~.fox-radio__indicator_primary {
+    background-color: #0275d8!important;
+}
+.fox-radio__input:focus~.fox-radio__indicator_primary {
+    -webkit-box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #0275d8;
+    box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #0275d8;
+}
+.fox-radio__input:checked~.fox-radio__indicator_success {
+    background-color: #5cb85c!important;
+}
+.fox-radio__input:focus~.fox-radio__indicator_success {
+    -webkit-box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #5cb85c;
+    box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #5cb85c;
+}
+.fox-radio__input:checked~.fox-radio__indicator_info {
+    background-color: #5bc0de!important;
+}
+.fox-radio__input:focus~.fox-radio__indicator_info {
+    -webkit-box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #5bc0de;
+    box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #5bc0de;
+}
+.fox-radio__input:checked~.fox-radio__indicator_warning {
+    background-color: #f0ad4e!important;
+}
+.fox-radio__input:focus~.fox-radio__indicator_warning {
+    -webkit-box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #f0ad4e;
+    box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #f0ad4e;
+}
+.fox-radio__input:checked~.fox-radio__indicator_inverse {
+    background-color: #373a3c!important;
+}
+.fox-radio__input:focus~.fox-radio__indicator_inverse {
+    -webkit-box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #373a3c;
+    box-shadow: 0 0 0 .075rem #fff,0 0 0 .2rem #373a3c;
+}
+.fox-radio__input:checked~.fox-radio__indicator_secondary {
+    background-color: #f7f7f9!important;
+}
+.fox-radio__input:focus~.fox-radio__indicator_secondary {
+    -webkit-box-shadow: 0 0 0 .075rem #ccc,0 0 0 .2rem #f7f7f9;
+    box-shadow: 0 0 0 .075rem #ccc,0 0 0 .2rem #f7f7f9;
+}
+
+.custom-radio .custom-control-input:checked~.fox-radio__indicator_secondary {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='#000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E")!important;
+}

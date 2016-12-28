@@ -1,0 +1,35 @@
+.fox-datagrid__filter {
+    float: right;
+}
+.fox-datagrid__filter .fox-popover-button {
+    color: #55595c;
+}
+.fox-datagrid__filter .fox-popover-button:focus {
+    outline: 0;
+}
+.fox-datagrid__equal .fox-select {
+    width: 150px;
+}
+.fox-datagrid__filter .fox-popover {
+    min-width: 360px;
+}
+.fox-datagrid__th-actions.thead-inverse .fox-datagrid__filter .fox-popover-button {
+    color: #fff;
+}
+.fox-datagrid__filter-btn {
+    float: right;
+    width: 100%;
+    padding: 5px 0 5px;
+}
+.fox-datagrid__filter-btn .fox-button {
+    width: 100%;
+}
+.fox-datagrid__filter .fox-popover {
+    margin-top: 13px;
+    border-radius: 0;
+    border-color: #eceeef;
+    border-top-color: transparent;
+}
+.fox-datagrid__filter .fox-popover:before {
+    border-bottom-color: transparent;
+}

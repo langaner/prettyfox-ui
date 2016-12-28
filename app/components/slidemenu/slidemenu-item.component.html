@@ -1,0 +1,18 @@
+<ul #slideitem class="dropdown-menu fox-slidemenu__items" 
+    [style.transitionProperty]="root ? 'left' : 'none'"
+    [style.transitionDuration]="slidemenu.settings.effectDuration" 
+    [style.transitionTimingFunction]="slidemenu.settings.easing"
+    [class.root]="root"
+    [style.left.px]="root ? slidemenu.left : slidemenu.getWidth()"
+    *ngIf="(item.showed || root)"
+>
+    <li class="fox-slidemenu__item" 
+        *ngFor="let child of (root ? item : item.items)" 
+        [ngClass]="{'dropdown-submenu': hasChildrens(child), 'disabled': child.disabled}">
+        <a href="{{ child.route || '#' }}" class="fox-slidemenu__link" (click)="clickItem($event, child)" [class.dropdown-toggle]="hasChildrens(child)">
+            <i class="fa" *ngIf="child.icon" [ngClass]="child.icon"></i>
+            {{ child.title }}
+        </a>
+        <fox-slidemenu-item #children [item]="child" *ngIf="child.items"></fox-slidemenu-item>
+    </li>
+</ul>

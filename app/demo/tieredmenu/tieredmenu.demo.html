@@ -1,0 +1,91 @@
+<demo title="Tieredmenu">
+    <div demo-description>
+        Menu with tree structure.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-tieredmenu [model]="items"></fox-tieredmenu>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-tieredmenu [model]="items"></fox-tieredmenu>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { TieredmenuItem } from '../../components/tieredmenu/tieredmenu.interfaces';
+import { testItems } from './tieredmenu.data';
+
+@Component({
+    moduleId: module.id,
+    selector: 'tieredmenu-demo',
+    templateUrl: 'tieredmenu.demo.html'
+})
+export class TieredmenuDemoComponent implements OnInit {
+    private items: TieredmenuItem[];
+    
+    constructor() { }
+
+    ngOnInit() {
+        this.items = testItems;
+    }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { TieredmenuModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-tieredmenu</code> - base class
+            </li>
+            <li>
+                <code>fox-tieredmenu__dropdown</code> - tieredmenu root dropdown
+            </li>
+            <li>
+                <code>fox-tieredmenu__submenu</code> - submenu
+            </li>
+            <li>
+                <code>fox-tieredmenu__item</code> - tieredmenu item
+            </li>
+            <li>
+                <code>fox-tieredmenu__link</code> - link item
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+TieredmenuItem {
+    id?: number;
+    title: string;
+    icon?: string;
+    items?: Array<Object>;
+    route?: string;
+    position?: number;
+    disabled?: boolean;
+    showed?: boolean;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+model: TieredmenuItem;
+            ]]>
+        </highlight>
+    </div>
+</demo>

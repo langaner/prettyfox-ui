@@ -1,0 +1,147 @@
+<demo title="Radio">
+    <div demo-description>
+        Provide radio functional with custom bootstrap styling.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-radio [settings]="{color: 'primary', bool: false}" name="color" currentValue="primary" label="Primary" [(ngModel)]="color"></fox-radio>
+        <fox-radio [settings]="{color: 'success', bool: false}" name="color" currentValue="success" label="Success" [(ngModel)]="color"></fox-radio>
+        <fox-radio [settings]="{color: 'info', bool: false}" name="color" currentValue="info" label="Info" [(ngModel)]="color"></fox-radio>
+        <fox-radio [settings]="{color: 'warning', bool: false}" name="color" currentValue="warning" label="Warning" [(ngModel)]="color"></fox-radio>
+        <fox-radio [settings]="{color: 'danger', bool: false}" name="color" currentValue="danger" label="Danger" [(ngModel)]="color"></fox-radio>
+        <fox-radio [settings]="{color: 'inverse', bool: false}" name="color" currentValue="inverse" label="Inverse" [(ngModel)]="color"></fox-radio>
+        <fox-radio [settings]="{color: 'secondary', bool: false}" name="color" currentValue="secondary" label="Secondary" [(ngModel)]="color"></fox-radio>
+        Colors: {{ color }}
+        <div class="content-body__subtitle">Values</div>
+        <fox-radio [settings]="settings" name="value" label="One" currentValue="one" [(ngModel)]="value"></fox-radio>
+        <fox-radio [settings]="settings" name="value" label="Two" currentValue="two" [(ngModel)]="value"></fox-radio>
+        <fox-radio [settings]="settings" name="value" label="Three" currentValue="three" [(ngModel)]="value"></fox-radio>
+        Values: {{ value }}
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Colors</div>
+<fox-radio [settings]="{color: 'primary', bool: false}" name="color" currentValue="primary" label="Primary" [(ngModel)]="color"></fox-radio>
+<fox-radio [settings]="{color: 'success', bool: false}" name="color" currentValue="success" label="Success" [(ngModel)]="color"></fox-radio>
+<fox-radio [settings]="{color: 'info', bool: false}" name="color" currentValue="info" label="Info" [(ngModel)]="color"></fox-radio>
+<fox-radio [settings]="{color: 'warning', bool: false}" name="color" currentValue="warning" label="Warning" [(ngModel)]="color"></fox-radio>
+<fox-radio [settings]="{color: 'danger', bool: false}" name="color" currentValue="danger" label="Danger" [(ngModel)]="color"></fox-radio>
+<fox-radio [settings]="{color: 'inverse', bool: false}" name="color" currentValue="inverse" label="Inverse" [(ngModel)]="color"></fox-radio>
+<fox-radio [settings]="{color: 'secondary', bool: false}" name="color" currentValue="secondary" label="Secondary" [(ngModel)]="color"></fox-radio>
+<div class="content-body__subtitle">Values</div>
+<fox-radio [settings]="settings" name="value" label="One" currentValue="one" [(ngModel)]="value"></fox-radio>
+<fox-radio [settings]="settings" name="value" label="Two" currentValue="two" [(ngModel)]="value"></fox-radio>
+<fox-radio [settings]="settings" name="value" label="Three" currentValue="three" [(ngModel)]="value"></fox-radio>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { RadioSettings } from '../../components/radio/radio.interfaces'
+
+@Component({
+    moduleId: module.id,
+    selector: 'radio-demo',
+    templateUrl: 'radio.demo.html'
+})
+export class RadioDemoComponent implements OnInit {
+    value: Array<string> = ['one']
+    color: Array<string> = ['primary','success','info','warning','danger','inverse','secondary']
+
+    public boolSettings: RadioSettings = {
+        color: 'primary',
+        bool: true
+    };
+
+    public settings: RadioSettings = {
+        color: 'danger',
+        bool: false
+    };
+    
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { RadioModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-radio</code> - base class
+            </li>
+            <li>
+                <code>fox-radio__label</code> - label class
+            </li>
+            <li>
+                <code>fox-radio__input</code> - input class
+            </li>
+            <li>
+                <code>fox-radio__indicator</code> - radio bg class
+            </li>
+        </ul>
+    </div>
+        <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+RadioSettings {
+    color?: string;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>name</code> (<code>string</code>) - radio name
+            </li>
+            <li>
+                <code>label</code> (<code>string</code>) - radio title
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for radio
+            </li>
+            <li>
+                <code>currentValue</code> (<code>any</code>) - radio value if not turned bool mode
+            </li>
+            <li>
+                <code>color</code> (<code>string</code>) - radio color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>, <code>inverse</code>
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    color: 'primary'
+};
+
+name: string;
+label: string;
+disabled: false;
+currentValue: any;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>clicked</code> - click event on radio. Returned <code>{{ '{' }}originalEvent: event, value: this.currentValue{{ '}' }}</code>
+            </li>
+            <li>
+                <code>changed</code> - change event on radio. Returned <code>{{ '{' }}originalEvent: event, value: this.currentValue{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

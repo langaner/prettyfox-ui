@@ -1,0 +1,118 @@
+<div class="fox-datagrid">
+    <div *ngIf="settings.showActions" class="fox-datagrid__actions">
+        <fox-button *ngIf="routes && routes.create" [settings]="{label: langs.create, icon: 'plus'}" (clicked)="routeNavigate($event, routes.create)"></fox-button>
+        <div class="fox-datagrid__custom-actions">
+            <ng-content select="[actions]"></ng-content>
+        </div>
+        <div class="fox-datagrid__reset-filters" foxTooltip [settings]="{title: langs.resetIt, placement: 'top'}">
+            <fox-button [settings]="{icon: 'refresh'}" (clicked)="resetFiltersHandler($event)"></fox-button>
+        </div>
+    </div>
+    <table class="table table-{{ settings.color }} table-bordered table-{{ settings.size }} fox-datagrid__table"
+    [ngClass]="{'table-hover': settings.tableHovered, 'table-striped': settings.tableStripped}">
+        <thead class="thead-{{ settings.theadColor }} fox-datagrid__th-actions">
+            <tr>
+                <th class="fox-datagrid__th-actions">
+                    <div class="btn-group">
+                        <fox-dropdown #removeCheckedPopover [settings]="{label: ''}">
+                            <fox-dropdown-item label="{{ langs.checkAll }}" (clicked)="selectAllHandler($event, removeCheckedPopover)"></fox-dropdown-item>
+                            <fox-dropdown-item label="{{ langs.uncheckAll }}" (clicked)="unselectAllHandler($event, removeCheckedPopover)"></fox-dropdown-item>
+                            <fox-dropdown-item [divider]="true"></fox-dropdown-item>
+                            <fox-dropdown-item label="{{ langs.removeChecked }}" (clicked)="removeSelectedHandler($event, removeCheckedPopover)"></fox-dropdown-item>
+                            <ng-content select="[chacked-actions]"></ng-content>
+                        </fox-dropdown>
+                    </div>
+                </th>
+                <th *ngFor="let row of settings.colsList">
+                    <fox-datagrid-sort *ngIf="settings.showSort"
+                        [name]="row.field" 
+                        [label]="row.label" 
+                        [sortedField]="sortedField" 
+                        [sortedOrder]="sortedOrder" 
+                        (sorted)="sortChangedHandler($event)">
+                    </fox-datagrid-sort>
+                    <fox-datagrid-filter *ngIf="settings.showFilters"
+                        [langs]="langs" 
+                        [filters]="filters" 
+                        [filtersData]="filtersData" 
+                        [useEqual]="settings.useEqual"
+                        [equalOptions]="settings.equalOptions"
+                        [booleanOptions]="settings.booleanOptions"
+                        [row]="row" 
+                        (filtering)="filterChangedHandler($event)"
+                        (filterSubmited)="filterSubmitHandler($event)">
+                    </fox-datagrid-filter>
+                </th>
+                <th>
+                    <span class="fox-datagrid__th-name fox-datagrid__th-actions">
+                        {{ langs.actionsCol }}
+                        <div *ngIf="isPreloaded" class="fox-datagrid__preloader">
+                            <div class="fox-datagrid__preloader-label">
+                                <div class="fox-datagrid__preloader-label-item fox-datagrid__preloader-label-item_01"></div>
+                                <div class="fox-datagrid__preloader-label-item fox-datagrid__preloader-label-item_02"></div>
+                                <div class="fox-datagrid__preloader-label-item fox-datagrid__preloader-label-item_03"></div>
+                                <div class="fox-datagrid__preloader-label-item fox-datagrid__preloader-label-item_04"></div>
+                                <div class="fox-datagrid__preloader-label-item fox-datagrid__preloader-label-item_05"></div>
+                                <div class="fox-datagrid__preloader-label-item fox-datagrid__preloader-label-item_06"></div>
+                                <div class="fox-datagrid__preloader-label-item fox-datagrid__preloader-label-item_07"></div>
+                                <div class="fox-datagrid__preloader-label-item fox-datagrid__preloader-label-item_08"></div>
+                            </div>
+                        </div>
+                    </span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of rows" (click)="rowClickHandler($event, row)">
+                <td>
+                    <div class="fox-datagrid__check">
+                        <fox-checkbox 
+                            name="checked_items" 
+                            [settings]="{bool: false}" 
+                            [currentValue]="row.id" 
+                            [(ngModel)]="checkedItems" 
+                            (ngModelChange)="rowCheckedHandler($event, row)"
+                            (clicked)="onCheckedItem($event, row)">
+                        </fox-checkbox>
+                    </div>
+                </td>
+                <td *ngFor="let col of settings.colsList">
+                    <span *ngIf="helperService.isString(row[col.field])">{{ row[col.field] }}</span>
+                    <div *ngIf="helperService.isNumber(row[col.field])">
+                        <span *ngIf="!col.values">{{ row[col.field] }}</span>
+                        <span *ngIf="col.values">
+                            <span class="tag tag-{{ col.values[row[col.field]].color || 'default' }} fox-datagrid__tag-{{ col.values[row[col.field]].color || 'default' }}">{{ col.values[row[col.field]].label }}</span>
+                        </span>
+                    </div>
+                    <div *ngIf="helperService.isBoolean(row[col.field])">
+                        <span *ngIf="row[col.field] === true" class="tag tag-success fox-datagrid__tag-success">{{ langs.confirme[row[col.field]] }}</span>
+                        <span *ngIf="row[col.field] === false" class="tag tag-danger fox-datagrid__tag-danger">{{ langs.confirme[row[col.field]] }}</span>
+                    </div>
+                </td>
+                <td class="fox-datagrid__row-actions">
+                    <div class="fox-datagrid__tooltip-container" foxTooltip [settings]="{title: langs.view, placement: 'top'}">
+                        <fox-button *ngIf="routes && routes.view" [settings]="{color: 'info', 'icon': 'arrow-right'}" (click)="routeNavigate($event, routes.view, row)"></fox-button>
+                    </div>
+                    <div class="fox-datagrid__tooltip-container" foxTooltip [settings]="{title: langs.edit, placement: 'top'}">
+                        <fox-button *ngIf="routes && routes.edit" [settings]="{color: 'primary', 'icon': 'edit'}" (click)="routeNavigate($event, routes.edit, row)"></fox-button>
+                    </div>
+                    <fox-popover #removePopover *ngIf="routes && routes.remove" [settings]="{buttonLabel: '<i class=\'fa fa-trash\'></i>', title: langs.removePopoverTitle, placement: 'left', color: 'danger'}">
+                        <fox-button [settings]="{color: 'secondary', label: langs.cancelRemove}" (click)="closePopover($event, removePopover)"></fox-button>
+                        <fox-button [settings]="{color: 'danger', label: langs.remove}" (click)="removeHandler($event, row.id, removePopover)"></fox-button>
+                    </fox-popover>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="fox-datagrid__navs">
+        <div class="fox-datagrid__navs-item fox-datagrid__pagination">
+            <fox-pagination [settings]="paginationSettings" [(ngModel)]="currentPage" [total]="totalPages" (selected)="onChangePage($event, item)"></fox-pagination>
+        </div>
+        <div *ngIf="settings.showTotalView"  class="fox-datagrid__navs-item fox-datagrid__total">
+            <fox-select name="totalRowsView" [settings]="totalSettings" [options]="totalRowsViewOptions" [(ngModel)]="totalRowsView" (changed)="onChangeTotal($event)"></fox-select>
+        </div>
+        <div *ngIf="settings.showCounter" class="fox-datagrid__navs-item fox-datagrid__counter">
+            {{ langs.counterView }} {{ viewedItemsCount }} {{ langs.counterOf }} {{ total }} {{ langs.counterPages }}
+        </div>
+    </div>
+</div>

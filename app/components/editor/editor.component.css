@@ -1,0 +1,71 @@
+.fox-editor {
+    position: relative;
+}
+.fox-editor__area {
+    border: 1px solid #ddd;
+    overflow: auto;
+    min-height: 100px;
+    resize: vertical;
+}
+.fox-editor__hidden {
+    display: none;
+}
+.fox-editor__toolbar-group {
+    display: inline-block;
+    margin-right: 10px;
+}
+.fox-editor__font-size {
+    display: inline-block;
+    position: absolute;
+}
+.fox-editor__ico.ico-bold:before {
+    content: "\f032";
+}
+.fox-editor__ico.ico-italic:before {
+    content: "\f033";
+}
+.fox-editor__ico.ico-underline:before {
+    content: "\f0cd";
+}
+.fox-editor__ico.ico-strikethrough:before {
+    content: "\f0cc";
+}
+.fox-editor__ico.ico-subscript:before {
+    content: "\f12c";
+}
+.fox-editor__ico.ico-superscript:before {
+    content: "\f12b";
+}
+.fox-editor__ico.ico-removeformat:before {
+    content: "\f12d";
+}
+.fox-editor__ico.ico-justifyleft:before {
+    content: "\f036";
+}
+.fox-editor__ico.ico-justifycenter:before {
+    content: "\f037";
+}
+.fox-editor__ico.ico-justifyright:before {
+    content: "\f038";
+}
+.fox-editor__ico.ico-insertorderedlist:before {
+    content: "\f0ca";
+}
+.fox-editor__ico.ico-insertunorderedlist:before {
+    content: "\f0cb";
+}
+.fox-editor__ico.ico-outdent:before {
+    content: "\f03b";
+}
+.fox-editor__ico.ico-indent:before {
+    content: "\f03c";
+}
+.fox-editor__ico.ico-pre:before {
+    content: "\f121";
+}
+.fox-editor__ico.ico-blockquote:before {
+    content: "\f10e";
+}
+.fox-editor__ico.ico-insertparagraph:before {
+    content: "P";
+}

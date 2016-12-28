@@ -1,0 +1,10 @@
+<li class="list-group-item panelmenu-group fox-panelmenu__group fox-panelmenu__color_{{ settings.activeGroupColor }}" 
+    *ngFor="let group of groups" 
+    [ngClass]="{'dropdown-submenu': hasChildrens(group), 'disabled': group.disabled, 'active': group.showed}">
+    <span class="tag tag-{{ settings.tagColor }} tag-pill float-{{ settings.tagSize }}-right fox-panelmenu__tag" *ngIf="settings.counter">{{ countChildrens(group) }}</span>
+    <a href="{{ group.route || '#' }}" class="fox-panelmenu__link" (click)="toggle($event, group)" [class.dropdown-toggle]="hasChildrens(group)">
+        <i class="fa" *ngIf="group.icon" [ngClass]="group.icon"></i>
+        {{ group.title }}
+    </a>
+    <fox-panelmenu-item [item]="group" *ngIf="group.items"></fox-panelmenu-item>
+</li>

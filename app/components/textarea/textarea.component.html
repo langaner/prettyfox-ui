@@ -1,0 +1,10 @@
+<textarea class="form-control form-control-{{ settings.size }} fox-textarea" 
+[name]="name" 
+[(ngModel)]="value" 
+[placeholder]="placeholder" 
+(click)="onClick($event)" 
+(change)="onChange($event)" 
+(blur)="onBlur()" 
+[class.disabled]="disabled" 
+[disabled]="disabled">
+</textarea>

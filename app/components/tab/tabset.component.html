@@ -1,0 +1,16 @@
+<div class="tabs fox-tab fox-tab__color_{{ settings.color }}">
+    <ul class="nav nav-tabs">
+        <li class="nav-item fox-tab__item" *ngFor="let tab of tabs">
+            <a class="nav-link fox-tab__link" 
+            [class.active]="tab.active" 
+            [class.disabled]="tab.disabled" 
+            (click)="activeTab($event,tab)">
+                {{ tab.header }}
+            </a>
+            <span *ngIf="tab.closable" class="fa fa-close" (click)="closeTab($event,tab)"></span>
+        </li>
+    </ul>
+    <div class="tab-content fox-tab__content">
+        <ng-content></ng-content>
+    </div>
+</div>

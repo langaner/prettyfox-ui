@@ -1,0 +1,268 @@
+.fox-datagrid {
+    position: relative;
+	background-color: #fff;
+}
+.fox-datagrid__actions {
+    border: 1px solid #eceeef;
+	background-color: #fff;
+    border-bottom: 0;
+    padding: 10px;
+}
+.fox-datagrid__navs {
+    border: 1px solid #eceeef;
+	background-color: #fff;
+    border-top: 0;
+    padding: 10px;
+    height: 62px;
+}
+.fox-datagrid__table {
+    position: relative;
+    margin-bottom: 0;
+    min-height: 300px;
+}
+.fox-datagrid__navs-item {
+    display: inline-block;
+}
+.fox-datagrid__counter {
+    float: right;
+    padding-left: 10px;
+    height: 38px;
+    line-height: 38px;
+}
+.fox-datagrid__total {
+    float: right;
+    padding-left: 10px;
+}
+.fox-datagrid__th-icon {
+    width: 16px;
+    display: inline-block;
+}
+.fox-datagrid__th-name {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 38px;
+}
+.fox-datagrid__sort:hover .fox-datagrid__th-name {
+	text-decoration: underline;
+	color: #3c3c3c;
+}
+.fox-datagrid__th-actions.thead-inverse .fox-datagrid__sort:hover .fox-datagrid__th-name {
+	color: #fff;
+}
+.fox-datagrid__th-actions .dropdown-toggle::after {
+    margin-left: 0;
+}
+.fox-datagrid__table>tbody>tr>td, 
+.fox-datagrid__table>thead>tr>th {
+    vertical-align: middle;
+}
+.fox-datagrid__table>tbody tr td:first-child {
+    text-align: center;
+}
+.fox-datagrid__table>tbody tr td:last-child {
+    text-align: center;
+    width: 1px;
+    white-space: nowrap;
+}
+.fox-datagrid__table>thead>tr>th:last-child {
+    min-width: 120px;
+}
+.fox-datagrid__table>tbody tr td:first-child {
+    text-align: center;
+    width: 1px;
+    white-space: nowrap;
+}
+.fox-datagrid__check {
+    padding-left: 8px;
+    padding-top: 8px;
+}
+.fox-datagrid__reset-filters {
+    float: right;
+    margin-left: 15px;
+}
+.fox-datagrid__filter:hover .fox-popover-button i {
+	color: #3c3c3c;
+}
+.fox-datagrid__th-actions.thead-inverse .fox-datagrid__filter:hover .fox-popover-button i {
+	color: #fff;
+}
+.fox-datagrid__tooltip-container {
+    display: inline-block;
+}
+.fox-datagrid__preloader {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 45px;
+    top: 15px;
+}
+.fox-datagrid__custom-actions {
+	display: inline-block;
+}
+
+/* Overwrite components inside datagrid */
+
+.fox-datagrid__pagination .fox-pagination {
+    margin: 0!important;
+}
+
+/* Data preloader */
+
+.fox-datagrid__preloader-label {
+    position:relative;
+    top: 50%;
+	width:83px;
+	height:83px;
+	margin:auto;
+    margin-top: -36px;
+	transform:scale(0.3);
+		-o-transform:scale(0.3);
+		-ms-transform:scale(0.3);
+		-webkit-transform:scale(0.3);
+		-moz-transform:scale(0.3);
+}
+.fox-datagrid__preloader-label-item {
+	position:absolute;
+	background-color:rgb(255,255,255);
+	height:15px;
+	width:15px;
+	border-radius:8px;
+		-o-border-radius:8px;
+		-ms-border-radius:8px;
+		-webkit-border-radius:8px;
+		-moz-border-radius:8px;
+	animation-name:preloader_fade;
+		-o-animation-name:preloader_fade;
+		-ms-animation-name:preloader_fade;
+		-webkit-animation-name:preloader_fade;
+		-moz-animation-name:preloader_fade;
+	animation-duration:0.782s;
+		-o-animation-duration:0.782s;
+		-ms-animation-duration:0.782s;
+		-webkit-animation-duration:0.782s;
+		-moz-animation-duration:0.782s;
+	animation-iteration-count:infinite;
+		-o-animation-iteration-count:infinite;
+		-ms-animation-iteration-count:infinite;
+		-webkit-animation-iteration-count:infinite;
+		-moz-animation-iteration-count:infinite;
+	animation-direction:normal;
+		-o-animation-direction:normal;
+		-ms-animation-direction:normal;
+		-webkit-animation-direction:normal;
+		-moz-animation-direction:normal;
+}
+.fox-datagrid__preloader-label-item_01 {
+	left:0;
+	top:34px;
+	animation-delay:0.2895s;
+		-o-animation-delay:0.2895s;
+		-ms-animation-delay:0.2895s;
+		-webkit-animation-delay:0.2895s;
+		-moz-animation-delay:0.2895s;
+}
+.fox-datagrid__preloader-label-item_02 {
+	left:10px;
+	top:10px;
+	animation-delay:0.386s;
+		-o-animation-delay:0.386s;
+		-ms-animation-delay:0.386s;
+		-webkit-animation-delay:0.386s;
+		-moz-animation-delay:0.386s;
+}
+.fox-datagrid__preloader-label-item_03 {
+	left:34px;
+	top:0;
+	animation-delay:0.4825s;
+		-o-animation-delay:0.4825s;
+		-ms-animation-delay:0.4825s;
+		-webkit-animation-delay:0.4825s;
+		-moz-animation-delay:0.4825s;
+}
+.fox-datagrid__preloader-label-item_04 {
+	right:10px;
+	top:10px;
+	animation-delay:0.589s;
+		-o-animation-delay:0.589s;
+		-ms-animation-delay:0.589s;
+		-webkit-animation-delay:0.589s;
+		-moz-animation-delay:0.589s;
+}
+.fox-datagrid__preloader-label-item_05 {
+	right:0;
+	top:34px;
+	animation-delay:0.6855s;
+		-o-animation-delay:0.6855s;
+		-ms-animation-delay:0.6855s;
+		-webkit-animation-delay:0.6855s;
+		-moz-animation-delay:0.6855s;
+}
+.fox-datagrid__preloader-label-item_06 {
+	right:10px;
+	bottom:10px;
+	animation-delay:0.782s;
+		-o-animation-delay:0.782s;
+		-ms-animation-delay:0.782s;
+		-webkit-animation-delay:0.782s;
+		-moz-animation-delay:0.782s;
+}
+.fox-datagrid__preloader-label-item_07 {
+	left:34px;
+	bottom:0;
+	animation-delay:0.8785s;
+		-o-animation-delay:0.8785s;
+		-ms-animation-delay:0.8785s;
+		-webkit-animation-delay:0.8785s;
+		-moz-animation-delay:0.8785s;
+}
+.fox-datagrid__preloader-label-item_08 {
+	left:10px;
+	bottom:10px;
+	animation-delay:0.975s;
+		-o-animation-delay:0.975s;
+		-ms-animation-delay:0.975s;
+		-webkit-animation-delay:0.975s;
+		-moz-animation-delay:0.975s;
+}
+@keyframes preloader_fade {
+	0%{
+		background-color:#55595c;
+	}
+	100%{
+		background-color:rgb(255,255,255);
+	}
+}
+@-o-keyframes preloader_fade {
+	0%{
+		background-color:#55595c;
+	}
+	100%{
+		background-color:rgb(255,255,255);
+	}
+}
+@-ms-keyframes preloader_fade {
+	0%{
+		background-color:#55595c;
+	}
+	100%{
+		background-color:rgb(255,255,255);
+	}
+}
+@-webkit-keyframes preloader_fade {
+	0%{
+		background-color:#55595c;
+	}
+	100%{
+		background-color:rgb(255,255,255);
+	}
+}
+@-moz-keyframes preloader_fade {
+	0%{
+		background-color:#55595c;
+	}
+	100%{
+		background-color:rgb(255,255,255);
+	}
+}

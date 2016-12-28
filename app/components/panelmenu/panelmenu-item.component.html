@@ -1,0 +1,14 @@
+<ul class="panelmenu-items fox-panelmenu__items" *ngIf="item.showed">
+    <li class="list-group-item panelmenu-item" 
+        *ngFor="let child of item.items" 
+        [ngClass]="{'dropdown-submenu': hasChildrens(child), 'disabled': child.disabled, 'active': child.route && child.showed}">
+        <a href="{{ child.route || '#' }}" class="fox-panelmenu__link" 
+        (click)="toggle($event, child)" 
+        [class.dropdown-toggle]="hasChildrens(child)"
+        [style.padding-left.px]="(paddingVale * level)">
+            <i class="fa" *ngIf="child.icon" [ngClass]="child.icon"></i>
+            {{ child.title }}
+        </a>
+        <fox-panelmenu-item [item]="child" *ngIf="child.items" [level]="(level + 1)"></fox-panelmenu-item>
+    </li>
+</ul>

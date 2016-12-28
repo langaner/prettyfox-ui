@@ -1,0 +1,11 @@
+<div class="fieldset fox-fieldset">
+    <button type="button" class="btn btn-{{ settings.color }} fieldset-title fox-fieldset__collapser" (click)="toggle($event)">
+        <i *ngIf="settings.toggleable" class="fieldset-toggler fa" [ngClass]="{'fa-plus': !isToggled, 'fa-minus': isToggled}" (click)="toggle($event)"></i>
+        {{ settings.title }}
+    </button>
+    <div class="fieldset-content fox-fieldset__content">
+        <template [ngIf]="!settings.toggleable || isToggled">
+            <ng-content></ng-content>
+        </template>
+    </div>
+</div>

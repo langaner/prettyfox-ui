@@ -1,0 +1,63 @@
+.fox-pagination__color_primary > .fox-pagination__link {
+    background-color: #fff;
+    color: #0275d8;
+}
+.fox-pagination__color_primary.active > .fox-pagination__link,
+.fox-pagination__color_primary:hover > .fox-pagination__link {
+    border-color: #0275d8;
+    background-color: #0275d8;
+    color: #fff;
+}
+.fox-pagination__color_success > .fox-pagination__link {
+    background-color: #fff;
+    color: #5cb85c;
+}
+.fox-pagination__color_success.active > .fox-pagination__link,
+.fox-pagination__color_success:hover > .fox-pagination__link {
+    border-color: #5cb85c;
+    background-color: #5cb85c;
+    color: #fff;
+}
+.fox-pagination__color_info > .fox-pagination__link {
+    background-color: #fff;
+    color: #5bc0de;
+}
+.fox-pagination__color_info.active > .fox-pagination__link,
+.fox-pagination__color_info:hover > .fox-pagination__link {
+    border-color: #5bc0de;
+    background-color: #5bc0de;
+    color: #fff;
+}
+.fox-pagination__color_warning > .fox-pagination__link {
+    background-color: #fff;
+    color: #f0ad4e;
+}
+.fox-pagination__color_warning.active > .fox-pagination__link,
+.fox-pagination__color_warning:hover > .fox-pagination__link {
+    border-color: #f0ad4e;
+    background-color: #f0ad4e;
+    color: #fff;
+}
+.fox-pagination__color_danger > .fox-pagination__link {
+    background-color: #fff;
+    color: #d9534f;
+}
+.fox-pagination__color_danger.active > .fox-pagination__link,
+.fox-pagination__color_danger:hover > .fox-pagination__link {
+    border-color: #d9534f;
+    background-color: #d9534f;
+    color: #fff;
+}
+.fox-pagination__color_default > .fox-pagination__link {
+    background-color: #fff;
+    color: #000;
+}
+.fox-pagination__color_default.active > .fox-pagination__link,
+.fox-pagination__color_default:hover > .fox-pagination__link {
+    border-color: #ddd;
+    background-color: #ddd;
+    color: #000;
+}
+.fox-pagination__item.disabled > .fox-pagination__link {
+    color: #818a91;
+}

@@ -1,0 +1,154 @@
+<demo title="Select">
+    <div demo-description>
+        Provide base select functional.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-select name="firstname" [options]="options" [(ngModel)]="value"></fox-select> Selected: {{ value }}
+        <div class="content-body__subtitle">Required</div>
+        <fox-select [settings]="{required: true}" name="requiredField" [options]="options" [(ngModel)]="requiredValue"></fox-select>
+        <div class="content-body__subtitle">Sizes</div>
+        <fox-select [settings]="{size: 'lg'}" name="lg" [options]="options" [(ngModel)]="value"></fox-select>
+        <div class="demo__margin-bottom"></div>
+        <fox-select [settings]="{size: 'md'}" name="md" [options]="options" [(ngModel)]="value"></fox-select>
+        <div class="demo__margin-bottom"></div>
+        <fox-select [settings]="{size: 'sm'}" name="sm" [options]="options" [(ngModel)]="value"></fox-select>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-select name="firstname" [options]="options" [(ngModel)]="value"></fox-select> Selected: {{ value }}
+<div class="content-body__subtitle">Required</div>
+<fox-select [settings]="{required: true}" name="requiredField" [options]="options" [(ngModel)]="requiredValue"></fox-select>
+<div class="content-body__subtitle">Sizes</div>
+<fox-select [settings]="{size: 'lg'}" name="lg" [options]="options" [(ngModel)]="value"></fox-select>
+<div class="demo__margin-bottom"></div>
+<fox-select [settings]="{size: 'md'}" name="md" [options]="options" [(ngModel)]="value"></fox-select>
+<div class="demo__margin-bottom"></div>
+<fox-select [settings]="{size: 'sm'}" name="sm" [options]="options" [(ngModel)]="value"></fox-select>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { SelectItem, SelectSettings } from '../../components/select/select.interfaces'
+
+@Component({
+    moduleId: module.id,
+    selector: 'select-demo',
+    templateUrl: 'select.demo.html'
+})
+export class SelectDemoComponent implements OnInit {
+    public value: string;
+    public settings: SelectSettings = {
+        
+    };
+    public options: Array<SelectItem> = [
+        {
+            label: 'Option 1', 
+            value: '1'
+        },
+        {
+            label: 'Option 2', 
+            value: '2'
+        },
+        {
+            label: 'Option 3', 
+            value: '3'
+        }
+    ];
+    
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { SelectModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-select</code> - base class
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+SelectSettings {
+    size?: string;
+    required?: boolean;
+}
+
+// Select item
+
+SelectItem {
+    label: string;
+    value: any;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>name</code> (<code>string</code>) - select name
+            </li>
+            <li>
+                <code>size</code> (<code>string</code>) - select size: <code>sm</code> ,<code>md</code>,<code>lg</code>
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for select
+            </li>
+            <li>
+                <code>required</code> (<code>boolean</code>) - required status from select
+            </li>
+            <li>
+                <code>options</code> (<code>array</code>) - select options
+            </li>
+        </ul>
+        <p>Select item</p>
+        <ul>
+            <li>
+                <code>label</code> (<code>string</code>) - select item label
+            </li>
+            <li>
+                <code>value</code> (<code>string</code>) - select item value
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    size: 'md',
+    required: false
+};
+
+disabled: false;
+options: Array<SelectItem>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>clicked</code> - click event on select. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+            <li>
+                <code>changed</code> - change event on select. Returned <code>{{ '{' }}originalEvent: event, value: this.innerValue{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

@@ -1,0 +1,161 @@
+<demo title="Popover">
+    <div demo-description>
+        Add overlay content, to any element for housing secondary information.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Placements</div>
+        <fox-popover [settings]="{buttonLabel: 'Top', title: 'Top placement', placement: 'top'}">Here is content of popover</fox-popover>
+        <fox-popover [settings]="{buttonLabel: 'Bottom', title: 'Bottom placement', placement: 'bottom'}">Here is content of popover</fox-popover>
+        <fox-popover [settings]="{buttonLabel: 'Left', title: 'Left placement', placement: 'left'}">Here is content of popover</fox-popover>
+        <fox-popover [settings]="{buttonLabel: 'Right', title: 'Right placement', placement: 'right'}">Here is content of popover</fox-popover>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-popover [settings]="{buttonLabel: 'Primary', color: 'primary', title: 'Primary color'}">Here is content of popover</fox-popover>
+        <fox-popover [settings]="{buttonLabel: 'Secondary', color: 'secondary', title: 'Secondary color'}">Here is content of popover</fox-popover>
+        <fox-popover [settings]="{buttonLabel: 'Success', color: 'success', title: 'Success color'}">Here is content of popover</fox-popover>
+        <fox-popover [settings]="{buttonLabel: 'Info', color: 'info', title: 'Info color'}">Here is content of popover</fox-popover>
+        <fox-popover [settings]="{buttonLabel: 'Warning', color: 'warning', title: 'Warning color'}">Here is content of popover</fox-popover>
+        <fox-popover [settings]="{buttonLabel: 'Danger', color: 'danger', title: 'Danger color'}">Here is content of popover</fox-popover>
+        <div class="content-body__subtitle">Sizes</div>
+        <fox-popover [settings]="{buttonSize: 'lg', buttonLabel: 'Large size', title: 'Large size'}">Here is content of popover</fox-popover>
+        <fox-popover [settings]="{buttonSize: 'md', buttonLabel: 'Medium size', title: 'Medium size'}">Here is content of popover</fox-popover>
+        <fox-popover [settings]="{buttonSize: 'sm', buttonLabel: 'Small size', title: 'Small size'}">Here is content of popover</fox-popover>
+        <div class="content-body__subtitle">Dismissible</div>
+        <fox-popover [settings]="{buttonLabel: 'Dismissible popover', title: 'Dismissible', dismissible: false}">Here is content of popover</fox-popover>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Placements</div>
+<fox-popover [settings]="{buttonLabel: 'Top', title: 'Top placement', placement: 'top'}">Here is content of popover</fox-popover>
+<fox-popover [settings]="{buttonLabel: 'Bottom', title: 'Bottom placement', placement: 'bottom'}">Here is content of popover</fox-popover>
+<fox-popover [settings]="{buttonLabel: 'Left', title: 'Left placement', placement: 'left'}">Here is content of popover</fox-popover>
+<fox-popover [settings]="{buttonLabel: 'Right', title: 'Right placement', placement: 'right'}">Here is content of popover</fox-popover>
+<div class="content-body__subtitle">Colors</div>
+<fox-popover [settings]="{buttonLabel: 'Primary', color: 'primary', title: 'Primary color'}">Here is content of popover</fox-popover>
+<fox-popover [settings]="{buttonLabel: 'Secondary', color: 'secondary', title: 'Secondary color'}">Here is content of popover</fox-popover>
+<fox-popover [settings]="{buttonLabel: 'Success', color: 'success', title: 'Success color'}">Here is content of popover</fox-popover>
+<fox-popover [settings]="{buttonLabel: 'Info', color: 'info', title: 'Info color'}">Here is content of popover</fox-popover>
+<fox-popover [settings]="{buttonLabel: 'Warning', color: 'warning', title: 'Warning color'}">Here is content of popover</fox-popover>
+<fox-popover [settings]="{buttonLabel: 'Danger', color: 'danger', title: 'Danger color'}">Here is content of popover</fox-popover>
+<div class="content-body__subtitle">Sizes</div>
+<fox-popover [settings]="{buttonSize: 'lg', buttonLabel: 'Large size', title: 'Large size'}">Here is content of popover</fox-popover>
+<fox-popover [settings]="{buttonSize: 'md', buttonLabel: 'Medium size', title: 'Medium size'}">Here is content of popover</fox-popover>
+<fox-popover [settings]="{buttonSize: 'sm', buttonLabel: 'Small size', title: 'Small size'}">Here is content of popover</fox-popover>
+<div class="content-body__subtitle">Dismissible</div>
+<fox-popover [settings]="{buttonLabel: 'Dismissible popover', title: 'Dismissible', dismissible: false}">Here is content of popover</fox-popover>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { PopoverSettings } from '../../components/popover/popover.interfaces'
+
+@Component({
+    moduleId: module.id,
+    selector: 'popover-demo',
+    templateUrl: 'popover.demo.html'
+})
+export class PopoverDemoComponent implements OnInit {
+    public settings: PopoverSettings = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { PopoverModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-popover</code> - base class
+            </li>
+            <li>
+                <code>fox-popover-button</code> - base button class
+            </li>
+            <li>
+                <code>fox-button__title</code> - popover title
+            </li>
+            <li>
+                <code>fox-button__content</code> - popover content
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+PopoverSettings {
+    buttonLabel?: string;
+    buttonSize?: string;
+    color?: string;
+    placement?: string;
+    title?: string;
+    dismissible?: boolean;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>buttonLabel</code> (<code>string</code>) - button name
+            </li>
+            <li>
+                <code>color</code> (<code>string</code>) - popover color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>buttonSize</code> (<code>string</code>) - button size: <code>sm</code> ,<code>md</code>,<code>lg</code>
+            </li>
+            <li>
+                <code>placement</code> (<code>string</code>) - popover position: <code>top</code> ,<code>bottom</code>,<code>left</code>, <code>right</code>
+            </li>
+            <li>
+                <code>title</code> (<code>string</code>) - popover title
+            </li>
+            <li>
+                <code>dismissible</code> (<code>boolean</code>) - is popover dismiss then click outside of component
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for popover
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    buttonLabel: '',
+    color: 'secondary',
+    buttonSize: 'md',
+    placement: 'top',
+    title: '',
+    dismissible: true
+};
+
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>showed</code> - click event on popover. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+            <li>
+                <code>outsideClick</code> - click outside event on popover. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

@@ -1,0 +1,62 @@
+{
+    "name": "prettyfox-ui",
+    "version": "1.0.7-alpha",
+    "description": "Native Angular 2 components styling by bootstrap 4",
+    "keywords": [
+        "angular2",
+        "bootstrap",
+        "angularjs",
+        "components",
+        "prettyfox",
+        "twitter-bootstrap"
+    ],
+    "author": "http://prettyfox.org/",
+    "scripts": {
+        "start": "tsc -w && npm run lite",
+        "lite": "npm run lite",
+        "tsc": "tsc",
+        "tsc:w": "tsc -w"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/langaner/prettyfox-ui.git"
+    },
+    "bugs": {
+        "url": "https://github.com/langaner/prettyfox-ui/issues"
+    },
+    "homepage": "https://github.com/langaner/prettyfox-ui#readme",
+    "dependencies": {
+        "bootstrap": "4.0.0-alpha.5",
+        "font-awesome": "^4.6.3",
+        "moment": "^2.15.2",
+        "prismjs": "^1.5.1",
+        "tinycolor2": "^1.4.1"
+    },
+    "devDependencies": {
+        "concurrently": "^3.1.0",
+        "lite-server": "^2.2.2",
+        "typescript": "~2.0.10",
+        "@angular/common": "~2.3.0",
+        "@angular/compiler": "~2.3.0",
+        "@angular/core": "~2.3.0",
+        "@angular/forms": "~2.3.0",
+        "@angular/http": "~2.3.0",
+        "@angular/platform-browser": "~2.3.0",
+        "@angular/platform-browser-dynamic": "~2.3.0",
+        "@angular/router": "~3.3.0",
+        "angular-in-memory-web-api": "~0.1.17",
+        "systemjs": "0.19.40",
+        "core-js": "^2.4.1",
+        "reflect-metadata": "^0.1.8",
+        "rxjs": "5.0.0-rc.4",
+        "zone.js": "^0.7.2"
+    },
+    "contributors": [
+        {
+            "name": "Molodov Alexey",
+            "email": "krashgt@gmail.com",
+            "url": "https://github.com/langaner"
+        }
+    ]
+}

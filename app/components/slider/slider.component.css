@@ -1,0 +1,51 @@
+.fox-slider {
+    position: relative;
+    margin: 10px 0 10px;
+}
+.fox-slider__track {
+    background-color: #ddd;
+    height: 10px;
+    width: 100%;
+}
+.fox-slider__track:hover {
+    cursor: pointer;
+}
+.fox-slider__thumb {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: -3px;
+    left: 0px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 0;
+}
+.fox-slider__thumb:hover {
+    cursor: pointer;
+}
+.fox-slider__container {
+    display: inline-block;
+    width: 100%;
+}
+.fox-slider__disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}
+.fox-slider__track_secondary {
+    background-color: #ddd;
+}
+.fox-slider__track_primary {
+    background-color: #0275d8;
+}
+.fox-slider__track_danger {
+    background-color: #d9534f;
+}
+.fox-slider__track_info {
+    background-color: #5bc0de;
+}
+.fox-slider__track_warning {
+    background-color: #f0ad4e;
+}
+.fox-slider__track_success {
+    background-color: #5cb85c;
+}

@@ -1,0 +1,50 @@
+.fox-multiselect {
+    display: block;
+}
+.fox-multiselect>.btn{
+    float: none;
+}
+.fox-multiselect__dropdown {
+    display: block; 
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    overflow: auto;
+}
+.fox-multiselect__wrapper {
+    display: table; 
+    height: auto; 
+    overflow-y: auto; 
+    padding-top: 0;
+    padding-bottom: 0;
+    min-width: 212px;
+}
+.fox-multiselect__dropdown:hover {
+    cursor: pointer;
+}
+.fox-multiselect__divider {
+    height: 1px;
+    background-color: #ddd;
+    width: 100%;
+}
+.fox-multiselect__check-all {
+    display: inline-block;
+}
+.fox-multiselect__uncheck-all {
+    display: inline-block;
+}
+.fox-multiselect__check-all .btn,
+.fox-multiselect__uncheck-all .btn {
+    border-radius: 0;
+    text-align: center;
+}
+.fox-multiselect__search-input {
+    border: 0;
+}
+.fox-multiselect__search .input-group-addon {
+    border: 0;
+}
+.fox-multiselect__actions {
+    padding: 5px;
+    text-align: center;
+}

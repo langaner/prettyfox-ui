@@ -1,0 +1,11 @@
+<div class="btn-group fox-dropdown" [class.open]="dropped" [class.dropup]="settings.dropUp">
+    <button type="button" class="btn fox-dropdown__split btn-{{ settings.color }} btn-{{ settings.size }}" *ngIf="settings.split" (click)="onSubmit($event)" [innerHtml]="settings.label"></button>
+    <button type="button" class="btn fox-dropdown__button btn-{{ settings.color }} btn-{{ settings.size }} dropdown-toggle" [class.disabled]="disabled" (click)="show($event)">
+        <span *ngIf="!settings.split" [innerHtml]="settings.label"></span>
+        <span class="sr-only" *ngIf="settings.split" [innerHtml]="settings.label"></span>
+    </button>
+    <div class="dropdown-menu fox-dropdown__content" [ngClass]="{'dropdown-menu-right': settings.alignment == 'right', 'dropdown-menu-left': settings.alignment == 'left'}">
+        <h6 class="dropdown-header fox-dropdown__header" *ngIf="settings.header">{{ settings.header }}</h6>
+        <ng-content></ng-content>   
+    </div>
+</div>

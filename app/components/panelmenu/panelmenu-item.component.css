@@ -1,0 +1,14 @@
+.fox-panelmenu__items {
+    padding-left: 0;
+    margin: 0;
+    padding-top: 12px;
+    margin-bottom: -13px;
+}
+.fox-panelmenu__items .list-group-item {
+    margin-left: -21px;
+    margin-right: -21px;
+    border-radius: 0;
+}
+.fox-panelmenu__items .list-group-item.active > a {
+    color: #fff;
+}

@@ -1,0 +1,19 @@
+<div class="input-group fox-spinner">
+    <span class="input-group-btn">
+        <button class="btn btn-{{ settings.color }} btn-{{ settings.size }} fox-spinner__minus" type="button" (click)="decrement($event)">-</button>
+    </span>
+    <span class="input-group-addon fox-spinner__prefix" *ngIf="settings.prefix" [innerHTML]="settings.prefix"></span>
+    <input class="form-control form-control-{{ settings.size }}" 
+        type="text" 
+        [name]="name" 
+        [(ngModel)]="value" 
+        (click)="onClick($event)" 
+        (change)="onChange($event)" 
+        (blur)="onBlur()"
+        [class.disabled]="disabled" 
+        [disabled]="disabled">
+    <span class="input-group-addon fox-spinner__postfix" *ngIf="settings.postfix" [innerHTML]="settings.postfix"></span>
+    <span class="input-group-btn">
+        <button class="btn btn-{{ settings.color }} btn-{{ settings.size }} fox-spinner__plus" type="button" (click)="increment($event)">+</button>
+    </span>
+</div>

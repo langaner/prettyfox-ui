@@ -1,0 +1,10 @@
+<div class="fox-slidemenu-wrapper">
+    <div #slidemenu class="fox-slidemenu" [style.height.px]="height">
+        <fox-slidemenu-item #children [item]="model" [root]="true"></fox-slidemenu-item>
+        <div class="fox-slidemenu__actions" [ngStyle]="{'display': left == 0 ? 'none' : 'block', 'height.px': settings.actionsHeight}">
+            <div class="fox-slidemenu__back" (click)="goBack()">
+                <span class="fa fa-fw fa-caret-left"></span>{{ langs.back }}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/">
+    <title>Angular 2 components | Prettyfox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Collection of native open source UI components for Angular2 styling by Bootstrap. Provided by prettyfox" />
+    <meta name="keywords" content="Angular 2,Angular2,Angularjs,bootstrap,components,angular framework,ui components,ui framework,prettyfox" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="prettyfox.org">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="node_modules/prismjs/themes/prism.css">
+    <link rel="stylesheet" href="app/resources/css/style.css">
+    <!-- Load libraries -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src='node_modules/tinycolor2/tinycolor.js'></script>
+    <script src='node_modules/prismjs/prism.js'></script>
+    <!-- Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+  <body>
+    <fox-app>
+        <div class="fox-loading">
+            <div class="fox-loading__wrapper">
+              <img src="app/resources/img/logo.png" class="fox-loading__img fox-animated fox-flash">
+            </div>
+        </div>
+    </fox-app>
+  </body>
+</html>

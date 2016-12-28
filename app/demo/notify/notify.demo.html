@@ -1,0 +1,200 @@
+<demo title="Notify">
+    <div demo-description>
+        Provide notify functional to display messages in overlay.
+    </div>
+    <div demo-examples>
+        <fox-notify [settings]="settings"></fox-notify>
+        <div class="content-body__subtitle">Message types</div>
+        <button type="button" class="btn btn-danger" (click)="error($event)">Error</button>
+        <button type="button" class="btn btn-info" (click)="info($event)">Info</button>
+        <button type="button" class="btn btn-success" (click)="success($event)">Success</button>
+        <button type="button" class="btn btn-warning" (click)="warning($event)">Warning</button>
+        <button type="button" class="btn btn-secondary" (click)="message($event)">Message</button>
+        <div class="content-body__subtitle">Clear all messsages</div>
+        <button type="button" class="btn btn-secondary" (click)="clear()">Clear</button>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<fox-notify [settings]="settings"></fox-notify>
+<div class="content-body__subtitle">Message types</div>
+<button type="button" class="btn btn-danger" (click)="error($event)">Error</button>
+<button type="button" class="btn btn-info" (click)="info($event)">Info</button>
+<button type="button" class="btn btn-success" (click)="success($event)">Success</button>
+<button type="button" class="btn btn-warning" (click)="warning($event)">Warning</button>
+<button type="button" class="btn btn-secondary" (click)="message($event)">Message</button>
+<div class="content-body__subtitle">Clear all messsages</div>
+<button type="button" class="btn btn-secondary" (click)="clear()">Clear</button>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { NotifyItemSettings } from '../../components/notify/notify.interfaces';
+import { NotifyService } from '../../components/notify/notify.service';
+
+@Component({
+    moduleId: module.id,
+    selector: 'notify-demo',
+    templateUrl: 'notify.demo.html'
+})
+export class NotifyDemoComponent implements OnInit {
+    public settings: NotifyItemSettings = {
+        
+    };
+
+    constructor(private notifyService: NotifyService) { }
+
+    ngOnInit() { }
+
+    error(event) {
+    	this.notifyService.error('Error!', 'Error notify content', {duration: 2000,closeble: true});
+    }
+
+	info(event) {
+		this.notifyService.info('Info!', 'Info notify content', {duration: 5,closeble: false});
+	}
+
+	success(event) {
+		this.notifyService.success('Success!', 'Success notify content', {duration: 50,closeble: true});
+	}
+
+	warning(event) {
+		this.notifyService.warning('Warning', 'Warning notify content', {duration: 10,closeble: false});
+	}
+
+	message(event) {
+		this.notifyService.message('Message', 'Message notify content', {duration: 5,closeble: true});
+	}
+
+	clear() {
+		this.notifyService.removeAll();
+	}
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { NotifyModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-notify</code> - base class
+            </li>
+            <li>
+                <code>fox-notify__item</code> - notify item
+            </li>
+            <li>
+                <code>fox-notify__close</code> - item close button
+            </li>
+            <li>
+                <code>fox-notify__title</code> - item title
+            </li>
+            <li>
+                <code>fox-notify__content</code> - item content
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+NotifySettings {
+    position?: Array<string>;
+    duration?: number;
+    closeble?: boolean;
+    maxItems?: number;
+    addToBottom?: boolean;
+    stopOnHover?: boolean;
+}
+
+NotifyItemSettings {
+    position?: Array<string>;
+    duration?: number;
+    closeble?: boolean;
+}
+
+NotifyItem {
+	id?: string;
+    title?: string;
+    content?: string;
+    type?: string;
+    createdAt?: Date;
+    settings?: NotifyItemSettings
+}
+
+NotifyEvent {
+	id?: string;
+	command: string;
+	notify?: NotifyItem;
+}
+
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>position</code> (<code>array</code>) - you can combine positios to array for example <code>['top', 'right']</code>. All positions:: <code>left</code> ,<code>right</code>, <code>top</code> ,<code>bottom</code>
+            </li>
+            <li>
+                <code>duration</code> (<code>number</code>) - notify timeout im seconds
+            </li>
+            <li>
+                <code>closeble</code> (<code>boolean</code>) - is closeble
+            </li>
+            <li>
+                <code>maxItems</code> (<code>number</code>) - max items in notify block
+            </li>
+            <li>
+                <code>addToBottom</code> (<code>boolean</code>) - add new item to bottom
+            </li>
+            <li>
+                <code>stopOnHover</code> (<code>boolean</code>) - stop auto removing on item hover
+            </li>
+        </ul>
+        <p>Service parametrs</p>
+        <ul>
+            <li>
+                <code>title</code> (<code>string</code>) - item title
+            </li>
+            <li>
+                <code>content</code> (<code>string</code>) - item content
+            </li>
+            <li>
+                <code>settings</code> (<code>NotifyItemSettings</code>) - settings: <code>position</code> ,<code>duration</code>, <code>closeble</code>
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    position: ['top', 'right'],
+    duration: 1,
+    closeble: false,
+    maxItems: 10,
+    addToBottom: false,
+    stopOnHover: true
+};
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>created</code> - create event. Returned <code>{{ '{' }}id: item.id{{ '}' }}</code>
+            </li>
+            <li>
+                <code>deleted</code> - deleted event. Returned <code>{{ '{' }}id: id{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

@@ -1,0 +1,95 @@
+.fox-rating {
+    position: relative;
+}
+.fox-rating__wrapper {
+    position: relative;
+    display: inline-block;
+    font-size: 25px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.fox-rating__group > span {
+    color: #EEE;
+    display: inline-block;
+    margin-right: 2px;
+}
+.fox-rating__selected > span {
+    cursor: pointer;
+    margin-right: 2px;
+    display: inline-block;
+}
+.fox-rating__group > span:hover,
+.fox-rating__selected > span:hover {
+    cursor: pointer;
+}
+.fox-rating__selected {
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+.fox-rating__view {
+    display: inline-block;
+    vertical-align: super;
+    padding-left: 5px;
+}
+.fox-rating__wrapper.disabled {
+    opacity: .65;
+}
+.fox-rating__wrapper.disabled:hover .fox-rating__star {
+    cursor: not-allowed;
+    pointer-events: all !important;
+}
+.fox-rating__level_xlow {
+    color: #e11e21;
+}
+.fox-rating__level_low {
+    color: #ff5d10;
+}
+.fox-rating__level_medium {
+    color: #e8800e;
+}
+.fox-rating__level_high {
+    color: #f9b836;
+}
+.fox-rating__level_xhigh {
+    color: #fdd119;
+}
+.fox-rating__level_inverse {
+    color: #373a3c;
+}
+.fox-rating__level_primary {
+    color: #0275d8;
+}
+.fox-rating__level_success {
+    color: #5cb85c;
+}
+.fox-rating__level_info {
+    color: #5bc0de;
+}
+.fox-rating__level_warning {
+    color: #f0ad4e;
+}
+.fox-rating__level_danger {
+    color: #d9534f;
+}
+.fox-rating__star .fa-lg {
+    font-size: 1.5em;
+}
+.fox-rating__star .fa-md {
+    font-size: 1.3em;
+}
+.fox-rating__star .fa-sm {
+    font-size: 1em;
+}

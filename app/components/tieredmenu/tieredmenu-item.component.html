@@ -1,0 +1,13 @@
+<ul class="dropdown-menu fox-tieredmenu__dropdown" *ngIf="(item.showed || root)" [class.root]="root">
+    <li class="fox-tieredmenu__item" 
+        *ngFor="let child of (root ? item : item.items)" 
+        [ngClass]="{'fox-tieredmenu__submenu': hasChildrens(child), 'disabled': child.disabled}" 
+        (mouseenter)="enterItem($event, child)" 
+        (mouseleave)="leaveItem($event, child)">
+        <a href="{{ child.route || '#' }}" class="fox-tieredmenu__link" (click)="clickItem($event, child)" [class.dropdown-toggle]="hasChildrens(child)">
+            <i class="fa" *ngIf="child.icon" [ngClass]="child.icon"></i>
+            {{ child.title }}
+        </a>
+        <fox-tieredmenu-item [item]="child" *ngIf="child.items"></fox-tieredmenu-item>
+    </li>
+</ul>

@@ -1,0 +1,323 @@
+<demo title="Validate">
+    <div demo-description>
+        Validate component allow you easy validate components and display errors.
+    </div>
+    <div demo-examples>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+                <form [formGroup]="testForm" novalidate (ngSubmit)="onSubmit(testForm.value, testForm.valid)">
+                    <fox-validate label="Input test(min length 5)" [control]="testForm.controls['input']">
+                        <fox-input name="input" [formControl]="testForm.controls['input']"></fox-input>
+                    </fox-validate>
+                    <fox-validate label="Validate test(max length 100)" [control]="testForm.controls['textarea']">
+                        <fox-textarea name="textarea" [formControl]="testForm.controls['textarea']"></fox-textarea>
+                    </fox-validate>
+                    <fox-validate label="Checkbox test(must be true)" [control]="testForm.controls['checkbox']">
+                        <fox-checkbox name="checkbox" [formControl]="testForm.controls['checkbox']" label="here is label"></fox-checkbox>
+                    </fox-validate>
+                    <fox-validate label="Select test(required)" [control]="testForm.controls['select']">
+                        <fox-select name="select" [formControl]="testForm.controls['select']" [options]="options"></fox-select>
+                    </fox-validate>
+                    <fox-validate label="Multiselect test(min 2)" [control]="testForm.controls['multiselect']">
+                        <fox-multiselect name="multiselect" [options]="options" [formControl]="testForm.controls['multiselect']"></fox-multiselect>
+                    </fox-validate>
+                    <fox-validate label="Switcher test(must be true)" [control]="testForm.controls['switcher']">
+                        <fox-switcher name="switcher" [formControl]="testForm.controls['switcher']"></fox-switcher> 
+                    </fox-validate>
+                    <fox-validate label="Spinner test(min 3)" [control]="testForm.controls['spinner']">
+                        <fox-spinner name="spinner" [formControl]="testForm.controls['spinner']"></fox-spinner>
+                    </fox-validate>
+                    <fox-validate label="Rating test(min 5)" [control]="testForm.controls['rating']">
+                        <fox-rating name="rating" [formControl]="testForm.controls['rating']"></fox-rating>
+                    </fox-validate>
+                    <fox-validate label="Radio test(must be one)" [control]="testForm.controls['radio']">
+                        <fox-radio name="radio" [formControl]="testForm.controls['radio']" currentValue="one" label="One"></fox-radio>
+                        <fox-radio name="radio" [formControl]="testForm.controls['radio']" currentValue="two" label="Two"></fox-radio>
+                    </fox-validate>
+                    <fox-validate label="Editor test" [control]="testForm.controls['editor']">
+                        <fox-editor name="editor" [formControl]="testForm.controls['editor']"></fox-editor>
+                    </fox-validate>
+                    <fox-validate label="Datepicker test" [control]="testForm.controls['datepicker']">
+                        <fox-datepicker name="datepicker" [formControl]="testForm.controls['datepicker']"></fox-datepicker> 
+                    </fox-validate>
+                    <fox-validate label="Tag test(min 3)" [control]="testForm.controls['tag']">
+                        <fox-tag name="tag" [formControl]="testForm.controls['tag']"></fox-tag>
+                    </fox-validate>
+                    <fox-validate label="Slider test(min 50)" [control]="testForm.controls['slider']">
+                        <fox-slider name="slider" [formControl]="testForm.controls['slider']" [settings]="{min: 1, max: 100}"></fox-slider>
+                    </fox-validate>
+                    <fox-validate label="Colorpicker test(must be #ffa500)" [control]="testForm.controls['colorpicker']">
+                        <fox-colorpicker name="colorpicker" [formControl]="testForm.controls['colorpicker']"></fox-colorpicker>
+                    </fox-validate>
+                    <fox-validate label="Fileuploader test" [control]="testForm.controls['fileuploader']">
+                        <fox-fileuploader name="fileuploader" [formControl]="testForm.controls['fileuploader']"></fox-fileuploader>
+                    </fox-validate>
+
+                    <input class="btn btn-danger" type="submit" value="Submit" [disabled]="!testForm.valid">
+                </form>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><highlight language="markup">{{ testForm.value | json }}</highlight></div>
+        </div>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+        <form [formGroup]="testForm" novalidate (ngSubmit)="onSubmit(testForm.value, testForm.valid)">
+            <fox-validate label="Input test(min length 5)" [control]="testForm.controls['input']">
+                <fox-input name="input" [formControl]="testForm.controls['input']"></fox-input>
+            </fox-validate>
+            <fox-validate label="Validate test(max length 100)" [control]="testForm.controls['textarea']">
+                <fox-textarea name="textarea" [formControl]="testForm.controls['textarea']"></fox-textarea>
+            </fox-validate>
+            <fox-validate label="Checkbox test" [control]="testForm.controls['checkbox']">
+                <fox-checkbox name="checkbox" [formControl]="testForm.controls['checkbox']" label="here is label"></fox-checkbox>
+            </fox-validate>
+            <fox-validate label="Select test" [control]="testForm.controls['select']">
+                <fox-select name="select" [formControl]="testForm.controls['select']" [options]="options"></fox-select>
+            </fox-validate>
+            <fox-validate label="Multiselect test" [control]="testForm.controls['multiselect']">
+                <fox-multiselect name="multiselect" [options]="options" [formControl]="testForm.controls['multiselect']"></fox-multiselect>
+            </fox-validate>
+            <fox-validate label="Switcher test" [control]="testForm.controls['switcher']">
+                <fox-switcher name="switcher" [formControl]="testForm.controls['switcher']"></fox-switcher> 
+            </fox-validate>
+            <fox-validate label="Spinner test" [control]="testForm.controls['spinner']">
+                <fox-spinner name="spinner" [formControl]="testForm.controls['spinner']"></fox-spinner>
+            </fox-validate>
+            <fox-validate label="Rating test" [control]="testForm.controls['rating']">
+                <fox-rating name="rating" [formControl]="testForm.controls['rating']"></fox-rating>
+            </fox-validate>
+            <fox-validate label="Radio test" [control]="testForm.controls['radio']">
+                <fox-radio name="radio" [formControl]="testForm.controls['radio']" currentValue="one" label="One"></fox-radio>
+                <fox-radio name="radio" [formControl]="testForm.controls['radio']" currentValue="two" label="Two"></fox-radio>
+            </fox-validate>
+            <fox-validate label="Editor test" [control]="testForm.controls['editor']">
+                <fox-editor name="editor" [formControl]="testForm.controls['editor']"></fox-editor>
+            </fox-validate>
+            <fox-validate label="Datepicker test" [control]="testForm.controls['datepicker']">
+                <fox-datepicker name="datepicker" [formControl]="testForm.controls['datepicker']"></fox-datepicker> 
+            </fox-validate>
+            <fox-validate label="Tag test" [control]="testForm.controls['tag']">
+                <fox-tag name="tag" [formControl]="testForm.controls['tag']"></fox-tag>
+            </fox-validate>
+            <fox-validate label="Slider test" [control]="testForm.controls['slider']">
+                <fox-slider name="slider" [formControl]="testForm.controls['slider']" [settings]="{min: 1, max: 100}"></fox-slider>
+            </fox-validate>
+            <fox-validate label="Colorpicker test" [control]="testForm.controls['colorpicker']">
+                <fox-colorpicker name="colorpicker" [formControl]="testForm.controls['colorpicker']"></fox-colorpicker>
+            </fox-validate>
+            <fox-validate label="Fileuploader test" [control]="testForm.controls['fileuploader']">
+                <fox-fileuploader name="fileuploader" [formControl]="testForm.controls['fileuploader']"></fox-fileuploader>
+            </fox-validate>
+
+            <input class="btn btn-danger" type="submit" value="Submit" [disabled]="!testForm.valid">
+        </form>
+    </div>
+</div>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+
+import { ValidateSettings } from '../../components/validate/validate.interfaces';
+import { ValidateService } from '../../components/validate/validate.service';
+import { SelectItem } from '../../components/select/select.interfaces';
+
+@Component({
+    moduleId: module.id,
+    selector: 'validate-demo',
+    templateUrl: 'validate.demo.html'
+})
+export class ValidateDemoComponent implements OnInit {
+    public testForm: FormGroup;
+    public settings: ValidateSettings = {
+        
+    };
+    public options: Array<SelectItem> = [
+        {
+            label: 'Option 1', 
+            value: '1'
+        },
+        {
+            label: 'Option 2', 
+            value: '2'
+        },
+        {
+            label: 'Option 3', 
+            value: '3'
+        }
+    ];
+
+    protected submitted: boolean;
+
+    constructor(
+        private fb: FormBuilder
+    ) { }
+
+    ngOnInit() {
+        this.testForm = this.fb.group({
+	        input: ['', [Validators.required, Validators.minLength(5)]],
+            textarea: ['', [Validators.required, Validators.maxLength(100)]],
+            checkbox: [false, [Validators.pattern('true')]],
+            select: ['', [Validators.required]],
+            multiselect: [[], [Validators.required]],
+            switcher: [false, [Validators.pattern('true')]],
+            spinner: [1, [Validators.required]],
+            rating: [0, [Validators.required]],
+            radio: ['', [Validators.required]],
+            editor: ['', [Validators.required, Validators.maxLength(100)]],
+            datepicker: ['', [Validators.required]],
+            tag: [[], [Validators.required]],
+            slider: [1, [Validators.required]],
+            colorpicker: ['#ff0000', [Validators.required]],
+            fileuploader: ['', [Validators.required]],
+	    });
+    }
+
+    onSubmit(model: any, isValid: boolean): void { 
+    	this.submitted = true; 
+
+    	console.log(model, isValid);
+    }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { ValidateModule } from 'prettyfox-ui';
+
+// validator service with custom validation rules
+import { ValidateService } from 'prettyfox-ui';
+
+static email()
+static password(min: number = 6, max: number = 100)
+static int()
+static number()
+static date()
+static minDate(date: any)
+static maxDate(date: any)
+static equal(value: any)
+static max(max: number)
+static min(min: number)
+static range(range: Array<number>)
+static json()
+static boolean()
+static hex()
+static rgb()
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-validate</code> - base class
+            </li>
+            <li>
+                <code>fox-validate__required</code> - required field
+            </li>
+            <li>
+                <code>fox-validate__error</code> - error label
+            </li>
+            <li>
+                <code>fox-validate__help</code> - help text
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+ValidateSettings {
+    errorColor?: string;
+    showAsterisk?: boolean;
+}
+
+ValidateLangs {
+    email?: string;
+    password?: string;
+    required?: string;
+    minlength?: string;
+    maxlength?: string;
+    int?: string;
+    number?: string;
+    date?: string;
+    minDate?: string;
+    maxDate?: string;
+    equal?: string;
+    max?: string;
+    min?: string;
+    range?: string;
+    json?: string;
+    boolean?: string;
+    hex?: string;
+    rgb?: string;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>errorColor</code> (<code>string</code>) - error color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>showAsterisk</code> (<code>boolean</code>) - show required field asterisk.
+            </li>
+            <li>
+                <code>label</code> (<code>string</code>) - Field label.
+            </li>
+            <li>
+                <code>control</code> (<code>boolean</code>) - Form controls for field.
+            </li>
+            <li>
+                <code>help</code> (<code>string</code>) - help text.
+            </li>
+            <li>
+                <code>validated</code> (<code>boolean</code>) - validate status of current field.
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+langs: {
+    email: 'Field must be a valid email address',
+    password: 'Password is incorrect',
+    required: 'Field is required',
+    minlength: 'Field must be at least :requiredLength characters',
+    maxlength: 'Field may not be greater than :requiredLength characters',
+    int: 'Field must be an integer',
+    number: 'Field must be a number',
+    date: 'Field must be valid date',
+    minDate: 'Field must be at least :date date',
+    maxDate: 'Field may not be greater than :date date',
+    equal: 'Field must be equal :equal',
+    max: 'Field may not be greater than :max number',
+    min: 'Field must be at least :min number',
+    range: 'Field must be between :min and :max',
+    json: 'Field must be valid json',
+    boolean: 'Field must be true or false',
+    hex: 'Field must be valid hex color',
+    rgb: 'Field must be valid rgb color'
+};
+
+settings: {
+    errorColor: 'danger',
+    showAsterisk: true
+};
+
+label: string;
+control: any;
+help: string;
+validated: boolean = true;
+            ]]>
+        </highlight>
+    </div>
+</demo>

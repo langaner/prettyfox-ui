@@ -1,0 +1,16 @@
+<div class="fox-tags">
+    <fox-tag-item
+        [name]="tag.label"
+        [key]="tag.value"
+        [index]="index"
+        [color]="settings.color"
+        [size]="settings.size"
+        [selected]="selected === index"
+        (removed)="removeTag(index)"
+        *ngFor="let tag of tagsList; let index = index">
+    </fox-tag-item>
+    <input #tagsInput type="text" class="fox-tags__input" [placeholder]="langs.inputPlaceholder"
+        (paste)="onPaste($event)"
+        (keydown)="onKeydown($event)"
+        (blur)="onBlur($event)">
+</div>

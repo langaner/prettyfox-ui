@@ -1,0 +1,41 @@
+.fox-fileuploader {
+    position: relative;
+    display: block;
+}
+.fox-fileuploader__input {
+    display: none;
+}
+.fox-fileuploader__item {
+    display: inline-block;
+    position: relative;
+    margin: 10px 15px 15px 0;
+    vertical-align: top;
+}
+.fox-fileuploader__item img {
+    max-width: 215px;
+    max-height: 165px;
+}
+.fox-fileuploader__previews {
+    margin: 15px 0 15px;
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+.fox-fileuploader__remove {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    padding: 0;
+    line-height: 1;
+    z-index: 1000;
+}
+.fox-fileuploader__name {
+    padding-top: 5px;
+    text-align: center;
+}
+.fox-fileuploader__count-uploaded {
+    margin-left: 10px;
+}

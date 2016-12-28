@@ -1,0 +1,41 @@
+[type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: none;
+}
+.btn-block {
+    margin-bottom: .5rem;
+}
+.btn-circle, .btn-circle.btn-md {
+    width: 49px;
+    height: 49px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 20px;
+    line-height: 1;
+    border-radius: 30px;
+}
+.btn-circle.btn-xs {
+    width: 19px;
+    height: 19px;
+    text-align: center;
+    padding: 0;
+    font-size: 13px;
+    line-height: 0.1;
+    border-radius: 30px;
+}
+.btn-circle.btn-sm {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1;
+    border-radius: 30px;
+}
+.btn-circle.btn-lg {
+    width: 79px;
+    height: 79px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 1;
+    border-radius: 70px;
+}

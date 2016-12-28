@@ -1,0 +1,7 @@
+<div class="fox-localized">
+    <fox-tab-set>
+        <fox-tab *ngFor="let locale of settings.locales" [header]="locale">
+            <ng-content></ng-content>
+        </fox-tab>
+    </fox-tab-set>
+</div>

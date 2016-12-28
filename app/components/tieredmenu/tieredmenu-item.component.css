@@ -1,0 +1,45 @@
+.fox-tieredmenu__item {
+    padding: 5px .5rem 5px .5rem;
+}
+.fox-tieredmenu__dropdown {
+    display: block;
+    padding: 10px;
+    padding-right: 0;
+    border-radius: 0;
+}
+.fox-tieredmenu__dropdown.root {
+    position: relative;
+    left: auto;
+    top: auto;
+    padding: 0;
+}
+.fox-tieredmenu__submenu {
+    position: relative;
+}
+.fox-tieredmenu__link.dropdown-toggle::after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+}
+.fox-tieredmenu__submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    border-radius: 0;
+}
+.fox-tieredmenu__submenu:hover > .dropdown-menu {
+    display: block;
+}
+.fox-tieredmenu__submenu:hover > a:after {
+    border-left-color: #000;
+}
+.fox-tieredmenu__item.disabled:hover a {
+    cursor: not-allowed;
+    pointer-events: all !important;
+}

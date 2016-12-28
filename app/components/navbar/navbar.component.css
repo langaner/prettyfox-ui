@@ -1,0 +1,11 @@
+.fox-navbar {
+    position: relative;
+}
+/*.fox-navbar__item {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}*/
+.fox-navbar__item.disabled:hover a {
+    cursor: not-allowed;
+    pointer-events: all !important;
+}

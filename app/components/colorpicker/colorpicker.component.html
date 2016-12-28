@@ -1,0 +1,33 @@
+<div class="fox-colorpicker" (mouseup)="onCanvasMouseUp($event)">
+    <div class="input-group">
+        <input class="form-control form-control-{{ settings.size }} fox-colorpicker__input" type="text" [name]="name" [(ngModel)]="value" (click)="onClick($event)" (change)="onChange($event)" [class.disabled]="disabled" [disabled]="disabled">
+        <span #colorLabel class="input-group-addon fox-colorpicker__color-addon" (click)="show($event)" [style.background-color]="currentHexColor"></span>
+    </div>
+    <div class="fox-colorpicker__dropdown" *ngIf="dropped">
+        <div class="fox-colorpicker__picker" *ngIf="settings.showPicker">
+            <div class="fox-colorpicker__spectrum-wrapper">
+                <canvas #spectrum (click)="colorSelect($event, 'spectrum')"></canvas>
+                <div #spectrumMarker class="fox-colorpicker__marker" (mousedown)="onCanvasMouseDown($event, 'spectrum')" (mousemove)="onCanvasMouseMove($event, 'spectrum')"></div>
+            </div>
+            
+            <div class="fox-colorpicker__hue-wrapper">
+                <canvas #hue (click)="colorSelect($event, 'hue')"></canvas>
+                <div #hueMarker class="fox-colorpicker__marker" (mousedown)="onCanvasMouseDown($event, 'hue')" (mousemove)="onCanvasMouseMove($event, 'hue')"></div>
+            </div>
+
+            <div class="fox-colorpicker__alpha-wrapper fox-colorpicker__gradient-bg">
+                <canvas #alpha (click)="colorSelect($event, 'alpha')"></canvas>
+                <div #alphaMarker class="fox-colorpicker__marker" (mousedown)="onCanvasMouseDown($event, 'alpha')" (mousemove)="onCanvasMouseMove($event, 'alpha')"></div>
+            </div>
+        </div>
+        <div class="fox-colorpicker__palette" *ngIf="settings.showPallete" >
+            <div *ngFor="let palette of settings.palette" class="fox-colorpicker__palette-container">
+                <span *ngFor="let item of palette" [style.background-color]="item" class="fox-colorpicker__palette-item" (click)="colorSelect($event, 'palette')"></span>
+            </div>
+        </div>
+        <!--<p>Hex: <input type="text" class="form-control" value="{{ currentColorResults?.hex }}" #hexInput (keyup)="colorSet($event, hexInput.value)"></p> 
+        <p>Rgb: <input type="text" class="form-control" value="{{ currentColorResults?.rgb }}" #rgbInput (keyup)="colorSet($event, rgbInput.value)"></p> 
+        <p>Hsv: <input type="text" class="form-control" value="{{ currentColorResults?.hsv }}" #hsvInput (keyup)="colorSet($event, hsvInput.value)"></p> 
+        <p>R: {{ currentRgbColor?.r }} G: {{ currentRgbColor?.g }} B: {{ currentRgbColor?.b }} A: {{ currentRgbColor?.a }}</p>-->
+    </div>
+</div>

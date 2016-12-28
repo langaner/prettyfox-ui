@@ -1,0 +1,1 @@
+{"version":3,"file":"highlight.demo.js","sourceRoot":"","sources":["highlight.demo.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAkC,eAAe,CAAC,CAAA;AAOlD;IACI;IAAgB,CAAC;IAEjB,yCAAQ,GAAR,cAAa,CAAC;IARlB;QAAC,gBAAS,CAAC;YACP,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,gBAAgB;YAC1B,WAAW,EAAE,qBAAqB;SACrC,CAAC;;8BAAA;IAKF,6BAAC;AAAD,CAAC,AAJD,IAIC;AAJY,8BAAsB,yBAIlC,CAAA"}

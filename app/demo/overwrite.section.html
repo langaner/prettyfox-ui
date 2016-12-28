@@ -1,0 +1,44 @@
+<div class="demo-page">
+    <div class="row content-header">
+        <h1 class="content-header__title">Overwrite</h1>
+        <div class="content-header_desc">
+            <p>You can overwrite the default settings for each components separately, but also can replace the default settings globally.</p> 
+            <p>OverwriteService will help you change default settings and langs globally in your application.</p>
+            <p>Settings, what you write, will be assign with default settings.</p>
+        </div>
+    </div>
+    <div class="content-body__section content-body__examples">
+        <div class="row content-body__title">Usage</div>
+        <div class="content-body__desc">
+            <p>Inject OverwriteService in your AppComponent and overwrite settings or langs of component:</p>
+            <highlight language="javascript">
+                <![CDATA[
+import { Component, OnInit } from '@angular/core';
+import { OverwriteService } from 'prettyfox-ui/ui';
+
+@Component({
+    moduleId: module.id,
+    selector: 'app-component',
+    templateUrl: 'app.component.html'
+})
+export class AppComponent  implements OnInit {
+    constructor(private overwriteService: OverwriteService){}
+
+    ngOnInit() {
+        this.overwriteService.setSettings('buttons', {
+            color: 'danger'
+        });
+
+        this.overwriteService.setLangs('pagination', {
+            first: 'First page',
+            prev: 'Previous page',
+            next: 'Next page',
+            last: 'Last page'
+        });
+    }
+}
+                ]]>
+            </highlight>
+        </div>
+    </div>
+</div>

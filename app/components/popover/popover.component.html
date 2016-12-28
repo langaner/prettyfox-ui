@@ -1,0 +1,9 @@
+<button type="button" class="btn btn-{{ settings.buttonSize }} btn-{{ settings.color }} fox-popover-button" (click)="show($event)" [class.disabled]="disabled" [innerHtml]="settings.buttonLabel"></button>
+<template [ngIf]="dropped">
+    <div class="popover popover-{{ settings.placement }} fox-popover fox-popover__color_{{ settings.color }}" id="{{ templateId }}" [ngStyle]="{'left.px': left, 'top.px': top}">
+        <h3 class="popover-title fox-popover__title" *ngIf="settings.title" [innerHtml]="settings.title"></h3>
+        <div class="popover-content fox-popover__content">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</template>

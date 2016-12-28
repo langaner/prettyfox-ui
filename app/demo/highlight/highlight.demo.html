@@ -1,0 +1,85 @@
+<demo title="Highlight">
+    <div demo-description>
+        Provide highlight directive what allow you highlight same area. Used Prism.js library http://prismjs.com/.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+		<pre><code foxHighlight language="markup">
+        <![CDATA[
+<h1>Your code here</h1>
+<p><strong>You can choice highlight from many languages</strong>.</p>
+<p>Used library Prism.js <code><http://prismjs.com/>.</p>
+        ]]>
+        </code></pre>
+        <pre><code foxHighlight language="javascript">
+        <![CDATA[
+@Component({
+    moduleId: module.id,
+    selector: 'highlight-demo',
+    templateUrl: 'highlight.demo.html'
+})
+export class HighlightDemoComponent implements OnInit {
+    constructor() { }
+
+    ngOnInit() { }
+}
+        ]]>
+        </code></pre>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<pre><code foxHighlight language="markup">
+<h1>Your code here</h1>
+<p><strong>You can choice highlight from many languages</strong>.</p>
+<p>Used library Prism.js <code><http://prismjs.com/>.</p>
+</code></pre>
+<pre><code foxHighlight language="javascript">
+@Component({
+    moduleId: module.id,
+    selector: 'highlight-demo',
+    templateUrl: 'highlight.demo.html'
+})
+export class HighlightDemoComponent implements OnInit {
+    constructor() { }
+
+    ngOnInit() { }
+}
+</code></pre>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+    moduleId: module.id,
+    selector: 'highlight-demo',
+    templateUrl: 'highlight.demo.html'
+})
+export class HighlightDemoComponent implements OnInit {
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { HighlightModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>language</code> (<code>string</code>) - markup language
+            </li>
+        </ul>
+    </div>
+</demo>

@@ -1,0 +1,112 @@
+<div class="demo-page">
+    <div class="row content-header">
+        <h1 class="content-header__title">Prettyfox UI Components(alpha version)</h1>
+        <div class="content-header_desc">
+            <p>Collection of native open source UI components for Angular2 styling by <a target="_blank" href="http://v4-alpha.getbootstrap.com" class="content-body__link">Bootstrap CSS v4</a>. You don't need to include Bootstrap JS, jQuery or any other jQuery plugins.</p>
+        </div>
+    </div>
+    <div class="content-body">
+        <div class="content-body__section content-body__examples">
+            <div class="row content-body__title">Dependencies</div>
+            <div class="content-body__desc">
+                <ul>
+                    <li><a target="_blank" href="https://www.npmjs.com/package/font-awesome" class="content-body__link">Font awesome</a> for nice icons 
+                    <code>https://www.npmjs.com/package/font-awesome</code>
+                    </li>
+                    <li><a target="_blank" href="https://www.npmjs.com/package/moment" class="content-body__link">Moment</a> for date manipulations
+                    <code>https://www.npmjs.com/package/moment</code>
+                    </li>
+                    <li><a target="_blank" href="https://www.npmjs.com/package/prismjs" class="content-body__link">PrismJS</a> for code highlight
+                    <code>https://www.npmjs.com/package/prismjs</code>
+                    </li>
+                    <li><a target="_blank" href="https://www.npmjs.com/package/tinycolor2" class="content-body__link">Tinycolor</a> for color manipulations
+                    <code>https://www.npmjs.com/package/tinycolor2</code>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-body__section content-body__examples">
+            <div class="row content-body__title">Install</div>
+            <div class="content-body__desc">
+                <p>After installing the above dependencies, install prettyfox-ui:</p>
+                <p><code>npm install --save prettyfox-ui</code></p>
+                <p>Include dependencies js and css:</p>
+                <highlight language="markup">
+                    <![CDATA[
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" href="node_modules/prismjs/themes/prism.css">
+
+<script src='node_modules/tinycolor2/tinycolor.js'></script>
+<script src='node_modules/prismjs/prism.js'></script>
+                    ]]>
+                </highlight>
+                <p>Once installed you need to import main module.</p>
+                <p><code>import {{ '{' }} FoxModule {{ '}' }} from 'prettyfox-ui/ui';</code></p>
+                <highlight language="javascript">
+                    <![CDATA[
+import { FoxModule } from 'prettyfox-ui/ui';
+
+@NgModule({
+    declarations: [AppComponent, ...],
+    imports: [FoxModule, ...],
+    bootstrap: [AppComponent]
+})
+export class AppModule {}
+                    ]]>
+                </highlight>
+                <p>If you using SystemJS, you should configurate it:</p>
+                <highlight language="javascript">
+                    <![CDATA[
+map: {
+    ...
+    'moment':       'npm:moment',
+    'prettyfox-ui': 'npm:prettyfox-ui/app',
+}
+
+packages: {
+    ...
+    moment: {
+        main: 'moment', 
+        defaultExtension: 'js'
+    },
+    'prettyfox-ui': {
+        defaultExtension: 'js'
+    }
+}
+                    ]]>
+                </highlight>
+            </div>
+        </div>
+        <div class="content-body__section content-body__examples">
+            <div class="row content-body__title">Helper services</div>
+            <div class="content-body__desc">
+                <p>You can use additional package services after install:</p>
+                <highlight language="javascript">
+                    <![CDATA[
+    import { DomService } from 'prettyfox-ui/ui'; // for dom manipulation
+    import { HelperService } from 'prettyfox-ui/ui'; // userful methods
+    import { OverwriteService } from 'prettyfox-ui/ui'; // langs and settings overwrite service
+    import { ValidateService } from 'prettyfox-ui/ui'; // validators collection
+    import { NotifyService } from 'prettyfox-ui/ui'; // for notify manipulation
+                    ]]>
+                </highlight>
+            </div>
+        </div>
+        <div class="content-body__section content-body__examples">
+            <div class="row content-body__title">Future</div>
+            <div class="content-body__desc">
+                <ul>
+                    <li>Code style fix</li>
+                    <li>Cross browser compatibility</li>
+                    <li>Mobile friendly</li>
+                    <li>Validators fix</li>
+                    <li>Colorpicker fix</li>
+                    <li>Fileuploader fix</li>
+                    <li>Add effects and animations to components</li>
+                    <li>Add userful dom manipulation methods</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

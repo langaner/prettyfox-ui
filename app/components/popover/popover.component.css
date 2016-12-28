@@ -1,0 +1,98 @@
+.fox-popover {
+    padding: 0;
+}
+.fox-popover__color_danger {
+    border-color: #d9534f;
+}
+.fox-popover__color_danger > .fox-popover__title {
+    background-color: #d9534f;
+    color: #fff;
+}
+.fox-popover__color_danger.popover-top::before {
+    border-top-color: #d9534f;
+}
+.fox-popover__color_danger.popover-bottom::before {
+    border-bottom-color: #d9534f;
+}
+.fox-popover__color_danger.popover-right::before {
+    border-right-color: #d9534f;
+}
+.fox-popover__color_danger.popover-left::before {
+    border-left-color: #d9534f;
+}
+.fox-popover__color_primary {
+    border-color: #0275d8;
+}
+.fox-popover__color_primary > .fox-popover__title {
+    background-color: #0275d8;
+    color: #fff;
+}
+.fox-popover__color_primary.popover-bottom::before {
+    border-bottom-color: #0275d8;
+}
+.fox-popover__color_primary.popover-right::before {
+    border-right-color: #0275d8;
+}
+.fox-popover__color_primary.popover-left::before {
+    border-left-color: #0275d8;
+}
+.fox-popover__color_primary.popover-top::before {
+    border-top-color: #0275d8;
+}
+.fox-popover__color_success {
+    border-color: #5cb85c;
+}
+.fox-popover__color_success > .fox-popover__title {
+    background-color: #5cb85c;
+    color: #fff;
+}
+.fox-popover__color_success.popover-top::before {
+    border-top-color: #5cb85c;
+}
+.fox-popover__color_success.popover-bottom::before {
+    border-bottom-color: #5cb85c;
+}
+.fox-popover__color_success.popover-right::before {
+    border-right-color: #5cb85c;
+}
+.fox-popover__color_success.popover-left::before {
+    border-left-color: #5cb85c;
+}
+.fox-popover__color_info {
+    border-color: #5bc0de;
+}
+.fox-popover__color_info > .fox-popover__title {
+    background-color: #5bc0de;
+    color: #fff;
+}
+.fox-popover__color_info.popover-top::before {
+    border-top-color: #5bc0de;
+}
+.fox-popover__color_info.popover-bottom::before {
+    border-bottom-color: #5bc0de;
+}
+.fox-popover__color_info.popover-right::before {
+    border-right-color: #5bc0de;
+}
+.fox-popover__color_info.popover-left::before {
+    border-left-color: #5bc0de;
+}
+.fox-popover__color_warning {
+    border-color: #f0ad4e;
+}
+.fox-popover__color_warning > .fox-popover__title {
+    background-color: #f0ad4e;
+    color: #fff;
+}
+.fox-popover__color_warning.popover-top::before {
+    border-top-color: #f0ad4e;
+}
+.fox-popover__color_warning.popover-bottom::before {
+    border-bottom-color: #f0ad4e;
+}
+.fox-popover__color_warning.popover-right::before {
+    border-right-color: #f0ad4e;
+}
+.fox-popover__color_warning.popover-left::before {
+    border-left-color: #f0ad4e;
+}

@@ -1,0 +1,19 @@
+<nav>
+    <ul class="pagination pagination-{{ settings.size }} fox-pagination">
+        <li class="page-item fox-pagination__item fox-pagination__first fox-pagination__color_{{ settings.color }}" [class.disabled]="hasPrev() || disabled" *ngIf="settings.lastFirst">
+            <a class="page-link fox-pagination__link" href="#" (click)="firstSelect($event)" [innerHtml]="langs.first"></a>
+        </li>
+        <li class="page-item fox-pagination__item fox-pagination__prev fox-pagination__color_{{ settings.color }}" [class.disabled]="hasPrev() || disabled" *ngIf="settings.prevNext">
+            <a class="page-link fox-pagination__link" href="#" (click)="prevSelect($event, page)" [innerHtml]="langs.prev"></a>
+        </li>
+        <li class="page-item fox-pagination__item fox-pagination__page fox-pagination__color_{{ settings.color }}" *ngFor="let item of pages" [class.active]="item.active" [class.disabled]="disabled && !item.active">
+            <a class="page-link fox-pagination__link" href="#" (click)="select($event, item.number)" [innerHTML]="item.text"></a>
+        </li>
+        <li class="page-item fox-pagination__item fox-pagination__next fox-pagination__color_{{ settings.color }}" [class.disabled]="hasNext() || disabled" *ngIf="settings.prevNext">
+            <a class="page-link fox-pagination__link" href="#" (click)="nextSelect($event, page)" [innerHtml]="langs.next"></a>
+        </li>
+        <li class="page-item fox-pagination__item fox-pagination__last fox-pagination__color_{{ settings.color }}" [class.disabled]="hasNext() || disabled" *ngIf="settings.lastFirst">
+            <a class="page-link fox-pagination__link" href="#" (click)="lastSelect($event)" [innerHtml]="langs.last"></a>
+        </li>
+    </ul>
+</nav>
