@@ -1,1 +1,0 @@
-{"version":3,"file":"accordion.demo.js","sourceRoot":"","sources":["accordion.demo.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAkC,eAAe,CAAC,CAAA;AAOlD;IACC;IAAe,CAAC;IAEb,yCAAQ,GAAR,cAAY,CAAC;IARjB;QAAC,gBAAS,CAAC;YACN,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,gBAAgB;YAC1B,WAAW,EAAE,qBAAqB;SACtC,CAAC;;8BAAA;IAKF,6BAAC;AAAD,CAAC,AAJD,IAIC;AAJY,8BAAsB,yBAIlC,CAAA"}

@@ -1,0 +1,109 @@
+<demo title="Alert">
+    <div demo-description>
+        Provide contextual feedback messages for typical user actions.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-alert [settings]="{color: 'info'}"><strong>Info!</strong> Info alert message.</fox-alert>
+        <fox-alert [settings]="{color: 'success'}"><strong>Success!</strong> Success alert message.</fox-alert>
+        <fox-alert [settings]="{color: 'danger'}"><strong>Danger!</strong> Danger alert message.</fox-alert>
+        <fox-alert [settings]="{color: 'warning'}"><strong>Warning!</strong> Warning alert message.</fox-alert>
+        <div class="content-body__subtitle">Closeble alert</div>
+        <fox-alert [settings]="{closable: true, color: 'success'}"><strong>Success!</strong> Success alert message.</fox-alert>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Colors</div>
+<fox-alert [settings]="{color: 'info'}"><strong>Info!</strong> Info alert message.</fox-alert>
+<fox-alert [settings]="{color: 'success'}"><strong>Success!</strong> Success alert message.</fox-alert>
+<fox-alert [settings]="{color: 'danger'}"><strong>Danger!</strong> Danger alert message.</fox-alert>
+<fox-alert [settings]="{color: 'warning'}"><strong>Warning!</strong> Warning alert message.</fox-alert>
+<div class="content-body__subtitle">Closeble alert</div>
+<fox-alert [settings]="{closable: true, color: 'success'}"><strong>Success!</strong> Success alert message.</fox-alert>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { AlertSettings } from '../../components/alert/alert.model'
+
+@Component({
+	moduleId: module.id,
+	selector: 'alert-demo',
+    templateUrl: 'alert.demo.html'
+})
+export class AlertDemoComponent implements OnInit {
+	public settings: AlertSettings = {
+        
+    };
+
+	constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { AlertModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-alert</code> - base class
+            </li>
+            <li>
+                <code>fox-alert__close</code> - close button
+            </li>
+            <li>
+                <code>fox-alert__content</code> - alert message content
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+AlertSettings {
+    color?: string;
+    closable?: boolean;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>color</code> (<code>string</code>) - alert color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>closable</code> (<code>boolean</code>) - add close button to alert
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    color: 'secondary',
+    closable: false
+};
+            ]]>
+        </highlight>
+    </div>
+    
+    <div demo-events>
+        <ul>
+            <li>
+                <code>closed</code> - alert closed event. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

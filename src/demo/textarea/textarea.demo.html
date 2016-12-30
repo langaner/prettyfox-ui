@@ -1,0 +1,121 @@
+<demo title="Textarea">
+    <div demo-description>
+        Provide base textarea functional.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-textarea name="text" [(ngModel)]="value"></fox-textarea> Text: {{ value }}
+        <div class="content-body__subtitle">Sizes</div>
+        <fox-textarea [settings]="{size: 'lg'}" name="lg" [(ngModel)]="value" placeholder="Large textarea"></fox-textarea>
+        <div class="demo__margin-bottom"></div>
+        <fox-textarea [settings]="{size: 'md'}" name="md" [(ngModel)]="value" placeholder="Medium textarea"></fox-textarea>
+        <div class="demo__margin-bottom"></div>
+        <fox-textarea [settings]="{size: 'sm'}" name="sm" [(ngModel)]="value" placeholder="Small textarea"></fox-textarea>
+        <div class="content-body__subtitle">Placeholder</div>
+        <fox-textarea name="placeholder" [(ngModel)]="value" placeholder="placeholder here"></fox-textarea>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-textarea name="text" [(ngModel)]="value"></fox-textarea> Text: {{ value }}
+<div class="content-body__subtitle">Sizes</div>
+<fox-textarea [settings]="{size: 'lg'}" name="lg" [(ngModel)]="value" placeholder="Large textarea"></fox-textarea>
+<div class="demo__margin-bottom"></div>
+<fox-textarea [settings]="{size: 'md'}" name="md" [(ngModel)]="value" placeholder="Medium textarea"></fox-textarea>
+<div class="demo__margin-bottom"></div>
+<fox-textarea [settings]="{size: 'sm'}" name="sm" [(ngModel)]="value" placeholder="Small textarea"></fox-textarea>
+<div class="content-body__subtitle">Placeholder</div>
+<fox-textarea name="placeholder" [(ngModel)]="value" placeholder="placeholder here"></fox-textarea>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { TextareaSettings } from '../../components/textarea/textarea.model'
+
+@Component({
+    moduleId: module.id,
+    selector: 'textarea-demo',
+    templateUrl: 'textarea.demo.html'
+})
+export class TextareaDemoComponent implements OnInit {
+    public settings: TextareaSettings = {
+        
+    };
+
+    public value: string;
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { TextareaModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-textarea</code> - base class
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+TextareaSettings {
+    size?: string;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>name</code> (<code>string</code>) - textarea name
+            </li>
+            <li>
+                <code>placeholder</code> (<code>string</code>) - placeholder
+            </li>
+            <li>
+                <code>size</code> (<code>string</code>) - textarea size: <code>sm</code> ,<code>md</code>,<code>lg</code>
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for textarea
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    size: 'md'
+};
+
+name: '';
+placeholder: '';
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>clicked</code> - click event on textarea. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+            <li>
+                <code>changed</code> - change event on textarea. Returned <code>{{ '{' }}originalEvent: event, value: this.innerValue{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

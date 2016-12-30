@@ -1,0 +1,203 @@
+<demo title="Tag">
+    <div demo-description>
+        Allow you to add tags in your application.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-tag name="tags" [settings]="settings" [(ngModel)]="tags"></fox-tag>
+        <p>Tags: {{ tags | json }}</p>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-tag name="primary" [settings]="{color: 'primary'}" [(ngModel)]="tags"></fox-tag>
+        <div class="demo__margin-bottom"></div>
+        <fox-tag name="secondary" [settings]="{color: 'secondary'}" [(ngModel)]="tags"></fox-tag>
+        <div class="demo__margin-bottom"></div>
+        <fox-tag name="success" [settings]="{color: 'success'}" [(ngModel)]="tags"></fox-tag>
+        <div class="demo__margin-bottom"></div>
+        <fox-tag name="info" [settings]="{color: 'info'}" [(ngModel)]="tags"></fox-tag>
+        <div class="demo__margin-bottom"></div>
+        <fox-tag name="warning" [settings]="{color: 'warning'}" [(ngModel)]="tags"></fox-tag>
+        <div class="demo__margin-bottom"></div>
+        <fox-tag name="danger" [settings]="{color: 'danger'}" [(ngModel)]="tags"></fox-tag>
+        <div class="content-body__subtitle">Sizes</div>
+        <fox-tag name="lg" [settings]="{size: 'lg'}" [(ngModel)]="tags"></fox-tag>
+        <div class="demo__margin-bottom"></div>
+        <fox-tag name="md" [settings]="{size: 'md'}" [(ngModel)]="tags"></fox-tag>
+        <div class="demo__margin-bottom"></div>
+        <fox-tag name="sm" [settings]="{size: 'sm'}" [(ngModel)]="tags"></fox-tag>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-tag name="tags" [settings]="settings" [(ngModel)]="tags"></fox-tag>
+<div class="content-body__subtitle">Colors</div>
+<fox-tag name="primary" [settings]="{color: 'primary'}" [(ngModel)]="tags"></fox-tag>
+<div class="demo__margin-bottom"></div>
+<fox-tag name="secondary" [settings]="{color: 'secondary'}" [(ngModel)]="tags"></fox-tag>
+<div class="demo__margin-bottom"></div>
+<fox-tag name="success" [settings]="{color: 'success'}" [(ngModel)]="tags"></fox-tag>
+<div class="demo__margin-bottom"></div>
+<fox-tag name="info" [settings]="{color: 'info'}" [(ngModel)]="tags"></fox-tag>
+<div class="demo__margin-bottom"></div>
+<fox-tag name="warning" [settings]="{color: 'warning'}" [(ngModel)]="tags"></fox-tag>
+<div class="demo__margin-bottom"></div>
+<fox-tag name="danger" [settings]="{color: 'danger'}" [(ngModel)]="tags"></fox-tag>
+<div class="content-body__subtitle">Sizes</div>
+<fox-tag name="lg" [settings]="{size: 'lg'}" [(ngModel)]="tags"></fox-tag>
+<div class="demo__margin-bottom"></div>
+<fox-tag name="md" [settings]="{size: 'md'}" [(ngModel)]="tags"></fox-tag>
+<div class="demo__margin-bottom"></div>
+<fox-tag name="sm" [settings]="{size: 'sm'}" [(ngModel)]="tags"></fox-tag>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { TagItem, TagSettings, TagLangs } from '../../components/tag/tag.model';
+
+@Component({
+    moduleId: module.id,
+    selector: 'tag-demo',
+    templateUrl: 'tag.demo.html'
+})
+export class TagDemoComponent implements OnInit {
+    public tags: Array<TagItem> = [
+        { value: 1, label: 'Tag 1' },
+        { value: 2, label: 'Tag 2' },
+        { value: 6, label: 'Tag 3' },
+        { value: 4, label: 'Tag 4' },
+        { value: 5, label: 'Tag 5' }
+    ];
+    public settings: TagSettings = {
+        
+    };
+    public langs: TagLangs = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { TagModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-tag</code> - base class
+            </li>
+            <li>
+                <code>fox-tag__input</code> - typing input
+            </li>
+            <li>
+                <code>fox-tag__item</code> - item
+            </li>
+            <li>
+                <code>fox-tag__name</code> - tag name
+            </li>
+            <li>
+                <code>fox-tag__remove</code> - tag remove button
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+TagItem {
+    value: number;
+    label: string;
+}
+
+TagSettings {
+    color?: string;
+    size?: string;
+    duplicates?: boolean;
+    addTagOnComma?: boolean;
+    addTagOnEnter?: boolean;
+    addTagOnPaste?: boolean;
+    addTagOnSpace?: boolean;
+    addTagOnBlur?: boolean;
+    minTagLength?: number;
+}
+
+TagLangs {
+    inputPlaceholder?: string;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>color</code> (<code>string</code>) - tags color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>size</code> (<code>string</code>) - tags size: <code>sm</code> ,<code>md</code>,<code>lg</code>
+            </li>
+            <li>
+                <code>duplicates</code> (<code>boolean</code>) - allow tag duplicates
+            </li>
+            <li>
+                <code>addTagOnComma</code> (<code>boolean</code>) - add tag on coma enter
+            </li>
+            <li>
+                <code>addTagOnEnter</code> (<code>boolean</code>) - add tag on enter push
+            </li>
+            <li>
+                <code>addTagOnPaste</code> (<code>boolean</code>) - add tag on past value from buffer
+            </li>
+            <li>
+                <code>addTagOnSpace</code> (<code>boolean</code>) - add tag on space push
+            </li>
+            <li>
+                <code>addTagOnBlur</code> (<code>boolean</code>) - add tag on blur
+            </li>
+            <li>
+                <code>minTagLength</code> (<code>number</code>) - min entered tag length
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for tags
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    color: 'secondary',
+    size: 'md',
+    duplicates: false,
+    minTagLength: 1,
+    addTagOnComma: true,
+    addTagOnEnter: true,
+    addTagOnPaste: true,
+    addTagOnSpace: false,
+    addTagOnBlur: true
+};
+
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>tagAdd</code> - add tag event. Returned <code>{{ '{' }}tag{{ '}' }}</code>
+            </li>
+            <li>
+                <code>tagRemoved</code> - remove tag event. Returned <code>{{ '{' }}tag{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

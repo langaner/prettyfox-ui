@@ -1,0 +1,197 @@
+<demo title="Spinner">
+    <div demo-description>
+        Customizable input spinner component.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-spinner [settings]="{color: 'primary'}" name="primary" [(ngModel)]="value"></fox-spinner>
+        <div class="demo__margin-bottom"></div>
+        <fox-spinner [settings]="{color: 'secondary'}" name="secondary" [(ngModel)]="value"></fox-spinner>
+        <div class="demo__margin-bottom"></div>
+        <fox-spinner [settings]="{color: 'success'}" name="success" [(ngModel)]="value"></fox-spinner>
+        <div class="demo__margin-bottom"></div>
+        <fox-spinner [settings]="{color: 'info'}" name="info" [(ngModel)]="value"></fox-spinner>
+        <div class="demo__margin-bottom"></div>
+        <fox-spinner [settings]="{color: 'warning'}" name="warning" [(ngModel)]="value"></fox-spinner>
+        <div class="demo__margin-bottom"></div>
+        <fox-spinner [settings]="{color: 'danger'}" name="danger" [(ngModel)]="value"></fox-spinner>
+        <div class="demo__margin-bottom"></div>
+        <fox-spinner [settings]="{color: 'link'}" name="link" [(ngModel)]="value"></fox-spinner>
+        <div class="content-body__subtitle">Sizes</div>
+        <fox-spinner [settings]="{size: 'lg'}" name="lg" [(ngModel)]="value"></fox-spinner>
+        <div class="demo__margin-bottom"></div>
+        <fox-spinner [settings]="{size: 'md'}" name="md" [(ngModel)]="value"></fox-spinner>
+        <div class="demo__margin-bottom"></div>
+        <fox-spinner [settings]="{size: 'sm'}" name="sm" [(ngModel)]="value"  ></fox-spinner>
+        <div class="content-body__subtitle">Decimal</div>
+        <fox-spinner [settings]="{decimals: 2, step: 0.01, min: 0.01}" name="decimals" [(ngModel)]="value"></fox-spinner>
+        <div class="content-body__subtitle">Postfix/Prefix</div>
+        <fox-spinner [settings]="{postfix: '%', prefix: '='}" name="pp" [(ngModel)]="value"></fox-spinner>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Colors</div>
+<fox-spinner [settings]="{color: 'primary'}" name="primary" [(ngModel)]="value"></fox-spinner>
+<div class="demo__margin-bottom"></div>
+<fox-spinner [settings]="{color: 'secondary'}" name="secondary" [(ngModel)]="value"></fox-spinner>
+<div class="demo__margin-bottom"></div>
+<fox-spinner [settings]="{color: 'success'}" name="success" [(ngModel)]="value"></fox-spinner>
+<div class="demo__margin-bottom"></div>
+<fox-spinner [settings]="{color: 'info'}" name="info" [(ngModel)]="value"></fox-spinner>
+<div class="demo__margin-bottom"></div>
+<fox-spinner [settings]="{color: 'warning'}" name="warning" [(ngModel)]="value"></fox-spinner>
+<div class="demo__margin-bottom"></div>
+<fox-spinner [settings]="{color: 'danger'}" name="danger" [(ngModel)]="value"></fox-spinner>
+<div class="content-body__subtitle">Sizes</div>
+<fox-spinner [settings]="{size: 'lg'}" name="lg" [(ngModel)]="value"></fox-spinner>
+<div class="demo__margin-bottom"></div>
+<fox-spinner [settings]="{size: 'md'}" name="md" [(ngModel)]="value"></fox-spinner>
+<div class="demo__margin-bottom"></div>
+<fox-spinner [settings]="{size: 'sm'}" name="sm" [(ngModel)]="value"  ></fox-spinner>
+<div class="content-body__subtitle">Decimal</div>
+<fox-spinner [settings]="{decimals: 2, step: 0.01, min: 0.01}" name="decimals" [(ngModel)]="value"></fox-spinner>
+<div class="content-body__subtitle">Postfix/Prefix</div>
+<fox-spinner [settings]="{postfix: '%', prefix: '='}" name="pp" [(ngModel)]="value"></fox-spinner>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { SpinnerSettings } from '../../components/spinner/spinner.model'
+
+@Component({
+    moduleId: module.id,
+    selector: 'spinner-demo',
+    templateUrl: 'spinner.demo.html'
+})
+export class SpinnerDemoComponent implements OnInit {
+    public value: number;
+    public settings: SpinnerSettings = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { SpinnerModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-spinner</code> - base class
+            </li>
+            <li>
+                <code>fox-spinner__minus</code> - decrement button
+            </li>
+            <li>
+                <code>fox-spinner__plus</code> - increment button
+            </li>
+            <li>
+                <code>fox-spinner__prefix</code> - prefix class
+            </li>
+            <li>
+                <code>fox-spinner__postfix</code> - postfix class
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+SpinnerSettings {
+    max?: number;
+    min?: number;
+    prefix?: string;
+    postfix?: string;
+    color?: string;
+    size?: string;
+    step?: number;
+    decimals?: number;
+    forcestep?: string;
+}
+
+name: '';
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>max</code> (<code>number</code>) - spinner max vslue
+            </li>
+            <li>
+                <code>min</code> (<code>number</code>) - spinner min value
+            </li>
+            <li>
+                <code>prefix</code> (<code>number</code>) - spinner prefix
+            </li>
+            <li>
+                <code>postfix</code> (<code>number</code>) - spinner postfix
+            </li>
+            <li>
+                <code>color</code> (<code>string</code>) - spinner color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>. <code>link</code>
+            </li>
+            <li>
+                <code>size</code> (<code>string</code>) - spinner size: <code>sm</code> ,<code>md</code>, <code>lg</code>
+            </li>
+            <li>
+                <code>name</code> (<code>string</code>) - spinner name
+            </li>
+            <li>
+                <code>step</code> (<code>number</code>) - incremental/decremental step
+            </li>
+            <li>
+                <code>decimals</code> (<code>number</code>) - number of decimal points
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for spinner
+            </li>
+            <li>
+                <code>forcestep</code> (<code>string</code>) - How to force the value: <code>none</code> ,<code>round</code>, <code>floor</code>, <code>ceil</code>
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    max: 100,
+    min: 1,
+    prefix: '',
+    postfix: '',
+    color: 'secondary',
+    size: 'md',
+    step: 1,
+    decimals: 0,
+    forcestep: 'round'
+};
+
+name: '';
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>clicked</code> - click event on spinner. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+            <li>
+                <code>changed</code> - change event on spinner. Returned <code>{{ '{' }}originalEvent: event, value: this.innerValue{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

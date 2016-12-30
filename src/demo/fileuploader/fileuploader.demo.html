@@ -1,0 +1,331 @@
+<demo title="Fileuploader">
+    <div demo-description>
+        Fileuploader allow you to upload multi file, auto uploading files.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-fileuploader name="files" (preview)="handlePreview($event)" (upload)="handleUpload($event)"></fox-fileuploader> 
+        <p>Files:</p>
+        <ul *ngIf="files.length">
+            <li *ngFor="let file of files; let i = index">
+                File №{{ i + 1 }} - {{ file.name }}
+            </li>
+        </ul>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-fileuploader name="files" [settings]="{color: 'primary'}" [langs]="{buttonText: 'Primary'}"></fox-fileuploader>
+        <div class="demo__margin-bottom"></div>
+        <fox-fileuploader name="files" [settings]="{color: 'secondary'}" [langs]="{buttonText: 'Secondary'}"></fox-fileuploader>
+        <div class="demo__margin-bottom"></div>
+        <fox-fileuploader name="files" [settings]="{color: 'success'}" [langs]="{buttonText: 'Success'}"></fox-fileuploader>
+        <div class="demo__margin-bottom"></div>
+        <fox-fileuploader name="files" [settings]="{color: 'info'}" [langs]="{buttonText: 'Info'}"></fox-fileuploader>
+        <div class="demo__margin-bottom"></div>
+        <fox-fileuploader name="files" [settings]="{color: 'warning'}" [langs]="{buttonText: 'Warning'}"></fox-fileuploader>
+        <div class="demo__margin-bottom"></div>
+        <fox-fileuploader name="files" [settings]="{color: 'danger'}" [langs]="{buttonText: 'Danger'}"></fox-fileuploader>
+        <div class="demo__margin-bottom"></div>
+        <fox-fileuploader name="files" [settings]="{color: 'link'}" [langs]="{buttonText: 'Link'}"></fox-fileuploader>
+        <div class="content-body__subtitle">Sizes</div>
+        <fox-fileuploader name="files" [settings]="{color: 'primary', size: 'lg'}" [langs]="{buttonText: 'Large size'}"></fox-fileuploader>
+        <div class="demo__margin-bottom"></div>
+        <fox-fileuploader name="files" [settings]="{color: 'primary', size: 'md'}" [langs]="{buttonText: 'Medium size'}"></fox-fileuploader>
+        <div class="demo__margin-bottom"></div>
+        <fox-fileuploader name="files" [settings]="{color: 'primary', size: 'sm'}" [langs]="{buttonText: 'Small size'}"></fox-fileuploader>
+        <div class="content-body__subtitle">Multiple</div>
+        <fox-fileuploader name="files" [settings]="{multiple: true}"></fox-fileuploader> 
+        <div class="content-body__subtitle">Extensions</div>
+        <fox-fileuploader name="files" [settings]="{allowedExtensions: ['jpg', 'jpeg', 'image/jpeg']}" [langs]="{buttonText: 'Only jpeg'}"></fox-fileuploader> 
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-fileuploader name="files" (preview)="handlePreview($event)" (upload)="handleUpload($event)"></fox-fileuploader> 
+<div class="content-body__subtitle">Colors</div>
+<fox-fileuploader name="files" [settings]="{color: 'primary'}" [langs]="{buttonText: 'Primary'}"></fox-fileuploader>
+<div class="demo__margin-bottom"></div>
+<fox-fileuploader name="files" [settings]="{color: 'secondary'}" [langs]="{buttonText: 'Secondary'}"></fox-fileuploader>
+<div class="demo__margin-bottom"></div>
+<fox-fileuploader name="files" [settings]="{color: 'success'}" [langs]="{buttonText: 'Success'}"></fox-fileuploader>
+<div class="demo__margin-bottom"></div>
+<fox-fileuploader name="files" [settings]="{color: 'info'}" [langs]="{buttonText: 'Info'}"></fox-fileuploader>
+<div class="demo__margin-bottom"></div>
+<fox-fileuploader name="files" [settings]="{color: 'warning'}" [langs]="{buttonText: 'Warning'}"></fox-fileuploader>
+<div class="demo__margin-bottom"></div>
+<fox-fileuploader name="files" [settings]="{color: 'danger'}" [langs]="{buttonText: 'Danger'}"></fox-fileuploader>
+<div class="demo__margin-bottom"></div>
+<fox-fileuploader name="files" [settings]="{color: 'link'}" [langs]="{buttonText: 'Link'}"></fox-fileuploader>
+<div class="content-body__subtitle">Sizes</div>
+<fox-fileuploader name="files" [settings]="{color: 'primary', size: 'lg'}" [langs]="{buttonText: 'Large size'}"></fox-fileuploader>
+<div class="demo__margin-bottom"></div>
+<fox-fileuploader name="files" [settings]="{color: 'primary', size: 'md'}" [langs]="{buttonText: 'Medium size'}"></fox-fileuploader>
+<div class="demo__margin-bottom"></div>
+<fox-fileuploader name="files" [settings]="{color: 'primary', size: 'sm'}" [langs]="{buttonText: 'Small size'}"></fox-fileuploader>
+<div class="content-body__subtitle">Multiple</div>
+<fox-fileuploader name="files" [settings]="{multiple: true}"></fox-fileuploader> 
+<div class="content-body__subtitle">Extensions</div>
+<fox-fileuploader name="files" [settings]="{allowedExtensions: ['jpg', 'jpeg', 'image/jpeg']}" [langs]="{buttonText: 'Only jpeg'}"></fox-fileuploader> 
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { FileuploaderSettings, FileuploaderLangs } from '../../components/fileuploader/fileuploader.model'
+
+@Component({
+    moduleId: module.id,
+    selector: 'fileuploader-demo',
+    templateUrl: 'fileuploader.demo.html'
+})
+export class FileuploaderDemoComponent implements OnInit {
+    public files: Array<any> = [];
+
+    public settings: FileuploaderSettings = {
+        
+    };
+
+    public langs: FileuploaderLangs = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+
+    handlePreview(data: any) {
+        if (data && data.url) {
+            
+        }
+    }
+
+    handleUpload(data: any) {
+        console.log(data);
+        if (data && data.files) {
+            this.files = data.files;
+        }
+    }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { FileuploaderModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-fileuploader</code> - base class
+            </li>
+            <li>
+                <code>fox-fileuploader__input</code> - file input 
+            </li>
+            <li>
+                <code>fox-fileuploader__count-uploaded</code> - files counter
+            </li>
+            <li>
+                <code>fox-fileuploader__previews</code> - preview list
+            </li>
+            <li>
+                <code>fox-fileuploader__item</code> - preview list item
+            </li>
+            <li>
+                <code>fox-fileuploader__thumb</code> - item thumb
+            </li>
+            <li>
+                <code>fox-fileuploader__name</code> - item name
+            </li>
+            <li>
+                <code>fox-fileuploader__remove</code> - item remove button
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+FileuploaderSettings {
+    color?: string;
+    size?: string;
+    multiple?: boolean;
+    filterExtensions?: boolean;
+    allowedExtensions?: Array<string>;
+    imagesExtensions?: Array<string>;
+    filesExtensions?: Array<string>;
+    showPreview?: boolean;
+    autoupload?: boolean;
+    speedProgress?: boolean;
+    xhrMethod?: string;
+    xhrUrl?: string;
+    xhrCredentials?: boolean;
+    xhrHeaders?: Array<string>,
+    xhrAuthToken?: string;
+    xhrAuthTokenPrefix?: string;
+    iconsPath?: string;
+    viewCounter?: boolean;
+}
+
+FileuploaderLangs {
+    buttonText?: string;
+    extensionNotAllowed?: string;
+    zeroBytes?: string;
+    removeFile?: string;
+    uploadedCounter?: string;
+    clearAll?: string;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>color</code> (<code>string</code>) - fileuploader button color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>size</code> (<code>string</code>) - fileuploader button size: <code>sm</code> ,<code>md</code>,<code>lg</code>
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for fileuploader
+            </li>
+            <li>
+                <code>multiple</code> (<code>boolean</code>) - multiple select files
+            </li>
+            <li>
+                <code>filterExtensions</code> (<code>boolean</code>) - filtering extensions
+            </li>
+            <li>
+                <code>allowedExtensions</code> (<code>array</code>) - allowed extensions
+            </li>
+            <li>
+                <code>imagesExtensions</code> (<code>array</code>) - allowed images extensions
+            </li>
+            <li>
+                <code>filesExtensions</code> (<code>array</code>) - allowed file extensions
+            </li>
+            <li>
+                <code>showPreview</code> (<code>boolean</code>) - show previews
+            </li>
+            <li>
+                <code>autoupload</code> (<code>boolean</code>) - autoupload after select files
+            </li>
+            <li>
+                <code>speedProgress</code> (<code>boolean</code>) - view speed progress
+            </li>
+            <li>
+                <code>xhrMethod</code> (<code>string</code>) - method
+            </li>
+            <li>
+                <code>xhrUrl</code> (<code>string</code>) - url
+            </li>
+            <li>
+                <code>xhrCredentials</code> (<code>boolean</code>) - credentials
+            </li>
+            <li>
+                <code>xhrHeaders</code> (<code>array</code>) - header
+            </li>
+
+            <li>
+                <code>xhrAuthToken</code> (<code>string</code>) - auth token
+            </li>
+            <li>
+                <code>xhrAuthTokenPrefix</code> (<code>string</code>) - auth token prefix
+            </li>
+            <li>
+                <code>iconsPath</code> (<code>string</code>) - icons puth for file extensions
+            </li>
+            <li>
+                <code>viewCounter</code> (<code>boolean</code>) - view files cunter
+            </li>
+        </ul>
+        <p>Langs</p>
+        <ul>
+            <li>
+                <code>buttonText</code> (<code>string</code>) - upload button label
+            </li>
+            <li>
+                <code>extensionNotAllowed</code> (<code>string</code>) - extension error text
+            </li>
+            <li>
+                <code>zeroBytes</code> (<code>string</code>) - zero byte label
+            </li>
+            <li>
+                <code>removeFile</code> (<code>string</code>) - remove file label
+            </li>
+            <li>
+                <code>uploadedCounter</code> (<code>string</code>) - counter text
+            </li>
+            <li>
+                <code>clearAll</code> (<code>string</code>) - clear all button text
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    multiple: false,
+    color: 'secondary',
+    size: 'md',
+    filterExtensions: true,
+    allowedExtensions: ['jpg', 'png', 'image/jpeg', 'image/png', 'txt', 'pdf', 'text/plain', 'application/pdf'],
+    imagesExtensions: ['jpg', 'png', 'image/jpeg', 'image/png'],
+    filesExtensions: ['txt', 'pdf', 'text/plain', 'application/pdf'],
+    showPreview: true,
+    autoupload: false,
+    speedProgress: true,
+    xhrMethod: 'POST',
+    xhrUrl: 'http://localhost',
+    xhrCredentials: true,
+    xhrHeaders: [],
+    xhrAuthToken: null,
+    xhrAuthTokenPrefix: '',
+    iconsPath: 'app/resources/img/icons',
+    viewCounter: false
+};
+
+langs: {
+    buttonText: 'Upload',
+    extensionNotAllowed: 'Extension not allowed to upload',
+    zeroBytes: '0 Byte',
+    removeFile: '<i class="fa fa-times"></i>',
+    uploadedCounter: 'files is uploaded'
+};
+
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>clicked</code> - click event on fileuploader. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+            <li>
+                <code>rejected</code> - extension error. Returned <code>{{ '{' }}file: file, reason: this.langs.extensionNotAllowed{{ '}' }}</code>
+            </li>
+            <li>
+                <code>preview</code> - preview. Returned <code>{{ '{' }}url: renderResult{{ '}' }}</code>
+            </li>
+            <li>
+                <code>upload</code> - upload start. Returned <code>{{ '{' }}originalEvent: event, files: this.files{{ '}' }}</code>
+            </li>
+            <li>
+                <code>uploadProgress</code> - upload progress. Returned <code>{{ '{' }}loadData{{ '}' }}</code>
+            </li>
+            <li>
+                <code>uploadAbort</code> - upload abort. Returned <code>{{ '{' }}loadData{{ '}' }}</code>
+            </li>
+            <li>
+                <code>uploadError</code> - upload error. Returned <code>{{ '{' }}loadData{{ '}' }}</code>
+            </li>
+            <li>
+                <code>uploadDone</code> - upload complete. Returned <code>{{ '{' }}loadData{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

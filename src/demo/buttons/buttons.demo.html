@@ -1,0 +1,227 @@
+<demo title="Buttons">
+    <div demo-description>
+        Provide bootstrap buttons functional.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-button [settings]="{color: 'primary', label: 'Primary'}"></fox-button>
+        <fox-button [settings]="{color: 'secondary', label: 'Secondary'}"></fox-button>
+        <fox-button [settings]="{color: 'success', label: 'Success'}"></fox-button>
+        <fox-button [settings]="{color: 'info', label: 'Info'}"></fox-button>
+        <fox-button [settings]="{color: 'warning', label: 'Warning'}"></fox-button>
+        <fox-button [settings]="{color: 'danger', label: 'Danger'}"></fox-button>
+        <fox-button [settings]="{color: 'link', label: 'Link'}"></fox-button>
+        <div class="content-body__subtitle">Outline buttons</div>
+        <fox-button [settings]="{color: 'primary', label: 'Primary', outline: true}"></fox-button>
+        <fox-button [settings]="{color: 'secondary', label: 'Secondary', outline: true}"></fox-button>
+        <fox-button [settings]="{color: 'success', label: 'Success', outline: true}"></fox-button>
+        <fox-button [settings]="{color: 'info', label: 'Info', outline: true}"></fox-button>
+        <fox-button [settings]="{color: 'warning', label: 'Warning', outline: true}"></fox-button>
+        <fox-button [settings]="{color: 'danger', label: 'Danger', outline: true}"></fox-button>
+        <div class="content-body__subtitle">Sizes</div>
+        <fox-button [settings]="{color: 'primary', label: 'Large size', size: 'lg'}"></fox-button>
+        <fox-button [settings]="{color: 'primary', label: 'Medium size', size: 'md'}"></fox-button>
+        <fox-button [settings]="{color: 'primary', label: 'Small size', size: 'sm'}"></fox-button>
+        <div class="content-body__subtitle">Full width</div>
+        <fox-button [settings]="{color: 'primary', label: 'Primary', fullWidth: true}"></fox-button>
+        <fox-button [settings]="{color: 'secondary', label: 'Secondary', fullWidth: true}"></fox-button>
+        <div class="content-body__subtitle">State</div>
+        <fox-button [settings]="{color: 'primary', label: 'Primary'}" disabled="true"></fox-button>
+        <fox-button [settings]="{color: 'secondary', label: 'Secondary'}" disabled="true"></fox-button>
+        <div class="content-body__subtitle">Icons</div>
+        <fox-button [settings]="{icon: 'home'}"></fox-button>
+        <fox-button [settings]="{label: 'Secondary', icon: 'home'}"></fox-button>
+        <fox-button [settings]="{label: 'Secondary', icon: 'home', iconPlacement: 'right'}"></fox-button>
+        <div class="content-body__subtitle">Circle</div>
+        <fox-button [settings]="{color: 'primary', icon: 'home', size: 'lg', circle: true}"></fox-button>
+        <fox-button [settings]="{color: 'success', icon: 'home', size: 'md', circle: true}"></fox-button>
+        <fox-button [settings]="{color: 'warning', icon: 'home', size: 'sm', circle: true}"></fox-button>
+        <fox-button [settings]="{color: 'danger', icon: 'home', size: 'xs', circle: true}"></fox-button>
+        <div class="content-body__subtitle">Circle Outline</div>
+        <fox-button [settings]="{color: 'primary', icon: 'home', size: 'lg', circle: true, outline: true}"></fox-button>
+        <fox-button [settings]="{color: 'success', icon: 'home', size: 'md', circle: true, outline: true}"></fox-button>
+        <fox-button [settings]="{color: 'warning', icon: 'home', size: 'sm', circle: true, outline: true}"></fox-button>
+        <fox-button [settings]="{color: 'danger', icon: 'home', size: 'xs', circle: true, outline: true}"></fox-button>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Colors</div>
+<fox-button [settings]="{color: 'primary', label: 'Primary'}"></fox-button>
+<fox-button [settings]="{color: 'secondary', label: 'Secondary'}"></fox-button>
+<fox-button [settings]="{color: 'success', label: 'Success'}"></fox-button>
+<fox-button [settings]="{color: 'info', label: 'Info'}"></fox-button>
+<fox-button [settings]="{color: 'warning', label: 'Warning'}"></fox-button>
+<fox-button [settings]="{color: 'danger', label: 'Danger'}"></fox-button>
+<fox-button [settings]="{color: 'link', label: 'Link'}"></fox-button>
+<div class="content-body__subtitle">Outline buttons</div>
+<fox-button [settings]="{color: 'primary', label: 'Primary', outline: true}"></fox-button>
+<fox-button [settings]="{color: 'secondary', label: 'Secondary', outline: true}"></fox-button>
+<fox-button [settings]="{color: 'success', label: 'Success', outline: true}"></fox-button>
+<fox-button [settings]="{color: 'info', label: 'Info', outline: true}"></fox-button>
+<fox-button [settings]="{color: 'warning', label: 'Warning', outline: true}"></fox-button>
+<fox-button [settings]="{color: 'danger', label: 'Danger', outline: true}"></fox-button>
+<div class="content-body__subtitle">Sizes</div>
+<fox-button [settings]="{color: 'primary', label: 'Large size', size: 'lg'}"></fox-button>
+<fox-button [settings]="{color: 'primary', label: 'Medium size', size: 'md'}"></fox-button>
+<fox-button [settings]="{color: 'primary', label: 'Small size', size: 'sm'}"></fox-button>
+<div class="content-body__subtitle">Full width</div>
+<fox-button [settings]="{color: 'primary', label: 'Primary', fullWidth: true}"></fox-button>
+<fox-button [settings]="{color: 'secondary', label: 'Secondary', fullWidth: true}"></fox-button>
+<div class="content-body__subtitle">State</div>
+<fox-button [settings]="{color: 'primary', label: 'Primary'}" disabled="true"></fox-button>
+<fox-button [settings]="{color: 'secondary', label: 'Secondary'}" disabled="true"></fox-button>
+<div class="content-body__subtitle">Icons</div>
+<fox-button [settings]="{color: 'secondary', icon: 'home'}"></fox-button>
+<fox-button [settings]="{color: 'secondary', label: 'Secondary', icon: 'home'}"></fox-button>
+<fox-button [settings]="{color: 'secondary', label: 'Secondary', icon: 'home', iconPlacement: 'right'}"></fox-button>
+<div class="content-body__subtitle">Circle</div>
+<fox-button [settings]="{color: 'primary', icon: 'home', size: 'lg', circle: true}"></fox-button>
+<fox-button [settings]="{color: 'success', icon: 'home', size: 'md', circle: true}"></fox-button>
+<fox-button [settings]="{color: 'warning', icon: 'home', size: 'sm', circle: true}"></fox-button>
+<fox-button [settings]="{color: 'danger', icon: 'home', size: 'xs', circle: true}"></fox-button>
+<div class="content-body__subtitle">Circle Outline</div>
+<fox-button [settings]="{color: 'primary', icon: 'home', size: 'lg', circle: true, outline: true}"></fox-button>
+<fox-button [settings]="{color: 'success', icon: 'home', size: 'md', circle: true, outline: true}"></fox-button>
+<fox-button [settings]="{color: 'warning', icon: 'home', size: 'sm', circle: true, outline: true}"></fox-button>
+<fox-button [settings]="{color: 'danger', icon: 'home', size: 'xs', circle: true, outline: true}"></fox-button>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { ButtonsSettings } from '../../components/buttons/buttons.model'
+
+@Component({
+    moduleId: module.id,
+    selector: 'buttons-demo',
+    templateUrl: 'buttons.demo.html'
+})
+export class ButtonsDemoComponent implements OnInit {
+    public settings: ButtonsSettings = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { ButtonsModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-button</code> - base class
+            </li>
+            <li>
+                <code>fox-button__icon</code> - button icon
+            </li>
+            <li>
+                <code>fox-button__label</code> - button label
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+ButtonsSettings {
+    icon?: string;
+    label?: string;
+    iconResource?: string;
+    iconPlacement?: string;
+    color?: string;
+    size?: string;
+    class?: string;
+    outline?: boolean;
+    fullWidth?: boolean;
+    circle?: boolean;
+    type?: string;
+    url?: string;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>label</code> (<code>string</code>) - button name
+            </li>
+            <li>
+                <code>icon</code> (<code>string</code>) - change icon for button. Used font awesome icons
+            </li>
+            <li>
+                <code>iconPlacement</code> (<code>string</code>) - icon position: <code>left</code> ,<code>right</code>
+            </li>
+            <li>
+                <code>iconResource</code> (<code>string</code>) - styles resource
+            </li>
+            <li>
+                <code>color</code> (<code>string</code>) - button color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>size</code> (<code>string</code>) - button size: <code>sm</code> ,<code>md</code>,<code>lg</code>
+            </li>
+            <li>
+                <code>class</code> (<code>string</code>) - adtitional button class
+            </li>
+            <li>
+                <code>outline</code> (<code>boolean</code>) - button outline
+            </li>
+            <li>
+                <code>fullWidth</code> (<code>boolean</code>) - use full width buttons
+            </li>
+            <li>
+                <code>circle</code> (<code>boolean</code>) - circle button style
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for button
+            </li>
+            <li>
+                <code>type</code> (<code>string</code>) - button type
+            </li>
+            <li>
+                <code>url</code> (<code>string</code>) - navigate on click
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    label: '',
+    iconResource: 'fa',
+    iconPlacement: 'left',
+    icon: '',
+    color: 'secondary',
+    size: 'md',
+    class: '',
+    outline: false,
+    fullWidth: false,
+    circle: false,
+    type: 'button',
+    url: null
+};
+
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>clicked</code> - click event on button. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

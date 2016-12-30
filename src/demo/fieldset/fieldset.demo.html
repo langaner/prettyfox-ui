@@ -1,0 +1,145 @@
+<demo title="Fieldset">
+    <div demo-description>
+        Fieldset is a grouping component with a content toggle.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Colors</div>
+		<fox-fieldset [settings]="{title: 'Primary', color: 'primary'}">
+            Primary fieldset content
+        </fox-fieldset>
+        <fox-fieldset [settings]="{title: 'Secondary', color: 'secondary'}">
+            Secondary fieldset content
+        </fox-fieldset>
+        <fox-fieldset [settings]="{title: 'Success', color: 'success'}">
+            Success fieldset content
+        </fox-fieldset>
+        <fox-fieldset [settings]="{title: 'Info', color: 'info'}">
+            Info fieldset content
+        </fox-fieldset>
+        <fox-fieldset [settings]="{title: 'Warning', color: 'warning'}">
+            Warning fieldset content
+        </fox-fieldset>
+        <fox-fieldset [settings]="{title: 'Danger', color: 'danger'}">
+            Danger fieldset content
+        </fox-fieldset>
+		<div class="content-body__subtitle">Toggleable</div>
+		<fox-fieldset [settings]="{title: 'Toggleable', toggleable: true}">
+            Toggleable fieldset content
+        </fox-fieldset>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Colors</div>
+<fox-fieldset [settings]="{title: 'Primary', color: 'primary'}">
+    Fieldset content
+</fox-fieldset>
+<fox-fieldset [settings]="{title: 'Secondary', color: 'secondary'}">
+    Fieldset content
+</fox-fieldset>
+<fox-fieldset [settings]="{title: 'Success', color: 'success'}">
+    Fieldset content
+</fox-fieldset>
+<fox-fieldset [settings]="{title: 'Info', color: 'info'}">
+    Fieldset content
+</fox-fieldset>
+<fox-fieldset [settings]="{title: 'Warning', color: 'warning'}">
+    Fieldset content
+</fox-fieldset>
+<fox-fieldset [settings]="{title: 'Danger', color: 'danger'}">
+    Fieldset content
+</fox-fieldset>
+<div class="content-body__subtitle">Toggleable</div>
+<fox-fieldset [settings]="{title: 'Toggleable', toggleable: true}">
+    content
+</fox-fieldset>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { FieldsetSettings } from '../../components/fieldset/fieldset.model'
+
+@Component({
+    moduleId: module.id,
+    selector: 'fieldset-demo',
+    templateUrl: 'fieldset.demo.html'
+})
+export class FieldsetDemoComponent implements OnInit {
+    public settings: FieldsetSettings = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { FieldsetModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-fieldset</code> - base class
+            </li>
+            <li>
+                <code>fox-fieldset__collapser</code> - collapser button
+            </li>
+			<li>
+                <code>fox-fieldset__content</code> - fieldset content
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+FieldsetSettings {
+    title?: string;
+    color?: string;
+    toggleable?: boolean;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>title</code> (<code>string</code>) - toggled title
+            </li>
+            <li>
+                <code>color</code> (<code>string</code>) - toggled color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>toggleable</code> (<code>boolean</code>) - fieldset is toggleable
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+	title: '',
+    color: 'secondary',
+    toggleable: false
+};
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>toggled</code> - click event on toggled button. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

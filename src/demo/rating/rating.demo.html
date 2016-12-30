@@ -1,0 +1,201 @@
+<demo title="Rating">
+    <div demo-description>
+        Simple customizable rating control. 
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-rating name="rate" [settings]="{starsCount: 10, showRate: true, showRateLabel: true}" [(ngModel)]="rate"></fox-rating>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-rating name="rate" [settings]="{levels: ['primary']}" [(ngModel)]="rate"></fox-rating>
+        <div class="demo__margin-bottom"></div>
+        <fox-rating name="rate" [settings]="{levels: ['inverse']}" [(ngModel)]="rate"></fox-rating>
+        <div class="demo__margin-bottom"></div>
+        <fox-rating name="rate" [settings]="{levels: ['success']}" [(ngModel)]="rate"></fox-rating>
+        <div class="demo__margin-bottom"></div>
+        <fox-rating name="rate" [settings]="{levels: ['info']}" [(ngModel)]="rate"></fox-rating>
+        <div class="demo__margin-bottom"></div>
+        <fox-rating name="rate" [settings]="{levels: ['warning']}" [(ngModel)]="rate"></fox-rating>
+        <div class="demo__margin-bottom"></div>
+        <fox-rating name="rate" [settings]="{levels: ['danger']}" [(ngModel)]="rate"></fox-rating>
+        <div class="content-body__subtitle">Mixed colors</div>
+        <fox-rating name="rate" [(ngModel)]="rate"></fox-rating>
+        <fox-rating name="rate" [settings]="{levels: ['info','primary','success','warning','danger']}" [(ngModel)]="rate"></fox-rating>
+        <div class="content-body__subtitle">Sizes</div>
+        <fox-rating name="rate" [settings]="{size: 'lg'}" [(ngModel)]="rate"></fox-rating>
+        <div class="demo__margin-bottom"></div>
+        <fox-rating name="rate" [settings]="{size: 'md'}" [(ngModel)]="rate"></fox-rating>
+        <div class="demo__margin-bottom"></div>
+        <fox-rating name="rate" [settings]="{size: 'sm'}" [(ngModel)]="rate"></fox-rating>
+        <div class="content-body__subtitle">Icons</div>
+        <fox-rating name="rate" [settings]="{iconClass: 'fa fa-envira'}" [(ngModel)]="rate"></fox-rating>
+        <div class="content-body__subtitle">Disabled</div>
+        <fox-rating name="rate" [settings]="{starsCount: 10}" [(ngModel)]="rate" [disabled]="true"></fox-rating>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-rating name="rate" [settings]="{starsCount: 10, showRate: true, showRateLabel: true}" [(ngModel)]="rate"></fox-rating>
+<div class="content-body__subtitle">Colors</div>
+<fox-rating name="rate" [settings]="{levels: ['primary']}" [(ngModel)]="rate"></fox-rating>
+<div class="demo__margin-bottom"></div>
+<fox-rating name="rate" [settings]="{levels: ['inverse']}" [(ngModel)]="rate"></fox-rating>
+<div class="demo__margin-bottom"></div>
+<fox-rating name="rate" [settings]="{levels: ['success']}" [(ngModel)]="rate"></fox-rating>
+<div class="demo__margin-bottom"></div>
+<fox-rating name="rate" [settings]="{levels: ['info']}" [(ngModel)]="rate"></fox-rating>
+<div class="demo__margin-bottom"></div>
+<fox-rating name="rate" [settings]="{levels: ['warning']}" [(ngModel)]="rate"></fox-rating>
+<div class="demo__margin-bottom"></div>
+<fox-rating name="rate" [settings]="{levels: ['danger']}" [(ngModel)]="rate"></fox-rating>
+<div class="content-body__subtitle">Mixed colors</div>
+<fox-rating name="rate" [(ngModel)]="rate"></fox-rating>
+<fox-rating name="rate" [settings]="{levels: ['info','primary','success','warning','danger']}" [(ngModel)]="rate"></fox-rating>
+<div class="content-body__subtitle">Sizes</div>
+<fox-rating name="rate" [settings]="{size: 'lg'}" [(ngModel)]="rate"></fox-rating>
+<div class="demo__margin-bottom"></div>
+<fox-rating name="rate" [settings]="{size: 'md'}" [(ngModel)]="rate"></fox-rating>
+<div class="demo__margin-bottom"></div>
+<fox-rating name="rate" [settings]="{size: 'sm'}" [(ngModel)]="rate"></fox-rating>
+<div class="content-body__subtitle">Icons</div>
+<fox-rating name="rate" [settings]="{iconClass: 'fa fa-envira'}" [(ngModel)]="rate"></fox-rating>
+<div class="content-body__subtitle">Disabled</div>
+<fox-rating name="rate" [settings]="{starsCount: 10}" [(ngModel)]="rate" [disabled]="true"></fox-rating>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { RatingSettings, RatingLangs } from '../../components/rating/rating.model';
+
+@Component({
+    moduleId: module.id,
+    selector: 'rating-demo',
+    templateUrl: 'rating.demo.html'
+})
+export class RatingDemoComponent implements OnInit {
+    public rate: number = 3;
+    public settings: RatingSettings = {
+        
+    };
+
+    public langs: RatingLangs = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { RatingModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-button</code> - base class
+            </li>
+            <li>
+                <code>fox-rating__group</code> - group of stars
+            </li>
+            <li>
+                <code>fox-rating__selected</code> - selected star
+            </li>
+            <li>
+                <code>fox-rating__view</code> - rate counter block
+            </li>
+            <li>
+                <code>fox-rating__counter</code> - rate counter
+            </li>
+            <li>
+                <code>fox-rating__label</code> - rate counter label
+            </li>
+            <li>
+                <code>fox-rating__star</code> - star
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+RatingSettings {
+    starsCount?: number;
+    iconClass?: string;
+    showRate?: boolean;
+    showRateLabel?: boolean;
+    levels?: Array<string>;
+    size?: string;
+}
+
+RatingLangs {
+    rateLabel?: string;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>starsCount</code> (<code>number</code>) - rating starts nimber
+            </li>
+            <li>
+                <code>iconClass</code> (<code>string</code>) - star icon class
+            </li>
+            <li>
+                <code>showRate</code> (<code>boolean</code>) - show rate number
+            </li>
+            <li>
+                <code>showRateLabel</code> (<code>boolean</code>) - show rate label
+            </li>
+            <li>
+                <code>rateLabel</code> (<code>string</code>) - rate label
+            </li>
+            <li>
+                <code>levels</code> (<code>string</code>) - rating color. Can be combine in array : <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>inverse</code>
+            </li>
+            <li>
+                <code>size</code> (<code>string</code>) - stars size: <code>sm</code> ,<code>md</code>,<code>lg</code>
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for rating
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    starsCount: 10,
+    iconClass: 'fa fa-star',
+    showRate: true,
+    showRateLabel: false,
+    levels: ['xlow', 'low', 'medium', 'high', 'xhigh'],
+    size: 'sm'
+};
+
+langs: {
+    rateLabel: 'Rating is: '
+};
+
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>rated</code> - click event on rating star. Returned <code>{{ '{' }}originalEvent: event, rate: rate{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

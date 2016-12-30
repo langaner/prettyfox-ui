@@ -1,1 +1,0 @@
-{"version":3,"file":"translations.section.js","sourceRoot":"","sources":["translations.section.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAkC,eAAe,CAAC,CAAA;AAOlD;IACI;IAAgB,CAAC;IAEjB,+CAAQ,GAAR,cAAa,CAAC;IARlB;QAAC,gBAAS,CAAC;YACP,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,sBAAsB;YAChC,WAAW,EAAE,2BAA2B;SAC3C,CAAC;;oCAAA;IAKF,mCAAC;AAAD,CAAC,AAJD,IAIC;AAJY,oCAA4B,+BAIxC,CAAA"}

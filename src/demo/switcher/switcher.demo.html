@@ -1,0 +1,215 @@
+<demo title="Switcher">
+    <div demo-description>
+        Provide base switcher functional.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-switcher name="switcher" [(ngModel)]="value"></fox-switcher> 
+        <p>Value: {{ value }}</p>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-switcher [settings]="{trueColor: 'primary'}" name="switcher" [(ngModel)]="value"></fox-switcher>
+        <div class="demo__margin-bottom"></div>
+        <fox-switcher [settings]="{trueColor: 'success'}" name="switcher" [(ngModel)]="value"></fox-switcher>
+        <div class="demo__margin-bottom"></div>
+        <fox-switcher [settings]="{trueColor: 'info'}" name="switcher" [(ngModel)]="value"></fox-switcher>
+        <div class="demo__margin-bottom"></div>
+        <fox-switcher [settings]="{trueColor: 'warning'}" name="switcher" [(ngModel)]="value"></fox-switcher>
+        <div class="demo__margin-bottom"></div>
+        <fox-switcher [settings]="{trueColor: 'danger'}" name="switcher" [(ngModel)]="value"></fox-switcher>
+        <div class="content-body__subtitle">Sizes</div>
+        <fox-switcher name="switcher" [settings]="{size: 'lg'}" [(ngModel)]="value"></fox-switcher>
+        <div class="demo__margin-bottom"></div>
+        <fox-switcher name="switcher" [settings]="{size: 'md'}" [(ngModel)]="value"></fox-switcher>
+        <div class="demo__margin-bottom"></div>
+        <fox-switcher name="switcher" [settings]="{size: 'sm'}" [(ngModel)]="value"></fox-switcher>
+        <div class="content-body__subtitle">Custom values</div>
+        <fox-switcher name="switcher" [settings]="{trueValue: 'One', falseValue: 'Two'}" [(ngModel)]="value"></fox-switcher>
+        <div class="content-body__subtitle">Disabled</div>
+        <fox-switcher name="switcher" [(ngModel)]="value" [disabled]="true"></fox-switcher>
+        <div class="content-body__subtitle">Custom width</div>
+        <fox-switcher [settings]="{width: 150}" name="switcher" [(ngModel)]="value"></fox-switcher>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-switcher name="switcher" [(ngModel)]="value"></fox-switcher>
+<p>Value: {{ value }}</p>
+<div class="content-body__subtitle">Colors</div>
+<fox-switcher [settings]="{trueColor: 'primary'}" name="switcher" [(ngModel)]="value"></fox-switcher>
+<div class="demo__margin-bottom"></div>
+<fox-switcher [settings]="{trueColor: 'success'}" name="switcher" [(ngModel)]="value"></fox-switcher>
+<div class="demo__margin-bottom"></div>
+<fox-switcher [settings]="{trueColor: 'info'}" name="switcher" [(ngModel)]="value"></fox-switcher>
+<div class="demo__margin-bottom"></div>
+<fox-switcher [settings]="{trueColor: 'warning'}" name="switcher" [(ngModel)]="value"></fox-switcher>
+<div class="demo__margin-bottom"></div>
+<fox-switcher [settings]="{trueColor: 'danger'}" name="switcher" [(ngModel)]="value"></fox-switcher>
+<div class="content-body__subtitle">Sizes</div>
+<fox-switcher name="switcher" [settings]="{size: 'lg'}" [(ngModel)]="value"></fox-switcher>
+<div class="demo__margin-bottom"></div>
+<fox-switcher name="switcher" [settings]="{size: 'md'}" [(ngModel)]="value"></fox-switcher>
+<div class="demo__margin-bottom"></div>
+<fox-switcher name="switcher" [settings]="{size: 'sm'}" [(ngModel)]="value"></fox-switcher>
+<div class="content-body__subtitle">Custom values</div>
+<fox-switcher name="switcher" [settings]="{trueValue: 'One', falseValue: 'Two'}" [(ngModel)]="value"></fox-switcher>
+<div class="content-body__subtitle">Disabled</div>
+<fox-switcher name="switcher" [(ngModel)]="value" [disabled]="true"></fox-switcher>
+<div class="content-body__subtitle">Custom width</div>
+<fox-switcher [settings]="{width: 150}" name="switcher" [(ngModel)]="value"></fox-switcher>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { SwitcherSettings, SwitcherLangs } from '../../components/switcher/switcher.model';
+
+@Component({
+    moduleId: module.id,
+    selector: 'switcher-demo',
+    templateUrl: 'switcher.demo.html'
+})
+export class SwitcherDemoComponent implements OnInit {
+    public value: any = true;
+    public settings: SwitcherSettings = {
+        
+    };
+
+    public langs: SwitcherLangs = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { SwitcherModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-button</code> - base class
+            </li>
+            <li>
+                <code>fox-switcher__container</code> - switcher container
+            </li>
+            <li>
+                <code>fox-switcher__button</code> - buttons class
+            </li>
+            <li>
+                <code>fox-switcher__true</code> - true button
+            </li>
+            <li>
+                <code>fox-switcher__false</code> - false button
+            </li>
+            <li>
+                <code>fox-switcher__label</code> - label(center) button
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+SwitcherSettings {
+    trueColor?: string;
+    falseColor?: string;
+    labelColor?: string;
+    trueValue?: any;
+    falseValue?: any;
+    size?: string;
+    width?: number;
+}
+
+SwitcherLangs {
+    labelText?: string;
+    trueLabel?: string;
+    falseLabel?: string;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>trueColor</code> (<code>string</code>) - color of true value: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>falseColor</code> (<code>string</code>) - color of false value: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>labelColor</code> (<code>string</code>) - center button color: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>trueValue</code> (<code>string</code>) - true value
+            </li>
+            <li>
+                <code>falseValue</code> (<code>string</code>) - false value
+            </li>
+            <li>
+                <code>size</code> (<code>string</code>) - switcher size: <code>sm</code> ,<code>md</code>,<code>lg</code>
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for switcher
+            </li>
+            <li>
+                <code>width</code> (<code>number</code>) - switcher button width
+            </li>
+        </ul>
+        <p>Langs</p>
+        <ul>
+            <li>
+                <code>labelText</code> (<code>number</code>) - center button label
+            </li>
+            <li>
+                <code>trueLabel</code> (<code>string</code>) - true value label
+            </li>
+            <li>
+                <code>falseLabel</code> (<code>boolean</code>) - false value label
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    trueColor: 'success',
+    falseColor: 'danger',
+    labelColor: 'secondary',
+    trueValue: true,
+    falseValue: false,
+    size: 'md',
+    width: 60
+};
+
+langs: {
+    labelText: '&nbsp;',
+    trueLabel: 'Yes',
+    falseLabel: 'No'
+};
+
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>clicked</code> - click event on switcher. Returned <code>{{ '{' }}originalEvent: event, rate: rate{{ '}' }}</code>
+            </li>
+            <li>
+                <code>changed</code> - change event on switcher. Returned <code>{{ '{' }}originalEvent: event, rate: rate{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

@@ -1,0 +1,486 @@
+<demo title="Datagrid">
+    <div demo-description>
+        <p>Provide datagrid lazyload functional. Data is loaded by lazyLoad callback every paginate, sorting and filtering actions.</p>
+        <p>You can add custom actions, custom checked items action. To access checked items use getChecked() method from DatagridComponent.</p>
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-datagrid #datagrid [settings]="settings" [filters]="filters" [routes]="routes" [rows]="rows" [total]="sampleRows.length" (lazyLoad)="getData($event)">
+            <div actions>
+                <fox-button [settings]="{label: 'Custom action'}"></fox-button>
+            </div>
+            <div chacked-actions>
+                <fox-dropdown-item [divider]="true"></fox-dropdown-item>
+                <fox-dropdown-item label="Custom action" (click)="customCheckedAction()"></fox-dropdown-item>
+            </div>
+        </fox-datagrid>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-datagrid #datagrid [settings]="settings" [filters]="filters" [routes]="routes" [rows]="rows" [total]="sampleRows.length" (lazyLoad)="getData($event)">
+    <div actions>
+        <fox-button [settings]="{label: 'Custom action'}"></fox-button>
+    </div>
+    <div chacked-actions>
+        <fox-dropdown-item [divider]="true"></fox-dropdown-item>
+        <fox-dropdown-item label="Custom action" (click)="customCheckedAction()"></fox-dropdown-item>
+    </div>
+</fox-datagrid>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { DatagridSettings, DatagridRoutes, LazyloadEvent } from '../../components/datagrid/datagrid.model'
+
+@Component({
+    moduleId: module.id,
+    selector: 'datagrid-demo',
+    templateUrl: 'datagrid.demo.html'
+})
+export class DatagridDemoComponent implements OnInit {
+    public settings: DatagridSettings = {
+        colsList: [
+            {
+                field: 'id',
+                label: 'ID'
+            },
+            {
+                field: 'title',
+                label: 'Title'
+            }, 
+            {
+                field: 'alias',
+                label: 'Alias'
+            }, 
+            {
+                field: 'is_active',
+                label: 'Is active',
+            }, 
+            {
+                field: 'pub_date',
+                label: 'Pub date'
+            }, 
+            {
+                field: 'status',
+                label: 'Status',
+                values: {
+                    1: {
+                        label: 'Published',
+                        value: 1,
+                        color: 'success'
+                    },
+                    2: {
+                        label: 'Not published',
+                        value: 2,
+                        color: 'danger'
+                    },
+                    3: {
+                        label: 'In moderation',
+                        value: 3,
+                        color: 'info'
+                    }
+                }
+            }
+        ]
+    };
+    public routes: DatagridRoutes = {
+        edit: {
+            'route': 'edit-url',
+            'parametrs': ['id']
+        },
+        view: {
+            'route': 'view-url',
+            'parametrs': ['alias']
+        },
+        remove: {
+            'route': 'remove-url',
+            'parametrs': ['id']
+        },
+        create: {
+            'route': 'create-url'
+        }
+    };
+
+    public filters: any = {
+        id: {
+            field: 'id',
+            type: 'number'
+        },
+        title: {
+            field: 'title',
+            type: 'string'
+        },
+        alias: {
+            field: 'alias',
+            type: 'string'
+        },
+        is_active: {
+            field: 'is_active',
+            type: 'boolean'
+        },
+        pub_date: {
+            field: 'pub_date',
+            type: 'date'
+        },
+        status: {
+            field: 'status',
+            type: 'number'
+        },
+    };
+
+    protected sampleRows: Array<any> = [];
+    protected rows: Array<any> = [];
+
+    constructor() { }
+
+    ngOnInit() {
+        for (var index = 0; index < 100; index++) {
+            this.sampleRows.push({
+                id: index,
+                title: 'Item ' + index,
+                alias: 'item-' + index,
+                is_active: !!Math.floor(Math.random() * 2),
+                description: 'Item description',
+                status: Math.floor(Math.random() * 3) + 1,
+                pub_date: new Date(+(new Date()) - Math.floor(Math.random()*10000000000)).toLocaleDateString(),
+                position: index
+            });
+        }
+    }
+
+    getData(event: LazyloadEvent) {
+        console.log(event);
+        setTimeout(() => {
+            this.rows = this.sampleRows.slice(event.first, (event.first + event.rows));
+        }, 500);
+    }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { DatagridModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-datagrid</code> - base class
+            </li>
+            <li>
+                <code>fox-datagrid__actions</code> - row actions
+            </li>
+            <li>
+                <code>fox-datagrid__navs</code> - table navbar
+            </li>
+            <li>
+                <code>fox-datagrid__table</code> - data table
+            </li>
+            <li>
+                <code>fox-datagrid__total</code> - total view select
+            </li>
+            <li>
+                <code>fox-datagrid__filter</code> - filter item
+            </li>
+            <li>
+                <code>fox-datagrid__sort</code> - sort item
+            </li>
+            <li>
+                <code>fox-datagrid__preloader</code> - preloader
+            </li>
+            <li>
+                <code>fox-datagrid__reset-filters</code> - reset filter button
+            </li>
+            <li>
+                <code>fox-datagrid__check</code> - row select button
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+export interface DatagridSettings {
+    size?: string;
+    color?: 'inverse' | 'default';
+    theadColor?: 'inverse' | 'default';
+    useEqual?: boolean;
+    tableHovered?: boolean;
+    tableStripped?: boolean;
+    lazyload?: boolean;
+    colsList?: Array<Object>;
+    equalOptions?: Array<SelectItem>;
+    booleanOptions?: Array<SelectItem>;
+    totalViewList?: Array<number>;
+    showActions?: boolean;
+    showCounter?: boolean;
+    showTotalView?: boolean;
+    showFilters?: boolean;
+    showSort?: boolean;
+    actionOnRowClick?: Array<any>;
+    defaultSortedField?: string;
+    defaultSortedOrder?: 'asc' | 'desc';
+}
+
+DatagridLangs {
+    checkAll?: string;
+    uncheckAll?: string;
+    removeChecked?: string;
+    actionsCol?: string;
+    counterView?: string;
+    counterOf?: string;
+    counterPages?: string;
+    removePopoverTitle?: string;
+    cancelRemove?: string;
+    remove?: string;
+    create?: string;
+    edit?: string;
+    view?: string;
+    totalRowsView?: string;
+    filterIt?: string;
+    filterTitle?: string;
+    filterBy?: string;
+    resetIt?: string;
+    confirme?: any;
+}
+
+DatagridRoutes {
+    edit?: RouteItem;
+    view?: RouteItem;
+    remove?: RouteItem;
+    create?: RouteItem;
+}
+
+DatagridFilter {
+    field: string;
+    type: string;
+    data?: any;
+}
+
+LazyloadEvent {
+    first: number;
+    rows: number;
+    sortedField: string;
+    sortedOrder: string;
+    filters: Array<any>;
+    currentPage: number;
+}
+
+RouteItem {
+    route: string;
+    parametrs?: Array<string>;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>size</code> (<code>string</code>) - table size: <code>sm</code> ,<code>md</code>
+            </li>
+            <li>
+                <code>color</code> (<code>string</code>) - table color: <code>inverse</code> ,<code>default</code>
+            </li>
+            <li>
+                <code>theadColor</code> (<code>string</code>) - thead color: <code>inverse</code> ,<code>default</code>
+            </li>
+            <li>
+                <code>useEqual</code> (<code>boolean</code>) - display equal select
+            </li>
+            <li>
+                <code>tableHovered</code> (<code>boolean</code>) - table hovered class
+            </li>
+            <li>
+                <code>tableStripped</code> (<code>boolean</code>) - table stripped class
+            </li>
+            <li>
+                <code>lazyload</code> (<code>boolean</code>) - is datagrid lazyloaded
+            </li>
+            <li>
+                <code>colsList</code> (<code>array</code>) - viewed cols in grid
+            </li>
+            <li>
+                <code>totalViewList</code> (<code>array</code>) - list of total view numbers
+            </li>
+            <li>
+                <code>showActions</code> (<code>string</code>) - show top actionbar
+            </li>
+            <li>
+                <code>showCounter</code> (<code>string</code>) - show page counter
+            </li>
+            <li>
+                <code>showTotalView</code> (<code>string</code>) - show total view select
+            </li>
+            <li>
+                <code>showFilters</code> (<code>string</code>) - show filters
+            </li>
+            <li>
+                <code>showSort</code> (<code>string</code>) - show sort
+            </li>
+            <li>
+                <code>actionOnRowClick</code> (<code>array</code>) - router parametr to navigate then click on row
+            </li>
+            <li>
+                <code>defaultSortedField</code> (<code>string</code>) - order field name
+            </li>
+            <li>
+                <code>defaultSortedOrder</code> (<code>string</code>) - order type: <code>asc</code> ,<code>desc</code>
+            </li>
+            <li>
+                <code>equalOptions</code> (<code>array</code>) - equals list for filter
+            </li>
+            <li>
+                <code>booleanOptions</code> (<code>array</code>) - boolean items list for filter
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    size: 'md',
+    color: 'default',
+    theadColor: 'default',
+    useEqual: true,
+    tableHovered: true,
+    tableStripped: false,
+    lazyload: true,
+    colsList: [
+        {
+            field: 'id',
+            label: 'ID'
+        }
+    ],
+    equalOptions: [
+        {
+            label: 'Like', 
+            value: 'like'
+        },
+        {
+            label: 'Like right', 
+            value: 'r_like'
+        },
+        {
+            label: 'Like left', 
+            value: 'l_like'
+        },
+        {
+            label: 'Is', 
+            value: 'is'
+        },
+        {
+            label: 'Is not', 
+            value: 'is_not'
+        },
+        {
+            label: 'In', 
+            value: 'in'
+        },
+        {
+            label: 'Not in', 
+            value: 'not_in'
+        },
+        {
+            label: 'Equal more', 
+            value: 'eg'
+        },
+        {
+            label: 'Equal less', 
+            value: 'el'
+        }
+    ],
+    booleanOptions: [
+        {
+            label: 'Yes', 
+            value: true
+        },
+        {
+            label: 'No', 
+            value: false
+        }
+    ],
+    totalViewList: [10, 20, 30, 40, 50],
+    defaultSortedField: 'id',
+    defaultSortedOrder: 'desc',
+    showActions: true,
+    showCounter: true,
+    showTotalView: true,
+    showFilters: true,
+    showSort: true,
+    actionOnRowClick: null
+};
+
+langs: {
+    checkAll: 'Check all',
+    uncheckAll: 'Uncheck all',
+    removeChecked: 'Remove checked',
+    actionsCol: 'Actions',
+    counterView: 'view',
+    counterOf: 'of',
+    counterPages: 'pages',
+    removePopoverTitle: 'You are sure?',
+    cancelRemove: 'Cancel',
+    remove: 'Remove',
+    edit: 'Edit',
+    view: 'View',
+    totalRowsView: 'view';
+    create: 'Create',
+    filterIt: 'Apply filter',
+    filterTitle: 'Filter',
+    filterBy: 'by',
+    resetIt: 'Reset',
+    confirme: {
+        true: 'Yes',
+        false: 'No'
+    }
+};
+
+settings: DatagridSettings;
+langs: DatagridLangs;
+routes: DatagridRoutes;
+filters: any;
+rows: Array<any>;
+total: number = 0;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>lazyLoad</code> - lazyLoad event on datagrid. Returned <code>this.createLazyLoadData()</code>
+            </li>
+            <li>
+                <code>removeSelected</code> - remove selected rows event on datagrid. Returned <code>this.checkedItems</code>
+            </li>
+            <li>
+                <code>remove</code> - remove item by id. Returned <code>row.id</code>
+            </li>
+            <li>
+                <code>rowClick</code> - row click event on datagrid. Returned <code>{{ '{' }}riginalEvent: event, row: row{{ '}' }}</code>
+            </li>
+            <li>
+                <code>rowSelect</code> - row select event on datagrid. Returned <code>{{ '{' }}riginalEvent: event, row: row{{ '}' }}</code>
+            </li>
+            <li>
+                <code>rowUnselect</code> - row unsekect event on datagrid. Returned <code>{{ '{' }}riginalEvent: event, row: row{{ '}' }}</code>
+            </li>
+            <li>
+                <code>filtersReseted</code> - filter resets event on datagrid. Returned <code>{{ '{' }}originalEvent: event, filtersData: this.filtersData{{ '}' }}</code>
+            </li>
+            <li>
+                <code>filtersSubmited</code> - filter submited event on datagrid. Returned <code>{{ '{' }}originalEvent: event, filtersData: this.filtersData{{ '}' }}</code>
+            </li>
+            <li>
+                <code>sortSubmited</code> - sort submited event on datagrid. Returned <code>{{ '{' }}originalEvent: event, sortedField: this.sortedField, sortedOrder: this.sortedOrder{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

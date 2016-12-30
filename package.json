@@ -1,6 +1,6 @@
 {
     "name": "prettyfox-ui",
-    "version": "1.0.7-alpha",
+    "version": "1.0.8-alpha",
     "description": "Native Angular 2 components styling by bootstrap 4",
     "keywords": [
         "angular2",
@@ -11,11 +11,15 @@
         "twitter-bootstrap"
     ],
     "author": "http://prettyfox.org/",
+    "main": "dist/index.js",
+    "files": ["dist"],
     "scripts": {
         "start": "tsc -w && npm run lite",
         "lite": "npm run lite",
         "tsc": "tsc",
-        "tsc:w": "tsc -w"
+        "tsc:w": "tsc -w",
+        "compile": "gulp compile && gulp copy-res && tsc",
+        "prepublish": "npm run compile"
     },
     "license": "MIT",
     "repository": {
@@ -34,6 +38,7 @@
         "tinycolor2": "^1.4.1"
     },
     "devDependencies": {
+        "@types/node": "^6.0.42",
         "concurrently": "^3.1.0",
         "lite-server": "^2.2.2",
         "typescript": "~2.0.10",
@@ -50,7 +55,8 @@
         "core-js": "^2.4.1",
         "reflect-metadata": "^0.1.8",
         "rxjs": "5.0.0-rc.4",
-        "zone.js": "^0.7.2"
+        "zone.js": "^0.7.2",
+        "gulp": "3.9.1"
     },
     "contributors": [
         {

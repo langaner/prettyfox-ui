@@ -1,0 +1,233 @@
+<demo title="Colorpicker">
+    <div demo-description>
+        Use the color picker by clicking inside the picker area to choice color. Input Hex, RGB or HSL values is available.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-colorpicker name="color" [(ngModel)]="color"></fox-colorpicker>
+        <p>Color: {{ color }}</p>
+        <div class="content-body__subtitle">Sizes</div>
+        <fox-colorpicker [settings]="{size: 'lg'}" [(ngModel)]="color"></fox-colorpicker>
+        <div class="demo__margin-bottom"></div>
+        <fox-colorpicker [settings]="{size: 'md'}" [(ngModel)]="color"></fox-colorpicker>
+        <div class="demo__margin-bottom"></div>
+        <fox-colorpicker [settings]="{size: 'sm'}" [(ngModel)]="color"></fox-colorpicker>
+        <div class="content-body__subtitle">Output format</div>
+        <fox-colorpicker name="color" [settings]="{outputFormat: 'hex'}" [(ngModel)]="colorHex"></fox-colorpicker>
+        <p>Hex сolor: {{ colorHex }}</p>
+        <fox-colorpicker name="color" [settings]="{outputFormat: 'rgb'}" [(ngModel)]="colorRgb"></fox-colorpicker>
+        <p>Rgb color: {{ colorRgb }}</p>
+        <fox-colorpicker name="color" [settings]="{outputFormat: 'hsv'}" [(ngModel)]="colorHsv"></fox-colorpicker>
+        <p>Hsv color: {{ colorHsv }}</p>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-colorpicker name="color" [(ngModel)]="color"></fox-colorpicker>
+<div class="content-body__subtitle">Sizes</div>
+<fox-colorpicker [settings]="{size: 'lg'}" [(ngModel)]="color"></fox-colorpicker>
+<div class="demo__margin-bottom"></div>
+<fox-colorpicker [settings]="{size: 'md'}" [(ngModel)]="color"></fox-colorpicker>
+<div class="demo__margin-bottom"></div>
+<fox-colorpicker [settings]="{size: 'sm'}" [(ngModel)]="color"></fox-colorpicker>
+<div class="content-body__subtitle">Output format</div>
+<fox-colorpicker name="color" [settings]="{outputFormat: 'hex'}" [(ngModel)]="colorHex"></fox-colorpicker>
+<fox-colorpicker name="color" [settings]="{outputFormat: 'rgb'}" [(ngModel)]="colorRgb"></fox-colorpicker>
+<fox-colorpicker name="color" [settings]="{outputFormat: 'hsv'}" [(ngModel)]="colorHsv"></fox-colorpicker>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { ColorpickerSettings, ColorpickerLangs } from '../../components/colorpicker/colorpicker.model'
+
+@Component({
+    moduleId: module.id,
+    selector: 'colorpicker-demo',
+    templateUrl: 'colorpicker.demo.html'
+})
+export class ColorpickerDemoComponent implements OnInit {
+    public color: string = '#1c0de8';
+    public colorHex: string = '#e31717';
+    public colorRgb: string = 'rgb(227, 23, 23)';
+    public colorHue: string = 'hsv(0, 90%, 89%)';
+
+    public settings: ColorpickerSettings = {
+        
+    };
+
+    public langs: ColorpickerLangs = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { ColorpickerModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-colorpicker</code> - base class
+            </li>
+            <li>
+                <code>fox-colorpicker__input</code> - colorpicker input
+            </li>
+            <li>
+                <code>fox-colorpicker__color-addon</code> - colorpicker addon
+            </li>
+            <li>
+                <code>fox-colorpicker__dropdown</code> - dropdown
+            </li>
+            <li>
+                <code>fox-colorpicker__picker</code> - picker
+            </li>
+            <li>
+                <code>fox-colorpicker__spectrum-wrapper</code> - spectrum wrapper
+            </li>
+            <li>
+                <code>fox-colorpicker__hue-wrapper</code> - hue wrapper
+            </li>
+            <li>
+                <code>fox-colorpicker__alpha-wrapper</code> - alpha wrapper
+            </li>
+            <li>
+                <code>fox-colorpicker__marker</code> - marker
+            </li>
+            <li>
+                <code>fox-colorpicker__palette</code> - palette
+            </li>
+            <li>
+                <code>fox-colorpicker__palette-item</code> - palette item
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+ColorpickerSettings {
+    size?: string;
+    spectrumHeight?: number;
+    spectrumWidth?: number;
+    hueHeight?: number;
+    hueWidth?: number;
+    alphaHeight?: number;
+    alphaWidth?: number;
+    palette?: Array<Array<string>>
+    outputFormat?: 'hex' | 'rgb' | 'hsv';
+    showPallete?: boolean;
+    showPicker?: boolean;
+}
+
+ColorpickerLangs {
+    
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>size</code> (<code>string</code>) - colorpicker size: <code>sm</code> ,<code>md</code>,<code>lg</code>
+            </li>
+            <li>
+                <code>spectrumHeight</code> (<code>string</code>) - spectrum height
+            </li>
+            <li>
+                <code>spectrumWidth</code> (<code>string</code>) - spectrum width
+            </li>
+            <li>
+                <code>hueHeight</code> (<code>string</code>) - hue height
+            </li>
+            <li>
+                <code>hueWidth</code> (<code>string</code>) - hue width
+            </li>
+            <li>
+                <code>alphaHeight</code> (<code>string</code>) - alpha height
+            </li>
+            <li>
+                <code>alphaWidth</code> (<code>string</code>) - alpha width
+            </li>
+            <li>
+                <code>palette</code> (<code>array</code>) - pallete clor array in rgb format
+            </li>
+            <li>
+                <code>outputFormat</code> (<code>string</code>) - colorpicker formats: <code>hex</code> ,<code>rgb</code>,<code>hue</code>
+            </li>
+            <li>
+                <code>showPallete</code> (<code>boolean</code>) - show pallete
+            </li>
+            <li>
+                <code>showPicker</code> (<code>boolean</code>) - show picker
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for colorpicker
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    size: 'md',
+        spectrumHeight: 250,
+        spectrumWidth: 250,
+        hueHeight: 250,
+        hueWidth: 25,
+        alphaHeight: 250,
+        alphaWidth: 25,
+        outputFormat: 'hex',
+        showPallete: true,
+        showPicker: true,
+        palette: [
+            ["rgb(255, 204, 204)","rgb(255, 230, 204)","rgb(255, 255, 204)","rgb(204, 255, 204)","rgb(204, 255, 230)","rgb(204, 255, 255)","rgb(204, 230, 255)","rgb(204, 204, 255)","rgb(230, 204, 255)","rgb(255, 204, 255)"],
+            ["rgb(255, 153, 153)","rgb(255, 204, 153)","rgb(255, 255, 153)","rgb(153, 255, 153)","rgb(153, 255, 204)","rgb(153, 255, 255)","rgb(153, 204, 255)","rgb(153, 153, 255)","rgb(204, 153, 255)","rgb(255, 153, 255)"],
+            ["rgb(255, 102, 102)","rgb(255, 179, 102)","rgb(255, 255, 102)","rgb(102, 255, 102)","rgb(102, 255, 179)","rgb(102, 255, 255)","rgb(102, 179, 255)","rgb(102, 102, 255)","rgb(179, 102, 255)","rgb(255, 102, 255)"],
+            ["rgb(255, 51, 51)","rgb(255, 153, 51)","rgb(255, 255, 51)","rgb(51, 255, 51)","rgb(51, 255, 153)","rgb(51, 255, 255)","rgb(51, 153, 255)","rgb(51, 51, 255)","rgb(153, 51, 255)","rgb(255, 51, 255)"],
+            ["rgb(255, 0, 0)","rgb(255, 128, 0)","rgb(255, 255, 0)","rgb(0, 255, 0)","rgb(0, 255, 128)","rgb(0, 255, 255)","rgb(0, 128, 255)","rgb(0, 0, 255)","rgb(128, 0, 255)","rgb(255, 0, 255)"],
+            ["rgb(245, 0, 0)","rgb(245, 123, 0)","rgb(245, 245, 0)","rgb(0, 245, 0)","rgb(0, 245, 123)","rgb(0, 245, 245)","rgb(0, 123, 245)","rgb(0, 0, 245)","rgb(123, 0, 245)","rgb(245, 0, 245)"],
+            ["rgb(214, 0, 0)","rgb(214, 108, 0)","rgb(214, 214, 0)","rgb(0, 214, 0)","rgb(0, 214, 108)","rgb(0, 214, 214)","rgb(0, 108, 214)","rgb(0, 0, 214)","rgb(108, 0, 214)","rgb(214, 0, 214)"],
+            ["rgb(163, 0, 0)","rgb(163, 82, 0)","rgb(163, 163, 0)","rgb(0, 163, 0)","rgb(0, 163, 82)","rgb(0, 163, 163)","rgb(0, 82, 163)","rgb(0, 0, 163)","rgb(82, 0, 163)","rgb(163, 0, 163)"],
+            ["rgb(92, 0, 0)","rgb(92, 46, 0)","rgb(92, 92, 0)","rgb(0, 92, 0)","rgb(0, 92, 46)","rgb(0, 92, 92)","rgb(0, 46, 92)","rgb(0, 0, 92)","rgb(46, 0, 92)","rgb(92, 0, 92)"],
+            ["rgb(255, 255, 255)","rgb(205, 205, 205)","rgb(178, 178, 178)","rgb(153, 153, 153)","rgb(127, 127, 127)","rgb(102, 102, 102)","rgb(76, 76, 76)","rgb(51, 51, 51)","rgb(25, 25, 25)","rgb(0, 0, 0)"]
+        ]
+};
+
+langs = {
+        
+};
+
+disabled: false;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>clicked</code> - click event on colorpicker. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+            <li>
+                <code>changed</code> - change event on colorpicker. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+            <li>
+                <code>showed</code> - showed dropdown event on colorpicker. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+            <li>
+                <code>outsideClick</code> - outside click event on colorpicker. Returned <code>{{ '{' }}originalEvent: event, value: this.innerValue{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

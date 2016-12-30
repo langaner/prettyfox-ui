@@ -1,0 +1,339 @@
+<demo title="Dropdown">
+    <div demo-description>
+        Dropdowns are toggleable, contextual overlays for displaying lists of links.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Colors</div>
+		<fox-dropdown [settings]="{label: 'Primary', color: 'primary'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<fox-dropdown [settings]="{label: 'Secondary', color: 'secondary'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<fox-dropdown [settings]="{label: 'Success', color: 'success'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<fox-dropdown [settings]="{label: 'Info', color: 'info'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<fox-dropdown [settings]="{label: 'Warning', color: 'warning'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<fox-dropdown [settings]="{label: 'Danger', color: 'danger'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+        <div class="content-body__subtitle">Sizes</div>
+		<fox-dropdown [settings]="{label: 'Size lg', color: 'secondary', size: 'lg'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<fox-dropdown [settings]="{label: 'Size ms', color: 'secondary', size: 'md'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_2"></fox-dropdown-item>
+		</fox-dropdown>
+		<fox-dropdown [settings]="{label: 'Size sm', color: 'secondary', size: 'sm'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<div class="content-body__subtitle">Disabled</div>
+		<fox-dropdown [settings]="{label: 'Disabled button', color: 'secondary'}" [disabled]="true">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<fox-dropdown [settings]="{label: 'Disabled items', color: 'secondary'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2" [disabled]="true"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3" [disabled]="true"></fox-dropdown-item>
+		</fox-dropdown>
+		<div class="content-body__subtitle">Split</div>
+		<fox-dropdown [settings]="{label: 'Split', color: 'secondary', split: true}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<div class="content-body__subtitle">Dropup</div>
+		<fox-dropdown [settings]="{label: 'Dropup', color: 'secondary', dropUp: true}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<div class="content-body__subtitle">Dropdown header</div>
+		<fox-dropdown [settings]="{label: 'With header', color: 'secondary', header: 'header title here'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<div class="content-body__subtitle">Menu alignment</div>
+		<fox-dropdown [settings]="{label: 'Menu alignment left', color: 'secondary', alignment: 'left'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+		<fox-dropdown [settings]="{label: 'Menu alignment right', color: 'secondary', alignment: 'right'}">
+			<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+			<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+			<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+		</fox-dropdown>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Colors</div>
+<fox-dropdown [settings]="{label: 'Primary', color: 'primary'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<fox-dropdown [settings]="{label: 'Secondary', color: 'secondary'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<fox-dropdown [settings]="{label: 'Success', color: 'success'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<fox-dropdown [settings]="{label: 'Info', color: 'info'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<fox-dropdown [settings]="{label: 'Warning', color: 'warning'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<fox-dropdown [settings]="{label: 'Danger', color: 'danger'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<div class="content-body__subtitle">Sizes</div>
+<fox-dropdown [settings]="{label: 'Size lg', color: 'secondary', size: 'lg'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<fox-dropdown [settings]="{label: 'Size ms', color: 'secondary', size: 'md'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_2"></fox-dropdown-item>
+</fox-dropdown>
+<fox-dropdown [settings]="{label: 'Size sm', color: 'secondary', size: 'sm'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<div class="content-body__subtitle">Disabled</div>
+<fox-dropdown [settings]="{label: 'Disabled button', color: 'secondary'}" [disabled]="true">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<fox-dropdown [settings]="{label: 'Disabled items', color: 'secondary'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2" [disabled]="true"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3" [disabled]="true"></fox-dropdown-item>
+</fox-dropdown>
+<div class="content-body__subtitle">Split</div>
+<fox-dropdown [settings]="{label: 'Split', color: 'secondary', split: true}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<div class="content-body__subtitle">Dropup</div>
+<fox-dropdown [settings]="{label: 'Dropup', color: 'secondary', dropUp: true}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<div class="content-body__subtitle">Dropdown header</div>
+<fox-dropdown [settings]="{label: 'With header', color: 'secondary', header: 'header title here'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<div class="content-body__subtitle">Menu alignment</div>
+<fox-dropdown [settings]="{label: 'Menu alignment left', color: 'secondary', alignment: 'left'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+<fox-dropdown [settings]="{label: 'Menu alignment right', color: 'secondary', alignment: 'right'}">
+	<fox-dropdown-item label="link 1" route="route_1"></fox-dropdown-item>
+	<fox-dropdown-item label="link 2" route="route_2"></fox-dropdown-item>
+	<fox-dropdown-item label="link 3" route="route_3"></fox-dropdown-item>
+</fox-dropdown>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { DropdownSettings } from '../../components/dropdown/dropdown.model'
+
+@Component({
+    moduleId: module.id,
+    selector: 'dropdown-demo',
+    templateUrl: 'dropdown.demo.html'
+})
+export class DropdownDemoComponent implements OnInit {
+    public settings: DropdownSettings = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { DropdownModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-dropdown</code> - base class
+            </li>
+            <li>
+                <code>fox-dropdown__split</code> - dropdown spliter
+            </li>
+            <li>
+                <code>fox-dropdown__button</code> - dropdown button
+            </li>
+			<li>
+                <code>fox-dropdown__content</code> - dropdown content with items
+            </li>
+			<li>
+                <code>fox-dropdown__item</code> - dropdown item class
+            </li>
+			<li>
+                <code>fox-dropdown__header</code> - dropdown header
+            </li>
+			<li>
+                <code>fox-dropdown__divider</code> - divider element
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+DropdownSettings {
+    label?: string;
+    color?: string;
+    size?: string;
+    dropUp?: boolean;
+    split?: boolean;
+	alignment?: string;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>label</code> (<code>string</code>) - button name
+            </li>
+            <li>
+                <code>color</code> (<code>string</code>) - button color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
+            </li>
+            <li>
+                <code>size</code> (<code>string</code>) - button size: <code>sm</code> ,<code>md</code>,<code>lg</code>
+            </li>
+            <li>
+                <code>dropUp</code> (<code>boolean</code>) - trigger dropdown menus above elements
+            </li>
+			<li>
+                <code>split</code> (<code>boolean</code>) - split button dropdowns
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status for button
+            </li>
+			<li>
+                <code>alignment</code> (<code>string</code>) - dropdown menu align: <code>left</code> ,<code>right</code>
+            </li>
+        </ul>
+		<p>Dropdown item</p>
+		<ul>
+            <li>
+                <code>label</code> (<code>string</code>) - item name
+            </li>
+            <li>
+                <code>route</code> (<code>string</code>) - item link route
+            </li>
+            <li>
+                <code>disabled</code> (<code>boolean</code>) - disabled status
+            </li>
+            <li>
+                <code>divider</code> (<code>boolean</code>) - item is divider
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+	label: '',
+	color: 'secondary',
+	size: 'md',
+	dropUp: false,
+	split: false,
+	alignment: ''
+};
+
+disabled: false;
+
+// Dropdown item
+
+label: string;
+route: string;
+disabled: boolean;
+divider: boolean;
+            ]]>
+        </highlight>
+    </div>
+    <div demo-events>
+        <ul>
+            <li>
+                <code>submited</code> - click event on submit button. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+			<li>
+                <code>showed</code> - click event on dropdown. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+			<li>
+                <code>outsideClick</code> - click outside of dropdown event. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+            </li>
+        </ul>
+		<p>Dropdown item</p>
+		<ul>
+            <li>
+                <code>clicked</code> - click event on dropdown link. Returned <code>{{ '{' }}originalEvent: event, route: this.route{{ '}' }}</code>
+            </li>
+        </ul>
+    </div>
+</demo>

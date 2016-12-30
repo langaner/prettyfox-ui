@@ -1,0 +1,252 @@
+<demo title="Panel">
+    <div demo-description>
+        Provide panel functional.
+    </div>
+    <div demo-examples>
+        <div class="content-body__subtitle">Base example</div>
+        <fox-panel>
+            <div panel-heading>
+                Simple panel
+            </div>
+            <div panel-body>
+                Here body content
+            </div>
+            <div panel-footer>
+                Here footer content
+            </div>
+        </fox-panel>
+        <div class="content-body__subtitle">Colors</div>
+        <fox-panel [settings]="{color: 'primary'}">
+            <div panel-heading>
+                Primary
+            </div>
+            <div panel-body>
+                Here body content
+            </div>
+        </fox-panel>
+        <fox-panel [settings]="{color: 'default'}">
+            <div panel-heading>
+                Default
+            </div>
+            <div panel-body>
+                Here body content
+            </div>
+        </fox-panel>
+        <fox-panel [settings]="{color: 'success'}">
+            <div panel-heading>
+                Success
+            </div>
+            <div panel-body>
+                Here body content
+            </div>
+        </fox-panel>
+        <fox-panel [settings]="{color: 'info'}">
+            <div panel-heading>
+                Info
+            </div>
+            <div panel-body>
+                Here body content
+            </div>
+        </fox-panel>
+        <fox-panel [settings]="{color: 'warning'}">
+            <div panel-heading>
+                Warning
+            </div>
+            <div panel-body>
+                Here body content
+            </div>
+        </fox-panel>
+        <fox-panel [settings]="{color: 'danger'}">
+            <div panel-heading>
+                Danger
+            </div>
+            <div panel-body>
+                Here body content
+            </div>
+        </fox-panel>
+        <div class="content-body__subtitle">After content</div>
+        <fox-panel>
+            <div panel-heading>
+                Panel header
+            </div>
+            <div panel-body>
+                Here body content
+            </div>
+            <div panel-after>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>first table row</td>
+                        </tr>
+                        <tr>
+                            <td>second table row</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fox-panel>
+    </div>
+    <div demo-markup>
+        <highlight language="markup">
+            <![CDATA[
+<div class="content-body__subtitle">Base example</div>
+<fox-panel>
+    <div panel-heading>
+        Simple panel
+    </div>
+    <div panel-body>
+        Here body content
+    </div>
+    <div panel-footer>
+        Here footer content
+    </div>
+</fox-panel>
+<div class="content-body__subtitle">Colors</div>
+<fox-panel [settings]="{color: 'primary'}">
+    <div panel-heading>
+        Primary
+    </div>
+    <div panel-body>
+        Here body content
+    </div>
+</fox-panel>
+<fox-panel [settings]="{color: 'default'}">
+    <div panel-heading>
+        Default
+    </div>
+    <div panel-body>
+        Here body content
+    </div>
+</fox-panel>
+<fox-panel [settings]="{color: 'success'}">
+    <div panel-heading>
+        Success
+    </div>
+    <div panel-body>
+        Here body content
+    </div>
+</fox-panel>
+<fox-panel [settings]="{color: 'info'}">
+    <div panel-heading>
+        Info
+    </div>
+    <div panel-body>
+        Here body content
+    </div>
+</fox-panel>
+<fox-panel [settings]="{color: 'warning'}">
+    <div panel-heading>
+        Warning
+    </div>
+    <div panel-body>
+        Here body content
+    </div>
+</fox-panel>
+<fox-panel [settings]="{color: 'danger'}">
+    <div panel-heading>
+        Danger
+    </div>
+    <div panel-body>
+        Here body content
+    </div>
+</fox-panel>
+<div class="content-body__subtitle">After content</div>
+<fox-panel>
+    <div panel-heading>
+        Panel header
+    </div>
+    <div panel-body>
+        Here body content
+    </div>
+    <div panel-after>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>first table row</td>
+                </tr>
+                <tr>
+                    <td>second table row</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</fox-panel>
+            ]]>
+        </highlight>
+    </div>
+    <div demo-typescript>
+        <highlight language="javascript">
+            <![CDATA[
+import { Component, OnInit } from '@angular/core';
+
+import { PanelSettings } from '../../components/panel/panel.model'
+
+@Component({
+    moduleId: module.id,
+    selector: 'panel-demo',
+    templateUrl: 'panel.demo.html'
+})
+export class PanelDemoComponent implements OnInit {
+    public settings: PanelSettings = {
+        
+    };
+
+    constructor() { }
+
+    ngOnInit() { }
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-usage>
+        <highlight language="javascript">
+            <![CDATA[
+import { PanelModule } from 'prettyfox-ui';
+            ]]>
+        </highlight>
+    </div>
+    <div demo-styling>
+        <ul>
+            <li>
+                <code>fox-panel</code> - base class
+            </li>
+            <li>
+                <code>fox-button__header</code> - header content
+            </li>
+            <li>
+                <code>fox-button__body</code> - body content
+            </li>
+            <li>
+                <code>fox-button__footer</code> - foonter content
+            </li>
+            <li>
+                <code>fox-button__after</code> - after body content
+            </li>
+        </ul>
+    </div>
+    <div demo-interfaces>
+        <highlight language="javascript">
+            <![CDATA[
+PanelSettings {
+    color?: string;
+}
+            ]]>
+        </highlight>
+    </div>
+    <div demo-settings>
+        <ul>
+            <li>
+                <code>color</code> (<code>string</code>) - button color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>default</code>
+            </li>
+        </ul>
+    </div>
+    <div demo-settings-default>
+        <highlight language="javascript">
+            <![CDATA[
+settings: {
+    color: 'default',
+};
+            ]]>
+        </highlight>
+    </div>
+</demo>
