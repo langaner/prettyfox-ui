@@ -104,11 +104,11 @@
             </tr>
         </tbody>
     </table>
-    <div class="fox-datagrid__navs">
+    <div class="fox-datagrid__navs" *ngIf="totalPages > 1">
         <div class="fox-datagrid__navs-item fox-datagrid__pagination">
             <fox-pagination [settings]="paginationSettings" [(ngModel)]="currentPage" [total]="totalPages" (selected)="onChangePage($event, item)"></fox-pagination>
         </div>
-        <div *ngIf="settings.showTotalView"  class="fox-datagrid__navs-item fox-datagrid__total">
+        <div *ngIf="settings.showTotalView && totalRowsView"  class="fox-datagrid__navs-item fox-datagrid__total">
             <fox-select name="totalRowsView" [settings]="totalSettings" [options]="totalRowsViewOptions" [(ngModel)]="totalRowsView" (changed)="onChangeTotal($event)"></fox-select>
         </div>
         <div *ngIf="settings.showCounter" class="fox-datagrid__navs-item fox-datagrid__counter">

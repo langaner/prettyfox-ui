@@ -83,9 +83,11 @@ export class DatagridComponent implements OnInit, OnChanges {
                     value: total
                 });
             }
-        }
 
-        this.totalRowsView = this.totalRowsViewOptions[0].value;
+            if(this.totalRowsViewOptions.length) {
+                this.totalRowsView = this.totalRowsViewOptions[0].value;
+            }
+        }
 
         this.fireLazyLoadEvent();
         
@@ -158,6 +160,7 @@ export class DatagridComponent implements OnInit, OnChanges {
     createLazyLoadData(): LazyloadEvent {
         return {
             first: this.firstItem,
+            total: this.total,
             rows: Number(this.totalRowsView),
             sortedField: this.sortedField,
             sortedOrder: this.sortedOrder,
@@ -228,15 +231,15 @@ export class DatagridComponent implements OnInit, OnChanges {
     }
 
     routeNavigate(event: any, route: RouteItem, row?: any): void {
-        let parametrs: any = { };
+        let parametrs: Array<any> = [];
         
         if(route.parametrs && row) {
             for(let param in route.parametrs) {
-                parametrs[route.parametrs[param]] = row[route.parametrs[param]];
+                parametrs.push(row[route.parametrs[param]]);
             }
         }
         
-        this.router.navigate([route.route, parametrs]);
+        this.router.navigate([route.route, ...parametrs]);
     }
     
     closePopover(event: any, popover: PopoverComponent) {
@@ -248,7 +251,7 @@ export class DatagridComponent implements OnInit, OnChanges {
 
         if(this.filters) {
             for(let filter in this.filters) {
-                filtersObject[this.filters[filter].field] = [];
+                filtersObject[this.filters[filter].field] = {};
                 filtersObject[this.filters[filter].field]['value'] = '';
                 filtersObject[this.filters[filter].field]['equal'] = 'like';
             }

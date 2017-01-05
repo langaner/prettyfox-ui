@@ -59,6 +59,7 @@ export interface DatagridFilter {
 
 export interface LazyloadEvent {
     first: number;
+    total: number;
     rows: number;
     sortedField: string;
     sortedOrder: string;
