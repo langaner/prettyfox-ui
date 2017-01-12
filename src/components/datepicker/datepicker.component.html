@@ -3,7 +3,7 @@
     <button *ngIf="!settings.withoutToggler"  type="button" class="btn btn-{{ settings.color }} btn-{{ settings.size }} dropdown-toggle fox-datepicker__toggle" 
     [class.disabled]="disabled" 
     (click)="show($event)"
-    [innerHtml]="(innerValue) ? langs.selectedDate + ' '+ displayDate : langs.dateNotSelected">
+    [innerHtml]="(innerValue) ? (settings.multiple ? langs.selectedDate + ' '+ value.length : langs.selectedDate + ' '+ value) : langs.dateNotSelected">
         <span class="caret"></span>
     </button>
     <div class="fox-datepicker__dropdown" *ngIf="dropped || settings.withoutToggler" [class.fox-datepicker__dropdown_show]="settings.withoutToggler">

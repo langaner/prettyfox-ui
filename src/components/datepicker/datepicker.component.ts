@@ -51,7 +51,7 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
     ngOnInit() {
         this.settings = (<any>Object).assign({}, this.defaultSettings, this.settings);
         this.langs = (<any>Object).assign({}, this.defaultLangs, this.langs);
-
+        
         if(this.settings.multiple) {
             this.innerValue = [];
         } else {
@@ -320,7 +320,7 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
         }
         
         this.displayDate = this.toFormat(value, this.settings.displayFormat);
-
+        
         this.onChangeCallback(this.innerValue);
     }
 
