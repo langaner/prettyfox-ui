@@ -656,7 +656,7 @@ export class OverwriteService implements OnInit {
 
     protected validateSettings: ValidateSettings = {
         errorColor: 'danger',
-        showAsterisk: true
+        showAsterisk: false
     };
 
     constructor(){}

@@ -59,12 +59,12 @@ export interface DatagridFilter {
 
 export interface LazyloadEvent {
     first: number;
-    total: number;
     rows: number;
+    total: number;
     sortedField: string;
     sortedOrder: string;
     filters: Array<any>;
-    currentPage: number;
+    page: number;
 }
 
 export interface RouteItem {

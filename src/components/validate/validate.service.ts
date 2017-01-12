@@ -11,7 +11,7 @@ export class ValidateService {
      */
 	static email() {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)
+            let match = control.value ? control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/) : false;
             
             return match ? null : { 'email': true };
         };
@@ -29,7 +29,7 @@ export class ValidateService {
      */
     static password(min: number = 6, max: number = 100) {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,100}$/);
+            let match = control.value ? control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,100}$/) : false;
 
             return match ? null : { 
                 'password': { 
@@ -49,7 +49,7 @@ export class ValidateService {
      */
     static int(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = /^-?\d+$/.test(control.value);
+            let match = control.value ? /^-?\d+$/.test(control.value) : false;
 
             return match ? null : { 
                 'int': { 
@@ -69,7 +69,7 @@ export class ValidateService {
      */
     static number(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = /^-{0,1}\d*\.{0,1}\d+$/.test(control.value);
+            let match = control.value ? /^-{0,1}\d*\.{0,1}\d+$/.test(control.value) : false;
 
             return match ? null : { 
                 'number': { 
@@ -89,7 +89,7 @@ export class ValidateService {
      */
     static date(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = !/Invalid|NaN/.test(new Date(control.value).toString());
+            let match = control.value ? !/Invalid|NaN/.test(new Date(control.value).toString()) : false;
 
             return match ? null : { 
                 'date': { 
@@ -116,7 +116,7 @@ export class ValidateService {
                 return null;
             }
 
-            let match = !/Invalid|NaN/.test(new Date(control.value).toString()) && currentDate >= new Date(date);
+            let match = control.value ? !/Invalid|NaN/.test(new Date(control.value).toString()) && currentDate >= new Date(date) : false;
 
             return match ? null : { 
                 'minDate': { 
@@ -144,7 +144,7 @@ export class ValidateService {
                 return null;
             }
 
-            let match = !/Invalid|NaN/.test(new Date(control.value).toString()) && currentDate <= new Date(date);
+            let match = control.value ? !/Invalid|NaN/.test(new Date(control.value).toString()) && currentDate <= new Date(date) : false;
 
             return match ? null : { 
                 'maxDate': { 
@@ -166,7 +166,7 @@ export class ValidateService {
      */
     static equal(value: any): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value == value;
+            let match = control.value ? control.value == value : false;
 
             return match ? null : { 
                 'equal': { 
@@ -188,7 +188,7 @@ export class ValidateService {
      */
     static max(max: number): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value <= max;
+            let match = control.value ? control.value <= max : false;
 
             return match ? null : { 
                 'max': { 
@@ -210,7 +210,7 @@ export class ValidateService {
      */
     static min(min: number): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value >= min;
+            let match = control.value ? control.value >= min : false;
 
             return match ? null : { 
                 'min': { 
@@ -232,7 +232,7 @@ export class ValidateService {
      */
     static range(range: Array<number>): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value >= range[0] && control.value <= range[1];
+            let match = control.value ? (control.value >= range[0] && control.value <= range[1]): false;
 
             return match ? null : { 
                 'equal': { 
@@ -254,7 +254,7 @@ export class ValidateService {
      */
     static json(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = JSON.parse(control.value);
+            let match = control.value ? JSON.parse(control.value) : false;
 
             return (!match || typeof match !== 'object') ? null : { 'json': { 
                     'value': JSON.parse(control.value) 
@@ -273,7 +273,7 @@ export class ValidateService {
      */
     static boolean(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = (['true', 'false', '1', '0'].indexOf(control.value) < 0);
+            let match = control.value ? (['true', 'false', '1', '0'].indexOf(control.value) < 0) : false;
 
             return match ? null : { 
                 'boolean': { 
@@ -293,7 +293,7 @@ export class ValidateService {
      */
     static hex(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i.test(control.value);
+            let match = control.value ? /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i.test(control.value) : false;
 
             return match ? null : { 
                 'hex': { 
@@ -313,7 +313,7 @@ export class ValidateService {
      */
     static rgb(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = /(^rgb\((\d+),\s*(\d+),\s*(\d+)\)$)|(^rgba\((\d+),\s*(\d+),\s*(\d+)(,\s*\d+\.\d+)*\)$)/.test(control.value);
+            let match = control.value ? /(^rgb\((\d+),\s*(\d+),\s*(\d+)\)$)|(^rgba\((\d+),\s*(\d+),\s*(\d+)(,\s*\d+\.\d+)*\)$)/.test(control.value) : false;
 
             return match ? null : { 
                 'rgb': { 

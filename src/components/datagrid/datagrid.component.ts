@@ -74,9 +74,6 @@ export class DatagridComponent implements OnInit, OnChanges {
         if(this.settings.totalViewList.length) {
             for(let value in this.settings.totalViewList) {
                 let total = this.settings.totalViewList[value];
-                if(this.total < total) {
-                    continue;
-                }
 
                 this.totalRowsViewOptions.push({
                     label: this.langs.totalRowsView + ' ' + total, 
@@ -88,7 +85,7 @@ export class DatagridComponent implements OnInit, OnChanges {
                 this.totalRowsView = this.totalRowsViewOptions[0].value;
             }
         }
-
+        
         this.fireLazyLoadEvent();
         
         this.viewedItemsCount = this.getViewedItemsCount();
@@ -99,6 +96,10 @@ export class DatagridComponent implements OnInit, OnChanges {
     ngOnChanges(changes: any) {
         if(changes.rows) {
             this.stopPreloader();
+        }
+
+        if (changes.total) {
+            this.changeGridData();
         }
 
         if(changes.settings) {
@@ -165,7 +166,7 @@ export class DatagridComponent implements OnInit, OnChanges {
             sortedField: this.sortedField,
             sortedOrder: this.sortedOrder,
             filters: this.filtersData,
-            currentPage: Number(this.currentPage)
+            page: Number(this.currentPage)
         };
     }
 
