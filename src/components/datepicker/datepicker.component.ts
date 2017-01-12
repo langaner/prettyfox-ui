@@ -32,7 +32,7 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
     @Output() showed: EventEmitter<any> = new EventEmitter();
     @Output() outsideClick: EventEmitter<any> = new EventEmitter();
 
-    protected innerValue: any = '';
+    protected innerValue: any;
     protected days: Array<DatepickerDate> = [];
     protected date: any = moment();
     protected dropped: boolean;
@@ -52,9 +52,10 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
         this.settings = (<any>Object).assign({}, this.defaultSettings, this.settings);
         this.langs = (<any>Object).assign({}, this.defaultLangs, this.langs);
 
-        if (this.innerValue == '') {
-            this.value = moment();
-            this.onChangeCallback(this.value);
+        if(this.settings.multiple) {
+            this.innerValue = [];
+        } else {
+            this.innerValue = '';
         }
 
         this.buildCalendar();
@@ -115,6 +116,24 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
         this.buildCalendar();
     }
 
+    valueToMoment(values: any): any {
+        let result: any;
+
+        if(this.settings.multiple) {
+            result = [];
+        }
+
+        if(this.settings.multiple) {
+            for (let key in values) {
+                result.push(moment(values[key], this.settings.format));
+            }
+        } else {
+            result = moment(this.value, this.settings.format);
+        }
+
+        return result;
+    }
+
     buildCalendar(): void {
         let date = moment(this.date);
         let month = date.month();
@@ -123,18 +142,22 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
         let minute = date.minute();
         let second = date.second();
         let n: number = 1;
-        let selectedDate = moment(this.value, this.settings.format);
+        let selectedDate: any;
         let firstWeekDay: number = date.date(2).day();
+
+        selectedDate = this.valueToMoment(this.value);
 
         if (firstWeekDay !== 1) {
             n -= (firstWeekDay + 6) % 7;
         }
-
+        
         this.days = [];
         for (let i = n; i <= date.endOf('month').date(); i += 1) {
             let currentDate = moment(`${i}.${month + 1}.${year} ${hour}:${minute}:${second}`, this.datePattern);
             let today = (moment().isSame(currentDate, 'day') && moment().isSame(currentDate, 'month')) ? true : false;
-            let selected = (selectedDate.isSame(currentDate, 'day')) ? true : false; 
+            let selected: boolean;
+
+            selected = this.isSameDate(currentDate, selectedDate);
 
             if (i > 0) {
                 this.days.push({ 
@@ -164,19 +187,71 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
         }
     }
 
+    isSameDate(currentDate: any, dates: any): boolean {
+        let selected: boolean;
+
+        if(this.settings.multiple) {
+            for (let key in dates) {
+                selected = (dates[key].isSame(currentDate, 'day')) ? true : false; 
+
+                if(selected) {
+                    break;
+                }
+            }
+        } else {
+            selected = (dates.isSame(currentDate, 'day')) ? true : false; 
+        }
+        
+        return selected;
+    }
+
     selectDate(event: any, day: number): void {
         event.preventDefault();
 
-        if(false == this.settings.closeOnSelect) {
+        if(false == this.settings.closeOnSelect || this.settings.multiple) {
             event.stopPropagation();
         }
 
         let date: DatepickerDate = this.days[day];
-        let selected = moment(`${date.day}.${date.month}.${date.year} ${date.hour}:${date.minute}:${date.second}`, this.datePattern);
-
-        this.value = selected;
+        let selectedDate = moment(`${date.day}.${date.month}.${date.year} ${date.hour}:${date.minute}:${date.second}`, this.datePattern);
+        
+        if(!this.setSelectedDate(selectedDate)) {
+            return;
+        }
 
         this.buildCalendar();
+    }
+
+    setSelectedDate(selected: any): boolean {
+        let isSame = this.isSameDate(selected, this.valueToMoment(this.value));
+
+        if(this.settings.multiple && isSame) {
+            this.removeSelectedDate(selected);
+        } else {
+            if(this.isMaximumDatesSelected()) {
+                return false;
+            }
+
+            this.value = selected;
+        }
+
+        return true;
+    }
+
+    removeSelectedDate(selected: any) {
+        let index = this.value.indexOf(this.toFormat(selected));
+            
+        if (index > -1) {
+            this.value.splice(index, 1);
+        }
+    }
+
+    isMaximumDatesSelected(): boolean {
+        if(this.settings.multiple && this.value.length >= this.settings.maxDateSelect) {
+            return true;
+        }
+
+        return false;
     }
 
     onClick(event: any): void {
@@ -189,37 +264,21 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
 
     prevMonth(): void {
         this.date = this.date.subtract(1, 'month');
-        
-        let selectedDate = moment(this.date, this.datePattern);
-        this.value = selectedDate;
-
         this.buildCalendar();
     }
 
     nextMonth(): void {
         this.date = this.date.add(1, 'month');
-
-        let selectedDate = moment(this.date, this.datePattern);
-        this.value = selectedDate;
-
         this.buildCalendar();
     }
 
     prevYear(): void {
         this.date = this.date.subtract(1, 'year');
-
-        let selectedDate = moment(this.date, this.datePattern);
-        this.value = selectedDate;
-
         this.buildCalendar();
     }
 
     nextYear(): void {
         this.date = this.date.add(1, 'year');
-
-        let selectedDate = moment(this.date, this.datePattern);
-        this.value = selectedDate;
-
         this.buildCalendar();
     }
 
@@ -229,14 +288,37 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
         
         return date.format(formatData);
     }
+
+    dayBgColor(day: DatepickerDate): string {
+        if(day.today) {
+            return 'bg-' + this.settings.dateColors[0];
+        }
+
+        if(day.selected) {
+            return 'bg-' + this.settings.dateColors[1];
+        }
+
+        return 'bg-default';
+    }
     
     get value(): any {
+        if(this.settings.multiple && this.innerValue == undefined) {
+            this.innerValue = [];
+        }
+
         return this.innerValue;
     };
 
     set value(value: any) {
         this.date = (value instanceof moment) ? value : moment(value, this.settings.format);
-        this.innerValue = this.toFormat(value);
+
+        if(this.settings.multiple) {
+            this.innerValue = (this.innerValue == undefined || !Array.isArray(this.innerValue)) ? [] : this.innerValue;
+            this.innerValue.push(this.toFormat(value));
+        } else {
+            this.innerValue = this.toFormat(value);
+        }
+        
         this.displayDate = this.toFormat(value, this.settings.displayFormat);
 
         this.onChangeCallback(this.innerValue);

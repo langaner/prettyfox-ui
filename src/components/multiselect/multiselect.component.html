@@ -27,7 +27,7 @@
         </div>
         <div *ngIf="settings.checkAll || settings.uncheckAll" class="fox-multiselect__divider"></div>
         <ul class="fox-multiselect__dropdown" [ngStyle]="{'max-height': settings.maxHeight}">
-            <li *ngFor="let option of options | searchFilter:searchText" class="fox-multiselect__item">
+            <li *ngFor="let option of options | multiseelectSearchFilter:searchText" class="fox-multiselect__item">
                 <fox-checkbox *ngIf="settings.single == false" 
                     [name]="name" 
                     [settings]="{bool: false, color: settings.color}" 

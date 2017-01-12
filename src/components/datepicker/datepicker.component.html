@@ -1,9 +1,12 @@
 <div class="fox-datepicker">
     <input class="form-control form-control-{{ settings.size }}" type="hidden" [name]="name" [(ngModel)]="value" (click)="onClick($event)" (change)="onChange($event)" [class.disabled]="disabled">
-    <button type="button" class="btn btn-{{ settings.color }} btn-{{ settings.size }} dropdown-toggle fox-datepicker__toggle" [class.disabled]="disabled" (click)="show($event)">
-        {{ langs.selectedDate }} {{ displayDate }} &nbsp;<span class="caret"></span>
+    <button *ngIf="!settings.withoutToggler"  type="button" class="btn btn-{{ settings.color }} btn-{{ settings.size }} dropdown-toggle fox-datepicker__toggle" 
+    [class.disabled]="disabled" 
+    (click)="show($event)"
+    [innerHtml]="(displayDate) ? langs.selectedDate + ' '+ displayDate : langs.dateNotSelected">
+        <span class="caret"></span>
     </button>
-    <div class="fox-datepicker__dropdown" *ngIf="dropped">
+    <div class="fox-datepicker__dropdown" *ngIf="dropped || settings.withoutToggler" [class.fox-datepicker__dropdown_show]="settings.withoutToggler">
         <div class="fox-datepicker__months">
             <span class="nav fox-datepicker__prev-month" (click)="prevMonth()" [innerHtml]="langs.prevMonth"></span>
             <span>{{ date.format('MMMM') }}</span>
@@ -18,7 +21,7 @@
             <span *ngFor="let day of langs.days" class="fox-datepicker__day-name">{{ day }}</span>
         </div>
         <div class="fox-datepicker__days">
-            <span *ngFor="let _day of days; let i = index;"  class="fox-datepicker__day"
+            <span *ngFor="let _day of days; let i = index;"  class="fox-datepicker__day {{ dayBgColor(_day) }}"
                 (click)="selectDate($event, i)"
                 [class.fox-datepicker__today]="_day.today"
                 [class.fox-datepicker__selected]="_day.selected">

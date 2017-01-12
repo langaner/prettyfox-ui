@@ -6,6 +6,11 @@
         <div class="content-body__subtitle">Base example</div>
         <fox-datepicker name="date" [(ngModel)]="date"></fox-datepicker> 
         <p>Date: {{ date }}</p>
+        <div class="content-body__subtitle">Without toggler</div>
+        <fox-datepicker [settings]="{withoutToggler: true}" name="date" [(ngModel)]="date"></fox-datepicker> 
+        <div class="content-body__subtitle">Multiple date select</div>
+        <fox-datepicker [settings]="{dateColors: ['success', 'danger'], multiple: true, maxDateSelect: 5}" name="dates" [(ngModel)]="dates"></fox-datepicker> 
+        <p>Date: {{ dates | json }}</p>
         <div class="content-body__subtitle">Colors</div>
         <fox-datepicker [settings]="{color: 'primary'}" [(ngModel)]="date"></fox-datepicker>
         <div class="demo__margin-bottom"></div>
@@ -36,6 +41,11 @@
             <![CDATA[
 <div class="content-body__subtitle">Base example</div>
 <fox-datepicker name="date" [(ngModel)]="date"></fox-datepicker> 
+<div class="content-body__subtitle">Without toggler</div>
+<fox-datepicker [settings]="{withoutToggler: true}" name="date" [(ngModel)]="date"></fox-datepicker> 
+<div class="content-body__subtitle">Multiple date select</div>
+<fox-datepicker [settings]="{dateColors: ['success', 'danger'], withoutToggler: true, multiple: true, maxDateSelect: 5}" name="dates" [(ngModel)]="dates"></fox-datepicker> 
+<p>Date: {{ dates | json }}</p>
 <div class="content-body__subtitle">Colors</div>
 <fox-datepicker [settings]="{color: 'primary'}" [(ngModel)]="date"></fox-datepicker>
 <div class="demo__margin-bottom"></div>
@@ -147,9 +157,13 @@ DatepickerSettings {
     format?: string;
     displayFormat?: string;
     color?: string;
+    dateColors: Array<string>;
     size?: string;
     closeOnSelect?: boolean;
     showTime?: boolean;
+    withoutToggler?: boolean;
+    multiple?: boolean;
+    maxDatePick?: number;
 }
 
 DatepickerDate {
@@ -178,6 +192,7 @@ DatepickerLangs {
     seconds?: string;
     minutes?: string;
     hours?: string;
+    dateNotSelected?: string;
 }
             ]]>
         </highlight>
@@ -200,10 +215,22 @@ DatepickerLangs {
                 <code>color</code> (<code>string</code>) - datepicker color. Used bootstrap color classes: <code>success</code> ,<code>info</code>, <code>warning</code>, <code>danger</code>, <code>primary</code>, <code>secondary</code>
             </li>
             <li>
+                <code>dateColors</code> (<code>array</code>) - backgraund color of days: today day(default <code>info</code>), selected day(default <code>primary</code>)
+            </li>
+            <li>
                 <code>size</code> (<code>string</code>) - datepicker size: <code>sm</code> ,<code>md</code>, <code>lg</code>
             </li>
             <li>
                 <code>disabled</code> (<code>boolean</code>) - disabled status for datepicker
+            </li>
+            <li>
+                <code>withoutToggler</code> (<code>boolean</code>) - hide toggler and show datepicker
+            </li>
+            <li>
+                <code>multiple</code> (<code>boolean</code>) - multiple pick dates
+            </li>
+            <li>
+                <code>maxDateSelect</code> (<code>boolean</code>) - max selected dates
             </li>
         </ul>
         <p>Langs</p>
@@ -247,6 +274,9 @@ DatepickerLangs {
             <li>
                 <code>hours</code> (<code>string</code>) - hourse label
             </li>
+            <li>
+                <code>dateNotSelected</code> (<code>string</code>) - not selected date label
+            </li>
         </ul>
     </div>
     <div demo-settings-default>
@@ -257,8 +287,12 @@ settings: {
     displayFormat: 'DD MM YYYY H:mm:ss',
     size: 'md',
     color: 'secondary',
+    dateColors: ['info', 'primary'],
     closeOnSelect: true,
-    showTime: true
+    showTime: true,
+    withoutToggler: false;
+    multiple: false;
+    maxDateSelect: 2;
 };
 
 langs: {
@@ -275,6 +309,7 @@ langs: {
     nextYear: '<i class="fa fa-chevron-right"></i>',
     upTime: '<i class="fa fa-chevron-up"></i>',
     downTime: '<i class="fa fa-chevron-down"></i>',
+    dateNotSelected: 'Date not selected'
 };
 
 disabled: false;

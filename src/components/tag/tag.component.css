@@ -5,4 +5,20 @@
 }
 .fox-tags__input {
     border: 0;
+    flex: 1;
+}
+.fox-tags__input.form-control-md {
+    height: 38px;
+    padding-left: 15px;
+}
+.fox-tags__autocomplete-item {
+    padding: 10px;
+}
+.fox-tags__autocomplete-item:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+.fox-tags__autocomplete {
+    max-height: 220px;
+    overflow-y: scroll;
 }

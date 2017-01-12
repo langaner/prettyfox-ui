@@ -96,8 +96,10 @@ export class FileuploaderComponent implements OnInit, OnChanges, ControlValueAcc
 
         if (this.files.length) {
             this.addToQueue(this.files);
+
+            let files: any = (this.settings.multiple) ? this.files : this.files[0];
             
-            this.upload.emit({originalEvent: event, files: this.files});
+            this.upload.emit({originalEvent: event, files: files});
         }
     }
 

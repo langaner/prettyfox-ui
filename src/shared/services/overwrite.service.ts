@@ -209,8 +209,12 @@ export class OverwriteService implements OnInit {
         displayFormat: 'DD MM YYYY H:mm:ss',
         size: 'md',
         color: 'secondary',
+        dateColors: ['info', 'primary'],
         closeOnSelect: true,
         showTime: true,
+        withoutToggler: false,
+        multiple: false,
+        maxDateSelect: 2
     };
 
     protected datepickerLangs: DatepickerLangs = {
@@ -227,6 +231,7 @@ export class OverwriteService implements OnInit {
         nextYear: '<i class="fa fa-chevron-right"></i>',
         upTime: '<i class="fa fa-chevron-up"></i>',
         downTime: '<i class="fa fa-chevron-down"></i>',
+        dateNotSelected: 'Date not selected'
     };
 
     /**
@@ -607,7 +612,9 @@ export class OverwriteService implements OnInit {
         addTagOnEnter: true,
         addTagOnPaste: true,
         addTagOnSpace: false,
-        addTagOnBlur: true
+        addTagOnBlur: true,
+        autocomplete: true,
+        autocompleteItems: []
     };
 
     protected tagLangs: TagLangs = {

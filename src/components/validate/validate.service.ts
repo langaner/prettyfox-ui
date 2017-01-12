@@ -273,7 +273,7 @@ export class ValidateService {
      */
     static boolean(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? (['true', 'false', '1', '0'].indexOf(control.value) < 0) : false;
+            let match = (['true', 'false', '1', '0'].indexOf(String(control.value)) >= 0);
 
             return match ? null : { 
                 'boolean': { 

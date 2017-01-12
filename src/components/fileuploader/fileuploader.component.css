@@ -18,7 +18,6 @@
 .fox-fileuploader__previews {
     margin: 15px 0 15px;
     padding: 5px;
-    border: 1px solid #ddd;
 }
 .fox-fileuploader__remove {
     position: absolute;
@@ -38,4 +37,7 @@
 }
 .fox-fileuploader__count-uploaded {
     margin-left: 10px;
+}
+.fox-fileuploader_multiple .fox-fileuploader__previews {
+    border: 1px solid #ddd;
 }

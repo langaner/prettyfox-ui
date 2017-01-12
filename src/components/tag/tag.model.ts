@@ -13,6 +13,8 @@ export interface TagSettings {
     addTagOnSpace?: boolean;
     addTagOnBlur?: boolean;
     minTagLength?: number;
+    autocomplete?: boolean,
+    autocompleteItems?: Array<TagItem>
 }
 
 export interface TagLangs {

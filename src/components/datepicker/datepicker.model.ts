@@ -2,9 +2,13 @@ export interface DatepickerSettings {
     format?: string;
     displayFormat?: string;
     color?: string;
+    dateColors?: Array<string>;
     size?: string;
     closeOnSelect?: boolean;
     showTime?: boolean;
+    withoutToggler?: boolean;
+    multiple?: boolean;
+    maxDateSelect?: number;
 }
 
 export interface DatepickerDate {
@@ -33,4 +37,5 @@ export interface DatepickerLangs {
     seconds?: string;
     minutes?: string;
     hours?: string;
+    dateNotSelected?: string;
 }

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { TagComponent } from './tag.component';
 import { TagItemComponent } from './tag-item.component';
+import { TagSearchPipe } from './tag-search.pipe';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import { TagItemComponent } from './tag-item.component';
     ],
     declarations: [
         TagComponent,
-        TagItemComponent
+        TagItemComponent,
+        TagSearchPipe
     ],
     exports: [
         TagComponent,

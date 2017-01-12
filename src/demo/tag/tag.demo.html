@@ -6,6 +6,8 @@
         <div class="content-body__subtitle">Base example</div>
         <fox-tag name="tags" [settings]="settings" [(ngModel)]="tags"></fox-tag>
         <p>Tags: {{ tags | json }}</p>
+        <div class="content-body__subtitle">Autocomplete</div>
+        <fox-tag name="tags" [settings]="{autocomplete: true, autocompleteItems: autocompleteItems}" [(ngModel)]="tags"></fox-tag>
         <div class="content-body__subtitle">Colors</div>
         <fox-tag name="primary" [settings]="{color: 'primary'}" [(ngModel)]="tags"></fox-tag>
         <div class="demo__margin-bottom"></div>
@@ -30,6 +32,8 @@
             <![CDATA[
 <div class="content-body__subtitle">Base example</div>
 <fox-tag name="tags" [settings]="settings" [(ngModel)]="tags"></fox-tag>
+<div class="content-body__subtitle">Autocomplete</div>
+<fox-tag name="tags" [settings]="{autocomplete: true, autocompleteItems: autocompleteItems}" [(ngModel)]="tags"></fox-tag>
 <div class="content-body__subtitle">Colors</div>
 <fox-tag name="primary" [settings]="{color: 'primary'}" [(ngModel)]="tags"></fox-tag>
 <div class="demo__margin-bottom"></div>
@@ -64,6 +68,14 @@ import { TagItem, TagSettings, TagLangs } from '../../components/tag/tag.model';
     templateUrl: 'tag.demo.html'
 })
 export class TagDemoComponent implements OnInit {
+    public autocompleteItems : Array<TagItem> = [
+        { value: 1, label: 'Autocomplete 1' },
+        { value: 2, label: 'Autocomplete 2' },
+        { value: 6, label: 'Autocomplete 3' },
+        { value: 4, label: 'Autocomplete 4' },
+        { value: 5, label: 'Autocomplete 5' }
+    ];
+
     public tags: Array<TagItem> = [
         { value: 1, label: 'Tag 1' },
         { value: 2, label: 'Tag 2' },
@@ -129,6 +141,8 @@ TagSettings {
     addTagOnSpace?: boolean;
     addTagOnBlur?: boolean;
     minTagLength?: number;
+    autocomplete?: boolean,
+    autocompleteItems?: Array<TagItem>
 }
 
 TagLangs {
@@ -169,6 +183,12 @@ TagLangs {
             <li>
                 <code>disabled</code> (<code>boolean</code>) - disabled status for tags
             </li>
+            <li>
+                <code>autocomplete</code> (<code>boolean</code>) - use autocomplete
+            </li>
+            <li>
+                <code>autocompleteItems</code> (<code>array</code>) - autocomplete items array
+            </li>
         </ul>
     </div>
     <div demo-settings-default>
@@ -183,7 +203,9 @@ settings: {
     addTagOnEnter: true,
     addTagOnPaste: true,
     addTagOnSpace: false,
-    addTagOnBlur: true
+    addTagOnBlur: true,
+    autocomplete: false,
+    autocompleteItems: []
 };
 
 disabled: false;

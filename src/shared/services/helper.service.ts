@@ -36,4 +36,8 @@ export class HelperService {
     isNumber(value: any): boolean {
         return typeof value === 'number'; 
     }
+
+    isArray(value: any): boolean {
+        return Array.isArray(value); 
+    }
 }

@@ -1,5 +1,5 @@
 import { 
-    Component, OnInit, OnChanges, Input, Output, EventEmitter, ElementRef, forwardRef, ViewChild  
+    Component, OnInit, OnChanges, Input, Output, EventEmitter, ElementRef, forwardRef, ViewChild, HostListener 
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
@@ -40,12 +40,13 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
 
     protected tagsList: Array<TagItem> = [];
     protected selected: number;
+    protected searchText: string = '';
     protected defaultSettings: TagSettings;
     protected defaultLangs: TagLangs;
     protected onTouchedCallback: () => void = () => { };
     protected onChangeCallback: (_: any) => void = () => { };
 
-    constructor(private overwriteService: OverwriteService) {
+    constructor(private overwriteService: OverwriteService, private el: ElementRef) {
         this.defaultSettings = overwriteService.getSettings('tag');
         this.defaultLangs = overwriteService.getLangs('tag');
     }
@@ -64,6 +65,18 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
         if(changes.langs) {
             let data = (<any>Object).assign({}, changes.langs.previousValue, changes.langs.currentValue);
             this.langs = (<any>Object).assign({}, this.defaultLangs, data);
+        }
+    }
+
+    @HostListener('document:click', ['$event', '$event.target'])
+    public onClickOutside(event: any, targetElement: HTMLElement): void {
+        if (!targetElement || !this.settings.autocomplete) {
+            return;
+        }
+
+        const clickedInside = this.el.nativeElement.contains(targetElement);
+        if (!clickedInside) {
+            this.searchText = '';
         }
     }
 
@@ -115,7 +128,7 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
     }
 
     onBlur(event: any): void {
-        if(this.disabled) {
+        if(this.disabled || this.settings.autocomplete) {
             return;
         }
 
@@ -124,13 +137,17 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
         }
     }
 
-    isTagUnique(tagString: string): boolean {
+    isTagUnique(tagString: any): boolean {
+        tagString = (tagString instanceof Object) ? tagString.label : tagString);
+
         let tagExist = (this.tagsList && this.tagsList.filter((tag) => { return tag.label === tagString; }).length) ? false : true;
         
         return this.settings.duplicates ? true : tagExist;
     }
 
-    isTagValid(tagString: string): boolean {
+    isTagValid(tagString: any): boolean {
+        tagString = (tagString instanceof Object) ? tagString.label : tagString;
+
         if(tagString.length < this.settings.minTagLength || tagString == '') {
             return false;
         }
@@ -138,20 +155,20 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
         return true;
     }
 
-    addTags(tags: string[]): void {
+    addTags(tags: Array<any>): void {
         if(this.disabled) {
             return;
         }
-        
+
         let newTags: Array<TagItem> = [];
-        let validTags = tags.map(tag => tag.trim())
+        let validTags = tags.map(tag => (tag instanceof Object) ? tag : tag.trim())
                             .filter(tag => this.isTagValid(tag))
                             .filter(tag => this.isTagUnique(tag));
-       
+    
         validTags.forEach(item => {
             newTags.push({
-                'value': this.maxTagsListKey() + 1,
-                'label': item
+                'value': (item instanceof Object) ? item.value : this.maxTagsListKey() + 1,
+                'label': (item instanceof Object) ? item.label : item
             });
         });
         
@@ -195,6 +212,10 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
 
     reselectTag(): void {
         this.selected = null;
+    }
+
+    onAutocompleteItem(event: any, item: TagItem) {
+        this.addTags([item]); 
     }
 
     isBlank(obj: any): boolean {
