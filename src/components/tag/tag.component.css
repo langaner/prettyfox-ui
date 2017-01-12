@@ -21,4 +21,10 @@
 .fox-tags__autocomplete {
     max-height: 220px;
     overflow-y: scroll;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    left: 0;
+    border: 1px solid #ddd;
+    z-index: 100;
 }

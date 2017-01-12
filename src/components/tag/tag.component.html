@@ -13,7 +13,7 @@
         (paste)="onPaste($event)"
         (keydown)="onKeydown($event)"
         (blur)="onBlur($event)">
-    <div class="fox-tags__autocomplete" *ngIf="settings.autocomplete && searchText.length > 0" >
+    <div class="fox-tags__autocomplete" *ngIf="settings.autocomplete && searchText.length > 0 && (settings.autocompleteItems | tagSearchFilter:searchText).length > 0" >
         <div class="fox-tags__autocomplete-item" *ngFor="let item of settings.autocompleteItems | tagSearchFilter:searchText" (click)="onAutocompleteItem($event, item)">
             {{ item.label }}
         </div>
