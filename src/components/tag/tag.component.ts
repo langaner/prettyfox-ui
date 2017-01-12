@@ -138,7 +138,7 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
     }
 
     isTagUnique(tagString: any): boolean {
-        tagString = (tagString instanceof Object) ? tagString.label : tagString);
+        tagString = (tagString instanceof Object) ? tagString.label : tagString;
 
         let tagExist = (this.tagsList && this.tagsList.filter((tag) => { return tag.label === tagString; }).length) ? false : true;
         
