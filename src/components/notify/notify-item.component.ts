@@ -29,10 +29,17 @@ export class NotifyItemComponent implements OnInit, OnDestroy {
     constructor(private notifyService: NotifyService) { }
 
     ngOnInit() {
-    	this.settings = {
-		    duration: !this.item.settings.duration ? this.duration : this.item.settings.duration,
-		    closeble: !this.item.settings.closeble ? this.closeble : this.item.settings.closeble
-	    };
+        if(this.item.settings == undefined) {
+            this.settings = {
+                duration: this.duration,
+                closeble: this.closeble
+            };
+        } else {
+            this.settings = {
+                duration: (!this.item.settings.duration) ? this.duration : this.item.settings.duration,
+                closeble: (!this.item.settings.closeble) ? this.closeble : this.item.settings.closeble
+            };
+        }
 
     	if (this.settings.duration !== 0) {
             this.startDuration();

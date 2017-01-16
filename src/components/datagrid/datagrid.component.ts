@@ -222,12 +222,12 @@ export class DatagridComponent implements OnInit, OnChanges {
     }
 
     removeSelectedHandler(event: any, popover: PopoverComponent): void {
-        this.removeSelected.emit(this.checkedItems);
+        this.removeSelected.emit({ids:this.checkedItems, data: this.createLazyLoadData()});
         this.closePopover(event, popover);
     }
 
     removeHandler(event: any, row: any, popover: PopoverComponent): void {
-        this.remove.emit(row.id);
+        this.remove.emit({id: row.id, data: this.createLazyLoadData()});
         popover.show(event);
     }
 

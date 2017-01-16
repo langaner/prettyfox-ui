@@ -98,7 +98,7 @@
                     </div>
                     <fox-popover #removePopover *ngIf="routes && routes.remove" [settings]="{buttonLabel: '<i class=\'fa fa-trash\'></i>', title: langs.removePopoverTitle, placement: 'left', color: 'danger'}">
                         <fox-button [settings]="{color: 'secondary', label: langs.cancelRemove}" (click)="closePopover($event, removePopover)"></fox-button>
-                        <fox-button [settings]="{color: 'danger', label: langs.remove}" (click)="removeHandler($event, row.id, removePopover)"></fox-button>
+                        <fox-button [settings]="{color: 'danger', label: langs.remove}" (click)="removeHandler($event, row, removePopover)"></fox-button>
                     </fox-popover>
                 </td>
             </tr>

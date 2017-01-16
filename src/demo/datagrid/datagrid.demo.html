@@ -459,10 +459,10 @@ total: number = 0;
                 <code>lazyLoad</code> - lazyLoad event on datagrid. Returned <code>this.createLazyLoadData()</code>
             </li>
             <li>
-                <code>removeSelected</code> - remove selected rows event on datagrid. Returned <code>this.checkedItems</code>
+                <code>removeSelected</code> - remove selected rows event on datagrid. Returned <code>{{ '{' }}ids: array, data: LazyloadEvent{{ '}' }}</code>
             </li>
             <li>
-                <code>remove</code> - remove item by id. Returned <code>row.id</code>
+                <code>remove</code> - remove item by id. Returned <code>{{ '{' }}id: number, data: LazyloadEvent{{ '}' }}</code>
             </li>
             <li>
                 <code>rowClick</code> - row click event on datagrid. Returned <code>{{ '{' }}riginalEvent: event, row: row{{ '}' }}</code>
