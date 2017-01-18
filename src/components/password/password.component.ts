@@ -135,8 +135,6 @@ export class PasswordComponent implements OnInit, OnChanges, ControlValueAccesso
 
     onBlur(event: any): void {
         this.onTouchedCallback();
-
-        this.strong(this.innerValue);
     }
 
     onClick(event: any): void {
