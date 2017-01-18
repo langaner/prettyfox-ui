@@ -34,6 +34,7 @@ import { NavbarSettings } from '../../components/navbar/navbar.model';
 import { DatagridSettings, DatagridLangs } from '../../components/datagrid/datagrid.model';
 import { ScrollbarSettings } from '../../components/scrollbar/scrollbar.model';
 import { ValidateSettings, ValidateLangs } from '../../components/validate/validate.model';
+import { PasswordSettings, PasswordLangs } from '../../components/password/password.model';
 // import { BreadcrumbSettings } from '../../components/breadcrumb/breadcrumb.model';
 // import { HighlightSettings } from '../../components/highlight/highlight.model';
 // import { TieredmenuSettings } from '../../components/tieredmenu/tieredmenu.model';
@@ -345,6 +346,20 @@ export class OverwriteService implements OnInit {
     protected inputSettings: InputSettings = {
         size: 'md',
         type: 'text'
+    };
+
+    /**
+     * Password
+     */
+    protected passwordSettings: PasswordSettings = {
+        size: 'md',
+        buttonColor: 'secondary',
+        length: 10,
+        minLength: 6
+    };
+
+    protected passwordLangs: PasswordLangs = {
+        generate: 'Generate'
     };
 
     /**

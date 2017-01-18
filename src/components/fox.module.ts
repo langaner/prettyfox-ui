@@ -38,6 +38,7 @@ import { NavbarModule } from './navbar/index';
 import { DatagridModule } from './datagrid/index';
 import { ScrollbarModule } from './scrollbar/index';
 import { ValidateModule } from './validate/index';
+import { PasswordModule } from './password/index';
 // import { LocalizedModule } from './localized/index';
 
 import { OverwriteService } from './../shared/services/overwrite.service';
@@ -79,11 +80,11 @@ const COMPONENTS_MODULES = [
     PanelmenuModule,
     NotifyModule,
     HighlightModule,
-    // VisualityModule,
     NavbarModule,
     DatagridModule,
     ScrollbarModule,
     ValidateModule,
+    PasswordModule
     // LocalizedModule
 ];
 

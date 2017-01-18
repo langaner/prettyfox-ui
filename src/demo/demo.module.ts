@@ -48,6 +48,7 @@ import { NavbarDemoComponent } from './navbar/navbar.demo';
 import { DatagridDemoComponent } from './datagrid/datagrid.demo';
 import { ScrollbarDemoComponent } from './scrollbar/scrollbar.demo';
 import { ValidateDemoComponent } from './validate/validate.demo';
+import { PasswordDemoComponent } from './password/password.demo';
 // import { LocalizedDemoComponent } from './localized/localized.demo';
 
 import { DEMO_ROUTES } from './demo-routing';
@@ -95,11 +96,11 @@ const COMPONENTS_DEMOS = [
     PanelmenuDemoComponent,
     NotifyDemoComponent,
     HighlightDemoComponent,
-    // VisualityDemoComponent,
     NavbarDemoComponent,
     DatagridDemoComponent,
     ScrollbarDemoComponent,
     ValidateDemoComponent,
+    PasswordDemoComponent,
     // LocalizedDemoComponent
 ];
 

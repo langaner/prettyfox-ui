@@ -38,6 +38,7 @@ import { NavbarDemoComponent } from './navbar/navbar.demo';
 import { DatagridDemoComponent } from './datagrid/datagrid.demo';
 import { ScrollbarDemoComponent } from './scrollbar/scrollbar.demo';
 import { ValidateDemoComponent } from './validate/validate.demo';
+import { PasswordDemoComponent } from './password/password.demo';
 // import { LocalizedDemoComponent } from './localized/localized.demo';
 
 export const routes:Routes = [
@@ -192,6 +193,10 @@ export const routes:Routes = [
     {
         path: 'validate',
         component: ValidateDemoComponent
+    },
+    {
+        path: 'password',
+        component: PasswordDemoComponent
     },
     // {
     //     path: 'localized',

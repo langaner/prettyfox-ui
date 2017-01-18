@@ -99,6 +99,11 @@ export const menuData = [
                 title: 'Editor', 
                 route: 'editor'
             },
+            {
+                id: 46,
+                title: 'Password', 
+                route: 'password'
+            }
         ]
     },
     {
@@ -187,6 +192,11 @@ export const menuData = [
                 title: 'Scrollbar', 
                 route: 'scrollbar'
             },
+            // {
+            //     id: 212,
+            //     title: 'Localized', 
+            //     route: 'localized'
+            // }
         ]
     },
     {
