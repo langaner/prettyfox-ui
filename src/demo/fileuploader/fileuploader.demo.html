@@ -4,13 +4,15 @@
     </div>
     <div demo-examples>
         <div class="content-body__subtitle">Base example</div>
-        <fox-fileuploader name="files" (preview)="handlePreview($event)" (upload)="handleUpload($event)"></fox-fileuploader> 
+        <fox-fileuploader name="files" [settings]="{multiple: true}" [files]="files" (upload)="handleUpload($event)"></fox-fileuploader> 
         <p>Files:</p>
         <ul *ngIf="files.length">
             <li *ngFor="let file of files; let i = index">
                 File №{{ i + 1 }} - {{ file.name }}
             </li>
         </ul>
+        <div class="content-body__subtitle">Single file</div>
+        <fox-fileuploader name="files" (upload)="handleUpload($event)"></fox-fileuploader> 
         <div class="content-body__subtitle">Colors</div>
         <fox-fileuploader name="files" [settings]="{color: 'primary'}" [langs]="{buttonText: 'Primary'}"></fox-fileuploader>
         <div class="demo__margin-bottom"></div>
@@ -40,7 +42,9 @@
         <highlight language="markup">
             <![CDATA[
 <div class="content-body__subtitle">Base example</div>
-<fox-fileuploader name="files" (preview)="handlePreview($event)" (upload)="handleUpload($event)"></fox-fileuploader> 
+<fox-fileuploader name="files" [settings]="{multiple: true}" [files]="files" (preview)="handlePreview($event)" (upload)="handleUpload($event)"></fox-fileuploader> 
+<div class="content-body__subtitle">Single file</div>
+<fox-fileuploader name="files" (upload)="handleUpload($event)"></fox-fileuploader> 
 <div class="content-body__subtitle">Colors</div>
 <fox-fileuploader name="files" [settings]="{color: 'primary'}" [langs]="{buttonText: 'Primary'}"></fox-fileuploader>
 <div class="demo__margin-bottom"></div>
@@ -307,6 +311,9 @@ disabled: false;
             </li>
             <li>
                 <code>rejected</code> - extension error. Returned <code>{{ '{' }}file: file, reason: this.langs.extensionNotAllowed{{ '}' }}</code>
+            </li>
+            <li>
+                <code>remove</code> - then remove file item. Returned <code>{{ '{' }}file: file, files: this.files{{ '}' }}</code>
             </li>
             <li>
                 <code>preview</code> - preview. Returned <code>{{ '{' }}url: renderResult{{ '}' }}</code>

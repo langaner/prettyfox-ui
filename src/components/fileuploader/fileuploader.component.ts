@@ -1,34 +1,28 @@
 import { 
-    Component, OnInit, OnChanges, Input, Output, EventEmitter, ElementRef, ViewChild, forwardRef   
+    Component, OnInit, OnChanges, DoCheck, Input, Output, EventEmitter, ElementRef, ViewChild, KeyValueDiffers   
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 import { FileuploaderSettings, FileuploaderLangs } from './fileuploader.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
-export const FOX_FILE_CONTROL_VALUE_ACCESSOR: any = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => FileuploaderComponent),
-    multi: true
-};
-
 @Component({ 
     moduleId: module.id,
     selector: 'fox-fileuploader',
     templateUrl: 'fileuploader.component.html',
-    styleUrls: ['fileuploader.component.css'],
-    providers: [FOX_FILE_CONTROL_VALUE_ACCESSOR]
+    styleUrls: ['fileuploader.component.css']
 })
-export class FileuploaderComponent implements OnInit, OnChanges, ControlValueAccessor {
+export class FileuploaderComponent implements OnInit, OnChanges, DoCheck {
     @Input() name: string = '';
     @Input() disabled: boolean;
     @Input() settings: FileuploaderSettings;
     @Input() langs: FileuploaderLangs;
+    @Input() files: any = [];
 
     @Output() clicked: EventEmitter<any> = new EventEmitter();
     @Output() rejected: EventEmitter<any> = new EventEmitter();
     @Output() preview: EventEmitter<any> = new EventEmitter();
+    @Output() remove: EventEmitter<any> = new EventEmitter();
     @Output() upload: EventEmitter<any> = new EventEmitter();
     @Output() uploadProgress: EventEmitter<any> = new EventEmitter();
     @Output() uploadAbort: EventEmitter<any> = new EventEmitter();
@@ -39,7 +33,6 @@ export class FileuploaderComponent implements OnInit, OnChanges, ControlValueAcc
 
     protected onTouchedCallback: () => void = () => { };
     protected onChangeCallback: (_: any) => void = () => { };
-    protected files: Array<any> = [];
     protected queueList: Array<any> = [];
     protected previewPrefix: string = 'preview';
     protected progress: Object = {
@@ -56,16 +49,33 @@ export class FileuploaderComponent implements OnInit, OnChanges, ControlValueAcc
     protected abort: boolean = false;
     protected defaultSettings: FileuploaderSettings;
     protected defaultLangs: FileuploaderLangs;
+    protected differ: any;
 
-    constructor(private el: ElementRef, private overwriteService: OverwriteService) {
+    constructor(
+        private el: ElementRef, 
+        private overwriteService: OverwriteService,
+        private differs: KeyValueDiffers
+    ) {
         this.defaultSettings = overwriteService.getSettings('fileuploader');
         this.defaultLangs = overwriteService.getLangs('fileuploader');
+
+        this.differ = differs.find({}).create(null);
     }
 
     ngOnInit() {
         this.settings = (<any>Object).assign({}, this.defaultSettings, this.settings);
         this.langs = (<any>Object).assign({}, this.defaultLangs, this.langs);
     }
+
+    ngDoCheck() {
+        let changes = this.differ.diff(this.files);
+
+        if(changes) {
+            changes.forEachAddedItem((file) => {
+                this.addToQueue([file.currentValue]);
+            });
+        }
+	}
 
     ngOnChanges(changes: any) {
         if(changes.settings) {
@@ -88,30 +98,40 @@ export class FileuploaderComponent implements OnInit, OnChanges, ControlValueAcc
     }
 
     onChange(event: any): void {
-        this.files = (<any>Array).from(this.fileInput.nativeElement.files);
-
+        if(this.settings.multiple) {
+            this.files.push(...(<any>Array).from(this.fileInput.nativeElement.files));
+        } else {
+            this.files[0] = (<any>Array).from(this.fileInput.nativeElement.files)[0];
+        }
+        
         if (this.settings.filterExtensions && this.settings.allowedExtensions) {
             this.filterByExtension();
         }
 
         if (this.files.length) {
             this.addToQueue(this.files);
-
-            let files: any = (this.settings.multiple) ? this.files : this.files[0];
             
+            let files: any = (this.settings.multiple) ? this.files : this.files[0];
+
             this.upload.emit({originalEvent: event, files: files});
         }
     }
 
     addToQueue(files: Array<any>): void {
-        files.forEach((file: File, i: number) => {
-            if (this.isFile(file) && !this.inQueue(file)) {
-                this.queueList.push(file);
+        if(!this.settings.multiple) {
+            this.queueList = [];
+        }
+
+        for (var key in files) {
+            if (this.isFile(files[key]) && !this.inQueue(files[key])) {
+                this.queueList.push(files[key]);
             }
-        });
+        }
 
         if (this.settings.showPreview) {
-            files.forEach(file => this.createFileUrl(file));
+            for (var key in files) {
+                this.createFileUrl(files[key])
+            }
         }
 
         if (this.settings.autoupload) {
@@ -203,7 +223,7 @@ export class FileuploaderComponent implements OnInit, OnChanges, ControlValueAcc
 
     createFileUrl(file: File): void {
         let reader: FileReader = new FileReader();
-
+        
         reader.addEventListener('load', () => {
             let fileId = this.previewPrefix + '-' + file.name + '-' + file.size;
             let fileEl = document.getElementById(fileId);
@@ -237,6 +257,8 @@ export class FileuploaderComponent implements OnInit, OnChanges, ControlValueAcc
     }
 
     removeFromQueue(index: number): void {
+        this.remove.emit({file: this.files[index], files: this.files});
+
         this.queueList.splice(index, 1);
         this.files.splice(index, 1);
     }
@@ -302,30 +324,5 @@ export class FileuploaderComponent implements OnInit, OnChanges, ControlValueAcc
         let i: number = Math.floor(Math.log(bytes) / Math.log(k));
 
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i] + '/s';
-    }
-
-    // get value(): any {
-    //     return this.files;
-    // };
-
-    // set value(value: any) {
-    //     this.files = value;
-    //     this.onChangeCallback(value);
-    // }
-
-    writeValue(value: any) {
-        if (!value) {
-            this.files = [];
-        } else {
-            this.files = value;
-        }
-    }
-
-    registerOnChange(fn: any) {
-        this.onChangeCallback = fn;
-    }
-
-    registerOnTouched(fn: any) {
-        this.onTouchedCallback = fn;
     }
 }
