@@ -44,7 +44,7 @@ export class FileuploaderDemoComponent implements OnInit {
 
     getFileBlob(filename: string): Observable<any> {
         return this.http.get(this.filePath + filename, {
-            method: RequestMethod.Post,
+            method: RequestMethod.Get,
             responseType: ResponseContentType.Blob,
             headers: new Headers({'Content-Type': 'application/x-www-form-urlencoded'})
         });
