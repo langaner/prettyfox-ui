@@ -33,8 +33,8 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
     @Input() settings: TagSettings;
     @Input() langs: TagLangs;
 
-    @Output('tagAdd') tagAdd: EventEmitter<Array<TagItem>> = new EventEmitter<Array<TagItem>>();
-    @Output('tagRemoved') tagRemoved: EventEmitter<TagItem> = new EventEmitter<TagItem>();
+    @Output() add: EventEmitter<Array<TagItem>> = new EventEmitter<Array<TagItem>>();
+    @Output() removed: EventEmitter<TagItem> = new EventEmitter<TagItem>();
 
     @ViewChild('tagsInput') tagsInput: ElementRef;
 
@@ -180,7 +180,7 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
         
         this.reselectTag();
         this.onChangeCallback(this.tagsList);
-        this.tagAdd.emit({tags: newTags});
+        this.add.emit(newTags);
 
         this.clearInput();
     }
@@ -193,7 +193,7 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
         this.reselectTag();
 
         this.onChangeCallback(this.tagsList);
-        this.tagRemoved.emit({tag: tag});
+        this.removed.emit(tag);
     }
 
     clearInput(): void {
