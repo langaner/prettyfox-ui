@@ -49,9 +49,6 @@
                     <fox-validate label="Colorpicker test(must be #ffa500)" [control]="testForm.controls['colorpicker']">
                         <fox-colorpicker name="colorpicker" [formControl]="testForm.controls['colorpicker']"></fox-colorpicker>
                     </fox-validate>
-                    <fox-validate label="Fileuploader test" [control]="testForm.controls['fileuploader']">
-                        <fox-fileuploader name="fileuploader" [formControl]="testForm.controls['fileuploader']"></fox-fileuploader>
-                    </fox-validate>
 
                     <input class="btn btn-danger" type="submit" value="Submit" [disabled]="!testForm.valid">
                 </form>
@@ -107,9 +104,6 @@
             </fox-validate>
             <fox-validate label="Colorpicker test" [control]="testForm.controls['colorpicker']">
                 <fox-colorpicker name="colorpicker" [formControl]="testForm.controls['colorpicker']"></fox-colorpicker>
-            </fox-validate>
-            <fox-validate label="Fileuploader test" [control]="testForm.controls['fileuploader']">
-                <fox-fileuploader name="fileuploader" [formControl]="testForm.controls['fileuploader']"></fox-fileuploader>
             </fox-validate>
 
             <input class="btn btn-danger" type="submit" value="Submit" [disabled]="!testForm.valid">

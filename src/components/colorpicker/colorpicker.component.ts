@@ -104,7 +104,7 @@ export class ColorpickerComponent implements OnInit, OnChanges, ControlValueAcce
         const clickedInside = this.el.nativeElement.contains(targetElement);
         if (!clickedInside) {
             this.dropped = false;
-            this.clicked.emit({originalEvent: event});
+            this.outsideClick.emit({originalEvent: event});
         }
     }
 
@@ -396,7 +396,7 @@ export class ColorpickerComponent implements OnInit, OnChanges, ControlValueAcce
     }
 
     onChange(event: any) {
-        this.changed.emit({originalEvent: event, value: this.innerValue});
+        this.changed.emit({value: this.innerValue});
     }
 
     get value(): any {

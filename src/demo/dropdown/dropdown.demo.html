@@ -320,19 +320,19 @@ divider: boolean;
     <div demo-events>
         <ul>
             <li>
-                <code>submited</code> - click event on submit button. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+                <code>submited</code> - submit button click. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
             </li>
 			<li>
-                <code>showed</code> - click event on dropdown. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+                <code>showed</code> - click on dropdown. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
             </li>
 			<li>
-                <code>outsideClick</code> - click outside of dropdown event. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
+                <code>outsideClick</code> - click outside. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
             </li>
         </ul>
 		<p>Dropdown item</p>
 		<ul>
             <li>
-                <code>clicked</code> - click event on dropdown link. Returned <code>{{ '{' }}originalEvent: event, route: this.route{{ '}' }}</code>
+                <code>clicked</code> - click event on dropdown link. Returned <code>{{ '{' }}route: string{{ '}' }}</code>
             </li>
         </ul>
     </div>

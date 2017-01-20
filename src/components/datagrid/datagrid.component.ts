@@ -172,7 +172,7 @@ export class DatagridComponent implements OnInit, OnChanges {
 
     rowClickHandler(event: any, row: any): void {
         if(event.target.nodeName == 'TD') {
-            this.rowClick.emit({originalEvent: event, row: row});
+            this.rowClick.emit({row: row});
 
             if(this.settings.actionOnRowClick) {
                 this.router.navigate(this.settings.actionOnRowClick);
@@ -181,11 +181,11 @@ export class DatagridComponent implements OnInit, OnChanges {
     }
 
     rowSelectHandler(event: any, row: any): void {
-        this.rowSelect.emit({originalEvent: event, row: row});
+        this.rowSelect.emit({row: row});
     }
 
     rowUnselectHandler(event: any, row: any): void {
-        this.rowUnselect.emit({originalEvent: event, row: row});
+        this.rowUnselect.emit({row: row});
     }
 
     rowCheckedHandler(event: any, row: any): void {
@@ -222,7 +222,7 @@ export class DatagridComponent implements OnInit, OnChanges {
     }
 
     removeSelectedHandler(event: any, popover: PopoverComponent): void {
-        this.removeSelected.emit({ids:this.checkedItems, data: this.createLazyLoadData()});
+        this.removeSelected.emit({ids: this.checkedItems, data: this.createLazyLoadData()});
         this.closePopover(event, popover);
     }
 
@@ -266,7 +266,7 @@ export class DatagridComponent implements OnInit, OnChanges {
 
         this.fireLazyLoadEvent();
 
-        this.filtersSubmited.emit({originalEvent: event, filtersData: this.filtersData});
+        this.filtersSubmited.emit({filtersData: this.filtersData});
     }
 
     resetFiltersHandler(event: any): void {
@@ -279,7 +279,7 @@ export class DatagridComponent implements OnInit, OnChanges {
 
         this.changeGridData();
 
-        this.filtersReseted.emit({originalEvent: event, filtersData: this.filtersData});
+        this.filtersReseted.emit({filtersData: this.filtersData});
     }
 
     filterChangedHandler(event: any): void {
@@ -294,7 +294,7 @@ export class DatagridComponent implements OnInit, OnChanges {
 
         this.fireLazyLoadEvent();
 
-        this.sortSubmited.emit({originalEvent: event, sortedField: this.sortedField, sortedOrder: this.sortedOrder});
+        this.sortSubmited.emit({sortedField: this.sortedField, sortedOrder: this.sortedOrder});
     }
 
     fireLazyLoadEvent(): void {

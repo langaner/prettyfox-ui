@@ -310,28 +310,28 @@ disabled: false;
                 <code>clicked</code> - click event on fileuploader. Returned <code>{{ '{' }}originalEvent: event{{ '}' }}</code>
             </li>
             <li>
-                <code>rejected</code> - extension error. Returned <code>{{ '{' }}file: file, reason: this.langs.extensionNotAllowed{{ '}' }}</code>
+                <code>rejected</code> - extension error. Returned <code>{{ '{' }}file: File, reason: string{{ '}' }}</code>
             </li>
             <li>
-                <code>remove</code> - then remove file item. Returned <code>{{ '{' }}file: file, files: this.files{{ '}' }}</code>
+                <code>remove</code> - then remove file item. Returned <code>{{ '{' }}file: File, files: array{{ '}' }}</code>
             </li>
             <li>
-                <code>preview</code> - preview. Returned <code>{{ '{' }}url: renderResult{{ '}' }}</code>
+                <code>preview</code> - preview. Returned <code>{{ '{' }}url: string{{ '}' }}</code>
             </li>
             <li>
-                <code>upload</code> - upload start. Returned <code>{{ '{' }}originalEvent: event, files: this.files{{ '}' }}</code>
+                <code>upload</code> - upload start. Returned <code>{{ '{' }}files: array{{ '}' }}</code>
             </li>
             <li>
-                <code>uploadProgress</code> - upload progress. Returned <code>{{ '{' }}loadData{{ '}' }}</code>
+                <code>uploadProgress</code> - upload progress. Returned <code>loadData</code>
             </li>
             <li>
-                <code>uploadAbort</code> - upload abort. Returned <code>{{ '{' }}loadData{{ '}' }}</code>
+                <code>uploadAbort</code> - upload abort. Returned <code>loadData</code>
             </li>
             <li>
-                <code>uploadError</code> - upload error. Returned <code>{{ '{' }}loadData{{ '}' }}</code>
+                <code>uploadError</code> - upload error. Returned <code>loadData</code>
             </li>
             <li>
-                <code>uploadDone</code> - upload complete. Returned <code>{{ '{' }}loadData{{ '}' }}</code>
+                <code>uploadDone</code> - upload complete. Returned <code>loadData</code>
             </li>
         </ul>
     </div>

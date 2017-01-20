@@ -67,7 +67,7 @@ export class SwitcherComponent implements OnInit, OnChanges, ControlValueAccesso
     }
 
     onChange(event: any): void {
-        this.changed.emit({originalEvent: event});
+        this.changed.emit({value: this.innerValue});
     }
 
     toggle(): void {

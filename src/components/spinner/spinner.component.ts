@@ -55,7 +55,7 @@ export class SpinnerComponent implements OnInit, OnChanges, ControlValueAccessor
     }
 
     onChange(event: any): void {
-        this.changed.emit({originalEvent: event, value: this.innerValue});
+        this.changed.emit({value: this.innerValue});
     }
 
     get value(): any {

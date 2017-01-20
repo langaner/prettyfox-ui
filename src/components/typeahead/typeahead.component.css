@@ -1,0 +1,30 @@
+.fox-typeahead {
+    position: relative;
+}
+.fox-typeahead__autocomplete {
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    min-width: 10rem;
+    padding: .5rem;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #373a3c;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    width: 100%;
+    max-height: 350px;
+    overflow-y: auto;
+}
+.fox-typeahead__autocomplete-item {
+    padding: 5px 0 5px;
+}
+.fox-typeahead__autocomplete-item:hover {
+    cursor: pointer;
+}

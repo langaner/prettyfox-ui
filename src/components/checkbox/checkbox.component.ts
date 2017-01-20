@@ -59,12 +59,12 @@ export class CheckboxComponent implements OnInit, OnChanges, ControlValueAccesso
         
         this.checked = !this.checked;
 
-        this.clicked.emit({originalEvent: event, checked: event.target.checked});
+        this.clicked.emit({checked: event.target.checked});
     }
 
     onChange(event: any): void {
         this.updateValue();
-        this.changed.emit({originalEvent: event, checked: event.target.checked});
+        this.changed.emit({checked: event.target.checked});
     }
 
     updateValue(): void {

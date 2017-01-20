@@ -180,7 +180,7 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
         
         this.reselectTag();
         this.onChangeCallback(this.tagsList);
-        this.tagAdd.emit(newTags);
+        this.tagAdd.emit({tags: newTags});
 
         this.clearInput();
     }
@@ -193,7 +193,7 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
         this.reselectTag();
 
         this.onChangeCallback(this.tagsList);
-        this.tagRemoved.emit(tag);
+        this.tagRemoved.emit({tag: tag});
     }
 
     clearInput(): void {

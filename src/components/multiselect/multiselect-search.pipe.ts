@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core'
 import { MultiselectOption } from './multiselect.model';
 
 @Pipe({
-    name: 'multiseelectSearchFilter'
+    name: 'multiselectSearchFilter'
 })
 export class MultiselectSearchPipe {
     transform(options: Array<MultiselectOption>, args: string): Array<MultiselectOption> {

@@ -35,6 +35,7 @@ import { DatagridSettings, DatagridLangs } from '../../components/datagrid/datag
 import { ScrollbarSettings } from '../../components/scrollbar/scrollbar.model';
 import { ValidateSettings, ValidateLangs } from '../../components/validate/validate.model';
 import { PasswordSettings, PasswordLangs } from '../../components/password/password.model';
+import { TypeaheadSettings, TypeaheadLangs } from '../../components/typeahead/typeahead.model';
 // import { BreadcrumbSettings } from '../../components/breadcrumb/breadcrumb.model';
 // import { HighlightSettings } from '../../components/highlight/highlight.model';
 // import { TieredmenuSettings } from '../../components/tieredmenu/tieredmenu.model';
@@ -360,6 +361,20 @@ export class OverwriteService implements OnInit {
 
     protected passwordLangs: PasswordLangs = {
         generate: 'Generate'
+    };
+
+    /**
+     * Typeahead
+     */
+    protected typeaheadSettings: TypeaheadSettings = {
+        size: 'md',
+        titleField: 'title',
+        valueField: 'value',
+        lazyload: false
+    };
+
+    protected typeaheadLangs: TypeaheadLangs = {
+        noResults: 'No result found'
     };
 
     /**

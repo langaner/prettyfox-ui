@@ -23,8 +23,8 @@ export class TextareaComponent implements OnInit, OnChanges, ControlValueAccesso
     @Input() placeholder: string = '';
     @Input() disabled: boolean;
 
-    @Output() change: EventEmitter<any> = new EventEmitter();
-    @Output() click: EventEmitter<any> = new EventEmitter();
+    @Output() changed: EventEmitter<any> = new EventEmitter();
+    @Output() clicked: EventEmitter<any> = new EventEmitter();
 
     protected innerValue: any = '';
     protected onTouchedCallback: () => void = () => { };
@@ -51,11 +51,11 @@ export class TextareaComponent implements OnInit, OnChanges, ControlValueAccesso
     }
 
     onClick(event: any): void {
-        this.click.emit({originalEvent: event});
+        this.clicked.emit({originalEvent: event});
     }
 
     onChange(event: any): void {
-        this.change.emit({originalEvent: event, checked: event.target.checked});
+        this.changed.emit({value: this.innerValue});
     }
 
     get value(): any {

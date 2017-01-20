@@ -32,6 +32,6 @@ export class BreadcrumbComponent implements OnInit {
             this.router.navigate(item.route);
         }
 
-        this.clicked.emit({originalEvent: event, item: item});
+        this.clicked.emit({item: item});
     }
 }

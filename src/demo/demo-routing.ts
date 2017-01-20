@@ -39,6 +39,7 @@ import { DatagridDemoComponent } from './datagrid/datagrid.demo';
 import { ScrollbarDemoComponent } from './scrollbar/scrollbar.demo';
 import { ValidateDemoComponent } from './validate/validate.demo';
 import { PasswordDemoComponent } from './password/password.demo';
+import { TypeaheadDemoComponent } from './typeahead/typeahead.demo';
 // import { LocalizedDemoComponent } from './localized/localized.demo';
 
 export const routes:Routes = [
@@ -197,6 +198,10 @@ export const routes:Routes = [
     {
         path: 'password',
         component: PasswordDemoComponent
+    },
+    {
+        path: 'typeahead',
+        component: TypeaheadDemoComponent
     },
     // {
     //     path: 'localized',

@@ -49,8 +49,7 @@ export class ValidateDemoComponent implements OnInit {
             datepicker: ['', [Validators.required]],
             tag: [[], [Validators.required, Validators.minLength(3)]],
             slider: [1, [ValidateService.min(50)]],
-            colorpicker: ['#ff0000', [ValidateService.equal('#ffa500')]],
-            fileuploader: ['', [Validators.required]],
+            colorpicker: ['#ff0000', [ValidateService.equal('#ffa500')]]
 	    });
     }
     

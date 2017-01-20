@@ -259,7 +259,7 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
     }
 
     onChange(event: any): void {
-        this.changed.emit({originalEvent: event, value: this.innerValue});
+        this.changed.emit({value: this.innerValue});
     }
 
     prevMonth(): void {

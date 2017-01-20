@@ -27,14 +27,14 @@ export class AccordionTabComponent {
 
         if(this.selected) {
             this.selected = !this.selected;
-            this.accordion.closed.emit({originalEvent: event, index: index});
+            this.accordion.closed.emit({index: index});
         } else {
             if(!this.accordion.multiple) {
                 this.closeAllTabs();
             }
 
             this.selected = true;
-            this.accordion.opened.emit({originalEvent: event, index: index});
+            this.accordion.opened.emit({index: index});
         }
 
 		event.stopPropagation();

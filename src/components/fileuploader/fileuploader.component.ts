@@ -113,7 +113,7 @@ export class FileuploaderComponent implements OnInit, OnChanges, DoCheck {
             
             let files: any = (this.settings.multiple) ? this.files : this.files[0];
 
-            this.upload.emit({originalEvent: event, files: files});
+            this.upload.emit({files: files});
         }
     }
 

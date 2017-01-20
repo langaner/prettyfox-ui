@@ -29,7 +29,7 @@ export class DropdownItemComponent {
             return;
         }
 
-        this.clicked.emit({originalEvent: event, route: this.route});
+        this.clicked.emit({route: this.route});
 
         if(this.route) {
             this.router.navigate([this.route]);

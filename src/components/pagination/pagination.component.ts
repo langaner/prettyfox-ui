@@ -126,18 +126,18 @@ export class PaginationComponent implements ControlValueAccessor, OnInit, OnChan
             this.writeValue(page);
             this.model.viewToModelUpdate(this.page);
 
-            this.selected.emit({originalEvent: event, page: page});
+            this.selected.emit({page: page});
         }
     }
 
     prevSelect(event: any, page:number): void {
         this.select(event, page - 1);
-        this.prevClicked.emit({originalEvent: event, page: this.page});
+        this.prevClicked.emit({page: this.page});
     }
 
     nextSelect(event: any, page:number): void {
         this.select(event, page + 1);
-        this.nextClicked.emit({originalEvent: event, page: this.page});
+        this.nextClicked.emit({page: this.page});
     }
 
     lastSelect(event: any): void {

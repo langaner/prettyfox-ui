@@ -1,0 +1,30 @@
+<div class="fox-typeahead">
+    <input type="hidden" [name]="name" [(ngModel)]="value">
+    <input class="form-control form-control-{{ settings.size }} fox-input" 
+    type="text" 
+    [name]="name" 
+    [(ngModel)]="searchText"
+    [placeholder]="placeholder" 
+    (click)="onClick($event)" 
+    (change)="onChange($event)" 
+    (keyup)="onTyping()"
+    (blur)="onBlur()" 
+    [class.disabled]="disabled" 
+    [disabled]="disabled">
+
+    <div class="fox-typeahead__autocomplete" *ngIf="!isHidden">
+        <template [ngIf]="!settings.lazyload">
+            <div class="fox-typeahead__autocomplete-item" *ngFor="let item of _list | typeaheadSearchFilter: searchText: settings.titleField" (click)="onAutocompleteItem(item)">
+                {{ item[settings.titleField] }}
+            </div>
+        </template>
+        <template [ngIf]="settings.lazyload">
+            <div class="fox-typeahead__autocomplete-item" *ngFor="let item of _list" (click)="onAutocompleteItem(item)">
+                {{ item[settings.titleField] }}
+            </div>
+        </template>
+        <template [ngIf]="_list.length == 0 || (_list | typeaheadSearchFilter: searchText: settings.titleField).length == 0">
+            <div class="fox-typeahead__no-result">{{ langs.noResults }}</div>
+        </template>
+    </div>
+</div>

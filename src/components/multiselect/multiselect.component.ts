@@ -137,6 +137,8 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
         } else {
             this.innerValue = option.value;
         }
+
+        this.selected.emit({value: this.innerValue});
     }
 
     changeInnerValue(): void {

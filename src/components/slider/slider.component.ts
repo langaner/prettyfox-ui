@@ -194,7 +194,7 @@ export class SliderComponent implements OnInit, OnChanges, AfterContentInit, Con
     }
 
     onChange(event: any): void {
-        this.changed.emit({originalEvent: event, value: this.value});
+        this.changed.emit({value: this.value});
     }
     
     get value(): any {

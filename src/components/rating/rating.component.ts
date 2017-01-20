@@ -75,7 +75,7 @@ export class RatingComponent implements ControlValueAccessor, OnInit {
 
         this.value = rate;
         this.hoveredStar = rate;
-        this.rated.emit({originalEvent: event, rate: rate})
+        this.rated.emit({rate: rate})
     }
 
     onHover(event: any, rate: number): void {

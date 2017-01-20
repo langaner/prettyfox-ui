@@ -14,7 +14,7 @@ import { OverwriteService } from '../../shared/services/overwrite.service';
 export class TabSetComponent implements OnChanges, AfterContentInit {
 	@Input() settings: TabSettings;
 
-    @Output() actived: EventEmitter<any> = new EventEmitter();
+    @Output() selected: EventEmitter<any> = new EventEmitter();
     @Output() closed: EventEmitter<any> = new EventEmitter();
 
 	@ContentChildren(TabComponent) tabs: QueryList<TabComponent>;
@@ -57,12 +57,12 @@ export class TabSetComponent implements OnChanges, AfterContentInit {
 		this.tabs.toArray().forEach((t) => t.active = false);
 		tab.active = true;
 
-		this.actived.emit({originalEvent: event, tab: tab});
+		this.selected.emit({tab: tab});
 	}
 
 	closeTab(event: any, tab: TabComponent): void {
 		tab.closed = true;
 
-		this.closed.emit({originalEvent: event, tab: tab});
+		this.closed.emit({tab: tab});
 	}
 }

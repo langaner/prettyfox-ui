@@ -456,31 +456,31 @@ total: number = 0;
     <div demo-events>
         <ul>
             <li>
-                <code>lazyLoad</code> - lazyLoad event on datagrid. Returned <code>this.createLazyLoadData()</code>
+                <code>lazyLoad</code> - lazyLoad event. Returned <code>LazyloadEvent</code>
             </li>
             <li>
-                <code>removeSelected</code> - remove selected rows event on datagrid. Returned <code>{{ '{' }}ids: array, data: LazyloadEvent{{ '}' }}</code>
+                <code>removeSelected</code> - remove selected rows. Returned <code>{{ '{' }}ids: array, data: LazyloadEvent{{ '}' }}</code>
             </li>
             <li>
                 <code>remove</code> - remove item by id. Returned <code>{{ '{' }}id: number, data: LazyloadEvent{{ '}' }}</code>
             </li>
             <li>
-                <code>rowClick</code> - row click event on datagrid. Returned <code>{{ '{' }}riginalEvent: event, row: row{{ '}' }}</code>
+                <code>rowClick</code> - row click. Returned <code>{{ '{' }}row: row{{ '}' }}</code>
             </li>
             <li>
-                <code>rowSelect</code> - row select event on datagrid. Returned <code>{{ '{' }}riginalEvent: event, row: row{{ '}' }}</code>
+                <code>rowSelect</code> - row select. Returned <code>{{ '{' }}row: row{{ '}' }}</code>
             </li>
             <li>
-                <code>rowUnselect</code> - row unsekect event on datagrid. Returned <code>{{ '{' }}riginalEvent: event, row: row{{ '}' }}</code>
+                <code>rowUnselect</code> - row unsekect. Returned <code>{{ '{' }}row: row{{ '}' }}</code>
             </li>
             <li>
-                <code>filtersReseted</code> - filter resets event on datagrid. Returned <code>{{ '{' }}originalEvent: event, filtersData: this.filtersData{{ '}' }}</code>
+                <code>filtersReseted</code> - filter resets. Returned <code>{{ '{' }}filtersData: any{{ '}' }}</code>
             </li>
             <li>
-                <code>filtersSubmited</code> - filter submited event on datagrid. Returned <code>{{ '{' }}originalEvent: event, filtersData: this.filtersData{{ '}' }}</code>
+                <code>filtersSubmited</code> - filter submited. Returned <code>{{ '{' }}filtersData: any{{ '}' }}</code>
             </li>
             <li>
-                <code>sortSubmited</code> - sort submited event on datagrid. Returned <code>{{ '{' }}originalEvent: event, sortedField: this.sortedField, sortedOrder: this.sortedOrder{{ '}' }}</code>
+                <code>sortSubmited</code> - sort submited. Returned <code>{{ '{' }}sortedField: string, sortedOrder: string{{ '}' }}</code>
             </li>
         </ul>
     </div>

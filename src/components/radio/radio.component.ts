@@ -57,7 +57,7 @@ export class RadioComponent implements OnInit, OnChanges, ControlValueAccessor {
             return;
         }
         
-        this.clicked.emit({originalEvent: event, value: this.currentValue});
+        this.clicked.emit({value: this.currentValue});
     }
 
     onChange(event: any): void {
@@ -69,7 +69,7 @@ export class RadioComponent implements OnInit, OnChanges, ControlValueAccessor {
         this.checked = true;
         this.onChangeCallback(this.currentValue);
 
-        this.changed.emit({originalEvent: event, value: this.currentValue});
+        this.changed.emit({value: this.currentValue});
     }
 
     onBlur() {

@@ -35,4 +35,5 @@ export * from './datagrid/index';
 export * from './scrollbar/index';
 export * from './validate/index';
 export * from './password/index';
+export * from './typeahead/index';
 // export * from './localized/index';
