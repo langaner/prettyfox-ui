@@ -3,7 +3,7 @@ import {
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
-import { MultiselectOption, MultiselectSettings, MultiselectLangs, MultiselectAjax } from './multiselect.model';
+import { MultiselectSettings, MultiselectLangs, MultiselectAjax } from './multiselect.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
@@ -23,7 +23,7 @@ export const FOX_MULTISELECT_CONTROL_VALUE_ACCESSOR: any = {
 export class MultiselectComponent implements OnInit, ControlValueAccessor {
     @Input() name: string = '';
     @Input() disabled: boolean;
-    @Input() options: Array<MultiselectOption>;
+    @Input() options: Array<any>;
     @Input() settings: MultiselectSettings;
     @Input() langs: MultiselectLangs;
     @Input() ajax: MultiselectAjax;
@@ -107,35 +107,35 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
             this.title = this.langs.defaultTitle;
         } else if(this.settings.single) {
             this.title = this.options
-                .filter((option: MultiselectOption) => values == option.value)
-                .map((option: MultiselectOption) => option.label)
+                .filter((option: any) => values == option[this.settings.valueField])
+                .map((option: any) => option[this.settings.titleField])
                 .join('');
         } else if(this.settings.titleMaxItems >= values.length) {
             this.title = this.options
-                .filter((option: MultiselectOption) => values && values.indexOf(option.value) > -1)
-                .map((option: MultiselectOption) => option.label)
+                .filter((option: any) => values && values.indexOf(option[this.settings.valueField]) > -1)
+                .map((option: any) => option[this.settings.titleField])
                 .join(', ');
         } else {
             this.title = this.langs.selectedItemsText + ': ' + values.length;
         }
     }
 
-    isSelected(option: MultiselectOption): boolean {
-        return this.innerValue && this.innerValue.indexOf(option.value) > -1;
+    isSelected(option: any): boolean {
+        return this.innerValue && this.innerValue.indexOf(option[this.settings.valueField]) > -1;
     }
 
-    onSelect(event: any, option: MultiselectOption): void {
+    onSelect(event: any, option: any): void {
         if (!this.innerValue) {
             this.innerValue = [];
         }
 
         if(this.settings.single == false) {
-            let index = this.innerValue.indexOf(option.value);
+            let index = this.innerValue.indexOf(option[this.settings.valueField]);
             if(index > -1) {
                 this.innerValue.splice(index, 1);
             }
         } else {
-            this.innerValue = option.value;
+            this.innerValue = option[this.settings.valueField];
         }
 
         this.selected.emit({value: this.innerValue});
@@ -163,7 +163,7 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
     checkAll(event: any): void {
         event.preventDefault();
 
-        this.innerValue = this.options.map(option => option.value);
+        this.innerValue = this.options.map(option => option[this.settings.valueField]);
         this.buildName(this.innerValue);
 
         this.onChangeCallback(this.innerValue);

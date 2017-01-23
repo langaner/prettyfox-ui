@@ -1,8 +1,3 @@
-export interface MultiselectOption {
-    value: number;
-    label: string;
-}
-
 export interface MultiselectSettings {
     search?: boolean;
     limit?: number;
@@ -14,6 +9,8 @@ export interface MultiselectSettings {
     color?: string;
     size?: string;
     single?: boolean;
+    titleField?: string;
+    valueField?: string;
 }
 
 export interface MultiselectLangs {

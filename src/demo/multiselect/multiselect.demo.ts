@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MultiselectOption, MultiselectSettings } from '../../components/multiselect/multiselect.model';
+import { MultiselectSettings } from '../../components/multiselect/multiselect.model';
 
 @Component({
     moduleId: module.id,
@@ -10,7 +10,7 @@ import { MultiselectOption, MultiselectSettings } from '../../components/multise
 export class MultiselectDemoComponent implements OnInit {
     public selected: Array<number> = [1,3];
     public singleSelected: number = 2;
-    public options: Array<MultiselectOption> = [];
+    public options: Array<any> = [];
     public settings: MultiselectSettings = {
         
     };

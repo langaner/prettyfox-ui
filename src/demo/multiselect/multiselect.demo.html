@@ -140,11 +140,6 @@ import { MultiselectModule } from 'prettyfox-ui/ui';
     <div demo-interfaces>
         <highlight language="javascript">
             <![CDATA[
-MultiselectOption {
-    value: any;
-    label: string;
-}
-
 MultiselectSettings {
     search?: boolean;
     limit?: number;
@@ -156,6 +151,8 @@ MultiselectSettings {
     color?: string;
     size?: string;
     single?: boolean;
+    titleField?: string;
+    valueField?: string;
 }
 
 MultiselectLangs {
@@ -200,6 +197,12 @@ MultiselectLangs {
             <li>
                 <code>disabled</code> (<code>boolean</code>) - disabled status for multiselect
             </li>
+            <li>
+                <code>titleField</code> (<code>string</code>) - title property in object
+            </li>
+            <li>
+                <code>valueField</code> (<code>string</code>) - value property in object
+            </li>
         </ul>
         <p>Langs</p>
         <ul>
@@ -233,7 +236,9 @@ settings: {
     maxHeight: '300px',
     color: 'secondary',
     size: 'md',
-    single: false
+    single: false,
+    titleField: 'label',
+    valueField: 'value'
 };
 
 langs: {

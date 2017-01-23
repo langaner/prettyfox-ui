@@ -27,12 +27,12 @@
         </div>
         <div *ngIf="settings.checkAll || settings.uncheckAll" class="fox-multiselect__divider"></div>
         <ul class="fox-multiselect__dropdown" [ngStyle]="{'max-height': settings.maxHeight}">
-            <li *ngFor="let option of options | multiselectSearchFilter:searchText" class="fox-multiselect__item">
+            <li *ngFor="let option of options | multiselectSearchFilter: searchText: settings.titleField" class="fox-multiselect__item">
                 <fox-checkbox *ngIf="settings.single == false" 
                     [name]="name" 
                     [settings]="{bool: false, color: settings.color}" 
-                    [label]="option.label" 
-                    [currentValue]="option.value" 
+                    [label]="option[settings.titleField]" 
+                    [currentValue]="option[settings.valueField]" 
                     [ngModel]="innerValue" 
                     (ngModelChange)="changeInnerValue()"
                     (clicked)="onSelect($event, option)">
@@ -40,8 +40,8 @@
                 <fox-radio *ngIf="settings.single" 
                     [name]="name" 
                     [settings]="{color: settings.color}" 
-                    [label]="option.label" 
-                    [currentValue]="option.value" 
+                    [label]="option[settings.titleField]" 
+                    [currentValue]="option[settings.valueField]" 
                     [ngModel]="innerValue" 
                     (ngModelChange)="changeInnerValue()"
                     (clicked)="onSelect($event, option)">
