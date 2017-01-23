@@ -1,5 +1,9 @@
 import { ValidatorFn, AbstractControl } from '@angular/forms';
 
+function isEmpty(value: any): boolean{
+    return value == null || value.length === 0;
+}
+
 export class ValidateService {
     /**
      * Email validation
@@ -11,9 +15,17 @@ export class ValidateService {
      */
 	static email() {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/) : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/);
             
-            return match ? null : { 'email': true };
+            return match ? null : { 
+                'email': { 
+                    'value': control.value 
+                } 
+            };
         };
     }
     
@@ -29,7 +41,11 @@ export class ValidateService {
      */
     static password(min: number = 6, max: number = 100) {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,100}$/) : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,100}$/);
 
             return match ? null : { 
                 'password': { 
@@ -49,7 +65,11 @@ export class ValidateService {
      */
     static int(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? /^-?\d+$/.test(control.value) : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = /^-?\d+$/.test(control.value);
 
             return match ? null : { 
                 'int': { 
@@ -69,7 +89,11 @@ export class ValidateService {
      */
     static number(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? /^-{0,1}\d*\.{0,1}\d+$/.test(control.value) : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = /^-{0,1}\d*\.{0,1}\d+$/.test(control.value);
 
             return match ? null : { 
                 'number': { 
@@ -89,7 +113,11 @@ export class ValidateService {
      */
     static date(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? !/Invalid|NaN/.test(new Date(control.value).toString()) : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = !/Invalid|NaN/.test(new Date(control.value).toString());
 
             return match ? null : { 
                 'date': { 
@@ -116,7 +144,11 @@ export class ValidateService {
                 return null;
             }
 
-            let match = control.value ? !/Invalid|NaN/.test(new Date(control.value).toString()) && currentDate >= new Date(date) : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = !/Invalid|NaN/.test(new Date(control.value).toString()) && currentDate >= new Date(date);
 
             return match ? null : { 
                 'minDate': { 
@@ -144,7 +176,11 @@ export class ValidateService {
                 return null;
             }
 
-            let match = control.value ? !/Invalid|NaN/.test(new Date(control.value).toString()) && currentDate <= new Date(date) : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = !/Invalid|NaN/.test(new Date(control.value).toString()) && currentDate <= new Date(date);
 
             return match ? null : { 
                 'maxDate': { 
@@ -166,7 +202,11 @@ export class ValidateService {
      */
     static equal(value: any): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? control.value == value : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = (control.value == value);
 
             return match ? null : { 
                 'equal': { 
@@ -188,7 +228,11 @@ export class ValidateService {
      */
     static max(max: number): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? control.value <= max : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = (control.value <= max);
 
             return match ? null : { 
                 'max': { 
@@ -210,7 +254,11 @@ export class ValidateService {
      */
     static min(min: number): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? control.value >= min : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = (control.value >= min);
 
             return match ? null : { 
                 'min': { 
@@ -232,7 +280,11 @@ export class ValidateService {
      */
     static range(range: Array<number>): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? (control.value >= range[0] && control.value <= range[1]): false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = (control.value >= range[0] && control.value <= range[1]);
 
             return match ? null : { 
                 'equal': { 
@@ -254,7 +306,11 @@ export class ValidateService {
      */
     static json(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? JSON.parse(control.value) : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = JSON.parse(control.value);
 
             return (!match || typeof match !== 'object') ? null : { 'json': { 
                     'value': JSON.parse(control.value) 
@@ -293,7 +349,11 @@ export class ValidateService {
      */
     static hex(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i.test(control.value) : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i.test(control.value);
 
             return match ? null : { 
                 'hex': { 
@@ -313,7 +373,11 @@ export class ValidateService {
      */
     static rgb(): ValidatorFn {
         return (control: AbstractControl): {[key: string]: any} => {
-            let match = control.value ? /(^rgb\((\d+),\s*(\d+),\s*(\d+)\)$)|(^rgba\((\d+),\s*(\d+),\s*(\d+)(,\s*\d+\.\d+)*\)$)/.test(control.value) : false;
+            if(isEmpty(control.value)) {
+                return null
+            }
+
+            let match = /(^rgb\((\d+),\s*(\d+),\s*(\d+)\)$)|(^rgba\((\d+),\s*(\d+),\s*(\d+)(,\s*\d+\.\d+)*\)$)/.test(control.value);
 
             return match ? null : { 
                 'rgb': { 
