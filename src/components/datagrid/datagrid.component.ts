@@ -23,7 +23,7 @@ export class DatagridComponent implements OnInit, OnChanges {
     @Input() langs: DatagridLangs;
     @Input() routes: DatagridRoutes;
     @Input() filters: any;
-    @Input() rows: Array<any>;
+    @Input() rows: Array<any> = [];
     @Input() total: number = 0;
 
     @Output() lazyLoad: EventEmitter<any> = new EventEmitter();
@@ -86,7 +86,11 @@ export class DatagridComponent implements OnInit, OnChanges {
             }
         }
         
-        this.fireLazyLoadEvent();
+        if(!this.rows.length) {
+        	this.fireLazyLoadEvent();
+        } else {
+        	this.stopPreloader();
+        }
         
         this.viewedItemsCount = this.getViewedItemsCount();
         this.totalPages = this.getTotalPages();
