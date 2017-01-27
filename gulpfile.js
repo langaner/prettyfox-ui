@@ -3,6 +3,7 @@ const del = require("del");
 const ts = require("gulp-typescript");
 const merge = require('merge2');
 const sourcemaps = require('gulp-sourcemaps');
+const gulpFile = require('gulp-file');
 const tscConfig = require('./tsconfig.json');
 
 gulp.task('clean:dist', function() {
@@ -84,32 +85,29 @@ gulp.task('assets:demo', function() {
         .pipe(gulp.dest('demo'));
 });
 
+gulp.task('npm', function() {
+    var package = require('./package.json');
+    var target = {};
+    var fieldsToCopy = ['name', 'version', 'description', 'keywords', 'author', 'repository', 'license', 'bugs', 'homepage'];
 
-gulp.task('files:dist', function() {
-    return gulp
-        .src([
-            './README.md', 
-            './package.json',
-            './tsconfig.json'
-        ])
-        .pipe(gulp.dest('dist'));
-});
+    fieldsToCopy.forEach(function(field) { 
+        target[field] = package[field]; 
+    });
 
-gulp.task('files:demo', function() {
-    return gulp
-        .src([
-            './README.md', 
-            './package.json',
-            './tsconfig.json'
-        ])
-        .pipe(gulp.dest('demo'));
-});
+    target.peerDependencies = {};
+    Object.keys(package.dependencies).forEach(function(dependency) {
+        target.peerDependencies[dependency] = `^${package.dependencies[dependency]}`;
+    });
+
+    return gulp.src('README.md')
+      .pipe(gulpFile('package.json', JSON.stringify(target, null, 2)))
+      .pipe(gulp.dest('dist'));
+})
 
 gulp.task('build', ['build:dist', 'build:demo']);
-gulp.task('build:dist', ['clean:dist', 'compile:dist', 'assets:dist', 'files:dist']);
-gulp.task('build:demo', ['clean:demo', 'compile:demo', 'assets:demo', 'files:demo']);
+gulp.task('build:dist', ['clean:dist', 'compile:dist', 'assets:dist', 'npm']);
+gulp.task('build:demo', ['clean:demo', 'compile:demo', 'assets:demo']);
 
 gulp.task('compile', ['compile:dist', 'compile:demo']);
 gulp.task('clean', ['clean:dist', 'clean:demo']);
 gulp.task('assets', ['assets:dist', 'assets:demo']);
-gulp.task('files', ['files:dist', 'files:demo']);

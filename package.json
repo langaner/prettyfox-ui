@@ -16,8 +16,7 @@
     "lite": "npm run lite",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "compile": "gulp build && tsc",
-    "prepublish": "npm run compile"
+    "compile": "gulp build && tsc"
   },
   "license": "MIT",
   "repository": {
@@ -37,7 +36,6 @@
   },
   "devDependencies": {
     "merge2": "^1.0.3",
-    "@types/node": "^6.0.42",
     "concurrently": "^3.1.0",
     "lite-server": "^2.2.2",
     "typescript": "~2.0.10",
@@ -56,6 +54,7 @@
     "rxjs": "5.0.0-rc.4",
     "zone.js": "^0.7.2",
     "gulp": "3.9.1",
+    "gulp-file": "^0.3.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-tslint": "^6.1.1 ",
     "gulp-typescript": "^2.13.6",
