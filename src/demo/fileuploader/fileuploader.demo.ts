@@ -12,7 +12,7 @@ import { FileuploaderSettings, FileuploaderLangs } from '../../components/fileup
 export class FileuploaderDemoComponent implements OnInit {
     public files: Array<any> = [];
     public existenFileUrls: Array<string> = [];
-    public filePath: string = 'dist/resources/img/sample/';
+    public filePath: string = 'demo/resources/img/sample/';
 
     public settings: FileuploaderSettings = {
         

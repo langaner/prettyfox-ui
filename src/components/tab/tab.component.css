@@ -1,0 +1,6 @@
+.fox-tab__item {
+    display: none;
+}
+.fox-tab__item.active {
+    display: block;
+}

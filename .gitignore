@@ -2,6 +2,7 @@
 node_modules
 typings
 *.log
-/dist/
+dist
+demo
 src/**/*.js
 src/**/*.js.map

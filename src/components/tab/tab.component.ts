@@ -1,12 +1,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
+    moduleId: module.id,
 	selector: 'fox-tab',
-    template: `
-        <div class="tab-pane fade fox-tab__item" [ngClass]="{'active in': active}" *ngIf="!closed">
-            <ng-content></ng-content>
-        </div>
-    `
+    templateUrl: 'tab.component.html',
+    styleUrls: ['tab.component.css']
 })
 export class TabComponent {
     @Input() header: string;

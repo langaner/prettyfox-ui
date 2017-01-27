@@ -52,7 +52,7 @@ import { PasswordDemoComponent } from './password/password.demo';
 import { TypeaheadDemoComponent } from './typeahead/typeahead.demo';
 // import { LocalizedDemoComponent } from './localized/localized.demo';
 
-import { DEMO_ROUTES } from './demo-routing';
+import { DemoRoutingModule } from './demo-routing.module';
 
 const SECTIONS = [
     DemoSectionComponent,
@@ -107,12 +107,15 @@ const COMPONENTS_DEMOS = [
 ];
 
 @NgModule({
+    exports: [
+        DemoRoutingModule
+    ],
     imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        FoxModule,
-        DEMO_ROUTES
+        DemoRoutingModule,
+        FoxModule
     ],
     declarations: [ 
         SECTIONS,

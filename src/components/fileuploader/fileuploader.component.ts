@@ -71,7 +71,7 @@ export class FileuploaderComponent implements OnInit, OnChanges, DoCheck {
         let changes = this.differ.diff(this.files);
 
         if(changes) {
-            changes.forEachAddedItem((file) => {
+            changes.forEachAddedItem((file: any) => {
                 this.addToQueue([file.currentValue]);
             });
         }
@@ -277,7 +277,7 @@ export class FileuploaderComponent implements OnInit, OnChanges, DoCheck {
     }
 
     filterByExtension(): void {
-        this.files = this.files.filter(file => {
+        this.files = this.files.filter((file: any) => {
             let extension: string = file.name.split('.').pop();
 
             if (this.extensionIsAllow(file.type) || this.extensionIsAllow(extension)) {

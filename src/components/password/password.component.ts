@@ -147,8 +147,8 @@ export class PasswordComponent implements OnInit, OnChanges, ControlValueAccesso
         this.strong(this.innerValue);
     }
 
-    numberReturn(length){
-        let result = [];
+    numberReturn(length: number): Array<number> {
+        let result: Array<number> = [];
 
         for (let i = 1; i <= length; i++) {
             result.push(i);

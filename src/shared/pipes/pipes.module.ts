@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { SafeHtmlPipe } from './safe.pipe';
 import { RoundPipe } from './round.pipe';
 import { KeysPipe } from './keys.pipe';
 
@@ -10,12 +9,10 @@ import { KeysPipe } from './keys.pipe';
         BrowserModule
     ],
     declarations: [
-        SafeHtmlPipe,
         RoundPipe,
         KeysPipe
     ],
     exports: [
-        SafeHtmlPipe,
         RoundPipe,
         KeysPipe
     ]

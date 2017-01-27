@@ -400,7 +400,9 @@ export class OverwriteService implements OnInit {
         maxHeight: '300px',
         color: 'secondary',
         size: 'md',
-        single: false
+        single: false,
+        titleField: 'label',
+        valueField: 'value'
     };
 
     protected multiselectLangs: MultiselectLangs = {
