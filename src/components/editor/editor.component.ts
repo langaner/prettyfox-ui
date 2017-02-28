@@ -125,7 +125,7 @@ export class EditorComponent implements OnInit, OnChanges, ControlValueAccessor 
     }
 
     setValue(event: any): void {
-        this.value = event.target.innerHTML;
+        this.value = this.area.nativeElement.innerHTML;
     }
      
     get value(): any {

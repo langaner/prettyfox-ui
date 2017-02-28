@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
-import { SelectItem, SelectSettings } from './select.model';
+import { SelectSettings } from './select.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
@@ -21,7 +21,7 @@ export class SelectComponent implements OnInit, OnChanges, ControlValueAccessor 
     @Input() settings: SelectSettings;
     @Input() name: string = '';
     @Input() disabled: boolean;
-    @Input() options: Array<SelectItem>;
+    @Input() options: Array<any>;
 
     @Output() changed: EventEmitter<any> = new EventEmitter();
     @Output() clicked: EventEmitter<any> = new EventEmitter();
@@ -72,7 +72,7 @@ export class SelectComponent implements OnInit, OnChanges, ControlValueAccessor 
     writeValue(value: any) {
         if (value !== this.innerValue) {
             if(this.settings.required && value == undefined && this.options.length) {
-                this.innerValue = this.options[0].value;
+                this.innerValue = this.options[0][this.settings.valueField];
             } else {
                 this.innerValue = value;
             }

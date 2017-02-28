@@ -11,16 +11,19 @@
             <div class="content-body__desc">
                 <ul>
                     <li><a target="_blank" href="https://www.npmjs.com/package/font-awesome" class="content-body__link">Font awesome</a> for nice icons 
-                    <code>https://www.npmjs.com/package/font-awesome</code>
+                        <code>https://www.npmjs.com/package/font-awesome</code>
                     </li>
                     <li><a target="_blank" href="https://www.npmjs.com/package/moment" class="content-body__link">Moment</a> for date manipulations
-                    <code>https://www.npmjs.com/package/moment</code>
+                        <code>https://www.npmjs.com/package/moment</code>
                     </li>
                     <li><a target="_blank" href="https://www.npmjs.com/package/prismjs" class="content-body__link">PrismJS</a> for code highlight
-                    <code>https://www.npmjs.com/package/prismjs</code>
+                        <code>https://www.npmjs.com/package/prismjs</code>
                     </li>
                     <li><a target="_blank" href="https://www.npmjs.com/package/tinycolor2" class="content-body__link">Tinycolor</a> for color manipulations
-                    <code>https://www.npmjs.com/package/tinycolor2</code>
+                        <code>https://www.npmjs.com/package/tinycolor2</code>
+                    </li>
+                    <li><a target="_blank" href="https://www.npmjs.com/package/codemirror" class="content-body__link">Codemirror</a> for codearea component
+                        <code>https://www.npmjs.com/package/codemirror</code>
                     </li>
                 </ul>
             </div>
@@ -36,6 +39,7 @@
 <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
 <link rel="stylesheet" href="node_modules/prismjs/themes/prism.css">
+<link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
 
 <script src='node_modules/tinycolor2/tinycolor.js'></script>
 <script src='node_modules/prismjs/prism.js'></script>
@@ -61,6 +65,7 @@ export class AppModule {}
 map: {
     ...
     'moment':       'npm:moment',
+    'codemirror':   'npm:codemirror/lib',
     'prettyfox-ui': 'npm:prettyfox-ui',
 }
 
@@ -68,6 +73,10 @@ packages: {
     ...
     moment: {
         main: 'moment', 
+        defaultExtension: 'js'
+    },
+    codemirror: {
+        main: 'codemirror', 
         defaultExtension: 'js'
     },
     'prettyfox-ui': {

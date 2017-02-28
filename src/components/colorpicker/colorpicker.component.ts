@@ -396,7 +396,9 @@ export class ColorpickerComponent implements OnInit, OnChanges, ControlValueAcce
     }
 
     onChange(event: any) {
-        this.changed.emit({value: this.innerValue});
+        this.color = new tinycolor( event.target.value);
+
+        this.changed.emit({value: event.target.value});
     }
 
     get value(): any {
@@ -407,7 +409,7 @@ export class ColorpickerComponent implements OnInit, OnChanges, ControlValueAcce
         let color = (value instanceof tinycolor) ? value : new tinycolor();
 
         this.innerValue = this.toFormat(color);
-
+    
         this.onChangeCallback(this.innerValue);
     }
 

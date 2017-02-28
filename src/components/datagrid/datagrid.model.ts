@@ -1,5 +1,3 @@
-import { SelectItem } from '../select/select.model';
-
 export interface DatagridSettings {
     size?: string;
     color?: 'inverse' | 'default';
@@ -8,9 +6,10 @@ export interface DatagridSettings {
     tableHovered?: boolean;
     tableStripped?: boolean;
     lazyload?: boolean;
+    showRowsActions?: boolean;
     colsList?: Array<Object>;
-    equalOptions?: Array<SelectItem>;
-    booleanOptions?: Array<SelectItem>;
+    equalOptions?: Array<any>;
+    booleanOptions?: Array<any>;
     totalViewList?: Array<number>;
     showActions?: boolean;
     showCounter?: boolean;
@@ -20,6 +19,7 @@ export interface DatagridSettings {
     actionOnRowClick?: Array<any>;
     defaultSortedField?: string;
     defaultSortedOrder?: 'asc' | 'desc';
+    customRowActions?: Array<Object>,
 }
 
 export interface DatagridLangs {

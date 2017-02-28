@@ -300,6 +300,14 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
 
         return 'bg-default';
     }
+
+    notNulledDate(date: any) {
+        if(date && date != '0000-00-00 00:00:00' && date != '') {
+            return true;
+        }
+
+        return false;
+    }
     
     get value(): any {
         if(this.settings.multiple && this.innerValue == undefined) {

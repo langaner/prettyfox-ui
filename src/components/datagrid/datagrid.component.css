@@ -7,6 +7,7 @@
 	background-color: #fff;
     border-bottom: 0;
     padding: 10px;
+	min-height: 60px;
 }
 .fox-datagrid__navs {
     border: 1px solid #eceeef;
@@ -59,18 +60,18 @@
 .fox-datagrid__table>tbody tr td:first-child {
     text-align: center;
 }
-.fox-datagrid__table>tbody tr td:last-child {
+.fox-datagrid__table>tbody tr td.fox-datagrid__td-action {
     text-align: center;
+    width: 1px;
+    white-space: nowrap;
+}
+.fox-datagrid__row-actions {
+	text-align: center;
     width: 1px;
     white-space: nowrap;
 }
 .fox-datagrid__table>thead>tr>th:last-child {
     min-width: 120px;
-}
-.fox-datagrid__table>tbody tr td:first-child {
-    text-align: center;
-    width: 1px;
-    white-space: nowrap;
 }
 .fox-datagrid__check {
     padding-left: 8px;

@@ -3,7 +3,6 @@ import {
 } from '@angular/core';
 
 import { DatagridLangs } from './datagrid.model';
-import { SelectItem } from '../select/select.model';
 
 @Component({ 
     moduleId: module.id,

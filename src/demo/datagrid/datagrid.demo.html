@@ -216,9 +216,10 @@ export interface DatagridSettings {
     tableHovered?: boolean;
     tableStripped?: boolean;
     lazyload?: boolean;
+    showRowsActions?: boolean;
     colsList?: Array<Object>;
-    equalOptions?: Array<SelectItem>;
-    booleanOptions?: Array<SelectItem>;
+    equalOptions?: Array<any>;
+    booleanOptions?: Array<any>;
     totalViewList?: Array<number>;
     showActions?: boolean;
     showCounter?: boolean;
@@ -228,6 +229,7 @@ export interface DatagridSettings {
     actionOnRowClick?: Array<any>;
     defaultSortedField?: string;
     defaultSortedOrder?: 'asc' | 'desc';
+    customRowActions: Array<Object>;
 }
 
 DatagridLangs {
@@ -341,6 +343,12 @@ RouteItem {
             <li>
                 <code>booleanOptions</code> (<code>array</code>) - boolean items list for filter
             </li>
+            <li>
+                <code>customRowActions</code> (<code>array</code>) - array of custom row actions. Available fields is: color, icon, name, title. On click fired rowAction event.
+            </li>
+            <li>
+                <code>showRowsActions</code> (<code>boolean</code>) - show rows actions dropdown
+            </li>
         </ul>
     </div>
     <div demo-settings-default>
@@ -354,6 +362,8 @@ settings: {
     tableHovered: true,
     tableStripped: false,
     lazyload: true,
+    showRowsActions: true,
+    customRowActions: [],
     colsList: [
         {
             field: 'id',
@@ -472,6 +482,9 @@ total: number = 0;
             </li>
             <li>
                 <code>rowUnselect</code> - row unsekect. Returned <code>{{ '{' }}row: row{{ '}' }}</code>
+            </li>
+            <li>
+                <code>rowAction</code> - row custom acton click. Returned <code>{{ '{' }}name: string, row: row{{ '}' }}</code>
             </li>
             <li>
                 <code>filtersReseted</code> - filter resets. Returned <code>{{ '{' }}filtersData: any{{ '}' }}</code>

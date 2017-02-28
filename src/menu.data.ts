@@ -86,6 +86,10 @@ export const menuData = [
             {
                 title: 'Password', 
                 route: 'password'
+            },
+            {
+                title: 'Codearea', 
+                route: 'codearea'
             }
         ]
     },

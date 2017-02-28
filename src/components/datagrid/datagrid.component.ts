@@ -1,11 +1,11 @@
 import { 
     Component, OnInit, OnChanges, Input, Output, ViewChild, ElementRef, ViewEncapsulation, EventEmitter, SimpleChange   
 } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 
 import { DatagridSettings, DatagridLangs, DatagridRoutes, DatagridFilter, RouteItem, LazyloadEvent } from './datagrid.model';
 import { PaginationSettings } from '../pagination/pagination.model';
-import { SelectItem, SelectSettings } from '../select/select.model';
+import { SelectSettings } from '../select/select.model';
 import { PopoverComponent } from '../popover/popover.component';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
@@ -24,6 +24,7 @@ export class DatagridComponent implements OnInit, OnChanges {
     @Input() routes: DatagridRoutes;
     @Input() filters: any;
     @Input() rows: Array<any> = [];
+    @Input() checkedItems: Array<any> = [];
     @Input() total: number = 0;
 
     @Output() lazyLoad: EventEmitter<any> = new EventEmitter();
@@ -32,12 +33,13 @@ export class DatagridComponent implements OnInit, OnChanges {
     @Output() rowClick: EventEmitter<any> = new EventEmitter();
     @Output() rowSelect: EventEmitter<any> = new EventEmitter();
     @Output() rowUnselect: EventEmitter<any> = new EventEmitter();
+    @Output() rowAction: EventEmitter<any> = new EventEmitter();
     @Output() filtersReseted: EventEmitter<any> = new EventEmitter();
     @Output() filtersSubmited: EventEmitter<any> = new EventEmitter();
     @Output() sortSubmited: EventEmitter<any> = new EventEmitter();
     
     protected totalRowsView: number;
-    protected totalRowsViewOptions: Array<SelectItem> = [];
+    protected totalRowsViewOptions: Array<any> = [];
     protected paginationSettings: PaginationSettings = {
         max: 5
     }
@@ -52,12 +54,12 @@ export class DatagridComponent implements OnInit, OnChanges {
     protected sortedOrder: 'asc' | 'desc';
     protected viewedItemsCount: number = 0;
     protected totalPages: number = 1;
-    protected checkedItems: Array<number> = [];
     protected filtersData: any = { };
     protected isPreloaded: boolean;
 
     constructor(
         private router: Router, 
+        private route: ActivatedRoute,
         private overwriteService: OverwriteService,
         private helperService: HelperService
     ) {
@@ -86,7 +88,7 @@ export class DatagridComponent implements OnInit, OnChanges {
             }
         }
         
-        if(!this.rows.length) {
+        if(!this.rows || this.rows.length == 0) {
         	this.fireLazyLoadEvent();
         } else {
         	this.stopPreloader();
@@ -185,26 +187,19 @@ export class DatagridComponent implements OnInit, OnChanges {
     }
 
     rowSelectHandler(event: any, row: any): void {
+        console.log(row);
         this.rowSelect.emit({row: row});
     }
 
     rowUnselectHandler(event: any, row: any): void {
         this.rowUnselect.emit({row: row});
     }
-
-    rowCheckedHandler(event: any, row: any): void {
-        if(event.checked) {
-            this.rowSelectHandler(event, row);
-        } else {
-            this.rowUnselectHandler(event, row);
-        }
-    }
-
+    
     getChecked() {
         return this.checkedItems;
     }
 
-    onCheckedItem(event: any, row: any): void {
+    rowCheckedHandler(event: any, row: any): void {
         if (!this.checkedItems) {
             this.checkedItems = [];
         }
@@ -213,6 +208,16 @@ export class DatagridComponent implements OnInit, OnChanges {
         if(index > -1) {
             this.checkedItems.splice(index, 1);
         }
+
+        if(event.checked) {
+            this.rowSelectHandler(event, row);
+        } else {
+            this.rowUnselectHandler(event, row);
+        }
+    }
+    
+    rowCustomActionHandler(event: any, name: string, row: any): void {
+        this.rowAction.emit({name: name, row: row});
     }
 
     selectAllHandler(event: any, popover: PopoverComponent): void {
@@ -238,9 +243,17 @@ export class DatagridComponent implements OnInit, OnChanges {
     routeNavigate(event: any, route: RouteItem, row?: any): void {
         let parametrs: Array<any> = [];
         
-        if(route.parametrs && row) {
-            for(let param in route.parametrs) {
-                parametrs.push(row[route.parametrs[param]]);
+        if (route.parametrs && row) {
+            for (let param in route.parametrs) {
+                let value = row[route.parametrs[param]];
+                
+                if(value == undefined) {
+                    this.route.params.subscribe(function (params) {
+                        parametrs.push(params[route.parametrs[param]]);
+                    });
+                } else {
+                    parametrs.push(value);
+                }
             }
         }
         
@@ -289,7 +302,7 @@ export class DatagridComponent implements OnInit, OnChanges {
     filterChangedHandler(event: any): void {
         this.filtersData = event;
 
-        this.fireLazyLoadEvent();
+        // this.fireLazyLoadEvent();
     }
 
     sortChangedHandler(event: any): void {

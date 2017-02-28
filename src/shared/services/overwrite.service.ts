@@ -36,6 +36,7 @@ import { ScrollbarSettings } from '../../components/scrollbar/scrollbar.model';
 import { ValidateSettings, ValidateLangs } from '../../components/validate/validate.model';
 import { PasswordSettings, PasswordLangs } from '../../components/password/password.model';
 import { TypeaheadSettings, TypeaheadLangs } from '../../components/typeahead/typeahead.model';
+import { CodeareaSettings } from '../../components/codearea/codearea.model';
 // import { BreadcrumbSettings } from '../../components/breadcrumb/breadcrumb.model';
 // import { HighlightSettings } from '../../components/highlight/highlight.model';
 // import { TieredmenuSettings } from '../../components/tieredmenu/tieredmenu.model';
@@ -138,6 +139,8 @@ export class OverwriteService implements OnInit {
         tableHovered: true,
         tableStripped: false,
         lazyload: true,
+        showRowsActions: true,
+        customRowActions: [],
         colsList: [
             {
                 field: 'id',
@@ -525,7 +528,9 @@ export class OverwriteService implements OnInit {
      */
     protected selectSettings: SelectSettings = {
         size: 'md',
-        required: false
+        required: false,
+        titleField: 'label',
+        valueField: 'value'
     };
 
     /**
@@ -651,6 +656,16 @@ export class OverwriteService implements OnInit {
 
     protected tagLangs: TagLangs = {
         inputPlaceholder: 'Type tag name',
+    };
+
+    /**
+     * Codearea
+     */
+    protected codeareaSettings: CodeareaSettings = {
+        lineNumbers: true,
+        styleActiveLine: true,
+        matchBrackets: true,
+        theme: 'default'
     };
 
     /**

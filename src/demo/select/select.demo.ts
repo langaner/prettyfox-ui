@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SelectItem, SelectSettings } from '../../components/select/select.model'
+import { SelectSettings } from '../../components/select/select.model'
 
 @Component({
     moduleId: module.id,
@@ -13,7 +13,7 @@ export class SelectDemoComponent implements OnInit {
     public settings: SelectSettings = {
         
     };
-    public options: Array<SelectItem> = [
+    public options: Array<any> = [
         {
             label: 'Option 1', 
             value: '1'

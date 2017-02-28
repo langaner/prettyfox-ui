@@ -1,4 +1,4 @@
-<div class="fox-datagrid__filter">
+<div *ngIf="filters[row.field]" class="fox-datagrid__filter">
     <fox-popover #filterPopover [settings]="{buttonLabel: '<i class=\'fa fa-filter\'></i>', title: langs.filterTitle + ' ' + langs.filterBy + ' ' + row.label, color: 'link', placement: 'bottom'}">
         <template [ngIf]="filters[row.field]">
             <div class="input-group">
@@ -9,7 +9,7 @@
                     <fox-input *ngSwitchCase="'string'" name="filter" [(ngModel)]="filtersData[row.field]['value']" (changed)="filterChanged($event)"></fox-input>
                     <div *ngSwitchCase="'number'">
                         <fox-spinner *ngIf="!row.values" name="filter" [(ngModel)]="filtersData[row.field]['value']" (changed)="filterChanged($event)"></fox-spinner>
-                        <fox-select *ngIf="row.values" name="filter" [options]="createSelectItem(row.values)" [(ngModel)]="filtersData[row.field]['value']" (changed)="filterChanged($event)"></fox-select>
+                        <fox-select [settings]="{titleField: 'label', valueField: 'value'}" *ngIf="row.values" name="filter" [options]="createSelectItem(row.values)" [(ngModel)]="filtersData[row.field]['value']" (changed)="filterChanged($event)"></fox-select>
                     </div>
                     <fox-select *ngSwitchCase="'boolean'" name="filter" [options]="booleanOptions" [(ngModel)]="filtersData[row.field]['value']" (changed)="filterChanged($event)"></fox-select>
                     <fox-datepicker *ngSwitchCase="'date'" [langs]="{selectedDate: ''}" [settings]="{displayFormat: 'DD-MM-YYYY H:mm'}" name="filter" [(ngModel)]="filtersData[row.field]['value']" (changed)="filterChanged($event)"></fox-datepicker> 

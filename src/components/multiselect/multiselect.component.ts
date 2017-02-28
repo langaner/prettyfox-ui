@@ -6,6 +6,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { MultiselectSettings, MultiselectLangs, MultiselectAjax } from './multiselect.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
+import { HelperService } from '../../shared/services/helper.service';
 
 export const FOX_MULTISELECT_CONTROL_VALUE_ACCESSOR: any = {
     provide: NG_VALUE_ACCESSOR,
@@ -48,7 +49,11 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
         searchFields: ['id', 'title'],
     }
 
-    constructor(private el: ElementRef, private overwriteService: OverwriteService) {
+    constructor(
+        private el: ElementRef, 
+        private overwriteService: OverwriteService,
+        private helperService: HelperService
+    ) {
         this.defaultSettings = overwriteService.getSettings('multiselect');
         this.defaultLangs = overwriteService.getLangs('multiselect');
     }
@@ -193,13 +198,11 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
         }
     }
 
-    writeValue(value: any) {
+    writeValue(value: any) { 
         if (value != '' && value !== this.innerValue) {
-            this.innerValue = value;
-        } else {
-            this.innerValue = this.settings.single ? '' : [];
+            this.innerValue = (!this.settings.single && !this.helperService.isArray(value)) ? [] : value;
         }
-        
+
         this.buildName(this.innerValue);
     }
 

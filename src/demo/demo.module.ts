@@ -50,6 +50,7 @@ import { ScrollbarDemoComponent } from './scrollbar/scrollbar.demo';
 import { ValidateDemoComponent } from './validate/validate.demo';
 import { PasswordDemoComponent } from './password/password.demo';
 import { TypeaheadDemoComponent } from './typeahead/typeahead.demo';
+import { CodeareaDemoComponent } from './codearea/codearea.demo';
 // import { LocalizedDemoComponent } from './localized/localized.demo';
 
 import { DemoRoutingModule } from './demo-routing.module';
@@ -103,6 +104,7 @@ const COMPONENTS_DEMOS = [
     ValidateDemoComponent,
     PasswordDemoComponent,
     TypeaheadDemoComponent,
+    CodeareaDemoComponent,
     // LocalizedDemoComponent
 ];
 

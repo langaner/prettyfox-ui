@@ -23,8 +23,15 @@
                 {{ item[settings.titleField] }}
             </div>
         </template>
-        <template [ngIf]="_list.length == 0 || (_list | typeaheadSearchFilter: searchText: settings.titleField).length == 0">
-            <div class="fox-typeahead__no-result">{{ langs.noResults }}</div>
+        <template [ngIf]="!settings.lazyload">
+            <template [ngIf]="_list.length == 0 || (_list | typeaheadSearchFilter: searchText: settings.titleField).length == 0">
+                <div class="fox-typeahead__no-result">{{ langs.noResults }}</div>
+            </template>
+        </template>
+        <template [ngIf]="settings.lazyload">
+            <template [ngIf]="_list.length == 0">
+                <div class="fox-typeahead__no-result">{{ langs.noResults }}</div>
+            </template>
         </template>
     </div>
 </div>

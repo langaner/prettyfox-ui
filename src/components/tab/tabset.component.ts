@@ -28,7 +28,9 @@ export class TabSetComponent implements OnChanges, AfterContentInit {
 
 	ngAfterContentInit() {
 		this.settings = (<any>Object).assign({}, this.defaultSettings, this.settings);
-		this.selectedTab(this.tabs.toArray()).active = true;
+		if(this.tabs && this.tabs.length) {
+			this.selectedTab(this.tabs.toArray()).active = true;
+		}
 	}
 
 	ngOnChanges(changes: any) {

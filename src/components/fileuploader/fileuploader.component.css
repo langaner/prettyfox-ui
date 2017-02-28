@@ -29,7 +29,7 @@
     text-align: center;
     padding: 0;
     line-height: 1;
-    z-index: 1000;
+    z-index: 10;
 }
 .fox-fileuploader__name {
     padding-top: 5px;

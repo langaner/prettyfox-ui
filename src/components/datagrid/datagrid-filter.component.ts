@@ -3,7 +3,6 @@ import {
 } from '@angular/core';
 
 import { DatagridLangs } from './datagrid.model';
-import { SelectItem } from '../select/select.model';
 import { PopoverComponent } from '../popover/popover.component';
 
 @Component({ 
@@ -19,8 +18,8 @@ export class DatagridFilterComponent implements OnInit {
     @Input() filters: any;
     @Input() filtersData: any;
     @Input() useEqual: boolean;
-    @Input() equalOptions: Array<SelectItem>;
-    @Input() booleanOptions: Array<SelectItem>;
+    @Input() equalOptions: Array<any>;
+    @Input() booleanOptions: Array<any>;
 
     @Output() filtering: EventEmitter<any> = new EventEmitter();
     @Output() filterSubmited: EventEmitter<any> = new EventEmitter();
@@ -39,8 +38,8 @@ export class DatagridFilterComponent implements OnInit {
         this.filterSubmited.emit(this.filtersData);
     }
 
-    createSelectItem(data: any): Array<SelectItem> {
-        let items: Array<SelectItem> = [];
+    createSelectItem(data: any): Array<any> {
+        let items: Array<any> = [];
 
         for(let item in data) {
             items.push({

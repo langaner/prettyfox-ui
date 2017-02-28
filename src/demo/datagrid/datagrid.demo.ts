@@ -11,6 +11,14 @@ import { DatagridComponent } from '../../components/datagrid/datagrid.component'
 })
 export class DatagridDemoComponent implements OnInit {
     public settings: DatagridSettings = {
+        customRowActions: [
+            {
+                name: "refresh",
+                color: "info",
+                icon: "refresh",
+                title: "Refresh",
+            }
+        ],
         colsList: [
             {
                 field: 'id',

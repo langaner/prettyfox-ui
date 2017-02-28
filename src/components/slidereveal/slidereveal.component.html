@@ -1,7 +1,5 @@
 <div class="fox-slidereveal">
-    <button class="btn btn-{{ settings.buttonSize }} btn-{{ settings.buttonColor }} fox-slidereveal__button" (click)="toggle($event)" [class.disabled]="disabled">
-        {{ langs.buttonLabel }}
-    </button>
+    <button class="btn btn-{{ settings.buttonSize }} btn-{{ settings.buttonColor }} fox-slidereveal__button" (click)="toggle($event)" [class.disabled]="disabled" [innerHtml]="langs.buttonLabel"></button>
     <div #slider class="fox-slidereveal__slider fox-slidereveal__position_{{ settings.position }}">
         <i class="fa fa-times close fox-slidereveal__close" (click)="toggle($event)"></i>
         <div class="fox-slidereveal__content">

@@ -40,6 +40,7 @@ import { ScrollbarModule } from './scrollbar/index';
 import { ValidateModule } from './validate/index';
 import { PasswordModule } from './password/index';
 import { TypeaheadModule } from './typeahead/index';
+import { CodeareaModule } from './codearea/index';
 // import { LocalizedModule } from './localized/index';
 
 import { OverwriteService } from './../shared/services/overwrite.service';
@@ -86,7 +87,8 @@ const COMPONENTS_MODULES = [
     ScrollbarModule,
     ValidateModule,
     PasswordModule,
-    TypeaheadModule
+    TypeaheadModule,
+    CodeareaModule
     // LocalizedModule
 ];
 

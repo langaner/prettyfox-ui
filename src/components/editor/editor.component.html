@@ -12,15 +12,11 @@
             </select>
         </div>
     </div>
-    <textarea class="fox-editor__hidden" [name]="name" [(ngModel)]="value" [disabled]="disabled" ></textarea>
     <div #area class="form-control fox-editor__area {{ settings.class }}" 
         contenteditable="true" 
         id="{{ settings.id }}" 
         [class.disabled]="disabled" 
-        (input)="setValue($event)" 
-        (keyup)="setValue($event)" 
-        (paste)="setValue($event)" 
-        (mouseup)="setValue($event)" 
         [ngStyle]="{'height': settings.height+'px'}"
+        [(contenteditableModel)]="value"
     ></div>
 </div>

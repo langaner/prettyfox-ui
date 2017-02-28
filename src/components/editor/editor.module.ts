@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; 
 
 import { EditorComponent } from './editor.component';
+import { ContenteditableModel } from './contenteditable-model';
 
 @NgModule({
     imports: [
@@ -10,10 +11,12 @@ import { EditorComponent } from './editor.component';
         CommonModule
     ],
     declarations: [
-        EditorComponent
+        EditorComponent,
+        ContenteditableModel
     ],
     exports: [
-        EditorComponent
+        EditorComponent,
+        ContenteditableModel
     ]
 })
 export class EditorModule { }

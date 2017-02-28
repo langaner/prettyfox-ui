@@ -35,7 +35,7 @@
             <![CDATA[
 import { Component, OnInit } from '@angular/core';
 
-import { SelectItem, SelectSettings } from '../../components/select/select.model'
+import { SelectSettings } from '../../components/select/select.model'
 
 @Component({
     moduleId: module.id,
@@ -47,7 +47,7 @@ export class SelectDemoComponent implements OnInit {
     public settings: SelectSettings = {
         
     };
-    public options: Array<SelectItem> = [
+    public options: Array<any> = [
         {
             label: 'Option 1', 
             value: '1'
@@ -89,13 +89,8 @@ import { SelectModule } from 'prettyfox-ui/ui';
 SelectSettings {
     size?: string;
     required?: boolean;
-}
-
-// Select item
-
-SelectItem {
-    label: string;
-    value: any;
+    titleField?: string;
+    valueField?: string;
 }
             ]]>
         </highlight>
@@ -117,14 +112,11 @@ SelectItem {
             <li>
                 <code>options</code> (<code>array</code>) - select options
             </li>
-        </ul>
-        <p>Select item</p>
-        <ul>
             <li>
-                <code>label</code> (<code>string</code>) - select item label
+                <code>titleField</code> (<code>string</code>) - title property in object
             </li>
             <li>
-                <code>value</code> (<code>string</code>) - select item value
+                <code>valueField</code> (<code>string</code>) - value property in object
             </li>
         </ul>
     </div>
@@ -133,11 +125,13 @@ SelectItem {
             <![CDATA[
 settings: {
     size: 'md',
-    required: false
+    required: false,
+    titleField: 'label',
+    valueField: 'value'
 };
 
 disabled: false;
-options: Array<SelectItem>
+options: Array<any>
             ]]>
         </highlight>
     </div>

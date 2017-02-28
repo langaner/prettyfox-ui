@@ -1,6 +1,6 @@
 {
   "name": "prettyfox-ui",
-  "version": "1.0.13-alpha",
+  "version": "1.0.14-alpha",
   "description": "Native Angular 2 components styling by bootstrap 4",
   "keywords": [
     "angular2",
@@ -29,6 +29,7 @@
   "homepage": "https://github.com/langaner/prettyfox-ui#readme",
   "dependencies": {
     "bootstrap": "4.0.0-alpha.5",
+    "codemirror": "^5.23.0",
     "font-awesome": "^4.6.3",
     "moment": "^2.15.2",
     "prismjs": "^1.5.1",

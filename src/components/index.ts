@@ -36,4 +36,5 @@ export * from './scrollbar/index';
 export * from './validate/index';
 export * from './password/index';
 export * from './typeahead/index';
+export * from './codearea/index';
 // export * from './localized/index';

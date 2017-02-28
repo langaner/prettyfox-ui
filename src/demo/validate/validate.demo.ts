@@ -3,7 +3,6 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 
 import { ValidateSettings } from '../../components/validate/validate.model';
 import { ValidateService } from '../../components/validate/validate.service';
-import { SelectItem } from '../../components/select/select.model';
 
 @Component({
     moduleId: module.id,
@@ -15,7 +14,7 @@ export class ValidateDemoComponent implements OnInit {
     public settings: ValidateSettings = {
         
     };
-    public options: Array<SelectItem> = [
+    public options: Array<any> = [
         {
             label: 'Option 1', 
             value: '1'
