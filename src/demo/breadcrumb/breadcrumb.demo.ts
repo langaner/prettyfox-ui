@@ -8,7 +8,7 @@ import { BreadcrumbItem } from "../../components/breadcrumb/breadcrumb.model"
     templateUrl: 'breadcrumb.demo.html'
 })
 export class BreadcrumbDemoComponent implements OnInit {
-    private items: Array<BreadcrumbItem>;
+    public items: Array<BreadcrumbItem>;
 
     constructor() {
         this.items = [];

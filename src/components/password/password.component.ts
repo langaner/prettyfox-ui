@@ -31,14 +31,15 @@ export class PasswordComponent implements OnInit, OnChanges, ControlValueAccesso
 
     @ViewChild('passwordInput') passwordInput: ElementRef;
 
+    public showPassword: boolean = false;
+    public strongAvailable: number = 5;
+    public strongValue: number = 0;
+
     protected innerValue: any = '';
     protected onTouchedCallback: () => void = () => { };
     protected onChangeCallback: (_: any) => void = () => { };
     protected defaultSettings: PasswordSettings;
     protected defaultLangs: PasswordLangs;
-    protected strongAvailable: number = 5;
-    protected strongValue: number = 0;
-    protected showPassword: boolean = false;
 
     constructor(private overwriteService: OverwriteService) {
         this.defaultSettings = overwriteService.getSettings('password');

@@ -57,11 +57,11 @@ export class ButtonComponent implements OnInit, OnChanges {
         this.clicked.emit({originalEvent: event});
     }
 
-    private isRightPlacement(): boolean {
+    isRightPlacement(): boolean {
         return this.settings.iconPlacement == 'right';
     }
 
-    private isLeftPlacement(): boolean {
+    isLeftPlacement(): boolean {
         return this.settings.iconPlacement == 'left';
     }
 }

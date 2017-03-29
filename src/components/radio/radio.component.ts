@@ -29,10 +29,10 @@ export class RadioComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Output() changed: EventEmitter<any> = new EventEmitter();
     @Output() clicked: EventEmitter<any> = new EventEmitter();
 
-    protected checked: boolean;
+    public checked: boolean;
+
     protected innerValue: any;
     protected defaultSettings: RadioSettings;
-
     protected onTouchedCallback: () => void = () => { };
     protected onChangeCallback: (_: any) => void = () => { };
 

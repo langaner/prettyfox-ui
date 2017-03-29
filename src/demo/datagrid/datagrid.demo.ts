@@ -108,8 +108,8 @@ export class DatagridDemoComponent implements OnInit {
         },
     };
 
-    protected sampleRows: Array<any> = [];
-    protected rows: Array<any> = [];
+    public sampleRows: Array<any> = [];
+    public rows: Array<any> = [];
 
     @ViewChild('datagrid') datagrid: DatagridComponent;
 

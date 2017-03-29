@@ -9,7 +9,7 @@ import { testItems } from './panelmenu.data';
     templateUrl: 'panelmenu.demo.html'
 })
 export class PanelmenuDemoComponent implements OnInit {
-    private items: PanelmenuItem[];
+    public items: PanelmenuItem[];
 
     protected settings: PanelmenuSettings = {
         

@@ -16,6 +16,18 @@
     <link rel="stylesheet" href="node_modules/prismjs/themes/prism.css">
     <link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
     <link rel="stylesheet" href="demo/resources/css/style.css">
+    <!-- Load libraries -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src='node_modules/tinycolor2/tinycolor.js'></script>
+    <script src='node_modules/prismjs/prism.js'></script>
+    <!-- Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
   </head>
   <body>
     <fox-app>
@@ -26,9 +38,4 @@
         </div>
     </fox-app>
   </body>
-  <!-- Load libraries -->
-  <script src='node_modules/tinycolor2/tinycolor.js'></script>
-  <script src='node_modules/codemirror/lib/codemirror.js'></script>
-  <script src="demo/vendor.bundle.js"></script>
-  <script src="demo/main.bundle.js"></script>
 </html>

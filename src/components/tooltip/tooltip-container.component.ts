@@ -14,8 +14,7 @@ export class TooltipContainerComponent implements OnInit, AfterViewInit {
 
     public top:string = '-9999';
     public left:string = '-9999';
-
-    private settings: TooltipClass;
+    public settings: TooltipClass;
 
     constructor(
         private el: ElementRef,

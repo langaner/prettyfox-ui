@@ -2,7 +2,7 @@
     <ul class="nav nav-tabs">
         <li class="nav-item fox-tab__item" *ngFor="let tab of tabs">
             <a class="nav-link fox-tab__link" 
-            [class.active]="tab.active" 
+            [class.active]="tab.active || (tab.active == undefined && tab.selected)" 
             [class.disabled]="tab.disabled" 
             (click)="activeTab($event,tab)"
             [innerHtml]="tab.header">

@@ -9,6 +9,7 @@ import { DatepickerSettings, DatepickerLangs } from '../../components/datepicker
 })
 export class DatepickerDemoComponent implements OnInit {
     public date: string;
+    public dates: Array<any>;
 
     public settings: DatepickerSettings = {
         

@@ -10,7 +10,7 @@ import { HelperService } from './shared/services/helper.service';
     templateUrl: 'app.component.html'
 })
 export class AppComponent  implements OnInit {
-    private menu: Array<Object>;
+    public menu: Array<Object>;
 
     protected menuItems: any;
 

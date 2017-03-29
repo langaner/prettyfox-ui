@@ -25,7 +25,8 @@
           'rxjs':                              'npm:rxjs',
           'angular-in-memory-web-api':         'npm:angular-in-memory-web-api',
           'moment':                            'npm:moment',
-          'codemirror':                        'npm:codemirror/lib'
+          'codemirror':                        'npm:codemirror/lib',
+          'prismjs':                           'npm:prismjs'
       },
       // packages tells the System loader how to load when no filename and/or no extension
       packages: {
@@ -46,6 +47,10 @@
           },
           codemirror: {
               main: 'codemirror', 
+              defaultExtension: 'js'
+          },
+          prismjs: {
+              main: 'prism', 
               defaultExtension: 'js'
           }
       }

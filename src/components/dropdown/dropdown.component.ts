@@ -21,7 +21,8 @@ export class DropdownComponent implements OnInit, OnChanges {
 
     @ContentChildren(DropdownItemComponent) items: QueryList<DropdownItemComponent>;
 
-    protected dropped: boolean;
+    public dropped: boolean;
+    
     protected defaultSettings: DropdownSettings;
 
     constructor(private el: ElementRef, private overwriteService: OverwriteService) {

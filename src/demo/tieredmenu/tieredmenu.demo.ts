@@ -9,7 +9,7 @@ import { testItems } from './tieredmenu.data';
     templateUrl: 'tieredmenu.demo.html'
 })
 export class TieredmenuDemoComponent implements OnInit {
-    private items: TieredmenuItem[];
+    public items: TieredmenuItem[];
     
     constructor() { }
 

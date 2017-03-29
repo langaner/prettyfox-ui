@@ -37,7 +37,10 @@ export class DatagridComponent implements OnInit, OnChanges {
     @Output() filtersReseted: EventEmitter<any> = new EventEmitter();
     @Output() filtersSubmited: EventEmitter<any> = new EventEmitter();
     @Output() sortSubmited: EventEmitter<any> = new EventEmitter();
-    
+
+    public isPreloaded: boolean;
+    public totalPages: number = 1;
+
     protected totalRowsView: number;
     protected totalRowsViewOptions: Array<any> = [];
     protected paginationSettings: PaginationSettings = {
@@ -53,9 +56,8 @@ export class DatagridComponent implements OnInit, OnChanges {
     protected sortedField: string;
     protected sortedOrder: 'asc' | 'desc';
     protected viewedItemsCount: number = 0;
-    protected totalPages: number = 1;
     protected filtersData: any = { };
-    protected isPreloaded: boolean;
+    
 
     constructor(
         private router: Router, 

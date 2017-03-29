@@ -32,10 +32,11 @@ export class DatepickerComponent implements OnInit, OnChanges, ControlValueAcces
     @Output() showed: EventEmitter<any> = new EventEmitter();
     @Output() outsideClick: EventEmitter<any> = new EventEmitter();
 
+    public dropped: boolean;
+
     protected innerValue: any;
     protected days: Array<DatepickerDate> = [];
     protected date: any = moment();
-    protected dropped: boolean;
     protected datePattern = 'DD.MM.YYYY H:mm:ss';
     protected defaultSettings: DatepickerSettings;
     protected defaultLangs: DatepickerLangs;

@@ -10,14 +10,14 @@
         <fox-slider name="multipleValue" [settings]="{min: 1, max: 100, trackColor: 'danger', multiple: true}" [(ngModel)]="multipleValue"></fox-slider>
         <p>Range: {{ multipleValue | json }}</p>
         <div class="content-body__subtitle">Colors</div>
-        <fox-slider name="primary" [settings]="{trackColor: 'secondary', thumbColor: 'primary'}" [(ngModel)]="primary"></fox-slider>
-        <fox-slider name="secondary" [settings]="{trackColor: 'secondary', thumbColor: 'secondary'}" [(ngModel)]="secondary"></fox-slider>
-        <fox-slider name="success" [settings]="{trackColor: 'secondary', thumbColor: 'success'}" [(ngModel)]="success"></fox-slider>
-        <fox-slider name="info" [settings]="{trackColor: 'secondary', thumbColor: 'info'}" [(ngModel)]="info"></fox-slider>
-        <fox-slider name="warning" [settings]="{trackColor: 'secondary', thumbColor: 'warning'}" [(ngModel)]="warning"></fox-slider>
-        <fox-slider name="danger" [settings]="{trackColor: 'secondary', thumbColor: 'danger'}" [(ngModel)]="danger"></fox-slider>
+        <fox-slider name="primary" [settings]="{trackColor: 'secondary', thumbColor: 'primary'}" [(ngModel)]="value"></fox-slider>
+        <fox-slider name="secondary" [settings]="{trackColor: 'secondary', thumbColor: 'secondary'}" [(ngModel)]="value"></fox-slider>
+        <fox-slider name="success" [settings]="{trackColor: 'secondary', thumbColor: 'success'}" [(ngModel)]="value"></fox-slider>
+        <fox-slider name="info" [settings]="{trackColor: 'secondary', thumbColor: 'info'}" [(ngModel)]="value"></fox-slider>
+        <fox-slider name="warning" [settings]="{trackColor: 'secondary', thumbColor: 'warning'}" [(ngModel)]="value"></fox-slider>
+        <fox-slider name="danger" [settings]="{trackColor: 'secondary', thumbColor: 'danger'}" [(ngModel)]="value"></fox-slider>
         <div class="content-body__subtitle">Min/max</div>
-        <fox-slider name="mm" [settings]="{min: 1, max: 100, trackColor: 'danger'}" [(ngModel)]="mm"></fox-slider>
+        <fox-slider name="mm" [settings]="{min: 1, max: 100, trackColor: 'danger'}" [(ngModel)]="value"></fox-slider>
         <div class="content-body__subtitle">Disabled</div>
         <fox-slider name="disabled" [(ngModel)]="value" [disabled]="true"></fox-slider>
     </div>
@@ -31,14 +31,14 @@
 <fox-slider name="multipleValue" [settings]="{min: 1, max: 100, trackColor: 'danger', multiple: true}" [(ngModel)]="multipleValue"></fox-slider>
 <p>Range: {{ multipleValue | json }}</p>
 <div class="content-body__subtitle">Colors</div>
-<fox-slider name="primary" [settings]="{trackColor: 'secondary', thumbColor: 'primary'}" [(ngModel)]="primary"></fox-slider>
-<fox-slider name="secondary" [settings]="{trackColor: 'secondary', thumbColor: 'secondary'}" [(ngModel)]="secondary"></fox-slider>
-<fox-slider name="success" [settings]="{trackColor: 'secondary', thumbColor: 'success'}" [(ngModel)]="success"></fox-slider>
-<fox-slider name="info" [settings]="{trackColor: 'secondary', thumbColor: 'info'}" [(ngModel)]="info"></fox-slider>
-<fox-slider name="warning" [settings]="{trackColor: 'secondary', thumbColor: 'warning'}" [(ngModel)]="warning"></fox-slider>
-<fox-slider name="danger" [settings]="{trackColor: 'secondary', thumbColor: 'danger'}" [(ngModel)]="danger"></fox-slider>
+<fox-slider name="primary" [settings]="{trackColor: 'secondary', thumbColor: 'primary'}" [(ngModel)]="value"></fox-slider>
+<fox-slider name="secondary" [settings]="{trackColor: 'secondary', thumbColor: 'secondary'}" [(ngModel)]="value"></fox-slider>
+<fox-slider name="success" [settings]="{trackColor: 'secondary', thumbColor: 'success'}" [(ngModel)]="value"></fox-slider>
+<fox-slider name="info" [settings]="{trackColor: 'secondary', thumbColor: 'info'}" [(ngModel)]="value"></fox-slider>
+<fox-slider name="warning" [settings]="{trackColor: 'secondary', thumbColor: 'warning'}" [(ngModel)]="value"></fox-slider>
+<fox-slider name="danger" [settings]="{trackColor: 'secondary', thumbColor: 'danger'}" [(ngModel)]="value"></fox-slider>
 <div class="content-body__subtitle">Min/max</div>
-<fox-slider name="mm" [settings]="{min: 1, max: 100, trackColor: 'danger'}" [(ngModel)]="mm"></fox-slider>
+<fox-slider name="mm" [settings]="{min: 1, max: 100, trackColor: 'danger'}" [(ngModel)]="value"></fox-slider>
 <div class="content-body__subtitle">Disabled</div>
 <fox-slider name="disabled" [(ngModel)]="value" [disabled]="true"></fox-slider>
             ]]>

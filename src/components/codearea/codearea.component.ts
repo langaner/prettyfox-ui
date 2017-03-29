@@ -1,7 +1,9 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter, forwardRef, ViewChild, ElementRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
-import * as CodeMirror from 'codemirror';
+declare var CodeMirror: any;
+
+// import * as CodeMirror from 'codemirror';
 
 import { CodeareaSettings } from './codearea.model';
 

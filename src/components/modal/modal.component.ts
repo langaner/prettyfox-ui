@@ -20,10 +20,9 @@ export class ModalComponent implements OnInit, OnChanges {
     @Output() closed: EventEmitter<any> = new EventEmitter();
 
     public backdrop: any;
+    public isShowed: boolean = false;
 
     protected defaultSettings: ModalSettings;
-    
-    private isShowed: boolean = false;
 
     constructor(@Inject(DOCUMENT) private document: any, private overwriteService: OverwriteService){
         this.defaultSettings = overwriteService.getSettings('modal');

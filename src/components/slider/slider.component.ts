@@ -32,12 +32,13 @@ export class SliderComponent implements OnInit, OnChanges, AfterContentInit, Con
     @ViewChild('thumb') thumb: ElementRef;
     @ViewChild('thumbSecond') thumbSecond: ElementRef;
 
+    public thumbPos: number = 0;
+
     protected innerValue: any;
     protected onTouchedCallback: () => void = () => { };
     protected onChangeCallback: (_: any) => void = () => { };
     protected currentX: number;
     protected currentY: number;
-    protected thumbPos: number = 0;
     protected thumbSecondPos: number = 0;
     protected range: Array<number> = [];
     protected isMouseDown: boolean = false;

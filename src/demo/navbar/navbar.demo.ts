@@ -9,7 +9,7 @@ import { testItems } from './navbar.data';
     templateUrl: 'navbar.demo.html'
 })
 export class NavbarDemoComponent implements OnInit {
-    private items: NavbarItem[];
+    public items: NavbarItem[];
     
     constructor() { }
 

@@ -29,7 +29,7 @@ export class CheckboxComponent implements OnInit, OnChanges, ControlValueAccesso
     @Output() changed: EventEmitter<any> = new EventEmitter();
     @Output() clicked: EventEmitter<any> = new EventEmitter();
 
-    protected checked: boolean = false;
+    public checked: boolean = false;
     protected innerValue: any;
     protected defaultSettings: CheckboxSettings;
 

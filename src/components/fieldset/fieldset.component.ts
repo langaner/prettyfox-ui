@@ -17,10 +17,10 @@ export class FieldsetComponent implements OnInit, OnChanges {
 
     @Output() toggled: EventEmitter<any> = new EventEmitter();
 
+    public isToggled: boolean;
+
     protected defaultSettings: FieldsetSettings;
-
-    private isToggled: boolean;
-
+    
     constructor(private overwriteService: OverwriteService) {
         this.defaultSettings = overwriteService.getSettings('fieldset');
     }

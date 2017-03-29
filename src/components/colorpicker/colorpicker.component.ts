@@ -41,14 +41,15 @@ export class ColorpickerComponent implements OnInit, OnChanges, ControlValueAcce
     @ViewChild("hueMarker") hueMarker: ElementRef;  
     @ViewChild("colorLabel") colorLabel: ElementRef;  
 
+    public dropped: boolean;
+    public currentHexColor: any;
+
     protected currentColorResults: any;
     protected innerValue: any = '';
-    protected dropped: boolean;
     protected spectrumContext: CanvasRenderingContext2D;
     protected hueContext: CanvasRenderingContext2D;
     protected alphaContext: CanvasRenderingContext2D;
     protected currentRgbColor: any;
-    protected currentHexColor: any;
     protected currentHue: any;
     protected innerColor: any;
     protected isMouseDown: boolean = false;

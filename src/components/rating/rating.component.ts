@@ -33,10 +33,11 @@ export class RatingComponent implements ControlValueAccessor, OnInit {
 
     @Output() rated: EventEmitter<any> = new EventEmitter();
 
+    public stars: Array<number> = [];
+    public hoveredStar: number;
+
     protected innerValue: number = 0;
-    protected stars: Array<number> = [];
     protected selectedStars: Array<number> = [];
-    protected hoveredStar: number;
     protected defaultSettings: RatingSettings;
     protected defaultLangs: RatingLangs;
     protected onTouchedCallback: () => void = () => { };

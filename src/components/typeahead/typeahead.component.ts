@@ -26,20 +26,21 @@ export class TypeaheadComponent implements OnInit, OnChanges, ControlValueAccess
     @Input() name: string = '';
     @Input() placeholder: string = '';
     @Input() disabled: boolean;
-    protected _list: Array<any> = [];
 
     @Output() changed: EventEmitter<any> = new EventEmitter();
     @Output() clicked: EventEmitter<any> = new EventEmitter();
     @Output() selected: EventEmitter<any> = new EventEmitter();
     @Output() lazyLoad: EventEmitter<any> = new EventEmitter();
 
+    public isHidden: boolean = true;
+    public searchText: string = '';
+
+    protected _list: Array<any> = [];
     protected innerValue: any = '';
     protected onTouchedCallback: () => void = () => { };
     protected onChangeCallback: (_: any) => void = () => { };
     protected defaultSettings: TypeaheadSettings;
     protected defaultLangs: TypeaheadLangs;
-    protected isHidden: boolean = true;
-    protected searchText: string = '';
     protected isPreloaded: boolean;
 
     constructor(
@@ -169,7 +170,7 @@ export class TypeaheadComponent implements OnInit, OnChanges, ControlValueAccess
 
         if(this.settings && this.value && this._list.length && this.settings.lazyload) {
             let item: any = this.findItemByValue(this.value);
-            this.searchText = (item[this.settings.valueField] == this.searchText) ? this.titleByObject(this.value) : this.searchText;
+            this.searchText = (item != undefined && item[this.settings.valueField] == this.searchText) ? this.titleByObject(this.value) : this.searchText;
         }
     }
 

@@ -21,7 +21,8 @@ export class PopoverComponent implements OnInit, OnChanges {
     @Output() showed: EventEmitter<any> = new EventEmitter();
     @Output() outsideClick: EventEmitter<any> = new EventEmitter();
 
-    protected dropped: boolean;
+    public dropped: boolean;
+    
     protected templateId: any;
     protected top: string = '-9999';
     protected left: string = '-9999';

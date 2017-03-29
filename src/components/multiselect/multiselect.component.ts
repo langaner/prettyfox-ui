@@ -33,11 +33,12 @@ export class MultiselectComponent implements OnInit, ControlValueAccessor {
     @Output() selected: EventEmitter<any> = new EventEmitter();
     @Output() showed: EventEmitter<any> = new EventEmitter();
     @Output() outsideClick: EventEmitter<any> = new EventEmitter();
+    
+    public dropped: boolean;
+    public title: string;
 
     protected innerValue: any;
-    protected title: string;
     protected searchText: string = '';
-    protected dropped: boolean;
     protected onTouchedCallback: () => void = () => { };
     protected onChangeCallback: (_: any) => void = () => { };
     protected defaultSettings: MultiselectSettings;

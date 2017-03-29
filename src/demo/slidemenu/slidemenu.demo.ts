@@ -9,7 +9,7 @@ import { testItems } from './slidemenu.data';
     templateUrl: 'slidemenu.demo.html'
 })
 export class SlidemenuDemoComponent implements OnInit {
-    private items: SlidemenuItem[];
+    public items: SlidemenuItem[];
     
     constructor() { }
 

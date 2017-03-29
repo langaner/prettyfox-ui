@@ -1,17 +1,27 @@
 {
     "compilerOptions": {
         "outDir": "demo",
-        "target": "ES5",
+        "target": "es5",
         "module": "commonjs",
         "sourceMap": true,
+        "lib": ["dom", "es2015"],
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "moduleResolution": "node",
         "removeComments": false,
         "noImplicitAny": true,
+        "declaration": true,
         "suppressImplicitAnyIndexErrors": true
     },
+    "files": [
+        "src/bootstrap.ts",
+        "src/vendor.ts",
+        "src/index.ts",
+        "src/ui.ts"
+    ],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "demo",
+        "dist"
     ]
 }

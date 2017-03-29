@@ -38,9 +38,10 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
 
     @ViewChild('tagsInput') tagsInput: ElementRef;
 
-    protected tagsList: Array<TagItem> = [];
+    public tagsList: Array<TagItem> = [];
+    public searchText: string = '';
+
     protected selected: number;
-    protected searchText: string = '';
     protected defaultSettings: TagSettings;
     protected defaultLangs: TagLangs;
     protected onTouchedCallback: () => void = () => { };
