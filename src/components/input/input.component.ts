@@ -5,17 +5,15 @@ import { InputSettings } from './input.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
-export const FOX_INPUT_CONTROL_VALUE_ACCESSOR: any = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => InputComponent),
-    multi: true
-};
-
 @Component({ 
     moduleId: module.id,
     selector: 'fox-input',
     templateUrl: 'input.component.html',
-    providers: [FOX_INPUT_CONTROL_VALUE_ACCESSOR]
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => InputComponent),
+        multi: true
+    }]
 })
 export class InputComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Input() settings: InputSettings;

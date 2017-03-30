@@ -1,7 +1,8 @@
 <div class="fox-switcher fox-switcher__size_{{ settings.size }}" [class.disabled]="disabled" [style.width.px]="(settings.width * 3) - settings.width">
-    <div class="fox-switcher__container" [style.width.px]="settings.width * 3" 
-    (click)="toggle($event)" 
-    [ngStyle]="{'margin-left.px': (settings.trueValue == value) ? 0 : '-' + settings.width }">
+    <div class="fox-switcher__container" 
+    [style.width.px]="settings.width * 3" 
+    [style.margin-left.px]="(settings.trueValue == value) ? 0 : '-' + settings.width"
+    (click)="toggle()">
         <span class="btn btn-{{ settings.size }} btn-{{ settings.trueColor }} fox-switcher__button fox-switcher__true fox-switcher__button_color_{{ settings.trueColor }}" 
         [class.active]="settings.trueValue == value" 
         [style.width.px]="settings.width" 
@@ -9,7 +10,7 @@
         <span class="btn btn-{{ settings.size }} btn-{{ settings.labelColor }} fox-switcher__button fox-switcher__label fox-switcher__button_color_{{ settings.labelColor }}" 
         [style.width.px]="settings.width" 
         [innerHtml]="langs.labelText"></span>
-        <input type="checkbox" [name]="name" [(ngModel)]="value" (change)="onChange($event)" (blur)="onBlur()" [disabled]="disabled">
+        <input type="checkbox" [name]="name" [(ngModel)]="value" (change)="onChange($event)" (blur)="onBlur($event)" [disabled]="disabled">
         <span class="btn btn-{{ settings.size }} btn-{{ settings.falseColor }} fox-switcher__button fox-switcher__false fox-switcher__button_color_{{ settings.falseColor }}" 
         [class.active]="settings.falseValue == value" 
         [style.width.px]="settings.width"

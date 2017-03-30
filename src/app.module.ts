@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+import { FoxModule } from './components/fox.module';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DemoModule } from './demo/demo.module';
 import { ScrollbarModule } from './components/scrollbar/scrollbar.module';
 import { PanelmenuModule } from './components/panelmenu/panelmenu.module';
-import { OverwriteService } from './shared/services/overwrite.service';
 
 @NgModule({
     exports: [
@@ -18,6 +19,7 @@ import { OverwriteService } from './shared/services/overwrite.service';
         DemoModule,
         BrowserModule,
         RouterModule,
+        FoxModule.forRoot(),
         AppRoutingModule,
         ScrollbarModule,
         PanelmenuModule
@@ -32,8 +34,7 @@ import { OverwriteService } from './shared/services/overwrite.service';
         {
             provide: LocationStrategy,
             useClass: HashLocationStrategy
-        },
-        OverwriteService,
+        }
     ],
     bootstrap:    [ 
         AppComponent

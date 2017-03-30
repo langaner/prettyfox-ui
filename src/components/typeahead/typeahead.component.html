@@ -8,7 +8,7 @@
     (click)="onClick($event)" 
     (change)="onChange($event)" 
     (keyup)="onTyping()"
-    (blur)="onBlur()" 
+    (blur)="onBlur($event)" 
     [class.disabled]="disabled" 
     [disabled]="disabled">
 

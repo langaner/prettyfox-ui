@@ -1,17 +1,21 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 
 import { ModalComponent } from './modal.component';
+
+export { ModalComponent } from './modal.component';
+
+const COMPONENTS = [
+    ModalComponent
+];
 
 @NgModule({
     imports: [
         CommonModule
     ],
-    declarations: [
-        ModalComponent
-    ],
-    exports: [
-        ModalComponent
-    ]
+    declarations: COMPONENTS,
+    exports:COMPONENTS
 })
-export class ModalModule { }
+export class ModalModule {
+    static forRoot(): ModuleWithProviders { return {ngModule: ModalModule, providers: []}; }
+}

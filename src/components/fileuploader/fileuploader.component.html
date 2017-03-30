@@ -1,5 +1,5 @@
 <div class="fox-fileuploader" [class.fox-fileuploader_multiple]="settings.multiple">
-    <input class="form-control fox-fileuploader__input" #fileInput type="file" [name]="name" [multiple]="settings.multiple" [(ngModel)]="value" (change)="onChange($event)">
+    <input class="form-control fox-fileuploader__input" #fileInput type="file" [name]="name" [multiple]="settings.multiple" [(ngModel)]="fileValue" (change)="onChange($event)">
     
     <span *ngIf="files.length && settings.viewCounter" class="fox-fileuploader__count-uploaded">{{ files.length }} {{ langs.uploadedCounter }}</span>
     <div class="fox-fileuploader__previews" *ngIf="files.length && settings.showPreview">

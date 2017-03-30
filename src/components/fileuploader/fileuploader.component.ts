@@ -31,6 +31,8 @@ export class FileuploaderComponent implements OnInit, OnChanges, DoCheck {
 
     @ViewChild("fileInput") fileInput: ElementRef;
 
+    public fileValue: any;
+
     protected onTouchedCallback: () => void = () => { };
     protected onChangeCallback: (_: any) => void = () => { };
     protected queueList: Array<any> = [];

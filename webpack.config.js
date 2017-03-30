@@ -41,7 +41,7 @@ module.exports = (envOptions) => {
         config.plugins = [
             new AotPlugin({
                 tsConfigPath: path.resolve(rootDir, './tsconfig.json'),
-                entryModule: 'src/app.module#AppModule'
+                entryModule: path.resolve(rootDir, './src/app.module#AppModule')
             }),
             new webpack.optimize.UglifyJsPlugin({
                 beautify: false,

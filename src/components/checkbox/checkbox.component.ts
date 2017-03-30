@@ -5,18 +5,16 @@ import { CheckboxSettings } from './checkbox.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
-export const FOX_CHECKBOX_CONTROL_VALUE_ACCESSOR: any = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => CheckboxComponent),
-    multi: true
-};
-
 @Component({
     moduleId: module.id,
     selector: 'fox-checkbox',
     templateUrl: 'checkbox.component.html',
     styleUrls: ['checkbox.component.css'],
-    providers: [FOX_CHECKBOX_CONTROL_VALUE_ACCESSOR]
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => CheckboxComponent),
+        multi: true
+    }]
 })
 
 export class CheckboxComponent implements OnInit, OnChanges, ControlValueAccessor {    

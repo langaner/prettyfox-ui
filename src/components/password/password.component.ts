@@ -5,18 +5,16 @@ import { PasswordSettings, PasswordLangs } from './password.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
-export const FOX_PASSWORD_CONTROL_VALUE_ACCESSOR: any = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => PasswordComponent),
-    multi: true
-};
-
 @Component({ 
     moduleId: module.id,
     selector: 'fox-password',
     templateUrl: 'password.component.html',
     styleUrls: ['password.component.css'],
-    providers: [FOX_PASSWORD_CONTROL_VALUE_ACCESSOR]
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => PasswordComponent),
+        multi: true
+    }]
 })
 export class PasswordComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Input() settings: PasswordSettings;

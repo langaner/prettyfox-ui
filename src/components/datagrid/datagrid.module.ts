@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; 
 
@@ -17,6 +17,17 @@ import { DatepickerModule } from '../datepicker/datepicker.module';
 import { SwitcherModule } from '../switcher/switcher.module';
 import { PaginationModule } from '../pagination/pagination.module';
 import { PipesModule } from '../../shared/pipes/pipes.module';
+import { HelperService } from '../../shared/services/helper.service';
+
+export { DatagridComponent } from './datagrid.component';
+export { DatagridFilterComponent } from './datagrid-filter.component';
+export { DatagridSortComponent } from './datagrid-sort.component';
+
+const COMPONENTS = [
+    DatagridComponent,
+    DatagridFilterComponent,
+    DatagridSortComponent
+];
 
 @NgModule({
     imports: [
@@ -35,15 +46,12 @@ import { PipesModule } from '../../shared/pipes/pipes.module';
         InputModule,
         PipesModule
     ],
-    declarations: [
-        DatagridComponent,
-        DatagridFilterComponent,
-        DatagridSortComponent
-    ],
-    exports: [
-        DatagridComponent,
-        DatagridFilterComponent,
-        DatagridSortComponent
+    declarations: COMPONENTS,
+    exports: COMPONENTS,
+    providers: [
+        HelperService
     ]
 })
-export class DatagridModule { }
+export class DatagridModule {
+    static forRoot(): ModuleWithProviders { return {ngModule: DatagridModule, providers: []}; }
+}

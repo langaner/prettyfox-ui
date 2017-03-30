@@ -189,7 +189,6 @@ export class DatagridComponent implements OnInit, OnChanges {
     }
 
     rowSelectHandler(event: any, row: any): void {
-        console.log(row);
         this.rowSelect.emit({row: row});
     }
 

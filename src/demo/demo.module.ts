@@ -6,7 +6,7 @@ import { DemoSectionComponent } from './demo.section';
 import { OverwriteSectionComponent } from './overwrite.section';
 import { TranslationsSectionComponent } from './translations.section';
 
-import { FoxModule } from '../components/index';
+import { FoxModule } from '../components/fox.module';
 import { DemoComponent } from './demo.component';
 
 import { HighlightComponent } from './highlight.component';
@@ -51,7 +51,6 @@ import { ValidateDemoComponent } from './validate/validate.demo';
 import { PasswordDemoComponent } from './password/password.demo';
 import { TypeaheadDemoComponent } from './typeahead/typeahead.demo';
 import { CodeareaDemoComponent } from './codearea/codearea.demo';
-// import { LocalizedDemoComponent } from './localized/localized.demo';
 
 import { DemoRoutingModule } from './demo-routing.module';
 
@@ -104,8 +103,7 @@ const COMPONENTS_DEMOS = [
     ValidateDemoComponent,
     PasswordDemoComponent,
     TypeaheadDemoComponent,
-    CodeareaDemoComponent,
-    // LocalizedDemoComponent
+    CodeareaDemoComponent
 ];
 
 @NgModule({
@@ -117,12 +115,11 @@ const COMPONENTS_DEMOS = [
         FormsModule,
         ReactiveFormsModule,
         DemoRoutingModule,
-        FoxModule
+        FoxModule.forRoot()
     ],
     declarations: [ 
         SECTIONS,
         COMPONENTS_DEMOS
     ]
 })
-
 export class DemoModule {}

@@ -1,17 +1,21 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 
 import { BreadcrumbComponent } from './breadcrumb.component';
+
+export { BreadcrumbComponent } from './breadcrumb.component';
+
+const COMPONENTS = [
+    BreadcrumbComponent
+];
 
 @NgModule({
     imports: [
         CommonModule
     ],
-    declarations: [
-        BreadcrumbComponent
-    ],
-    exports: [
-        BreadcrumbComponent
-    ]
+    declarations: COMPONENTS,
+    exports: COMPONENTS
 })
-export class BreadcrumbModule { }
+export class BreadcrumbModule {
+    static forRoot(): ModuleWithProviders { return {ngModule: BreadcrumbModule, providers: []}; }
+}

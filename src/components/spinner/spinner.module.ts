@@ -1,10 +1,15 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { SpinnerComponent } from './spinner.component';
+import { PipesModule } from '../../shared/pipes/pipes.module';
 
-import { PipesModule } from '../../shared/index';
+export { SpinnerComponent } from './spinner.component';
+
+const COMPONENTS = [
+    SpinnerComponent
+];
 
 @NgModule({
     imports: [
@@ -12,11 +17,9 @@ import { PipesModule } from '../../shared/index';
         CommonModule,
         PipesModule
     ],
-    declarations: [
-        SpinnerComponent
-    ],
-    exports: [
-        SpinnerComponent
-    ]
+    declarations: COMPONENTS,
+    exports: COMPONENTS
 })
-export class SpinnerModule { }
+export class SpinnerModule {
+    static forRoot(): ModuleWithProviders { return {ngModule: SpinnerModule, providers: []}; }
+}

@@ -16,7 +16,6 @@
     "files": [
         "src/bootstrap.ts",
         "src/vendor.ts",
-        "src/index.ts",
         "src/ui.ts"
     ],
     "exclude": [

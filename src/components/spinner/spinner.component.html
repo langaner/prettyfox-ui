@@ -9,7 +9,7 @@
         [(ngModel)]="value" 
         (click)="onClick($event)" 
         (change)="onChange($event)" 
-        (blur)="onBlur()"
+        (blur)="onBlur($event)"
         [class.disabled]="disabled" 
         [disabled]="disabled">
     <span class="input-group-addon fox-spinner__postfix" *ngIf="settings.postfix" [innerHTML]="settings.postfix"></span>

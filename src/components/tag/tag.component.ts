@@ -7,25 +7,16 @@ import { TagItem, TagSettings, TagLangs } from './tag.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
-export const FOX_TAG_CONTROL_VALUE_ACCESSOR: any = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => TagComponent),
-    multi: true
-};
-
-export const KEYS = {
-    backspace: 8,
-    comma: 188,
-    enter: 13,
-    space: 32
-}
-
 @Component({ 
     moduleId: module.id,
     selector: 'fox-tag',
     templateUrl: 'tag.component.html',
     styleUrls: ['tag.component.css'],
-    providers: [FOX_TAG_CONTROL_VALUE_ACCESSOR]
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => TagComponent),
+        multi: true
+    }]
 })
 export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
     @Input() name: string = '';
@@ -40,6 +31,12 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
 
     public tagsList: Array<TagItem> = [];
     public searchText: string = '';
+    public keys: any = {
+        backspace: 8,
+        comma: 188,
+        enter: 13, 
+        space: 32
+    };
 
     protected selected: number;
     protected defaultSettings: TagSettings;
@@ -104,22 +101,22 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
         let key = event.keyCode;
         
         switch (key) {
-            case KEYS.backspace:
+            case this.keys.backspace:
                 this.handleBackspace();
                 break;
-            case KEYS.enter:
+            case this.keys.enter:
                 if(this.settings.addTagOnEnter) {
                     this.addTags([this.inputValue]);
                     event.preventDefault();
                 }
                 break;
-            case KEYS.comma:
+            case this.keys.comma:
                 if(this.settings.addTagOnComma) {
                     this.addTags([this.inputValue]);
                     event.preventDefault();
                 }
                 break;
-            case KEYS.space:
+            case this.keys.space:
                 if(this.settings.addTagOnSpace) {
                     this.addTags([this.inputValue]);
                     event.preventDefault();
@@ -187,7 +184,6 @@ export class TagComponent implements ControlValueAccessor, OnInit, OnChanges {
     }
 
     removeTag(tagIndex: number): void {
-        console.log(tagIndex);
         let tag = this.tagsList[tagIndex];
 
         this.tagsList.splice(tagIndex, 1);

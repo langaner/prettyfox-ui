@@ -5,17 +5,15 @@ import { SelectSettings } from './select.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
-export const FOX_SELECT_CONTROL_VALUE_ACCESSOR: any = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => SelectComponent),
-    multi: true
-};
-
 @Component({ 
     moduleId: module.id,
     selector: 'fox-select',
     templateUrl: 'select.component.html',
-    providers: [FOX_SELECT_CONTROL_VALUE_ACCESSOR]
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => SelectComponent),
+        multi: true
+    }]
 })
 export class SelectComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Input() settings: SelectSettings;

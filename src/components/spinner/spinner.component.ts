@@ -5,18 +5,16 @@ import { SpinnerSettings } from './spinner.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
-export const FOX_SPINNER_CONTROL_VALUE_ACCESSOR: any = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => SpinnerComponent),
-    multi: true
-};
-
 @Component({ 
     moduleId: module.id,
     selector: 'fox-spinner',
     templateUrl: 'spinner.component.html',
     styleUrls: ['spinner.component.css'],
-    providers: [FOX_SPINNER_CONTROL_VALUE_ACCESSOR]
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => SpinnerComponent),
+        multi: true
+    }]
 })
 export class SpinnerComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Input() settings: SpinnerSettings;

@@ -1,17 +1,21 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 
 import { AlertComponent } from './alert.component';
+
+export { AlertComponent } from './alert.component';
+
+const COMPONENTS = [
+    AlertComponent
+];
 
 @NgModule({
     imports: [
         CommonModule
     ],
-    declarations: [
-        AlertComponent
-    ],
-    exports: [
-        AlertComponent
-    ]
+    declarations: COMPONENTS,
+    exports: COMPONENTS
 })
-export class AlertModule { }
+export class AlertModule {
+    static forRoot(): ModuleWithProviders { return {ngModule: AlertModule, providers: []}; }
+}

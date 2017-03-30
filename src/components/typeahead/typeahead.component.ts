@@ -7,18 +7,16 @@ import { TypeaheadSettings, TypeaheadLangs, LazyloadEvent } from './typeahead.mo
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
-export const FOX_TYPEAHEAD_CONTROL_VALUE_ACCESSOR: any = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => TypeaheadComponent),
-    multi: true
-};
-
 @Component({ 
     moduleId: module.id,
     selector: 'fox-typeahead',
     templateUrl: 'typeahead.component.html',
     styleUrls: ['typeahead.component.css'],
-    providers: [FOX_TYPEAHEAD_CONTROL_VALUE_ACCESSOR]
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => TypeaheadComponent),
+        multi: true
+    }]
 })
 export class TypeaheadComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Input() settings: TypeaheadSettings;

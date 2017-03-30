@@ -54,6 +54,7 @@ gulp.task('assets:demo', function() {
         .src([
             'src/**/*', 
             '!**/*.ts',
+            '!**/*.json',
             '!**/*.js',
             '!**/*.js.map',
             '!**/*.d.ts'
@@ -72,6 +73,7 @@ gulp.task('assets:dist', function() {
         .src([
             config.demo + '/**/*', 
             '!**/*.ts',
+            '!**/*.json',
             '!**/*.js',
             '!**/*.js.map',
             '!**/*.d.ts',
@@ -90,6 +92,7 @@ gulp.task('assets:dist', function() {
 gulp.task('compile:dist', function() {
     return gulp
         .src([
+            config.demo + '/*', 
             config.demo + '/**/*', 
             '!' + config.demo + '/bootstrap.*',
             '!' + config.demo + '/bootstrap-aot.*',

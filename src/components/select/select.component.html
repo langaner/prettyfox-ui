@@ -1,4 +1,4 @@
-<select class="form-control form-control-{{ settings.size }} fox-select" [name]="name" [(ngModel)]="value" (click)="onClick($event)" (change)="onChange($event)" (blur)="onBlur()" [class.disabled]="disabled">
+<select class="form-control form-control-{{ settings.size }} fox-select" [name]="name" [(ngModel)]="value" (click)="onClick($event)" (change)="onChange($event)" (blur)="onBlur($event)" [class.disabled]="disabled">
     <option *ngIf="!settings.required" value=""> - </option>
     <option *ngFor="let option of options; let i = index" [value]="option[settings.valueField]" [selected]="i == 0" [innerHtml]="option[settings.titleField]"></option>
 </select>

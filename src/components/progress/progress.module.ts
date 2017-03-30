@@ -1,17 +1,21 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 
 import { ProgressComponent } from './progress.component';
+
+export { ProgressComponent } from './progress.component';
+
+const COMPONENTS = [
+    ProgressComponent
+];
 
 @NgModule({
     imports: [
         CommonModule
     ],
-    declarations: [
-        ProgressComponent
-    ],
-    exports: [
-        ProgressComponent
-    ]
+    declarations: COMPONENTS,
+    exports: COMPONENTS
 })
-export class ProgressModule { }
+export class ProgressModule {
+    static forRoot(): ModuleWithProviders { return {ngModule: ProgressModule, providers: []}; }
+}

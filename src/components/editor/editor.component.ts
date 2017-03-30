@@ -8,18 +8,16 @@ import { EditorSettings, EditorLangs } from './editor.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
-export const FOX_EDITOR_CONTROL_VALUE_ACCESSOR: any = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => EditorComponent),
-    multi: true
-};
-
 @Component({ 
     moduleId: module.id,
     selector: 'fox-editor',
     templateUrl: 'editor.component.html',
     styleUrls: ['editor.component.css'],
-    providers: [FOX_EDITOR_CONTROL_VALUE_ACCESSOR]
+    providers: [{
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => EditorComponent),
+        multi: true
+    }]
 })
 export class EditorComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Input() name: string = '';

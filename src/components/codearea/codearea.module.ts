@@ -1,19 +1,23 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { CodeareaComponent } from './codearea.component';
+
+export { CodeareaComponent } from './codearea.component';
+
+const COMPONENTS = [
+    CodeareaComponent
+];
 
 @NgModule({
     imports: [
         FormsModule,
         CommonModule
     ],
-    declarations: [
-        CodeareaComponent
-    ],
-    exports: [
-        CodeareaComponent
-    ]
+    declarations: COMPONENTS,
+    exports: COMPONENTS
 })
-export class CodeareaModule { }
+export class CodeareaModule {
+    static forRoot(): ModuleWithProviders { return {ngModule: CodeareaModule, providers: []}; }
+}

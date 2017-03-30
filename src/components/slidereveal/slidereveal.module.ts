@@ -1,17 +1,21 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 
 import { SliderevealComponent } from './slidereveal.component';
+
+export { SliderevealComponent } from './slidereveal.component';
+
+const COMPONENTS = [
+    SliderevealComponent
+];
 
 @NgModule({
     imports: [
         CommonModule
     ],
-    declarations: [
-        SliderevealComponent
-    ],
-    exports: [
-        SliderevealComponent
-    ]
+    declarations: COMPONENTS,
+    exports: COMPONENTS
 })
-export class SliderevealModule { }
+export class SliderevealModule {
+    static forRoot(): ModuleWithProviders { return {ngModule: SliderevealModule, providers: []}; }
+}
