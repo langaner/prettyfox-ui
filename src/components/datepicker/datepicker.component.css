@@ -4,7 +4,7 @@
 .fox-datepicker__dropdown {
     position: absolute;
     left: 0;
-    z-index: 1000;
+    z-index: 99;
     display: block;
     min-width: 10rem;
     padding: .5rem;

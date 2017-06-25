@@ -5,15 +5,17 @@ import { TextareaSettings } from './textarea.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
+export const FOX_TEXTAREA_CONTROL_VALUE_ACCESSOR: any = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => TextareaComponent),
+    multi: true
+};
+
 @Component({ 
     moduleId: module.id,
     selector: 'fox-textarea',
     templateUrl: 'textarea.component.html',
-    providers: [{
-        provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => TextareaComponent),
-        multi: true
-    }]
+    providers: [FOX_TEXTAREA_CONTROL_VALUE_ACCESSOR]
 })
 export class TextareaComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Input() settings: TextareaSettings;

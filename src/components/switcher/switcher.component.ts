@@ -7,16 +7,18 @@ import { SwitcherSettings, SwitcherLangs } from './switcher.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
+export const FOX_SWITCHER_CONTROL_VALUE_ACCESSOR: any = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => SwitcherComponent),
+    multi: true
+};
+
 @Component({ 
     moduleId: module.id,
     selector: 'fox-switcher',
     templateUrl: 'switcher.component.html',
     styleUrls: ['switcher.component.css'],
-    providers: [{
-        provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => SwitcherComponent),
-        multi: true
-    }]
+    providers: [FOX_SWITCHER_CONTROL_VALUE_ACCESSOR]
 })
 export class SwitcherComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Input() settings: SwitcherSettings;

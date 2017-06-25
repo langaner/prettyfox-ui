@@ -11,9 +11,8 @@
     margin: 10px 15px 15px 0;
     vertical-align: top;
 }
-.fox-fileuploader__item img {
-    max-width: 215px;
-    max-height: 165px;
+.fox-fileuploader__thumb {
+    max-width: 400px;
 }
 .fox-fileuploader__previews {
     margin: 15px 0 15px;

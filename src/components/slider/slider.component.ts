@@ -7,16 +7,18 @@ import { SliderSettings } from './slider.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
+export const FOX_SLIDER_CONTROL_VALUE_ACCESSOR: any = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => SliderComponent),
+    multi: true
+};
+
 @Component({ 
     moduleId: module.id,
     selector: 'fox-slider',
     templateUrl: 'slider.component.html',
     styleUrls: ['slider.component.css'],
-    providers: [{
-        provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => SliderComponent),
-        multi: true
-    }]
+    providers: [FOX_SLIDER_CONTROL_VALUE_ACCESSOR]
 })
 export class SliderComponent implements OnInit, OnChanges, AfterContentInit, ControlValueAccessor {
     @Input() settings: SliderSettings;

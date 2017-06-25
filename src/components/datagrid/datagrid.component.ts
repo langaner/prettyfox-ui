@@ -106,8 +106,12 @@ export class DatagridComponent implements OnInit, OnChanges {
             this.stopPreloader();
         }
 
-        if (changes.total) {
-            this.changeGridData();
+        // if (changes.total) {
+        //     this.changeGridData();
+        // }
+
+        if (changes.filters) {
+            this.filtersData = this.buildFiltersObject();
         }
 
         if(changes.settings) {

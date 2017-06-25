@@ -9,15 +9,17 @@ import { CodeareaSettings } from './codearea.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
+export const FOX_TEXTAREA_CONTROL_VALUE_ACCESSOR: any = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => CodeareaComponent),
+    multi: true
+};
+
 @Component({ 
     moduleId: module.id,
     selector: 'fox-codearea',
     templateUrl: 'codearea.component.html',
-    providers: [{
-        provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => CodeareaComponent),
-        multi: true
-    }]
+    providers: [FOX_TEXTAREA_CONTROL_VALUE_ACCESSOR]
 })
 export class CodeareaComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Input() settings: CodeareaSettings;

@@ -18,6 +18,7 @@
     padding-top: 0;
     padding-bottom: 0;
     min-width: 212px;
+    z-index: 99;
 }
 .fox-multiselect__dropdown:hover {
     cursor: pointer;

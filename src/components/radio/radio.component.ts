@@ -5,16 +5,18 @@ import { RadioSettings } from './radio.model';
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
+export const FOX_RADIO_CONTROL_VALUE_ACCESSOR: any = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => RadioComponent),
+    multi: true
+};
+
 @Component({
     moduleId: module.id,
     selector: 'fox-radio',
     templateUrl: 'radio.component.html',
     styleUrls: ['radio.component.css'],
-    providers: [{
-        provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => RadioComponent),
-        multi: true
-    }]
+    providers: [FOX_RADIO_CONTROL_VALUE_ACCESSOR]
 })
 
 export class RadioComponent implements OnInit, OnChanges, ControlValueAccessor {

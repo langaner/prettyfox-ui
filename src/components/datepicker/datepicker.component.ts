@@ -8,16 +8,18 @@ import { DatepickerDate, DatepickerSettings, DatepickerLangs } from './datepicke
 
 import { OverwriteService } from '../../shared/services/overwrite.service';
 
+export const FOX_DATEPICKER_CONTROL_VALUE_ACCESSOR: any = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => DatepickerComponent),
+    multi: true
+};
+
 @Component({ 
     moduleId: module.id,
     selector: 'fox-datepicker',
     templateUrl: 'datepicker.component.html',
     styleUrls: ['datepicker.component.css'],
-    providers: [{
-        provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => DatepickerComponent),
-        multi: true
-    }]
+    providers: [FOX_DATEPICKER_CONTROL_VALUE_ACCESSOR]
 })
 export class DatepickerComponent implements OnInit, OnChanges, ControlValueAccessor {
     @Input() name: string = '';

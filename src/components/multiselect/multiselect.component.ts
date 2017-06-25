@@ -8,16 +8,18 @@ import { MultiselectSettings, MultiselectLangs, MultiselectAjax } from './multis
 import { OverwriteService } from '../../shared/services/overwrite.service';
 import { HelperService } from '../../shared/services/helper.service';
 
+export const FOX_MULTISELECT_CONTROL_VALUE_ACCESSOR: any = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => MultiselectComponent),
+    multi: true
+};
+
 @Component({ 
     moduleId: module.id,
     selector: 'fox-multiselect',
     templateUrl: 'multiselect.component.html',
     styleUrls: ['multiselect.component.css'],
-    providers: [{
-        provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => MultiselectComponent),
-        multi: true
-    }]
+    providers: [FOX_MULTISELECT_CONTROL_VALUE_ACCESSOR]
 })
 export class MultiselectComponent implements OnInit, ControlValueAccessor {
     @Input() name: string = '';
